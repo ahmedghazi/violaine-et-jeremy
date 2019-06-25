@@ -6,6 +6,7 @@ import About from "./about"
 
 import WrapperContext from "../context/WrapperContext"
 import Transition from "./transition"
+import Cursor from "./ui/cursor"
 
 require("../styles/index.scss")
 
@@ -24,6 +25,7 @@ export default ({ children, location, pageContext: { template } }) => (
                 </main>
                 <About />
                 <Footer />
+                <Cursor />
             </div>
         )}
     </WrapperContext.Consumer>

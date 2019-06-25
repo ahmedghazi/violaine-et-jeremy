@@ -192,6 +192,7 @@ sub {
 a,.btn {
 	color: $color1;
 	text-decoration: none;
+	cursor: none;
 	&:focus,
 	&:active,
 	&:hover {

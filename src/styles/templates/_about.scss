@@ -129,7 +129,7 @@
     }
     .panel-header{
         z-index: 250;
-        cursor: pointer;
+        //cursor: pointer;
         @include anime($transition, 0s);
         //@include slide(right, 0);
         transform: translateX(20vw);

@@ -4,16 +4,10 @@
         
     }
     .projects-coverflow{
-        cursor: move;
-        cursor: -webkit-grab;
-        &:active{cursor: -webkit-grabbing;}
-        &:before{
-            // content: "";
-            // position: absolute; left: 0; bottom: 115px;
-            // height: $borderWidth;
-            // width: calc(156px + #{$margeM});
-            // background: $color1;
-        }
+        // cursor: move;
+        // cursor: -webkit-grab;
+        // &:active{cursor: -webkit-grabbing;}
+
         
         //overflow: hidden;
         // overflow-x: auto;

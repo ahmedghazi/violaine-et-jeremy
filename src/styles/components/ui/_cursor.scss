@@ -1,0 +1,22 @@
+body{cursor: none!important;}
+#cursor{
+    position: fixed;
+    pointer-events: none;
+    z-index: 251;
+    will-change: top, left;
+    &.is-anchor .inner{
+        width: 30px;
+        height: 30px;
+        background: $color1;
+        -webkit-transform: translate(-10px, -10px);
+            transform: translate(-10px, -10px);
+    }
+    .inner{
+        background: transparent;
+        border: 1px solid $color1;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        @include anime();
+    }
+}
