@@ -15,33 +15,38 @@
             // background: $color1;
         }
         
-        // overflow: hidden;
+        //overflow: hidden;
         // overflow-x: auto;
         &::-webkit-scrollbar {
             display: none;
         }
+        &.p-e-n{
+            .card{pointer-events: none}
+        }
         .inner{
+            overflow: hidden;
             padding: 0 calc(156px + #{$margeM});
+            padding-right: 0;
             //margin-right: $tabWidth;
             @include flexbox();
             @include align-items(center);
             //@include flex-wrap(nowrap);
             .card:first-child .infos::before{
                 content: "";
-                position: absolute; left: -100vw; top: 0;
+                position: absolute; left: -100%; top: 0;
                 height: $borderWidth;
-                width: 100vw;
+                width: 100%;
                 background: $color1;
             }
             .card:last-child{
-                margin-right: 50vw;
+                //margin-right: 50vw;
                 .infos::after{
                     content: "";
                     position: absolute; 
                     top: 0;
                     left: 100%;
                     height: $borderWidth;
-                    width: 100vw;
+                    width: 100%;
                     background: $color1;
                 }
             }

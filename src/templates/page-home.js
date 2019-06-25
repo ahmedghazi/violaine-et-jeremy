@@ -17,12 +17,19 @@ class PageHome extends React.Component {
             coverflowWidth: '100vw',
         }
 
+        
+
         this._resize = debounce(250, this._resize.bind(this))
-        this._move = this._move.bind(this)
+        this._onUpdateEnd = debounce(50, this._onUpdateEnd.bind(this))
+        //this._move = this._move.bind(this)
+        // this._onMouseDown = this._onMouseDown.bind(this)
+        // this._onMouseUp = this._onMouseUp.bind(this)
     }
 
     componentWillUnmount() {
         document.removeEventListener("resize", this._resize)
+        // this.viewport.removeEventListener("mousedown", this._onMouseDown)
+        // this.viewport.removeEventListener("mouseup", this._onMouseUp)
     }
 
     componentDidMount() {
@@ -42,22 +49,26 @@ class PageHome extends React.Component {
     _resize() {
         let w = 0
 
+        const cardLeft = document.querySelector(".card").getBoundingClientRect().left
         const cards = document.querySelectorAll(".card")
         cards.forEach(el => {
+            //console.log(el.getBoundingClientRect().width)
             w += el.getBoundingClientRect().width
+            //console.log(w)
         })
+        w += cardLeft*2
         //w += document.querySelector(".card").getBoundingClientRect().width
         //boundings
-        // const cardLeft = document.querySelector(".card").getBoundingClientRect()
-        //     .left
-        // const scrollerWidth =
-        //     document
-        //         .querySelector(".projects-coverflow")
-        //         .getBoundingClientRect().width - cardLeft
+        //const cardLeft = document.querySelector(".card").getBoundingClientRect()
+           
+        const scrollerWidth =
+            document
+                .querySelector(".projects-coverflow")
+                .getBoundingClientRect().width - cardLeft
 
         this.setState({
             coverflowWidth: w,
-            //minX: -(w - scrollerWidth),
+            minX: ((w - cardLeft) - scrollerWidth),
         }, () => {
             this._ScrollBooster.updateMetrics()
         })
@@ -65,21 +76,48 @@ class PageHome extends React.Component {
 
     _scrollableDraggable(){
         //return
-        const viewport = document.querySelector('.projects-coverflow')
-        const content = document.querySelector('.projects-coverflow .inner')
+        this.viewport = document.querySelector('.projects-coverflow')
+        const content = document.querySelector('.projects-coverflow > .inner')
         this._ScrollBooster = new ScrollBooster({
-            viewport: viewport,
+            viewport: this.viewport,
             content: content,
             mode: 'x',
             emulateScroll: true,
             //bounce: false,
             onUpdate: (data)=> {
+                //console.log(data.position.x, this.state.minX)
                 //viewport.scrollLeft = data.position.x
-                content.style.transform = `translate(
-                    ${-data.position.x}px
-                  )`
+                const x = this.viewport.getAttribute("data-x")
+                this.viewport.setAttribute("data-x", data.position.x)
+                
+                if(data.position.x != x){
+                    if(data.position.x < this.state.minX){
+                        this.viewport.classList.add("p-e-n")
+                        content.style.transform = `translateX(
+                            ${-data.position.x}px
+                          )`
+                    }
+                }
+                
+                this._onUpdateEnd()
+                
             }
         })
+
+        // this.viewport.addEventListener("mousedown", this._onMouseDown)
+        // this.viewport.addEventListener("mouseup", this._onMouseUp)
+    }
+
+    // _onMouseDown(){
+    //     this.viewport.classList.add("p-e-n")
+    // }
+    // _onMouseUp(){
+    //     this.viewport.classList.remove("p-e-n")
+    // }
+
+    _onUpdateEnd(){
+        console.log("_onUpdateEnd")
+        this.viewport.classList.remove("p-e-n")
     }
 
     _move(event) {
