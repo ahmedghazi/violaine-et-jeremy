@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 //import PubSub from 'pubsub-js';
 //import cookie from 'react-cookies'
 import { debounce } from "throttle-debounce"
+import ScrollBooster from 'scrollbooster'
 import SEO from "../components/SEO"
 //import Draggable from 'react-interactjs'
 import Interactive from "../core/Interactable"
@@ -13,7 +14,7 @@ class PageHome extends React.Component {
         super(props)
         this.state = {
             isTouch: false,
-            coverflowWidth: 0,
+            coverflowWidth: '100vw',
         }
 
         this._resize = debounce(250, this._resize.bind(this))
@@ -33,6 +34,7 @@ class PageHome extends React.Component {
             document.addEventListener("resize", this._resize)
             setTimeout(() => {
                 this._resize()
+                this._scrollableDraggable()
             }, 150)
         }
     }
@@ -44,16 +46,39 @@ class PageHome extends React.Component {
         cards.forEach(el => {
             w += el.getBoundingClientRect().width
         })
-
+        //w += document.querySelector(".card").getBoundingClientRect().width
         //boundings
-        const cardLeft = document.querySelector(".card").getBoundingClientRect()
-            .left
-        const scrollerWidth =
-            document
-                .querySelector(".projects-coverflow")
-                .getBoundingClientRect().width - cardLeft
+        // const cardLeft = document.querySelector(".card").getBoundingClientRect()
+        //     .left
+        // const scrollerWidth =
+        //     document
+        //         .querySelector(".projects-coverflow")
+        //         .getBoundingClientRect().width - cardLeft
+
         this.setState({
-            minX: -(w - scrollerWidth),
+            coverflowWidth: w,
+            //minX: -(w - scrollerWidth),
+        }, () => {
+            this._ScrollBooster.updateMetrics()
+        })
+    }
+
+    _scrollableDraggable(){
+        //return
+        const viewport = document.querySelector('.projects-coverflow')
+        const content = document.querySelector('.projects-coverflow .inner')
+        this._ScrollBooster = new ScrollBooster({
+            viewport: viewport,
+            content: content,
+            mode: 'x',
+            emulateScroll: true,
+            //bounce: false,
+            onUpdate: (data)=> {
+                //viewport.scrollLeft = data.position.x
+                content.style.transform = `translate(
+                    ${-data.position.x}px
+                  )`
+            }
         })
     }
 
@@ -110,20 +135,29 @@ class PageHome extends React.Component {
 
                     <div className="projects-coverflow" ref="scroller">
                         {!isTouch && (
-                            <Interactive
-                                draggable={true}
-                                draggableOptions={draggableOptions}
-                            >
-                                <div className="inner" style={style}>
-                                    {home.projects.map((item, i) => (
-                                        <Card
-                                            key={i}
-                                            data={item}
-                                            x={scrollerX}
-                                        />
-                                    ))}
-                                </div>
-                            </Interactive>
+                            // <Interactive
+                            //     draggable={true}
+                            //     draggableOptions={draggableOptions}
+                            // >
+                            //     <div className="inner" style={style}>
+                            //         {home.projects.map((item, i) => (
+                            //             <Card
+                            //                 key={i}
+                            //                 data={item}
+                            //                 x={scrollerX}
+                            //             />
+                            //         ))}
+                            //     </div>
+                            // </Interactive>
+                            <div className="inner" style={style}>
+                                {home.projects.map((item, i) => (
+                                    <Card
+                                        key={i}
+                                        data={item}
+                                        x={scrollerX}
+                                    />
+                                ))}
+                            </div>
                         )}
                         {isTouch && (
                             <div className="inner" style={style}>

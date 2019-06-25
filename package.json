@@ -35,6 +35,7 @@
     "react-samy-svg": "^3.0.7",
     "react-transition-group": "^4.1.1",
     "scroll-into-view": "^1.9.5",
+    "scrollbooster": "^1.1.0",
     "throttle-debounce": "^2.1.0"
   },
   "devDependencies": {

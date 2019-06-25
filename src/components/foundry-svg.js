@@ -55,8 +55,8 @@ class FoundrySvg extends Component {
             <div className={"foundry " + _className} ref="foundy">
                 <a
                     href="https://vj-type.com"
+                    rel="noopener noreferrer"
                     target="_blank"
-                    rel="noopener norefferer"
                 >
                     <svg
                         id=""

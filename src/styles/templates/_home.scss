@@ -8,23 +8,43 @@
         cursor: -webkit-grab;
         &:active{cursor: -webkit-grabbing;}
         &:before{
-            content: "";
-            position: absolute; left: 0; bottom: 115px;
-            height: $borderWidth;
-            width: calc(156px + #{$margeM});
-            background: $color1;
+            // content: "";
+            // position: absolute; left: 0; bottom: 115px;
+            // height: $borderWidth;
+            // width: calc(156px + #{$margeM});
+            // background: $color1;
         }
         
-        overflow: hidden;
-        overflow-x: auto;
+        // overflow: hidden;
+        // overflow-x: auto;
         &::-webkit-scrollbar {
             display: none;
         }
         .inner{
-            margin: 0 calc(156px + #{$margeM});
+            padding: 0 calc(156px + #{$margeM});
+            //margin-right: $tabWidth;
             @include flexbox();
             @include align-items(center);
-            @include flex-wrap(nowrap);
+            //@include flex-wrap(nowrap);
+            .card:first-child .infos::before{
+                content: "";
+                position: absolute; left: -100vw; top: 0;
+                height: $borderWidth;
+                width: 100vw;
+                background: $color1;
+            }
+            .card:last-child{
+                margin-right: 50vw;
+                .infos::after{
+                    content: "";
+                    position: absolute; 
+                    top: 0;
+                    left: 100%;
+                    height: $borderWidth;
+                    width: 100vw;
+                    background: $color1;
+                }
+            }
         }
         
         
