@@ -1,0 +1,117 @@
+.card{
+    flex: 0 0 auto;
+    //display: inline;
+    @include flexbox();
+    @include align-items(center);
+    //flex-basis: 30vw;
+    //min-width: 30vw;
+    padding-right: $margeL;
+    height: 100vh;
+    &.active{
+        
+    }
+    figure{
+        min-width: 26vw;
+        
+        img{
+            max-height: 100%; 
+            width: auto;
+        }
+        // @include flex-shrink(0);
+    }
+    .infos{
+        //border-top: $border;
+        position: absolute;
+        bottom: 67px;
+        //padding: $margeS 0;
+        width: 100%;
+        @include flexbox();
+
+        .biseaux{
+            position: absolute;
+            width: 100%;
+            span{
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                transform-origin: right bottom;
+                background: $color1;
+                @include anime(.1s, 0s);
+                &:first-child{
+                    width: $borderWidth;
+                    height: 0;
+                }
+                &:last-child{
+                    width: 100%;
+                    height: $borderWidth;
+                    transform: skewY(0deg);
+                }
+            }
+        }
+         
+        h2{
+            padding-top: $margeS;
+            padding-right: $margeS;
+            position: relative;
+            &:after{
+                content: "";
+                position: absolute; right: 0; top: 0;
+                width: $borderWidth;
+                height: 100%;
+                background: $color1;
+            }
+        }
+        .metas{
+            padding-top: $margeS;
+            padding-left: $margeS;
+        }
+    }
+}
+
+
+
+@media all and (max-width:$s){
+    .card{
+        height: auto;
+        padding: 0;
+        flex-basis: 100%!important;
+        max-width: 100%!important;
+        display: block;
+        margin-bottom: $margeM;
+        padding-left: $margeL;
+        padding-right: 0;
+        figure{
+            min-width: auto;
+            padding-right: $margeS + 4;
+        }
+        .infos{
+            position: initial;
+            display: block;
+            .biseaux{display: none}
+            h2{
+                padding: 10px 0;
+                &:after{display: none}
+            }
+            .metas{
+                padding-top: 10px;
+                padding-left: 0;
+                padding-right: $margeS + 4;
+                border-top: $border;
+                text-align: right;
+            }
+        }
+    }
+}
+
+@media all and (min-width:$cap){
+    .card{
+        figure{
+            min-width: 23vw;
+        }
+        .infos{
+            min-height: 92px;
+            bottom: 47px;
+            //letter-spacing: -1px;
+        }
+    }
+}

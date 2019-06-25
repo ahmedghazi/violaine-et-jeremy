@@ -1,0 +1,60 @@
+.template-project{
+    cursor: initial;
+    .header{
+        min-height: $headerHeight;
+        padding-top: $margeS !important;
+        padding-bottom: $margeS !important;
+        padding-left: calc(#{$logoWidth} + #{$margeM}) !important;
+        @include flexbox();
+        //@include align-items(center);
+        li{
+            padding: 20px $margeM;
+            position: relative;
+            &:after{
+                content: "";
+                position: absolute; right: 0; top: 0;
+                width: $borderWidth;
+                height: 100%;
+                background: $color1;
+            }
+            &:last-child::after{display: none}
+        }
+        .tags{margin-bottom: 1em}
+    }
+}
+
+
+@media all and (max-width:$s){
+    .template-project{
+        main{padding-top: 0}
+        .header{
+            @include flex-direction(column);
+            padding-left: 10px !important;
+            //padding-right: $margeS + 4 !important;
+            padding-right: 0 !important;
+            padding-bottom: 0!important;
+            li{
+                padding: 0;
+                &:after{display: none}
+            }
+            .title,
+            .metas,
+            .texte{padding-right: $margeS + 4}
+            .title,
+            .metas{
+                text-align: right;
+                padding-left: calc(#{$logoWidthMobile} + #{$margeS});
+            }
+            .title{margin-bottom: 1em}
+            .metas{
+                padding-bottom: $margeS;
+            }
+            .texte{
+                padding-top: $margeM;
+                padding-bottom: $margeM;
+                border-top: $border;
+                border-bottom: $border;
+            }
+        }
+    }
+}

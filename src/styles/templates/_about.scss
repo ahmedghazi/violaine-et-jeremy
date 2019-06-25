@@ -1,0 +1,473 @@
+.about{
+    // $tabWidth: 10vw;
+    // $tabWidth: 130px;
+    $accordionMinus: $logoWidth + $margeM + $tabWidth;
+
+    $transition: .5s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    &.active{
+        pointer-events: auto;
+        .panel{
+            opacity: 1;
+            pointer-events: auto;
+            .panel-header{@include slide(none, 1);}
+        }
+        
+        .about-toggle{
+            &:first-of-type{
+                //@include slide(right, 0);
+                transform: translateX(20vw);
+                opacity: 0;     
+            }
+            &.panel-btn-alt{
+                //@include slide(none, 1);
+                transform: translateX(0);
+                opacity: 1;     
+            }
+        }
+        #about{
+            @include slide(none, 1);
+            pointer-events: auto;
+            //display: block;
+
+            .header--{
+                div:first-child{
+                    //@include slide(none, 1);
+                    transform: translateX(0) rotate(180deg);
+                    opacity: 1;
+                }
+                div:last-child{@include slide(none, 1);}
+            }
+        }
+        .foundry{
+            //right: $tabWidth * 2;
+        }
+    }
+    &.is-nav{
+        #about{
+            @include slide(left, 0);
+            .header--{
+                div{
+                    &:first-child{
+                        transform: translateX(-100%) rotate(180deg);
+                        opacity: 1;
+                    }
+                    &:last-child{@include slide(top, 0);}
+                }
+            }
+            //.inner{opacity: 0;}
+        }
+    }
+    
+    
+    .panel-btn{
+        overflow: hidden;
+        width: $tabWidth;
+        //min-width: $tabWidth;
+        height: calc(100vh - #{$margeM});
+        border-left: $borderWidth solid;
+        background: $bg;
+        div.title{
+            writing-mode: vertical-lr;
+            transform: translateX(-1px) rotate(180deg);
+            //@include text-crop
+        }
+        // &:before,
+        // &:after{
+        //     content: "";
+        //     position: absolute; top: 0;
+        //     width: $margeS + 3px;
+        //     height: 50%;
+        //     background: red;
+        // }
+        // &:after{right: 0}
+    }
+    
+    #accordion{
+        position: absolute; top: 0; left: 0;
+        margin-left: $logoWidth + $margeM;
+        margin-right: $tabWidth;
+        padding-top: $margeS;
+        padding-bottom: $margeS;
+        width: calc(100vw - #{$accordionMinus}); 
+        height: 100vh;
+
+       .inner{
+           width: 100%;
+           
+        }
+    }
+
+    .panel{
+        opacity: 0;
+        
+        position: absolute;
+        top: 0;
+        width: $tabWidth;
+        height: calc(100vh - #{$margeM});
+        z-index: 250;
+        @include anime($transition, 0s);
+
+        &.active{
+            width: auto;
+            z-index: 2;
+            pointer-events: auto;
+  
+            .panel-content{   
+                pointer-events: auto;
+                z-index: 2;   
+                width: calc( 100vw - (#{$accordionMinus} + (#{$tabWidth} * 2 ) ) ); 
+                @include slide(none, 1);
+                .inner{opacity: 1; }
+            }
+        }
+    }
+    .panel-header{
+        z-index: 250;
+        cursor: pointer;
+        @include anime($transition, 0s);
+        //@include slide(right, 0);
+        transform: translateX(20vw);
+        opacity: 0;   
+    }
+
+    .panel-content{
+        position: absolute;
+        top: 0; left: $tabWidth;
+        //width: 0; 
+        height: calc(100vh - #{$margeM});
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+        
+        // margin-bottom: $margeS;
+        @include anime( ($transition*2), 0s);
+        .about-page{
+            height: 100%;
+            padding-left: $tabWidth/2;
+            padding-right: $margeS;
+            &.page-fonts{
+                .inner{
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+                .row{height: 100%;}
+                .image{
+                    text-align: right;
+                    margin-bottom: 100px;
+                }
+                .images{width: 100%}
+            }
+            
+            &.page-studio{
+                .inner{
+                    top: unset;
+                    transform: translateY(0)
+                }
+                .circle{
+                    border: $border;
+                    border-radius: 100%;
+                    width: 40vw; height: 40vw;
+                    float: right;
+       
+                }
+            }
+            
+        }
+        .inner{
+            opacity: 0;
+            @include anime(($transition/2), 0s);
+     
+        }
+    }
+
+    .about-landing,
+    .panel-content{
+        .inner{
+            top: 50%;
+            transform: translateY(-50%);
+            .texte,
+            .image
+            .images{
+                @include flex-shrink(0)
+            }
+            .texte{
+                margin-bottom: $margeS;
+                p{text-indent: 0; margin-bottom: 1em}
+                table{
+                    width: 100%;
+                    th{
+                        text-align: left;
+                        font-weight: normal
+                    }
+                    td{
+                        p{
+                            white-space: initial;
+                        }
+                    }
+                }
+            }
+            .image{
+                width: 100%;
+                svg,
+                img{max-width: 240px;}
+            }
+            .images{
+                text-align: right;
+                img{
+                    height: calc(100vh - #{$margeM})
+                }
+            }
+        }
+    }
+
+    .about-toggle{
+        //@include anime($transition, 0s);
+        transition: transform $transition ease-out;
+        transition-timing-function: cubic-bezier(.37, .01, 0, .98);
+        
+        position: fixed;right: 0; top: $margeS;
+        z-index: 251;
+        background: $bg;
+        cursor: pointer;
+        pointer-events: auto;
+        @include slide(none, 1);
+     
+        &.panel-btn-alt{
+            //@include slide(right, 0);
+            transform: translateX(20vw);
+            opacity: 0;     
+        }
+    }
+    .about-landing{
+        left: 0;
+        $width: $tabWidth * 3;
+        width: calc(100vw - #{$width});
+        height: 100vh;
+        pointer-events: none;
+        @include anime(($transition/2), 0s);
+        @include slide(left, 0);
+        
+        .header--{
+            div{
+                position: absolute;
+                @include anime($transition, .3s);
+                &:first-child{
+                    writing-mode: vertical-lr;
+                    top: $headerHeight;
+                    //@include slide(left, 0);
+                    transform: translateX(-100%) rotate(180deg);
+                    opacity: 0;
+                }
+                &:last-child{
+                    left: $logoWidth + $margeM;
+                    @include slide(top, 0);
+                }
+            }
+        }
+        .inner{
+            padding-left: $tabWidth * 2;
+            padding-right: $margeS;
+            //height: 100vh;
+            @include anime();
+            //padding-top: 20vh;
+            //.image{right: $margeM}
+            top: 50%;
+            transform: translateY(-50%);
+            .texte{
+                max-width: 320px;
+                transform: translateY(-$margeM);
+            }
+        }
+    }
+
+    .foundry{
+        position: absolute;
+        bottom: 0; right: $margeS;
+        //animation: rotating 10s linear infinite;
+        svg{
+            width: $tabWidth/2; height: $tabWidth/2 + 1px;
+            vertical-align: bottom;
+            circle{fill: $bg;}
+            path{fill: $color1;}
+        }
+    }
+    
+    p{
+        white-space: pre-line;
+        max-width: 500px;
+    }
+}
+
+.is-about{
+    .template-home,
+    .template-project{
+        main{opacity: 0; pointer-events: none}
+    }
+}
+.firefox{
+    .about{
+        .panel-btn{
+            .title{
+                transform: translateX(-10px) rotate(180deg)
+            }
+        }
+    }
+}
+
+@media all and (max-width:$s){
+    .about{
+        $tabWidth: $tabWidthMobile;
+        overflow: hidden;
+        overflow-y: auto;
+        .panel-btn{
+            width: $tabWidth;
+            height: calc(100vh - #{$margeS});
+        }
+        
+        .about-landing,
+        #accordion{
+            @include slide(right, 0)
+        }
+        &.active{
+            .about-landing,
+            #accordion{@include slide(none, 1)}
+        }
+
+        .foundry{
+            bottom: $margeS;
+            width: $tabWidth/1.7; height: $tabWidth/1.7 + 1px;
+            svg{
+                width: 100%; height: 100%;
+            }
+        }
+        .about-landing{
+            position: initial;
+            //transform: none;
+            width: 100%; //height: auto;
+            padding-right: $tabWidth;
+            .header--{
+                div:first-child{top: $headerHeightMobile + $margeM}
+                div:last-child{left: $logoWidthMobile + $margeS}
+            }
+            .inner{
+                padding-left: $margeL + $margeM;
+                .image{
+                    margin-bottom: $margeL;
+                    svg{width: 100%}
+                }
+                .texte{transform: none}
+            }
+        }
+
+        #accordion{
+            width: 100%;
+            margin: 0;
+            padding-left: 0;
+            padding-right: $tabWidth;
+            position: initial;
+        }
+        
+        .panel{
+            position: initial;
+            width: auto; height: auto;
+            .panel-header,
+            .panel-content{
+                position: initial;
+                width: auto;
+            }
+            .panel-header.panel-btn{
+                border-left: none;
+                border-bottom: $border;
+                height: auto;
+                padding-right: $margeS + 4;
+                .title{
+                    writing-mode: initial;
+                    transform: none;
+                    text-align: right;
+                }
+                
+            }
+            .panel-header{
+                .foundry{
+                    right: 0; left: $margeL + $margeM;
+                    bottom: 11px;
+                }
+            }
+            .panel-content{
+                opacity: 1;
+                height: auto;
+                transform: none;
+                .about-page{padding: 0}
+                
+                .inner{
+                    padding-top: $margeL;
+                    padding-right: $margeS;
+                    padding-bottom: $margeL;
+                    padding-left: $margeL + $margeM;
+                    opacity: 1;
+                    top: 0!important; 
+                    transform: none!important;
+                    .image{
+                        max-width: 91px;
+                        margin-bottom: $margeL;
+                        transform: translateX(-50%)
+                    }
+                    .images{
+                        img{
+                            height: auto;
+                        }
+                    }
+                }
+                .page-fonts{
+                    .inner{
+                        .texte{margin-bottom: $margeL;}
+                    }
+                }
+                .page-studio{
+                    .inner{
+                        padding-top: 0;
+                        //padding-right: 0;
+                    }
+                    .circle{
+                        width: 50vw;
+                        height: 50vw;
+                        //float: none;
+                        transform: translateX($margeS);
+                        margin-bottom: $margeL;
+                    }
+                }
+            }
+        }
+    }
+}
+@media all and (max-width:$l){
+    .about{
+        .panel-content{
+            .texte{max-width: 320px}
+        }
+    }
+}
+
+@media all and (min-width:$cap){
+    .about{
+        .panel-content{
+            // .inner{
+            //     @include justify-content(space-between);
+            //     @include align-items(center);
+            //     min-height: calc(100vh - #{$margeM});
+            //     .texte{max-width: 320px}
+            //     .images{
+                    
+            //     }
+            // }
+        }
+    }
+}
+
+

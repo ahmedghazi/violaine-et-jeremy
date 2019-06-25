@@ -1,0 +1,9 @@
+svg{
+    line,
+    path{
+        fill: none;
+        stroke: #40009b;
+        //stroke-miterlimit: 10;
+        stroke-width: $borderWidth!important;
+    }
+}

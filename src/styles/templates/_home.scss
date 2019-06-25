@@ -1,0 +1,78 @@
+.template-home{
+    overflow: hidden;
+    .home{
+        
+    }
+    .projects-coverflow{
+        cursor: move;
+        cursor: -webkit-grab;
+        &:active{cursor: -webkit-grabbing;}
+        &:before{
+            content: "";
+            position: absolute; left: 0; bottom: 115px;
+            height: $borderWidth;
+            width: calc(156px + #{$margeM});
+            background: $color1;
+        }
+        
+        overflow: hidden;
+        overflow-x: auto;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        .inner{
+            margin: 0 calc(156px + #{$margeM});
+            @include flexbox();
+            @include align-items(center);
+            @include flex-wrap(nowrap);
+        }
+        
+        
+    }
+
+}
+
+.firefox{
+    .template-home{
+        .projects-coverflow{
+            &:before{
+                bottom: 113px;
+            }
+        }
+    }
+}
+
+@media all and (max-width:$s){
+    .template-home{
+        overflow-y: auto;
+        .projects-coverflow{
+            
+            overflow: unset;
+            &::before{display: none}
+            .inner{
+                margin: 0;
+                width: 100%!important;
+                display: block;
+            }
+        }
+    }
+}
+
+@media all and (min-width:$cap){
+    .template-home{
+        .projects-coverflow{
+            &:before{
+                bottom: 138px;
+            }
+        }
+    }
+    .firefox{
+        .template-home{
+            .projects-coverflow{
+                &:before{
+                    bottom: 138px;
+                }
+            }
+        }
+    }
+}

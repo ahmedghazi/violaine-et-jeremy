@@ -1,0 +1,93 @@
+.project{
+    // &:after{
+    //     content: "";
+    //     position: absolute;
+    //     width: 100%;
+    //     height: $borderWidth;
+    //     background: red;
+    // }
+    .projet-header{
+        margin-bottom: $margeM;
+        h2{}
+    }
+    .description{
+        //max-width: 1280px;
+        &.less{
+            .btn-more{display: block}
+            .btn-less{display: none}
+        }
+        .btn-more{display: none}
+        .btn-less{
+            display: block;
+            margin-bottom: 0!important;
+        }
+
+        .btn-more,
+        .btn-less{
+            text-decoration: none;
+            color: $color4;
+            cursor: pointer;
+            margin-bottom: $margeS;
+        }
+        
+        .chapo{
+            //margin-bottom: $margeS;
+            text-decoration: underline
+        }
+    }
+    .grid{
+        .card{
+            margin-right: $margeXS;
+            margin-bottom: $margeS;
+            video{max-width: 100%}
+        }
+    }
+    .fiche-tech{
+        //@include flex_center_h_v();
+        //padding: 2px $margeXS;
+        //margin: 0 auto;
+        max-width: $m;
+        max-width: 960px;
+        margin-bottom: $margeS;
+        .fiche-tech--list{
+            //border: $border;
+            //text-align: center;
+            //background: $color3;
+            // @include flexbox();
+            // @include flex-wrap(wrap);
+            li{
+                @include flexbox();
+                margin-bottom: 1px;
+                *{font-size: 16px}
+                span:first-child{
+                    //margin-right: 1em;
+                    min-width: 120px;
+                    flex-basis: 120px;
+                }
+                // display: inline;
+                // &:after{
+                //     content: "—";
+                //     display: inline-block;
+                //     padding: 0 .3em;
+                // }
+                // &:last-child:after{display: none}
+            }
+        }
+    }
+    
+}
+
+@media all and (max-width:$s){
+    .project{
+        .fiche-tech{
+            .fiche-tech--list{
+                li{
+                    span:first-child{
+                        min-width: 110px;
+                        flex-basis: 110px;
+                    }
+                }
+            }
+        }
+    }
+}

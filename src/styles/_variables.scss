@@ -1,0 +1,50 @@
+/* BASE VARIABLES
+ *******************/
+
+
+/* Sizes */
+$max-width: 1800px;
+$headerHeight: 158px;
+$headerHeightMobile: 46px;
+
+$logoWidth: 156px;
+$logoWidthMobile: 62px;
+
+$tabWidth: 130px;
+$tabWidthMobile: 65px;
+
+/* Colors */
+$color1: #330099;
+$bg: #FFCCCC;
+
+/* PADDINGS */
+$gutter: 7.5px;
+$margeXS: $gutter;
+$margeS: $margeXS * 2;
+$margeM: $margeXS * 4;
+$margeL: $margeXS * 8;
+$margeXL: $margeL * 2;
+
+/* Fonts */
+$fontPrimary: sans-serif;
+$fontSecondary: 'LoveWebRegular', serif;
+
+$fontXS: 10px;
+
+$fontS: 12px;
+$fontSLh: 1em;
+
+$fontM: 16px;
+$fontMLh: 1em;
+
+$fontXL: 129px;
+
+$borderWidth: 1px;
+$border: $borderWidth solid;
+
+/* Breakpoints */
+$cap: 1441px;
+$l: 1280px;
+$m: 1024px;
+$s: 768px;
+$xs: 500px;

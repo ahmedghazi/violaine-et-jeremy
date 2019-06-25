@@ -1,0 +1,15 @@
+.foundry{
+    animation: rotating 10s linear infinite;
+    &.wheeling{
+        animation: none;
+    }
+}
+
+@keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}

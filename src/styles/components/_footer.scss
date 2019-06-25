@@ -1,0 +1,12 @@
+footer{
+    position: fixed;
+    bottom: $margeS;
+    left: $margeS;
+}
+
+@media all and (max-width:$s){
+    footer{
+        writing-mode: vertical-lr;
+        transform: translateX(0) rotate(180deg);
+    }
+}
