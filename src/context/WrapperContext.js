@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react"
 
 const WrapperContext = React.createContext()
 
 class WrapperProvider extends React.Component {
     state = {
-        lang: ''
+        lang: "",
     }
-    
+
     toggleDark = () => {
         let lang = !this.state.lang
         //localStorage.setItem("lang", JSON.stringify(lang))
@@ -17,8 +17,9 @@ class WrapperProvider extends React.Component {
         return (
             <WrapperContext.Provider
                 value={{
-                    ...this.state
-                }}>
+                    ...this.state,
+                }}
+            >
                 {this.props.children}
             </WrapperContext.Provider>
         )

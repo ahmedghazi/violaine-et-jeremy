@@ -1,47 +1,48 @@
-import { Component, cloneElement } from 'react'
-import { findDOMNode } from 'react-dom'
+import { Component, cloneElement } from "react"
+import { findDOMNode } from "react-dom"
 
-import interact from 'interact.js'
+import interact from "interact.js"
 
 export default class Interactable extends Component {
+    static defaultProps = {
+        draggable: false,
+        resizable: false,
+        draggableOptions: {},
+        resizableOptions: {},
+    }
 
-	static defaultProps = {
-		draggable: false,
-		resizable: false,
-		draggableOptions: {},
-		resizableOptions: {}
-	}
+    render() {
+        return cloneElement(this.props.children, {
+            ref: node => (this.node = node),
+            draggable: false,
+        })
+    }
 
-	render() {
-		return cloneElement(this.props.children, { 
-			ref: node => this.node = node, 
-			draggable: false
-		})
-	}
+    componentDidMount() {
+        this.interact = interact(findDOMNode(this.node))
+        // this.interact.options.drag.restrict.enabled = true
+        // this.interact.options.drag.restrict.restriction = "parent"
+        // console.log(this.interact.options.drag.restrict)
+        // console.log(interact)
+        // this.props.draggableOptions.modifiers = [
+        // 	this.interact.modifiers.restrict({
+        // 		restriction: 'self'            // keep the drag coords within the element
+        // 	})
+        // ]
+        this.setInteractions()
+    }
 
-	componentDidMount() {
-		this.interact = interact(findDOMNode(this.node))
-		// this.interact.options.drag.restrict.enabled = true
-		// this.interact.options.drag.restrict.restriction = "parent"
-		// console.log(this.interact.options.drag.restrict)
-		// console.log(interact)
-		// this.props.draggableOptions.modifiers = [
-		// 	this.interact.modifiers.restrict({
-		// 		restriction: 'self'            // keep the drag coords within the element
-		// 	})
-		// ]
-		this.setInteractions()
-	}
+    componentWillReceiveProps() {
+        this.interact = interact(findDOMNode(this.node))
+        this.setInteractions()
+    }
 
-	componentWillReceiveProps() {
-		this.interact = interact(findDOMNode(this.node))
-		this.setInteractions()
-	}
-
-	setInteractions() {
-		if (this.props.draggable) this.interact.draggable(this.props.draggableOptions)
-		if (this.props.resizable) this.interact.resizable(this.props.resizableOptions)
-	}
+    setInteractions() {
+        if (this.props.draggable)
+            this.interact.draggable(this.props.draggableOptions)
+        if (this.props.resizable)
+            this.interact.resizable(this.props.resizableOptions)
+    }
 }
 
 // Interactable.propTypes = {

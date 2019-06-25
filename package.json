@@ -3,11 +3,11 @@
   "description": "Simple Gatsby starter linked to Contentful",
   "license": "MIT",
   "author": "Connor Wilson <me@cwlsn.com> (https://cwlsn.com)",
-
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "format": "prettier --write src/**/*.{js,jsx}"
   },
   "dependencies": {
     "dotenv": "^6.1.0",
@@ -36,5 +36,8 @@
     "react-transition-group": "^4.1.1",
     "scroll-into-view": "^1.9.5",
     "throttle-debounce": "^2.1.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.17.0"
   }
 }
