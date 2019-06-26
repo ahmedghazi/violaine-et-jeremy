@@ -29,6 +29,7 @@
     "pubsub-js": "^1.7.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-draggable": "^3.3.0",
     "react-helmet": "^5.2.1",
     "react-interactjs": "^0.1.2",
     "react-mt-svg-lines": "^0.9.1",

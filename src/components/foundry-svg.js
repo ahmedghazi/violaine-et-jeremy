@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import Draggable from 'react-draggable';
 
 class FoundrySvg extends Component {
     constructor(props) {
@@ -12,25 +13,29 @@ class FoundrySvg extends Component {
     }
 
     componentWillUnmount() {
+        clearInterval(this.timer)
         window.removeEventListener("wheel", this._wheeling)
     }
 
     componentDidMount() {
         window.addEventListener("wheel", this._wheeling)
+        this._animate()
     }
 
     _wheeling(e) {
-        const delta = Math.sign(e.deltaY)
+        clearInterval(this.timer)
+        const deltaY = Math.sign(e.deltaY)
+        const deltaX = Math.sign(e.deltaX)
         let _className = "wheeling"
         let compteur = this.state.compteur
-        if (delta > 0) {
+        if (deltaX > 0 ||  deltaY > 0) {
             compteur += 1
-            _className += ""
+            //_className += ""
         } else {
             compteur -= 1
-            _className += " reverse"
+            //_className += " reverse"
         }
-        //this.refs.foundy.style.transform = "rotate(" + compteur + "deg)"
+        this.refs.foundy.style.transform = "rotate(" + compteur + "deg)"
 
         this.setState({
             compteur: compteur,
@@ -49,17 +54,32 @@ class FoundrySvg extends Component {
         this.setState({
             _className: "",
         })
+        this._animate()
+    }
+
+    _animate(){
+        this.timer = setInterval(() => {
+            let compteur = this.state.compteur
+            compteur += 1
+            this.refs.foundy.style.transform = "rotate(" + compteur + "deg)"
+            this.setState({
+                compteur: compteur
+            })
+        }, 20)
     }
 
     render() {
         const { _className } = this.state
         return (
-            <div className={"foundry " + _className} ref="foundy">
+            
+            <div 
+            onMouseEnter={() => clearInterval(this.timer)}
+            onMouseLeave={() => this._animate()}
+            className={"foundry " + _className} ref="foundy">
                 <a
                     href="https://vj-type.com"
                     rel="noopener noreferrer"
-                    target="_blank"
-                >
+                    target="_blank">
                     <svg
                         id=""
                         data-name="Calque 1"
@@ -155,6 +175,7 @@ class FoundrySvg extends Component {
                     </svg>
                 </a>
             </div>
+      
         )
     }
 }

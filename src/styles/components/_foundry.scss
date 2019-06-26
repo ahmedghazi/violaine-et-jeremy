@@ -1,5 +1,5 @@
 .foundry{
-    animation: rotating 10s linear infinite;
+    //animation: rotating 10s linear infinite;
     &.reverse{
       animation-direction: reverse;
     }
@@ -9,7 +9,7 @@
       }
     }
     &.wheeling{
-        //animation: none;
+        animation: none;
     }
 }
 
