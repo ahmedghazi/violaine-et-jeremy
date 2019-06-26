@@ -409,15 +409,17 @@
                 
             }
             .panel-header{
+                overflow: initial;
                 .foundry{
-                    right: 0; left: $margeL + $margeM;
-                    bottom: 11px;
+                    right: 0; left: $margeL + $margeS;
+                    bottom: -98px;
                 }
             }
             .panel-content{
                 opacity: 1;
                 height: auto;
                 transform: none;
+                pointer-events: auto;
                 .about-page{padding: 0}
                 
                 .inner{
@@ -441,13 +443,20 @@
                     svg{
                         path,
                         line{
-                            stroke-width: $borderWidth*2!important;
+                            stroke-width: $borderWidth*3!important;
                         }
                     }
                 }
                 .page-fonts{
                     .inner{
                         .texte{margin-bottom: $margeM;}
+                        .image{
+                            max-width: none;
+                            transform: none;
+                            display: flex;
+                            justify-content: flex-end;
+                            svg{flex-basis: 91px}
+                        }
                     }
                 }
                 .page-studio{
