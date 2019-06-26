@@ -20,3 +20,8 @@ body{cursor: none!important;}
         @include anime();
     }
 }
+
+@media all and (max-width:$s){
+    body{cursor: auto!important;}
+    #cursor{display: none}
+}

@@ -99,13 +99,20 @@
         margin-bottom: $margeM;
         padding-left: $margeL;
         padding-right: 0;
+        display: block;
+        a{
+            display: block;
+            height: auto;
+        }
         figure{
             min-width: auto;
+            min-height: auto;
             padding-right: $margeS + 4;
         }
         .infos{
             position: initial;
             display: block;
+            padding: 0;
             .biseaux{display: none}
             h2{
                 padding: 10px 0;
