@@ -67,8 +67,6 @@ h1,h2,h3,h4,h5,h6,
 // 	line-height: $fontXsLh;
 // }
 
-h1,h2,h3,h4,h5,h6{font-weight: normal;}
-
 .button{
 	display: inline-block;
 	padding: 2px $margeXS;
@@ -206,7 +204,9 @@ p{
 
 
 @media all and (max-width:$s){
-	body{font-size: 12px}
+	body,
+	h1,h2,h3,h4,h5,h6,
+	.headline{font-size: 12px}
 	.fXS{font-size: 10px}
 	.fM{font-size: 20px}
 	.fXL{font-size: 65px}
