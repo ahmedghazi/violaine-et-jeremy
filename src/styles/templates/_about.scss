@@ -349,14 +349,22 @@
         .about-landing{
             position: initial;
             //transform: none;
-            width: 100%; height: auto;
-            min-height: 50vh;
+            width: 100%; //height: auto;
+            height: auto;
             padding-right: $tabWidth;
             .header--{
                 div:first-child{top: $headerHeightMobile + $margeM}
                 div:last-child{left: $logoWidthMobile + $margeS}
             }
             .inner{
+                height: auto;
+                //min-height: 80vh;
+                top: 0;
+                transform: none;
+                //padding-left: $margeL + $margeM;
+                padding-top: $margeL + $margeM;
+                padding-right: $margeS;
+                padding-bottom: $margeM;
                 padding-left: $margeL + $margeM;
                 .image{
                     margin-bottom: $margeM;
