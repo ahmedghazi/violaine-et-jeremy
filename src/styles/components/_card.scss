@@ -22,7 +22,9 @@
     .infos{
         //border-top: $border;
         position: absolute;
-        bottom: 67px;
+        padding-right: $margeL;
+        //bottom: 67px;
+        top: calc(100vh - 137px);
         //padding: $margeS 0;
         width: 100%;
         @include flexbox();
@@ -50,9 +52,11 @@
         }
          
         h2{
-            padding-top: $margeS;
-            padding-right: $margeS;
+            padding-top: $margeS + 5px;
+            padding-right: $margeS + 5px;
             position: relative;
+            //flex-basis: 40%;
+            max-width: 40%;
             &:after{
                 content: "";
                 position: absolute; right: 0; top: 0;
@@ -62,8 +66,9 @@
             }
         }
         .metas{
-            padding-top: $margeS;
-            padding-left: $margeS;
+            padding-top: $margeS + 5px;
+            padding-left: $margeS + 5px;
+            .date{text-decoration: underline}
         }
     }
 }
@@ -109,8 +114,8 @@
             min-width: 23vw;
         }
         .infos{
-            min-height: 92px;
-            bottom: 47px;
+            //min-height: 92px;
+            //bottom: 47px;
             //letter-spacing: -1px;
         }
     }

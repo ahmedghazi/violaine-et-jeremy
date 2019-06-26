@@ -215,7 +215,8 @@ p{
 
 @media all and (min-width:$cap){
 	body{font-size: 19px}
-	.fXS{font-size: 17px}
+	//.fXS{font-size: 17px}
+	.fXS{font-size: 13px}
 	.fM{font-size: 25px}
 	.fXL{font-size: 208px}
 	.about .fXL{font-size: $fontXL}

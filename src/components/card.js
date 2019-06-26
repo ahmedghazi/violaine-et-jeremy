@@ -64,6 +64,7 @@ class Card extends Component {
     }
 
     _activeOrInactive() {
+        return
         const { innerWidth } = window
         const min = innerWidth / 4
         const max = min * 2
@@ -107,7 +108,8 @@ class Card extends Component {
     }
 
     _mouseLeave() {
-        this._activeOrInactive()
+        //this._activeOrInactive()
+        this._inactive()
     }
 
     render() {

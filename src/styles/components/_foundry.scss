@@ -1,5 +1,10 @@
 .foundry{
     animation: rotating 10s linear infinite;
+    svg{
+      path{
+        stroke-width: 1px !important;      
+      }
+    }
     &.wheeling{
         animation: none;
     }
