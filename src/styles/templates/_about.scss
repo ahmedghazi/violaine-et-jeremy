@@ -349,7 +349,8 @@
         .about-landing{
             position: initial;
             //transform: none;
-            width: 100%; //height: auto;
+            width: 100%; height: auto;
+            min-height: 50vh;
             padding-right: $tabWidth;
             .header--{
                 div:first-child{top: $headerHeightMobile + $margeM}
@@ -358,7 +359,7 @@
             .inner{
                 padding-left: $margeL + $margeM;
                 .image{
-                    margin-bottom: $margeL;
+                    margin-bottom: $margeM;
                     svg{width: 100%}
                 }
                 .texte{transform: none}
@@ -406,16 +407,16 @@
                 .about-page{padding: 0}
                 
                 .inner{
-                    padding-top: $margeL;
+                    padding-top: $margeM;
                     padding-right: $margeS;
-                    padding-bottom: $margeL;
+                    padding-bottom: $margeM;
                     padding-left: $margeL + $margeM;
                     opacity: 1;
                     top: 0!important; 
                     transform: none!important;
                     .image{
                         max-width: 91px;
-                        margin-bottom: $margeL;
+                        margin-bottom: $margeM;
                         transform: translateX(-50%)
                     }
                     .images{
@@ -426,7 +427,7 @@
                 }
                 .page-fonts{
                     .inner{
-                        .texte{margin-bottom: $margeL;}
+                        .texte{margin-bottom: $margeM;}
                     }
                 }
                 .page-studio{
@@ -439,7 +440,7 @@
                         height: 50vw;
                         //float: none;
                         transform: translateX($margeS);
-                        margin-bottom: $margeL;
+                        margin-bottom: $margeM;
                     }
                 }
             }
