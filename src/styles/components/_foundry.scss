@@ -1,12 +1,15 @@
 .foundry{
     animation: rotating 10s linear infinite;
+    &.reverse{
+      animation-direction: reverse;
+    }
     svg{
       path{
         stroke-width: 1px !important;      
       }
     }
     &.wheeling{
-        animation: none;
+        //animation: none;
     }
 }
 

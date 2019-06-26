@@ -48,7 +48,7 @@ class PageHome extends React.Component {
 
     _resize() {
         let w = 0
-        let infosHeight = 0
+        //let infosHeight = 0
 
         const cardLeft = document.querySelector(".card").getBoundingClientRect().left
         const cards = document.querySelectorAll(".card")
@@ -57,9 +57,9 @@ class PageHome extends React.Component {
             //console.log(el.getBoundingClientRect().width)
             w += el.getBoundingClientRect().width
             //console.log(el.querySelector(".infos"))
-            let {height} = el.querySelector(".infos").getBoundingClientRect()
-            if(height > infosHeight)
-                infosHeight = height
+            // let {height} = el.querySelector(".infos").getBoundingClientRect()
+            // if(height > infosHeight)
+            //     infosHeight = height
         })
         // cards.forEach(el => {
         //     el.querySelector(".infos").style.height = infosHeight+"px"

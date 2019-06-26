@@ -21,14 +21,16 @@ class FoundrySvg extends Component {
 
     _wheeling(e) {
         const delta = Math.sign(e.deltaY)
-        const _className = "wheeling"
+        let _className = "wheeling"
         let compteur = this.state.compteur
         if (delta > 0) {
             compteur += 1
+            _className += ""
         } else {
             compteur -= 1
+            _className += " reverse"
         }
-        this.refs.foundy.style.transform = "rotate(" + compteur + "deg)"
+        //this.refs.foundy.style.transform = "rotate(" + compteur + "deg)"
 
         this.setState({
             compteur: compteur,

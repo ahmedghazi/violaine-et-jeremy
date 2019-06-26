@@ -41,8 +41,9 @@ class Card extends Component {
     _format() {
         const { width } = this.refs.card.getBoundingClientRect()
         const figureBounding = this.refs.card
-            .querySelector("figure")
+            .querySelector("figure img")
             .getBoundingClientRect()
+
         const infosBounding = this.refs.card
             .querySelector(".infos")
             .getBoundingClientRect()
@@ -81,6 +82,7 @@ class Card extends Component {
     _active() {
         const { gap } = this.state
         const angle = this._getAngle()
+
         this.setState({
             biseauxHeight: gap,
             angle: angle,
