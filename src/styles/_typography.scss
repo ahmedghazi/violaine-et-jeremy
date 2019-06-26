@@ -124,8 +124,8 @@ p {
 	&:empty{display: none}
 }
 .texte{
-	p{text-indent: $margeM; margin-bottom: 0}
-	p:first-child{text-indent: 0}
+	// p{text-indent: $margeM; margin-bottom: 0}
+	// p:first-child{text-indent: 0}
 }
 
 strong {

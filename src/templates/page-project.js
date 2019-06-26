@@ -33,7 +33,7 @@ class PageProject extends Component {
 
                 <ul className="header">
                     <li className="title">
-                        <h1 className="fM">{title}</h1>
+                        <h1>{title}</h1>
                     </li>
                     <li className="metas">
                         <div className="tags">{tags.join()}</div>

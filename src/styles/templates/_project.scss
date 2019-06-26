@@ -19,7 +19,8 @@
             }
             &:last-child::after{display: none}
         }
-        .tags{margin-bottom: 1em}
+        //.tags{margin-bottom: 1em}
+        .date{text-decoration: underline}
     }
 }
 
