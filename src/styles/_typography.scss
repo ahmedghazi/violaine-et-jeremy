@@ -32,7 +32,7 @@ body {
   	text-shadow: rgba(0,0,0,.01) 0 0 1px !important;
 	//line-height: $fontSLh; 
 }
-.serif{font-family: $fontSecondary}
+.serif{font-family: $fontSecondary; text-transform: lowercase}
 .fXS{
 	font-size: $fontXS;
 	//letter-spacing: 0.8px;
