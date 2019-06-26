@@ -365,10 +365,16 @@
                 padding-top: $margeL + $margeM;
                 padding-right: $margeS;
                 padding-bottom: $margeM;
-                padding-left: $margeL + $margeM;
+                padding-left: $margeL + $margeS;
                 .image{
                     margin-bottom: $margeM;
-                    svg{width: 100%}
+                    svg{
+                        width: 100%;
+                        path,
+                        line{
+                            stroke-width: $borderWidth*3!important;
+                        }
+                    }
                 }
                 .texte{transform: none}
             }
@@ -418,18 +424,24 @@
                     padding-top: $margeM;
                     padding-right: $margeS;
                     padding-bottom: $margeM;
-                    padding-left: $margeL + $margeM;
+                    padding-left: $margeL + $margeS;
                     opacity: 1;
                     top: 0!important; 
                     transform: none!important;
                     .image{
                         max-width: 91px;
                         margin-bottom: $margeM;
-                        transform: translateX(-50%)
+                        transform: translateX(-50%);
                     }
                     .images{
                         img{
                             height: auto;
+                        }
+                    }
+                    svg{
+                        path,
+                        line{
+                            stroke-width: $borderWidth*2!important;
                         }
                     }
                 }

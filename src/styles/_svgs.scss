@@ -1,9 +1,11 @@
 svg{
+    //.cls-1{all: unset;}
     line,
     path{
-        fill: none;
-        stroke: #40009b;
-        //stroke-miterlimit: 10;
+        
+        fill: none!important;
+        stroke: #40009b!important;
+        stroke-miterlimit: unset!important;
         stroke-width: $borderWidth!important;
     }
 }
