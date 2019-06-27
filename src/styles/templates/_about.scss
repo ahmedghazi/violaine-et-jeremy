@@ -167,7 +167,12 @@
             &.page-studio{
                 .inner{
                     top: unset;
-                    transform: translateY(0)
+                    transform: translateY(0);
+                    .texte{
+                        .row{
+                            .col-md-6 div{padding-right: 1em}
+                        }
+                    }
                 }
                 .circle{
                     border: $border;
@@ -463,6 +468,9 @@
                     .inner{
                         padding-top: 0;
                         //padding-right: 0;
+                        .texte{
+                            
+                        }
                     }
                     .circle{
                         width: 50vw;

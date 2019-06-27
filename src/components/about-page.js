@@ -25,7 +25,7 @@ class AboutPage extends Component {
 
         const _className = images ? "has-images" : ""
         const isStudio = data.slug === "studio"
-
+        
         return (
             <div className={"about-page " + _className + " page-" + data.slug}>
                 <div className="inner">
@@ -37,7 +37,7 @@ class AboutPage extends Component {
                         </div>
                     )}
                     <div className="row middle-xs">
-                        <div className="col-xs-12 col-md-6  col-lg-4">
+                        <div className={"col-xs-12 col-md-6 col-lg-4"}>
                             {data.image && (
                                 <div className="image">
                                     <Samy path={data.image.file.url} />
