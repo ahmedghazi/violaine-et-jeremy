@@ -54,12 +54,12 @@
                 background: $color1;
                 @include anime(.1s, 0s);
                 &:first-child{
-                    width: $borderWidth;
+                    width: $borderWidth - 1px;
                     height: 0;
                 }
                 &:last-child{
                     width: 100%;
-                    height: $borderWidth;
+                    height: $borderWidth - 1px;
                     transform: skewY(0deg);
                 }
             }
@@ -74,7 +74,7 @@
             &:after{
                 content: "";
                 position: absolute; right: 0; top: 0;
-                width: $borderWidth;
+                width: $borderWidth - 1px;
                 height: 100%;
                 background: $color1;
             }
