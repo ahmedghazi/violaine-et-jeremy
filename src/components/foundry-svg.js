@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import Draggable from 'react-draggable';
+//import Draggable from 'react-draggable';
+import ScrollBooster from 'scrollbooster'
 
 class FoundrySvg extends Component {
     constructor(props) {
@@ -20,6 +21,7 @@ class FoundrySvg extends Component {
     componentDidMount() {
         window.addEventListener("wheel", this._wheeling)
         this._animate()
+        this._scrollableDraggable()
     }
 
     _wheeling(e) {
@@ -66,6 +68,28 @@ class FoundrySvg extends Component {
                 compteur: compteur
             })
         }, 20)
+    }
+
+    _scrollableDraggable(){
+        //return
+        this.viewport = document.querySelector('.panel-btn')
+        const content = document.querySelector('.foundry')
+        this._ScrollBooster = new ScrollBooster({
+            viewport: this.viewport,
+            content: content,
+            //mode: 'x',
+            emulateScroll: false,
+            //bounce: false,
+            onUpdate: (data)=> {
+                //console.log(data.position.x, this.state.minX)
+                //viewport.scrollLeft = data.position.x
+                content.style.transform = `translate(${-data.position.x}px, ${-data.position.y}px)`
+                
+            }
+        })
+
+        // this.viewport.addEventListener("mousedown", this._onMouseDown)
+        // this.viewport.addEventListener("mouseup", this._onMouseUp)
     }
 
     render() {
@@ -175,7 +199,7 @@ class FoundrySvg extends Component {
                     </svg>
                 </a>
             </div>
-      
+         
         )
     }
 }

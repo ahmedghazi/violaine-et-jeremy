@@ -6,7 +6,7 @@ import { debounce } from "throttle-debounce"
 import ScrollBooster from 'scrollbooster'
 import SEO from "../components/SEO"
 //import Draggable from 'react-interactjs'
-import Interactive from "../core/Interactable"
+//import Interactive from "../core/Interactable"
 import Card from "../components/card"
 
 class PageHome extends React.Component {
@@ -99,7 +99,7 @@ class PageHome extends React.Component {
                 const x = this.viewport.getAttribute("data-x")
                 this.viewport.setAttribute("data-x", data.position.x)
                 
-                if(data.position.x != x){
+                if(data.position.x !== x){
                     if(data.position.x < this.state.minX){
                         this.viewport.classList.add("p-e-n")
                         content.style.transform = `translateX(
@@ -129,28 +129,28 @@ class PageHome extends React.Component {
         this.viewport.classList.remove("p-e-n")
     }
 
-    _move(event) {
-        const { minX } = this.state
+    // _move(event) {
+    //     const { minX } = this.state
 
-        const target = event.target
-        const x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx
-        // console.log(x)
-        //console.log(minX, x)
-        // translate the element
-        if (x > 0 || x < minX) return
+    //     const target = event.target
+    //     const x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx
+    //     // console.log(x)
+    //     //console.log(minX, x)
+    //     // translate the element
+    //     if (x > 0 || x < minX) return
 
-        this.setState({
-            scrollerX: x,
-        })
-        target.style.webkitTransform = target.style.transform =
-            "translateX(" + x + "px)"
+    //     this.setState({
+    //         scrollerX: x,
+    //     })
+    //     target.style.webkitTransform = target.style.transform =
+    //         "translateX(" + x + "px)"
 
-        target.setAttribute("data-x", x)
-    }
+    //     target.setAttribute("data-x", x)
+    // }
 
     render() {
         //console.log(this.props)
-        const { isTouch, coverflowWidth, scrollerX } = this.state
+        const { isTouch, coverflowWidth } = this.state
 
         const style = {
             width: coverflowWidth + "px",
@@ -159,16 +159,16 @@ class PageHome extends React.Component {
 
         const { options, home } = this.props.data
 
-        const draggableOptions = {
-            origin: "self",
-            inertia: true,
-            // modifiers: [
-            //   interact.modifiers.restrict({
-            //     restriction: 'self'            // keep the drag coords within the element
-            //   })
-            // ],
-            onmove: this._move,
-        }
+        // const draggableOptions = {
+        //     origin: "self",
+        //     inertia: true,
+        //     // modifiers: [
+        //     //   interact.modifiers.restrict({
+        //     //     restriction: 'self'            // keep the drag coords within the element
+        //     //   })
+        //     // ],
+        //     onmove: this._move,
+        // }
 
         return (
             <>
@@ -182,26 +182,13 @@ class PageHome extends React.Component {
 
                     <div className="projects-coverflow" ref="scroller">
                         {!isTouch && (
-                            // <Interactive
-                            //     draggable={true}
-                            //     draggableOptions={draggableOptions}
-                            // >
-                            //     <div className="inner" style={style}>
-                            //         {home.projects.map((item, i) => (
-                            //             <Card
-                            //                 key={i}
-                            //                 data={item}
-                            //                 x={scrollerX}
-                            //             />
-                            //         ))}
-                            //     </div>
-                            // </Interactive>
+            
                             <div className="inner" style={style}>
                                 {home.projects.map((item, i) => (
                                     <Card
                                         key={i}
                                         data={item}
-                                        x={scrollerX}
+                                        //x={scrollerX}
                                     />
                                 ))}
                             </div>
@@ -209,7 +196,11 @@ class PageHome extends React.Component {
                         {isTouch && (
                             <div className="inner" style={style}>
                                 {home.projects.map((item, i) => (
-                                    <Card key={i} data={item} x={scrollerX} />
+                                    <Card 
+                                        key={i} 
+                                        data={item} 
+                                        //x={scrollerX} 
+                                    />
                                 ))}
                             </div>
                         )}
