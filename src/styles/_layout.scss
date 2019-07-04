@@ -13,7 +13,10 @@ body{
 main{
     //padding: $headerHeight $margeS;
     width: calc(100vw - #{$tabWidth});
-    @include anime();
+    //@include anime();
+    transition: opacity .2s;
+    transition-timing-function: cubic-bezier(0.37, 0.01, 0, 0.98);
+
 }
 
 .container{

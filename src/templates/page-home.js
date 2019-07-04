@@ -36,21 +36,7 @@ class PageHome extends React.Component {
         } else {
             
             this.viewport = document.querySelector('.projects-coverflow')
-            console.log(this.viewport)
-            // if (this.viewport.addEventListener) {
-            //     this.viewport.addEventListener('mousewheel', this._onWheel, false);
-            //     this.viewport.addEventListener('DOMMouseScroll', this._onWheel, false);
-            //   } else {
-            //     this.viewport.attachEvent('onmousewheel', this._onWheel);
-            // }
-            // IE9, Chrome, Safari, Opera
             window.addEventListener("wheel", this._onWheel, false);
-            // Firefox
-            //this.viewport.addEventListener("DOMMouseScroll", this._onWheel, false);
-            //window.addEventListener('wheel', this._onWheel, false);
-            // this.viewport.addEventListener("mousewheel", this._onWheel)
-            // this.viewport.addEventListener("DOMMouseScroll", this._onWheel)
-
             document.addEventListener("resize", this._resize)
 
             setTimeout(() => {
@@ -105,9 +91,8 @@ class PageHome extends React.Component {
             emulateScroll: true,
             //bounce: false,
             onUpdate: (data)=> {
-                //console.log(data.position.x, this.state.minX)
-                //viewport.scrollLeft = data.position.x
-                const x = this.viewport.getAttribute("data-x")
+
+                const x = parseFloat(this.viewport.getAttribute("data-x"))
                 this.viewport.setAttribute("data-x", data.position.x)
                 
                 if(data.position.x !== x){
@@ -115,7 +100,7 @@ class PageHome extends React.Component {
                         this.viewport.classList.add("p-e-n")
                         content.style.transform = `translateX(
                             ${-data.position.x}px
-                          )`
+                        )`
                     }
                 }
                 
@@ -124,16 +109,8 @@ class PageHome extends React.Component {
             }
         })
 
-        // this.viewport.addEventListener("mousedown", this._onMouseDown)
-        // this.viewport.addEventListener("mouseup", this._onMouseUp)
     }
 
-    // _onMouseDown(){
-    //     this.viewport.classList.add("p-e-n")
-    // }
-    // _onMouseUp(){
-    //     this.viewport.classList.remove("p-e-n")
-    // }
 
     _onUpdateEnd(){
         console.log("_onUpdateEnd")
