@@ -29,6 +29,27 @@
             margin: 0 auto;
         }
     }
+    .footer{
+        padding-left: $logoWidth + $margeM;
+        .pagination{
+            @include flexbox();
+            @include justify-content(space-between);
+            li{
+                
+                padding: 0 $margeS $margeS 0;
+                a{
+                    @include flexbox();
+                    @include align-items(center);
+                }
+                .pipe{
+                    width: $borderWidth;
+                    height: 100px;
+                    background: $color1;
+                    margin: 0 1em;
+                }
+            }
+        }
+    }
 }
 
 

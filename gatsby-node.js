@@ -34,7 +34,7 @@ exports.createPages = async ({
     })
 
     //////////////////////////////////
-    const projects = await graphql(`
+    const allContentfulProject = await graphql(`
     {
         allContentfulProject {
             edges {
@@ -46,16 +46,21 @@ exports.createPages = async ({
           }
     }
     `)
-
-    projects.data.allContentfulProject.edges.forEach(edge => {
+    const projects = allContentfulProject.data.allContentfulProject.edges
+    projects.forEach((edge, index) => {
         const path = `/project/${edge.node.slug}`
 
+        const previous = index === projects.length - 1 ? null : projects[index + 1].node
+        const next = index === 0 ? null : projects[index - 1].node
+//console.log(path)
         createPage({
             path: path,
             component: templateProject,
             context: {
                 slug: edge.node.slug,
-                template: 'project'
+                template: 'project',
+                previous,
+                next
             },
         })
     })

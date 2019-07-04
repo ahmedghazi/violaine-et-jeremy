@@ -119,7 +119,7 @@ class PageHome extends React.Component {
 
     render() {
         //console.log(this.props)
-        const { isTouch, coverflowWidth } = this.state
+        const { coverflowWidth } = this.state
 
         const style = {
             width: coverflowWidth + "px",

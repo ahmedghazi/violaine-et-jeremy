@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
 import { debounce } from "throttle-debounce"
-import { removeClass } from "../core/utils"
+//import { removeClass } from "../core/utils"
 
 class Card extends Component {
     constructor(props) {
@@ -65,18 +65,18 @@ class Card extends Component {
     }
 
     _activeOrInactive() {
-        return
-        const { innerWidth } = window
-        const min = innerWidth / 4
-        const max = min * 2
-        const { x } = this.refs.card.getBoundingClientRect()
-        removeClass(".card", "active")
-        if (x > min && x < max) {
-            this.refs.card.classList.add("active")
-            this._active()
-        } else {
-            this._inactive()
-        }
+        //return
+        // const { innerWidth } = window
+        // const min = innerWidth / 4
+        // const max = min * 2
+        // const { x } = this.refs.card.getBoundingClientRect()
+        // removeClass(".card", "active")
+        // if (x > min && x < max) {
+        //     this.refs.card.classList.add("active")
+        //     this._active()
+        // } else {
+        //     this._inactive()
+        // }
     }
 
     _active() {

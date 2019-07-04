@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 //import PubSub from 'pubsub-js';
 import SEO from "../components/SEO"
@@ -21,7 +21,11 @@ class PageProject extends Component {
             featuredImage,
             images,
         } = this.props.data.project
-console.log(color)
+        const {
+            previous,
+            next
+        } = this.props.pageContext
+//console.log(this)
         return (
             <div className="project">
                 <SEO
@@ -61,6 +65,29 @@ console.log(color)
                     {images.map((image, key) => (
                         <Img key={key} fluid={image.fluid} />
                     ))}
+                </div>
+
+                <div className="footer">
+                    <ul className="pagination">
+                    {previous &&
+                        <li>
+                            <Link to={"project/"+previous.slug}>
+                                <div className="label">Previous project</div>
+                                <div class="pipe"></div>
+                                <div className="title">{previous.title}</div>
+                            </Link>
+                        </li>
+                    }
+                    {next &&
+                        <li>
+                            <Link to={"project/"+next.slug}>
+                                <div className="title">{next.title}</div>
+                                <div class="pipe"></div>
+                                <div className="label">Next project</div>
+                            </Link>
+                        </li>
+                    }
+                    </ul>
                 </div>
             </div>
         )
