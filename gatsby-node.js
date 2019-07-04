@@ -50,9 +50,9 @@ exports.createPages = async ({
     projects.forEach((edge, index) => {
         const path = `/project/${edge.node.slug}`
 
-        const previous = index === projects.length - 1 ? null : projects[index + 1].node
-        const next = index === 0 ? null : projects[index - 1].node
-//console.log(path)
+        const previous = index === 0 ? projects[projects.length - 1].node : projects[index - 1].node
+        const next = index === projects.length - 1 ? projects[0].node : projects[index + 1].node
+console.log(edge.node.slug)
         createPage({
             path: path,
             component: templateProject,

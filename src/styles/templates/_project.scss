@@ -31,6 +31,7 @@
     }
     .footer{
         padding-left: $logoWidth + $margeM;
+        border-top: $border;
         .pagination{
             @include flexbox();
             @include justify-content(space-between);
