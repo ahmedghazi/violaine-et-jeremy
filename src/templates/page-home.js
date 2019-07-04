@@ -17,19 +17,15 @@ class PageHome extends React.Component {
             coverflowWidth: '100vw',
         }
 
-        
-
         this._resize = debounce(250, this._resize.bind(this))
         this._onUpdateEnd = debounce(50, this._onUpdateEnd.bind(this))
-        //this._move = this._move.bind(this)
-        // this._onMouseDown = this._onMouseDown.bind(this)
-        // this._onMouseUp = this._onMouseUp.bind(this)
+        this._onWheel = this._onWheel.bind(this)
     }
 
     componentWillUnmount() {
         document.removeEventListener("resize", this._resize)
-        // this.viewport.removeEventListener("mousedown", this._onMouseDown)
-        // this.viewport.removeEventListener("mouseup", this._onMouseUp)
+
+        window.removeEventListener("wheel", this._onWheel, false);
     }
 
     componentDidMount() {
@@ -38,7 +34,25 @@ class PageHome extends React.Component {
                 isTouch: true,
             })
         } else {
+            
+            this.viewport = document.querySelector('.projects-coverflow')
+            console.log(this.viewport)
+            // if (this.viewport.addEventListener) {
+            //     this.viewport.addEventListener('mousewheel', this._onWheel, false);
+            //     this.viewport.addEventListener('DOMMouseScroll', this._onWheel, false);
+            //   } else {
+            //     this.viewport.attachEvent('onmousewheel', this._onWheel);
+            // }
+            // IE9, Chrome, Safari, Opera
+            window.addEventListener("wheel", this._onWheel, false);
+            // Firefox
+            //this.viewport.addEventListener("DOMMouseScroll", this._onWheel, false);
+            //window.addEventListener('wheel', this._onWheel, false);
+            // this.viewport.addEventListener("mousewheel", this._onWheel)
+            // this.viewport.addEventListener("DOMMouseScroll", this._onWheel)
+
             document.addEventListener("resize", this._resize)
+
             setTimeout(() => {
                 this._resize()
                 this._scrollableDraggable()
@@ -48,28 +62,16 @@ class PageHome extends React.Component {
 
     _resize() {
         let w = 0
-        //let infosHeight = 0
 
         const cardLeft = document.querySelector(".card").getBoundingClientRect().left
         const cards = document.querySelectorAll(".card")
         
         cards.forEach(el => {
-            //console.log(el.getBoundingClientRect().width)
             w += el.getBoundingClientRect().width
-            //console.log(el.querySelector(".infos"))
-            // let {height} = el.querySelector(".infos").getBoundingClientRect()
-            // if(height > infosHeight)
-            //     infosHeight = height
         })
-        // cards.forEach(el => {
-        //     el.querySelector(".infos").style.height = infosHeight+"px"
-        // })
         
         w += cardLeft*2
-        //w += document.querySelector(".card").getBoundingClientRect().width
-        //boundings
-        //const cardLeft = document.querySelector(".card").getBoundingClientRect()
-           
+
         const scrollerWidth =
             document
                 .querySelector(".projects-coverflow")
@@ -83,9 +85,18 @@ class PageHome extends React.Component {
         })
     }
 
+    _onWheel(e){
+        //e.preventDefault();
+        let x = this.viewport.getAttribute("data-x")
+        x -= (e.wheelDelta || -e.detail);
+        this._ScrollBooster.setPosition({
+            x: x
+        })
+    }
+
     _scrollableDraggable(){
         //return
-        this.viewport = document.querySelector('.projects-coverflow')
+        
         const content = document.querySelector('.projects-coverflow > .inner')
         this._ScrollBooster = new ScrollBooster({
             viewport: this.viewport,
@@ -129,25 +140,6 @@ class PageHome extends React.Component {
         this.viewport.classList.remove("p-e-n")
     }
 
-    // _move(event) {
-    //     const { minX } = this.state
-
-    //     const target = event.target
-    //     const x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx
-    //     // console.log(x)
-    //     //console.log(minX, x)
-    //     // translate the element
-    //     if (x > 0 || x < minX) return
-
-    //     this.setState({
-    //         scrollerX: x,
-    //     })
-    //     target.style.webkitTransform = target.style.transform =
-    //         "translateX(" + x + "px)"
-
-    //     target.setAttribute("data-x", x)
-    // }
-
     render() {
         //console.log(this.props)
         const { isTouch, coverflowWidth } = this.state
@@ -158,17 +150,6 @@ class PageHome extends React.Component {
         }
 
         const { options, home } = this.props.data
-
-        // const draggableOptions = {
-        //     origin: "self",
-        //     inertia: true,
-        //     // modifiers: [
-        //     //   interact.modifiers.restrict({
-        //     //     restriction: 'self'            // keep the drag coords within the element
-        //     //   })
-        //     // ],
-        //     onmove: this._move,
-        // }
 
         return (
             <>
@@ -181,7 +162,16 @@ class PageHome extends React.Component {
                     />
 
                     <div className="projects-coverflow" ref="scroller">
-                        {!isTouch && (
+                        <div className="inner" style={style}>
+                            {home.projects.map((item, i) => (
+                                <Card 
+                                    key={i} 
+                                    data={item} 
+                                    //x={scrollerX} 
+                                />
+                            ))}
+                        </div>
+                        {/* {!isTouch && (
             
                             <div className="inner" style={style}>
                                 {home.projects.map((item, i) => (
@@ -203,7 +193,7 @@ class PageHome extends React.Component {
                                     />
                                 ))}
                             </div>
-                        )}
+                        )} */}
                     </div>
                 </div>
             </>
