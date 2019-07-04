@@ -37,7 +37,7 @@ class FoundrySvg extends Component {
             compteur -= 1
             //_className += " reverse"
         }
-        this.refs.foundy.style.transform = "rotate(" + compteur + "deg)"
+        this.refs.foundry.style.transform = "rotate(" + compteur + "deg)"
 
         this.setState({
             compteur: compteur,
@@ -63,7 +63,7 @@ class FoundrySvg extends Component {
         this.timer = setInterval(() => {
             let compteur = this.state.compteur
             compteur += 1
-            this.refs.foundy.style.transform = "rotate(" + compteur + "deg)"
+            this.refs.foundry.style.transform = "rotate(" + compteur + "deg)"
             this.setState({
                 compteur: compteur
             })
@@ -99,13 +99,13 @@ class FoundrySvg extends Component {
             <div 
             onMouseEnter={() => clearInterval(this.timer)}
             onMouseLeave={() => this._animate()}
-            className={"foundry " + _className} ref="foundy">
+            className={"foundry " + _className} ref="foundry">
                 <a
                     href="https://vj-type.com"
                     rel="noopener noreferrer"
                     target="_blank">
                     <svg
-                        id=""
+                        id="foundry"
                         data-name="Calque 1"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 91.6 91.6"
