@@ -14,7 +14,7 @@ export const query = graphql`
     }
 
     fragment sharpL on ContentfulAsset {
-        fluid(maxWidth: 1280, quality: 80) {
+        fluid(maxWidth: 1500, quality: 80) {
             ...GatsbyContentfulFluid
         }
     }
