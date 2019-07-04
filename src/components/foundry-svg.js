@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-//import Draggable from 'react-draggable';
+import Draggable from 'react-draggable';
 import ScrollBooster from 'scrollbooster'
 
 class FoundrySvg extends Component {
@@ -95,7 +95,7 @@ class FoundrySvg extends Component {
     render() {
         const { _className } = this.state
         return (
-            
+            <Draggable>
             <div 
             onMouseEnter={() => clearInterval(this.timer)}
             onMouseLeave={() => this._animate()}
@@ -199,7 +199,7 @@ class FoundrySvg extends Component {
                     </svg>
                 </a>
             </div>
-         
+            </Draggable>
         )
     }
 }

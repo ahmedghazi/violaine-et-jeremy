@@ -1,4 +1,5 @@
-svg:not(#foundry){
+//svg:not(#foundry){
+svg{
     //.cls-1{all: unset;}
     line,
     path{
@@ -7,5 +8,12 @@ svg:not(#foundry){
         stroke: #40009b!important;
         stroke-miterlimit: unset!important;
         stroke-width: $borderWidth!important;
+    }
+}
+svg#foundry{
+    line,
+    path{
+        fill: #40009b!important;
+        stroke: unset!important
     }
 }

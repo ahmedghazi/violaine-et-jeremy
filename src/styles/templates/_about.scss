@@ -288,6 +288,11 @@
                 max-width: 320px;
                 transform: translateY(-$margeM);
             }
+            .image{
+                svg{
+                    line.cls-1{stroke-width: $borderWidth + 1px !important;}
+                }
+            }
         }
     }
 
