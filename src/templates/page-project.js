@@ -15,11 +15,13 @@ class PageProject extends Component {
             title,
             texte,
             date,
+            credits,
+            color,
             tags,
             featuredImage,
             images,
         } = this.props.data.project
-
+console.log(color)
         return (
             <div className="project">
                 <SEO
@@ -47,10 +49,15 @@ class PageProject extends Component {
                             }}
                         ></div>
                     </li>
-                    {/* <li><div className="credits">credits</div></li> */}
+                    <li>
+                        <div className="credits">
+                            <div>Credits</div>
+                            {credits}
+                        </div>
+                    </li>
                 </ul>
 
-                <div className="images">
+                <div className="images" style={{background: color}}>
                     {images.map((image, key) => (
                         <Img key={key} fluid={image.fluid} />
                     ))}

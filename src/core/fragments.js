@@ -29,6 +29,8 @@ export const query = graphql`
         title
         slug
         date(formatString: "YYYY")
+        credits
+        color
         tags
         texte {
             childMarkdownRemark {

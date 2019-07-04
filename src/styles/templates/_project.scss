@@ -20,7 +20,7 @@
             }
             &:last-child::after{display: none}
         }
-        //.tags{margin-bottom: 1em}
+        .tags{margin-bottom: 1em}
         .date{text-decoration: underline}
     }
     .images{
@@ -65,4 +65,20 @@
             }
         }
     }
+}
+
+@media all and (min-width: $cap){
+    // .template-project{
+    //     .header{
+    //         padding-bottom: 0!important
+    //     }
+    //     .images{
+    //         @include flexbox();
+    //         @include flex-direction(column);
+    //         @include align-items(flex-end);
+    //         .gatsby-image-wrapper{
+    //             width: 1500px;
+    //         }
+    //     }
+    // }
 }
