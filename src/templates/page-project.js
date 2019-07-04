@@ -73,7 +73,7 @@ class PageProject extends Component {
                         <li>
                             <Link to={"project/"+previous.slug}>
                                 <div className="label">Previous project</div>
-                                <div class="pipe"></div>
+                                <div className="pipe"></div>
                                 <div className="title">{previous.title}</div>
                             </Link>
                         </li>
@@ -82,7 +82,7 @@ class PageProject extends Component {
                         <li>
                             <Link to={"project/"+next.slug}>
                                 <div className="title">{next.title}</div>
-                                <div class="pipe"></div>
+                                <div className="pipe"></div>
                                 <div className="label">Next project</div>
                             </Link>
                         </li>
