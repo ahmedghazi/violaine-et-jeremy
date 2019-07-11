@@ -4,7 +4,7 @@ header{
     top: 0;
     z-index: 250;
     //margin-bottom: $margeM;
-    padding: $margeS;
+    padding: $margeSAlt;
     pointer-events: none;
     a{pointer-events: auto}
     .esperluette{
@@ -13,6 +13,7 @@ header{
     svg{
         width: $logoWidth;
         height: 124px;
+        height: 161px;
     }
 }
 

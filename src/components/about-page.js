@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Samy } from "react-samy-svg"
+import PubSub from 'pubsub-js';
 
 class AboutPage extends Component {
     constructor(props) {
@@ -7,12 +8,29 @@ class AboutPage extends Component {
         this.state = {
             images: null,
         }
+        
+        this._randomizeImages = this._randomizeImages.bind(this)
     }
 
+    componentWillUnmount() {
+        PubSub.unsubscribe("PANEL_CLOSE", this._randomizeImages)
+    }
+    
     componentDidMount() {
+        this._randomizeImages()
+        PubSub.subscribe("PANEL_CLOSE", this._randomizeImages)
+    }
+
+    // componentWillUpdate(){
+    //     console.log("componentWillUpdate")
+    //     //this._randomizeImages()
+    // }
+
+    _randomizeImages(){
         const { data } = this.props
         if (data.images) {
             const rand = Math.round(Math.random() * (data.images.length - 1))
+            console.log(rand)
             this.setState({
                 images: data.images[rand],
             })
@@ -44,14 +62,14 @@ class AboutPage extends Component {
                                 </div>
                             )}
                             <div
-                                className="texte fS"
+                                className="texte "
                                 dangerouslySetInnerHTML={{
                                     __html: data.texte.childMarkdownRemark.html,
                                 }}
                             ></div>
                             {data.texteAlt && (
                                 <div
-                                    className="texte fS"
+                                    className="texte "
                                     dangerouslySetInnerHTML={{
                                         __html:
                                             data.texteAlt.childMarkdownRemark

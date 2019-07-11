@@ -13,9 +13,10 @@ class PageProject extends Component {
     render() {
         const {
             title,
+            titleFormated,
             texte,
+            texteAlt,
             date,
-            credits,
             color,
             tags,
             featuredImage,
@@ -26,6 +27,9 @@ class PageProject extends Component {
             next
         } = this.props.pageContext
 //console.log(this)
+        // const _title = titleFormated 
+        // ? titleFormated.childMarkdownRemark.rawMarkdownBody
+        // : title
         return (
             <div className="project">
                 <SEO
@@ -39,7 +43,14 @@ class PageProject extends Component {
 
                 <ul className="header">
                     <li className="title">
-                        <h1>{title}</h1>
+                        {titleFormated &&
+                            <h1 dangerouslySetInnerHTML={{
+                                __html: titleFormated.childMarkdownRemark.html,
+                            }} />
+                        }
+                        {!titleFormated &&
+                            <h1>{title}</h1>
+                        }
                     </li>
                     <li className="metas">
                         <div className="tags">{tags.join()}</div>
@@ -53,12 +64,6 @@ class PageProject extends Component {
                             }}
                         ></div>
                     </li>
-                    <li>
-                        <div className="credits">
-                            <div>Credits</div>
-                            {credits}
-                        </div>
-                    </li>
                 </ul>
 
                 <div className="images" style={{background: color}}>
@@ -66,6 +71,15 @@ class PageProject extends Component {
                         <Img key={key} fluid={image.fluid} />
                     ))}
                 </div>
+                
+                {texteAlt &&
+                    <div
+                        className="texte-alt texte"
+                        dangerouslySetInnerHTML={{
+                            __html: texteAlt.childMarkdownRemark.html,
+                        }}
+                    ></div>
+                }
 
                 <div className="footer">
                     <ul className="pagination">

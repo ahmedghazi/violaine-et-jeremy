@@ -27,12 +27,23 @@ export const query = graphql`
 
     fragment projet on ContentfulProject {
         title
+        titleFormated{
+            childMarkdownRemark {
+                rawMarkdownBody
+                html
+            }
+        }
         slug
         date(formatString: "YYYY")
-        credits
         color
         tags
         texte {
+            childMarkdownRemark {
+                excerpt
+                html
+            }
+        }
+        texteAlt {
             childMarkdownRemark {
                 excerpt
                 html

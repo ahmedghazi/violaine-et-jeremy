@@ -39,7 +39,8 @@ class Card extends Component {
     }
 
     _format() {
-        const { width } = this.refs.card.getBoundingClientRect()
+        //const { width } = this.refs.card.getBoundingClientRect()
+        const { width } = this.refs.link.getBoundingClientRect()
         const figureBounding = this.refs.card
             .querySelector("figure img")
             .getBoundingClientRect()
@@ -140,7 +141,7 @@ class Card extends Component {
                 onMouseEnter={this._mouseEnter}
                 onMouseLeave={this._mouseLeave}
             >
-                <Link to={"/project/" + slug}>
+                <Link ref="link" to={"/project/" + slug}>
                     <figure>
                         <Img fluid={featuredImage.fluid} />
                     </figure>

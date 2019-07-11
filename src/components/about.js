@@ -140,6 +140,7 @@ class About extends Component {
                 el.style.right = i * panelWidth + "px"
             })
         } else {
+            PubSub.publish("PANEL_CLOSE")
             removeClass(".panel", "active")
 
             const right = accordionWidth - panelWidth
@@ -186,7 +187,7 @@ class About extends Component {
                         <div className="row">
                             <div className="col-xs-12 col-md-6">
                                 <div
-                                    className="texte fS"
+                                    className="texte "
                                     dangerouslySetInnerHTML={{
                                         __html:
                                             about.texte.childMarkdownRemark

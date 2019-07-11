@@ -24,13 +24,14 @@
 body {
 	color: $color1;
 	font-family: $fontPrimary;
-	font-size: $fontM;
+	font-size: $fontS;
 	text-rendering: optimizeLegibility;
   	-webkit-font-smoothing: antialiased;
   	-moz-osx-font-smoothing: grayscale;
   	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px !important;
   	text-shadow: rgba(0,0,0,.01) 0 0 1px !important;
 	//line-height: $fontSLh; 
+	//letter-spacing: 0.1em;
 }
 .serif{font-family: $fontSecondary; text-transform: lowercase}
 .fXS{
@@ -117,7 +118,8 @@ p {
 	//@include text-crop;
 	margin-bottom: 1em;
 	//line-height: 1.4;
-	hyphens: auto;
+	//hyphens: auto;
+	word-break: keep-all;
 	&:last-child{margin-bottom: 0}
 	&:empty{display: none}
 }

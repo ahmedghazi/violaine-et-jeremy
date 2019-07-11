@@ -1,17 +1,14 @@
 .card{
     flex: 0 0 auto;
-    //display: inline;
     a{
         @include flexbox();
         @include flex-direction(column);
         height: 100vh;
+        margin-right: $margeSAlt;
+        //background: red;
     }
-    //@include align-items(center);
-    //flex-basis: 30vw;
+
     min-width: 33vw;
-    
-    //padding-right: $margeL;
-    
     &.active{
         
     }
@@ -24,27 +21,23 @@
             flex-shrink: 0;
             width: 100%;
         }
-        img{
-            //width: 100%; 
-            //width: 36vw!important;
-            //height: auto;
-            
-        }
-        // @include flex-shrink(0);
     }
+
     .infos{
-        //height: calc(100vh - 137px);
-        //border-top: $border;
-        //position: absolute;
         padding-right: $margeL;
-        //bottom: 67px;
-        //top: calc(100vh - 137px);
-        //padding: $margeS 0;
         width: 100%;
         @include flexbox();
-       
+        &::after{
+            content: "";
+            position: absolute;
+            width: $margeSAlt;
+            height: $borderWidth - 1px;
+            background: $color1;
+            left: 100%
+        }
         .biseaux{
             position: absolute;
+            //width: calc(100% + #{$margeSAlt});
             width: 100%;
             span{
                 position: absolute;

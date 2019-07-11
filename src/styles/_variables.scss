@@ -5,12 +5,13 @@
 /* Sizes */
 $max-width: 1800px;
 $headerHeight: 158px;
+$headerHeight: 194px;
 $headerHeightMobile: 46px;
 
-$logoWidth: 156px;
+$logoWidth: 194px;
 $logoWidthMobile: 62px;
 
-$tabWidth: 130px;
+$tabWidth: 150px;
 $tabWidthMobile: 65px;
 
 /* Colors */
@@ -21,9 +22,13 @@ $bg: #F8E0D9;
 $gutter: 7.5px;
 $margeXS: $gutter;
 $margeS: $margeXS * 2;
+
 $margeM: $margeXS * 4;
 $margeL: $margeXS * 8;
 $margeXL: $margeL * 2;
+
+$margeSAlt: 20px;
+$margeMAlt: 40px;
 
 /* Fonts */
 $fontPrimary: 'WelcomeWebRegular', sans-serif;
@@ -34,10 +39,11 @@ $fontXS: 10px;
 $fontS: 14px;
 $fontSLh: 1em;
 
-$fontM: 16px;
+$fontM: 15px;
 $fontMLh: 1em;
 
-$fontXL: 129px;
+//$fontXL: 129px;
+$fontXL: 143px;
 
 $borderWidth: 2px;
 $border: $borderWidth solid;
