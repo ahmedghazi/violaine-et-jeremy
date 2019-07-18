@@ -5,14 +5,14 @@
     .header,
     .footer,
     .texte-alt{
-        padding-left: calc(#{$logoWidth} + #{$margeMAlt} + #{$margeM}) !important;
+        padding-left: calc(#{$logoWidth} + #{$margeM} ) !important;
     }
 
     ul.header{
         min-height: $headerHeight;
         padding-top: $margeSAlt !important;
         padding-bottom: $margeMAlt !important;
-        padding-right: $margeM !important;
+        padding-right: $margeS !important;
         
         @include flexbox();
         letter-spacing: 0.1em;
@@ -142,6 +142,11 @@
     .template-project{
         .header{
             //padding-bottom: 0!important
+            padding-right: 40px;
+            justify-content: flex-end;
+            li{
+                padding: 40px 80px;
+            }
         }
         .images{
             margin-left: calc(#{$logoWidth} + #{$margeMAlt}) !important;
