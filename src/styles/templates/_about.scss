@@ -351,6 +351,7 @@
         .panel-btn{
             width: $tabWidthMobile;
             height: calc(100vh - #{$margeS});
+            top: $margeXS;
         }
         
         .about-landing,
@@ -388,7 +389,7 @@
                 padding-top: $margeL + $margeM;
                 padding-right: $margeS;
                 padding-bottom: $margeM;
-                padding-left: $margeL + $margeS;
+                padding-left: $margeL + $margeS * 2;
                 .image{
                     margin-bottom: $margeM;
                     svg{
@@ -399,7 +400,7 @@
                         }
                     }
                 }
-                .texte{transform: none}
+                .texte{transform: none; word-break: break-all}
             }
         }
 
@@ -449,10 +450,13 @@
                     padding-top: $margeM;
                     padding-right: $margeS;
                     padding-bottom: $margeM;
-                    padding-left: $margeL + $margeS;
+                    padding-left: $margeL + $margeS * 2;
                     opacity: 1;
                     top: 0!important; 
                     transform: none!important;
+                    .texte{
+                        word-break: break-all
+                    }
                     .image{
                         max-width: 91px;
                         margin-bottom: $margeM;

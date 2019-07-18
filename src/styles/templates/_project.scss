@@ -105,15 +105,14 @@
 @media all and (max-width:$s){
     .template-project{
         main{padding-top: 0}
-        .header,
-        .footer,
-        .texte-alt{
-            padding-left: 10px !important;
+        .header{
+            padding-left: $margeS !important;
         }
 
-        .header{
+        ul.header{
             @include flex-direction(column);
-            padding-left: 10px !important;
+            padding-top: $margeS !important;
+            //padding-left: $margeS !important;
             //padding-right: $margeS + 4 !important;
             padding-right: 0 !important;
             padding-bottom: 0!important;
@@ -129,6 +128,7 @@
             .metas{
                 text-align: right;
                 padding-left: calc(#{$logoWidthMobile} + #{$margeS});
+                max-width: none!important;
             }
             .title{margin-bottom: 1em}
             .metas{
@@ -141,9 +141,15 @@
             .texte{
                 padding-top: $margeM;
                 padding-bottom: $margeM;
+                padding-left: $margeS;
                 border-top: $border;
                 border-bottom: $border;
             }
+            
+        }
+        .texte-alt{
+            //padding: 0;
+            padding-left: $margeM;
         }
         .footer{
             .pagination{
@@ -163,7 +169,7 @@
 
 // $desktopSecu: calc(1500px + (#{$tabWidth} + #{$logoWidth}));
 // @debug $desktopSecu;
-@media all and (max-width: 1844px){
+@media all and (min-width: $s) and (max-width: 1844px){
     .template-project{
         .header,
         .footer,
