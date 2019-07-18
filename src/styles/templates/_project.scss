@@ -44,9 +44,11 @@
         }
     }
     .images{
+        
         .gatsby-image-wrapper{
+            width: 100%;
             max-width: 1500px;
-            margin: 0 auto;
+            //margin: 0 auto;
         }
     }
     .texte-alt{
@@ -57,12 +59,15 @@
     .footer{
         //padding-left: $logoWidth + $margeMAlt;
         border-top: $border;
+        padding-bottom: $margeSAlt !important;
+        padding-right: $margeS !important;
         .pagination{
             @include flexbox();
             @include justify-content(space-between);
             li{
                 
-                padding: 0 $margeS $margeS 0;
+                padding: 0 $margeS;
+                &:first-child{padding-left: 0}
                 a{
                     @include flexbox();
                     @include align-items(center);
@@ -138,26 +143,35 @@
     }
 }
 
-@media all and (min-width: $cap){
+@media all and (min-width: $lg){
     .template-project{
-        .header{
-            //padding-bottom: 0!important
-            padding-right: 40px;
-            justify-content: flex-end;
-            li{
-                padding: 40px 80px;
-            }
-        }
         .images{
-            margin-left: calc(#{$logoWidth} + #{$margeMAlt}) !important;
-            //border-left: $border;
             @include flexbox();
             @include flex-direction(column);
             @include align-items(flex-end);
-            .gatsby-image-wrapper{
-                //width: 1500px;
-                max-width: 1500px;
-                width: 100%;
+        }
+    }
+}
+
+@media all and (min-width: $cap){
+    .template-project{
+        ul.header{
+            //padding-bottom: 0!important
+            position: fixed;
+            left: 0; top: $headerHeight;
+            padding: 0 60px!important;
+            justify-content: flex-end;
+            max-width: calc(100vw - (#{$tabWidth} + 1500px));
+            z-index: 250;
+            @include flex-direction(column);
+            li{
+                padding: 60px 0!important;
+                &::after{
+                    width: 100%;
+                    height: $borderWidth;
+                    left: 0; bottom: 0; 
+                    top: auto; right: auto; 
+                }
             }
         }
     }

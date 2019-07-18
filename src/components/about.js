@@ -31,6 +31,7 @@ class About extends Component {
         const panelWidth = document
             .querySelector(".panel-btn")
             .getBoundingClientRect().width
+        console.log("panelWidth", panelWidth)
         this.setState({ panelWidth: panelWidth })
 
         this._browser()

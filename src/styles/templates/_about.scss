@@ -1,8 +1,12 @@
 .about{
     // $tabWidth: 10vw;
     // $tabWidth: 130px;
-    $accordionMinus: $logoWidth + $margeM + $tabWidth;
-
+    $accordionMinus: $logoWidth + $margeM + $margeS + $tabWidth;
+    //$accordionMinus: $logoWidth + $tabWidth;
+// @debug $logoWidth;
+// //@debug $margeM;
+// @debug $tabWidth;
+// @debug $accordionMinus;
     $transition: .5s;
     position: fixed;
     top: 0;
@@ -81,13 +85,13 @@
     
     #accordion{
         position: absolute; top: 0; left: 0;
-        margin-left: $logoWidth + $margeMAlt;
+        margin-left: $logoWidth + $margeM + $margeS;
         margin-right: $tabWidth;
         padding-top: $margeSAlt;
         padding-bottom: $margeSAlt;
         width: calc(100vw - #{$accordionMinus}); 
         height: 100vh;
-
+// background: red;
        .inner{
            width: 100%;
            
@@ -131,7 +135,7 @@
         position: absolute;
         top: 0; left: $tabWidth;
         //width: 0; 
-        height: calc(100vh - #{$margeM});
+        height: calc(100vh - (#{$margeM} * 2));
         overflow: hidden;
         opacity: 0;
         pointer-events: none;
@@ -231,7 +235,7 @@
             .images{
                 text-align: right;
                 img{
-                    height: calc(100vh - #{$margeM})
+                    height: calc(100vh - (#{$margeM} * 2))
                 }
             }
         }
@@ -268,14 +272,17 @@
             div{
                 position: absolute;
                 @include anime($transition, .3s);
+                line-height: 1;
+                // @include text-crop;
                 &:first-child{
                     writing-mode: vertical-lr;
-                    top: $headerHeight;
+                    top: $headerHeight + $margeS;
                     //@include slide(left, 0);
                     transform: translateX(-100%) rotate(180deg);
-                    opacity: 0;
+                    opacity: 0; left: $margeS;
                 }
                 &:last-child{
+                    top: $margeS;
                     left: $logoWidth + $margeM;
                     @include slide(top, 0);
                 }
@@ -338,11 +345,11 @@
 
 @media all and (max-width:$s){
     .about{
-        $tabWidth: $tabWidthMobile;
+        //$tabWidth: $tabWidthMobile;
         overflow: hidden;
         overflow-y: auto;
         .panel-btn{
-            width: $tabWidth;
+            width: $tabWidthMobile;
             height: calc(100vh - #{$margeS});
         }
         
@@ -357,7 +364,7 @@
 
         .foundry{
             bottom: $margeS;
-            width: $tabWidth/1.7; height: $tabWidth/1.7 + 1px;
+            width: $tabWidthMobile/1.7; height: $tabWidthMobile/1.7 + 1px;
             svg{
                 width: 100%; height: 100%;
             }
@@ -367,7 +374,7 @@
             //transform: none;
             width: 100%; //height: auto;
             height: auto;
-            padding-right: $tabWidth;
+            padding-right: $tabWidthMobile;
             .header--{
                 div:first-child{top: $headerHeightMobile + $margeM}
                 div:last-child{left: $logoWidthMobile + $margeS}
@@ -400,7 +407,7 @@
             width: 100%;
             margin: 0;
             padding-left: 0;
-            padding-right: $tabWidth;
+            padding-right: $tabWidthMobile;
             position: initial;
         }
         

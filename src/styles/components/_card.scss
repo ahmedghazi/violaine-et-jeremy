@@ -4,18 +4,19 @@
         @include flexbox();
         @include flex-direction(column);
         height: 100vh;
-        margin-right: $margeSAlt;
+        margin-right: $margeSAlt  + 20px;
         //background: red;
     }
 
-    min-width: 33vw;
+    min-width: 31vw;
     &.active{
         
     }
     figure{
         //flex-basis: calc(100vh - 137px);
         min-height: calc(100vh - 107px);
-        padding-right: $margeL;
+        //padding-right: $margeL;
+        padding-right: $margeM;
         @include flex_center_h_v();
         .gatsby-image-wrapper{
             flex-shrink: 0;
@@ -30,7 +31,7 @@
         &::after{
             content: "";
             position: absolute;
-            width: $margeSAlt;
+            width: $margeSAlt + 20px;
             height: $borderWidth - 1px;
             background: $color1;
             left: 100%
