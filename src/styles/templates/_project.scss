@@ -1,11 +1,24 @@
 .template-project{
     //main{}
     cursor: initial;
-    
+    .wrapper{
+        //max-width: 1500px;
+        //padding-left: calc(#{$logoWidth} + #{$margeL} );
+        @include flexbox();
+        @include flex-direction(column);
+        @include align-items(flex-end);
+        .header,
+        .images,
+        .footer,
+        .texte-alt{
+            max-width: 1500px;
+            width: 100%;
+        }
+    }
     .header,
     .footer,
     .texte-alt{
-        padding-left: calc(#{$logoWidth} + #{$margeM} ) !important;
+        //padding-left: calc(#{$logoWidth} + #{$margeM} ) !important;
     }
 
     ul.header{
@@ -29,13 +42,18 @@
                 background: $color1;
             }
             &:first-child{min-width: 212px}
+            &:nth-child(2){max-width: 257px}
             &:last-child::after{display: none}
         }
         h1{
             //white-space: pre;
             word-break: keep-all;
         }
-        .tags{margin-bottom: 1em}
+        .tags{
+            margin-bottom: 1em;
+            word-break: break-all;
+            hyphens: auto;
+        }
         .date{text-decoration: underline}
         .texte{
             word-break: break-all;
@@ -143,6 +161,17 @@
     }
 }
 
+// $desktopSecu: calc(1500px + (#{$tabWidth} + #{$logoWidth}));
+// @debug $desktopSecu;
+@media all and (max-width: 1844px){
+    .template-project{
+        .header,
+        .footer,
+        .texte-alt{
+            padding-left: $logoWidth + $margeM!important;
+        }
+    }
+}
 @media all and (min-width: $lg){
     .template-project{
         .images{
@@ -161,7 +190,7 @@
             left: 0; top: $headerHeight;
             padding: 0 60px!important;
             justify-content: flex-end;
-            max-width: calc(100vw - (#{$tabWidth} + 1500px));
+            max-width: calc(100vw - (#{$tabWidth} + 1500px))!important;
             z-index: 250;
             @include flex-direction(column);
             li{
