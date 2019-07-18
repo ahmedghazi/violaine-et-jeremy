@@ -12,8 +12,8 @@ module.exports = {
   favicon: 'src/images/icons/favicon.ico', // Used for manifest favicon generation
   shortName: 'violaineetjeremy', // shortname for manifest. MUST be shorter than 12 characters
   author: 'violaine et jeremy', // Author for schemaORGJSONLD
-  themeColor: '#0000ff',
-  backgroundColor: '#0000ff',
+  themeColor: '#F8E0D9',
+  backgroundColor: '#F8E0D9',
 
   instagram: '',
   twitter: '', // Twitter Username
