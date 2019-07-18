@@ -377,8 +377,14 @@
             height: auto;
             padding-right: $tabWidthMobile;
             .header--{
-                div:first-child{top: $headerHeightMobile + $margeM}
-                div:last-child{left: $logoWidthMobile + $margeS}
+                div:first-child{
+                    top: $headerHeightMobile + $margeM;
+                    left: 0;
+                }
+                div:last-child{
+                    left: $logoWidthMobile + $margeS;
+                    top: 0;
+                }
             }
             .inner{
                 height: auto;
