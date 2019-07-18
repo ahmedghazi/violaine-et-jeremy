@@ -5,13 +5,14 @@
     .header,
     .footer,
     .texte-alt{
-        padding-left: calc(#{$logoWidth} + #{$margeMAlt}) !important;
+        padding-left: calc(#{$logoWidth} + #{$margeMAlt} + #{$margeM}) !important;
     }
 
-    .header{
+    ul.header{
         min-height: $headerHeight;
         padding-top: $margeSAlt !important;
         padding-bottom: $margeMAlt !important;
+        padding-right: $margeM !important;
         
         @include flexbox();
         letter-spacing: 0.1em;
@@ -38,6 +39,7 @@
         .date{text-decoration: underline}
         .texte{
             word-break: break-all;
+            max-width: 600px;
             p{margin-bottom: 0;}
         }
     }
@@ -143,13 +145,13 @@
         }
         .images{
             margin-left: calc(#{$logoWidth} + #{$margeMAlt}) !important;
-            border-left: $border;
+            //border-left: $border;
             @include flexbox();
             @include flex-direction(column);
             @include align-items(flex-end);
             .gatsby-image-wrapper{
                 //width: 1500px;
-                max-width: none;
+                max-width: 1500px;
                 width: 100%;
             }
         }
