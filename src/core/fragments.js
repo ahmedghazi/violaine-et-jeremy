@@ -14,7 +14,7 @@ export const query = graphql`
     }
 
     fragment sharpL on ContentfulAsset {
-        fluid(maxWidth: 1573) {
+        fluid(maxWidth: 1550) {
             ...GatsbyContentfulFluid_withWebp
         }
     }
