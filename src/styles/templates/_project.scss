@@ -2,7 +2,7 @@
     //main{}
     cursor: initial;
     .wrapper{
-        //max-width: 1500px;
+        //max-width: $imageL;
         //padding-left: calc(#{$logoWidth} + #{$margeL} );
         @include flexbox();
         @include flex-direction(column);
@@ -11,7 +11,7 @@
         .images,
         .footer,
         .texte-alt{
-            max-width: 1500px;
+            max-width: $imageL;
             width: 100%;
         }
     }
@@ -65,12 +65,13 @@
         
         .gatsby-image-wrapper{
             width: 100%;
-            max-width: 1500px;
+            max-width: $imageL;
             //margin: 0 auto;
         }
     }
     .texte-alt{
         padding: $margeMAlt;
+        padding-left: 0;
         //padding-left: $logoWidth + $margeMAlt;
         max-width: $m;
     }
@@ -84,8 +85,9 @@
             @include justify-content(space-between);
             li{
                 
-                padding: 0 $margeS;
-                &:first-child{padding-left: 0}
+                //padding: 0 $margeS;
+                //&:first-child{padding-left: 0}
+                &:last-child{padding-right: $margeS}
                 a{
                     @include flexbox();
                     @include align-items(center);
@@ -148,7 +150,7 @@
             
         }
         .texte-alt{
-            //padding: 0;
+            padding: 0;
             padding-left: $margeM;
         }
         .footer{
@@ -167,7 +169,7 @@
     }
 }
 
-// $desktopSecu: calc(1500px + (#{$tabWidth} + #{$logoWidth}));
+// $desktopSecu: calc($imageL + (#{$tabWidth} + #{$logoWidth}));
 // @debug $desktopSecu;
 @media all and (min-width: $s) and (max-width: 1844px){
     .template-project{
@@ -196,11 +198,12 @@
             left: 0; top: $headerHeight;
             padding: 0 60px!important;
             justify-content: flex-end;
-            max-width: calc(100vw - (#{$tabWidth} + 1500px))!important;
+            max-width: calc(100vw - (#{$tabWidth} + #{$imageL}))!important;
             z-index: 250;
             @include flex-direction(column);
             li{
                 padding: 60px 0!important;
+                max-width: none!important;
                 &::after{
                     width: 100%;
                     height: $borderWidth;

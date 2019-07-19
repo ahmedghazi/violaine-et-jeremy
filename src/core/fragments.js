@@ -14,13 +14,13 @@ export const query = graphql`
     }
 
     fragment sharpL on ContentfulAsset {
-        fluid(maxWidth: 1500, quality: 80) {
-            ...GatsbyContentfulFluid
+        fluid(maxWidth: 1400) {
+            ...GatsbyContentfulFluid_withWebp
         }
     }
 
     fragment sharpM on ContentfulAsset {
-        fluid(maxWidth: 600, quality: 80) {
+        fluid(maxWidth: 1000) {
             ...GatsbyContentfulFluid
         }
     }
