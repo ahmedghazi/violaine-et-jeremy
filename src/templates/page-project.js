@@ -26,6 +26,9 @@ class PageProject extends Component {
             previous,
             next
         } = this.props.pageContext
+
+        const pageBanner = featuredImage ? featuredImage : images[0]
+        const tagList = tags ? tags.join() : ""
 //console.log(this)
         // const _title = titleFormated 
         // ? titleFormated.childMarkdownRemark.rawMarkdownBody
@@ -35,7 +38,7 @@ class PageProject extends Component {
                 <SEO
                     pageTitle={title}
                     pageDescription={texte.childMarkdownRemark.excerpt}
-                    pageBanner={featuredImage.file.url}
+                    //pageBanner={pageBanner.file.url}
                     page={true}
                     template="template-project"
                     // pathname={location.pathname}
@@ -53,7 +56,7 @@ class PageProject extends Component {
                             }
                         </li>
                         <li className="metas">
-                            <div className="tags">{tags.join()}</div>
+                            <div className="tags">{tagList}</div>
                             <div className="date">{date}</div>
                         </li>
                         <li>

@@ -124,6 +124,7 @@ class Card extends Component {
         } = this.state
 
         const { title, slug, tags, date, featuredImage } = this.props.data
+        const tagList = tags ? tags.join(", ") : "";
 
         const style1 = {
             height: biseauxHeight + "px",
@@ -143,7 +144,9 @@ class Card extends Component {
             >
                 <Link ref="link" to={"/project/" + slug}>
                     <figure>
-                        <Img fluid={featuredImage.fluid} />
+                        {featuredImage &&
+                            <Img fluid={featuredImage.fluid} />
+                        }
                     </figure>
                     <div className="infos " ref="infos">
                         <div className="biseaux">
@@ -153,7 +156,7 @@ class Card extends Component {
 
                         <h2 className="fXS">{title}</h2>
                         <div className="metas fXS">
-                            <p className="tags">{tags.join(", ")}</p>
+                            <p className="tags">{tagList}</p>
                             <p className="date">{date}</p>
                         </div>
                     </div>
