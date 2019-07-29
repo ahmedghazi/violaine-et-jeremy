@@ -35,18 +35,17 @@ class PageProject extends Component {
             featuredImage,
             images,
         } = this.props.data.project
+        
         const {
             previous,
             next
         } = this.props.pageContext
 
         const pageBanner = featuredImage ? featuredImage.fluid.src : ""
-        console.log("pageBanner",pageBanner)
+        //console.log("pageBanner",pageBanner)
         const tagList = tags ? tags : ""
 //console.log(pageBanner)
-        // const _title = titleFormated 
-        // ? titleFormated.childMarkdownRemark.rawMarkdownBody
-        // : title
+ 
         return (
             <div className="project">
                 <SEO

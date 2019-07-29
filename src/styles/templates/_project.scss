@@ -152,9 +152,12 @@
         }
         .texte-alt{
             padding: 0;
+            padding: $margeS + 4!important;
             padding-left: $margeM;
+            a{word-break: break-all;}
         }
         .footer{
+            padding-right: 0!important;
             .pagination{
                 @include flex-direction(column);
                 @include align-items(center);
@@ -173,6 +176,14 @@
 // $desktopSecu: calc($imageL + (#{$tabWidth} + #{$logoWidth}));
 // @debug $desktopSecu;
 //@media all and (min-width: $s) and (max-width: 1844px){
+@media all and (max-width: $s){
+    .template-project{
+        .texte-alt{
+
+        }
+    }
+}
+
 @media all and (min-width: $s) and (max-width: $viewPortWidthSecu){
     .template-project{
         .header,
