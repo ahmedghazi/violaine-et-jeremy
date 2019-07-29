@@ -50,9 +50,6 @@ export const query = graphql`
             }
         }
         featuredImage {
-            file {
-                url
-            }
             ...sharpL
         }
         images {

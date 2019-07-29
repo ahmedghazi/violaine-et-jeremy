@@ -40,7 +40,7 @@ class PageProject extends Component {
             next
         } = this.props.pageContext
 
-        const pageBanner = featuredImage ? featuredImage.file.url : ""
+        const pageBanner = featuredImage ? featuredImage.fluid.src : ""
         console.log("pageBanner",pageBanner)
         const tagList = tags ? tags : ""
 //console.log(pageBanner)
