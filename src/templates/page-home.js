@@ -148,29 +148,7 @@ class PageHome extends React.Component {
                                 />
                             ))}
                         </div>
-                        {/* {!isTouch && (
-            
-                            <div className="inner" style={style}>
-                                {home.projects.map((item, i) => (
-                                    <Card
-                                        key={i}
-                                        data={item}
-                                        //x={scrollerX}
-                                    />
-                                ))}
-                            </div>
-                        )}
-                        {isTouch && (
-                            <div className="inner" style={style}>
-                                {home.projects.map((item, i) => (
-                                    <Card 
-                                        key={i} 
-                                        data={item} 
-                                        //x={scrollerX} 
-                                    />
-                                ))}
-                            </div>
-                        )} */}
+                        
                     </div>
                 </div>
             </>

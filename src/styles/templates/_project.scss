@@ -42,7 +42,7 @@
                 background: $color1;
             }
             &:first-child{min-width: 212px}
-            &:nth-child(2){max-width: 257px}
+            //&:nth-child(2){max-width: 257px}
             &:last-child::after{display: none}
         }
         h1{
@@ -51,8 +51,9 @@
         }
         .tags{
             margin-bottom: 1em;
-            word-break: break-all;
-            hyphens: auto;
+            // word-break: break-all;
+            // hyphens: auto;
+            div{white-space: nowrap;}
         }
         .date{text-decoration: underline}
         .texte{
@@ -171,7 +172,8 @@
 
 // $desktopSecu: calc($imageL + (#{$tabWidth} + #{$logoWidth}));
 // @debug $desktopSecu;
-@media all and (min-width: $s) and (max-width: 1844px){
+//@media all and (min-width: $s) and (max-width: 1844px){
+@media all and (min-width: $s) and (max-width: $viewPortWidthSecu){
     .template-project{
         .header,
         .footer,

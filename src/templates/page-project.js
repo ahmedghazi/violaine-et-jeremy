@@ -10,6 +10,19 @@ class PageProject extends Component {
         this.state = {}
     }
 
+    componentDidMount(){
+        this._linkBlank()
+    }
+
+    _linkBlank(){
+        const textAlt = this.refs.textAlt
+        if(textAlt && textAlt.querySelectorAll("a").length > 0){
+            textAlt.querySelectorAll("a").forEach(el => {
+                el.target = "_blank"
+            })
+        }
+    }
+
     render() {
         const {
             title,
@@ -28,8 +41,9 @@ class PageProject extends Component {
         } = this.props.pageContext
 
         const pageBanner = featuredImage ? featuredImage : images[0]
-        const tagList = tags ? tags.join() : ""
-//console.log(this)
+        console.log(pageBanner)
+        const tagList = tags ? tags : ""
+//console.log(pageBanner)
         // const _title = titleFormated 
         // ? titleFormated.childMarkdownRemark.rawMarkdownBody
         // : title
@@ -38,7 +52,7 @@ class PageProject extends Component {
                 <SEO
                     pageTitle={title}
                     pageDescription={texte.childMarkdownRemark.excerpt}
-                    //pageBanner={pageBanner.file.url}
+                    pageBanner={pageBanner.file.url}
                     page={true}
                     template="template-project"
                     // pathname={location.pathname}
@@ -56,7 +70,13 @@ class PageProject extends Component {
                             }
                         </li>
                         <li className="metas">
-                            <div className="tags">{tagList}</div>
+                            <div className="tags">
+                                {tagList &&
+                                    tagList.map((tag,i) => (
+                                        <div key={i}>{tag}</div>
+                                    ))
+                                }
+                            </div>
                             <div className="date">{date}</div>
                         </li>
                         <li>
@@ -77,6 +97,7 @@ class PageProject extends Component {
                     
                     {texteAlt &&
                         <div
+                            ref="textAlt"
                             className="texte-alt texte"
                             dangerouslySetInnerHTML={{
                                 __html: texteAlt.childMarkdownRemark.html,

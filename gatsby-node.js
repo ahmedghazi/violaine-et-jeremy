@@ -23,6 +23,7 @@ exports.createPages = async ({
     // }`)
 
     const templateHome = path.resolve("src/templates/page-home.js")
+    const templateAbout = path.resolve("src/templates/page-about.js")
     const templateProject = path.resolve("src/templates/page-project.js")
 
     createPage({
@@ -30,6 +31,14 @@ exports.createPages = async ({
         component: templateHome,
         context: {
             template: 'home'
+        },
+    })
+
+    createPage({
+        path: '/about',
+        component: templateAbout,
+        context: {
+            template: 'about'
         },
     })
 

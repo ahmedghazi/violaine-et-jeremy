@@ -17,13 +17,18 @@ export default ({ children, location, pageContext: { template } }) => (
     <WrapperContext.Consumer>
         {wrapper => (
             <div id="page">
+                {/* {template} */}
                 <Header />
 
                 <main>
                     {/* {children} */}
                     <Transition location={location}>{children}</Transition>
                 </main>
-                <About />
+
+                {template !== "about" &&
+                    <About active={false} />
+                }
+                
                 <Footer />
                 <Cursor />
             </div>

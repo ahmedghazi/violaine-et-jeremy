@@ -17,29 +17,38 @@ class About extends Component {
             menu: [],
             isTouch: false,
         }
+        this.history = []
 
         this._format = this._format.bind(this)
         this._toggle = this._toggle.bind(this)
         this._toggleSection = this._toggleSection.bind(this)
+        this._onRouteUpdate = this._onRouteUpdate.bind(this)
+        this._updateUrl = this._updateUrl.bind(this)
+        
     }
 
     componentWillUnmount() {
         window.removeEventListener("resize", this._format)
+        PubSub.unsubscribe('ROUTE_UPDATE', this._onRouteUpdate)
     }
 
     componentDidMount() {
+        PubSub.subscribe('ROUTE_UPDATE', this._onRouteUpdate)
+
         const panelWidth = document
             .querySelector(".panel-btn")
             .getBoundingClientRect().width
-        console.log("panelWidth", panelWidth)
+        //console.log("panelWidth", panelWidth)
         this.setState({ panelWidth: panelWidth })
 
         this._browser()
 
+        const { active } = this.props
         const { pages } = this.props.data.about
         this.setState(
             {
-                menu: pages,
+                active: active,
+                menu: pages
             },
             () => {
                 this._handleActive()
@@ -54,6 +63,14 @@ class About extends Component {
                 this._toggle()
             }
         })
+    }
+
+    _onRouteUpdate(e,d){
+        this.history.push({
+            title: document.title,
+            url: window.location.href
+        })
+        // console.log(this.history)
     }
 
     _browser() {
@@ -108,6 +125,7 @@ class About extends Component {
             () => {
                 //PubSub.publish("ABOUT", {active: this.state.active})
                 this._handleActive()
+                this._updateUrl()
             }
         )
     }
@@ -120,6 +138,20 @@ class About extends Component {
             document.documentElement.classList.remove("is-about")
             this.setState({ panelActive: false })
             removeClass(".panel", "active")
+        }
+        
+    }
+
+    _updateUrl(){
+        const {
+            active
+        } = this.state
+// console.log(this.history)
+        if(active){
+            window.history.pushState({}, "About", "/about")
+        }else{
+            const {title, url} = this.history[this.history.length -1]
+            window.history.pushState({}, title, url)
         }
     }
 
@@ -286,6 +318,8 @@ export default props => (
                 }
             }
         `}
-        render={data => <About data={data} />}
+        render={data => <About 
+            active={props.active}
+            data={data} />}
     />
 )
