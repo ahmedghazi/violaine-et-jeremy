@@ -41,7 +41,7 @@ class PageProject extends Component {
         } = this.props.pageContext
 
         //const pageBanner = featuredImage ? featuredImage : images[0]
-        if(featuredImage)console.log(featuredImage)
+        if(featuredImage)console.log(featuredImage.file.url)
         const tagList = tags ? tags : ""
 //console.log(pageBanner)
         // const _title = titleFormated 
@@ -52,9 +52,9 @@ class PageProject extends Component {
                 <SEO
                     pageTitle={title}
                     pageDescription={texte.childMarkdownRemark.excerpt}
-                    pageBanner={featuredImage &&
-                        featuredImage.file.url
-                    }
+                    // pageBanner={featuredImage &&
+                    //     featuredImage.file.url
+                    // }
                     page={true}
                     template="template-project"
                     // pathname={location.pathname}
