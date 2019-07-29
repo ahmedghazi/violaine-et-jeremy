@@ -37,8 +37,8 @@ class Cursor extends Component {
         // });
       
         //console.log(e.target.classList)
-        const x = e.clientX - 15
-        const y = e.clientY - 15
+        const x = e.clientX - 25
+        const y = e.clientY - 25
         this.refs.cursor.style.left = x+"px"
         this.refs.cursor.style.top = y+"px"
         this.refs.cursor.style.opacity = 1

@@ -184,6 +184,9 @@
 }
 @media all and (min-width: $lg){
     .template-project{
+        ul.header{
+            li:first-child{padding-left: 0}
+        }
         .images{
             @include flexbox();
             @include flex-direction(column);
