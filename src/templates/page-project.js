@@ -40,8 +40,8 @@ class PageProject extends Component {
             next
         } = this.props.pageContext
 
-        //const pageBanner = featuredImage ? featuredImage : images[0]
-        if(featuredImage)console.log(featuredImage.file.url)
+        const pageBanner = featuredImage ? featuredImage.file.url : ""
+        console.log("pageBanner",pageBanner)
         const tagList = tags ? tags : ""
 //console.log(pageBanner)
         // const _title = titleFormated 
