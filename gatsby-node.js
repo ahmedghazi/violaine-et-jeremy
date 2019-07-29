@@ -34,13 +34,13 @@ exports.createPages = async ({
         },
     })
 
-    createPage({
-        path: '/about',
-        component: templateAbout,
-        context: {
-            template: 'about'
-        },
-    })
+    // createPage({
+    //     path: '/about',
+    //     component: templateAbout,
+    //     context: {
+    //         template: 'about'
+    //     },
+    // })
 
     //////////////////////////////////
     const allContentfulProject = await graphql(`
