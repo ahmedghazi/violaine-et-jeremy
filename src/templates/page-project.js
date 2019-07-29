@@ -41,7 +41,7 @@ class PageProject extends Component {
         } = this.props.pageContext
 
         const pageBanner = featuredImage ? featuredImage : images[0]
-        //console.log(pageBanner)
+        console.log(pageBanner.file.url)
         const tagList = tags ? tags : ""
 //console.log(pageBanner)
         // const _title = titleFormated 
