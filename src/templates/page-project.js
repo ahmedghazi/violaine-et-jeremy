@@ -52,9 +52,7 @@ class PageProject extends Component {
                 <SEO
                     pageTitle={title}
                     pageDescription={texte.childMarkdownRemark.excerpt}
-                    // pageBanner={featuredImage &&
-                    //     featuredImage.file.url
-                    // }
+                    pageBanner={pageBanner}
                     page={true}
                     template="template-project"
                     // pathname={location.pathname}
