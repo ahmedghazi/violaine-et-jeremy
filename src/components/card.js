@@ -122,8 +122,9 @@ class Card extends Component {
             biseauxHeight,
             angle,
         } = this.state
-
-        const { title, slug, tags, date, featuredImage } = this.props.data
+//console.log(this.props.data)
+        const { title, slug, tags, date, featuredImage, images } = this.props.data
+        const image = featuredImage ? featuredImage : images[0]
         const tagList = tags ? tags.join(", ") : "";
 
         const style1 = {
@@ -144,9 +145,7 @@ class Card extends Component {
             >
                 <Link ref="link" to={"/project/" + slug}>
                     <figure>
-                        {featuredImage &&
-                            <Img fluid={featuredImage.fluid} />
-                        }
+                        <Img fluid={image.fluid} />
                     </figure>
                     <div className="infos " ref="infos">
                         <div className="biseaux">

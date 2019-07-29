@@ -195,6 +195,9 @@ export const pageQuery = graphql`
                 featuredImage {
                     ...sharpM
                 }
+                images {
+                    ...sharpM
+                }
             }
         }
     }
