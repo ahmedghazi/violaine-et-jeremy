@@ -3,7 +3,7 @@ html,body{
     
 }
 body{
-    @include scrollbars(10px, $color1, $bg);
+    @include scrollbars(10px, $color1, transparent);
     &.loading{
         main{
             opacity: 0;
