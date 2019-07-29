@@ -23,7 +23,7 @@ exports.createPages = async ({
     // }`)
 
     const templateHome = path.resolve("src/templates/page-home.js")
-    const templateAbout = path.resolve("src/templates/page-about.js")
+    //const templateAbout = path.resolve("src/templates/page-about.js")
     const templateProject = path.resolve("src/templates/page-project.js")
 
     createPage({
@@ -62,16 +62,16 @@ exports.createPages = async ({
         const previous = index === 0 ? projects[projects.length - 1].node : projects[index - 1].node
         const next = index === projects.length - 1 ? projects[0].node : projects[index + 1].node
 // console.log(edge.node.slug)
-        createPage({
-            path: path,
-            component: templateProject,
-            context: {
-                slug: edge.node.slug,
-                template: 'project',
-                previous,
-                next
-            },
-        })
+        // createPage({
+        //     path: path,
+        //     component: templateProject,
+        //     context: {
+        //         slug: edge.node.slug,
+        //         template: 'project',
+        //         previous,
+        //         next
+        //     },
+        // })
     })
 
 
