@@ -56,9 +56,6 @@ export const query = graphql`
             ...sharpL
         }
         images {
-            file {
-                url
-            }
             ...sharpL
         }
     }
