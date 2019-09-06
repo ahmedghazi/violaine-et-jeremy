@@ -227,6 +227,15 @@ class About extends Component {
                                                 .html,
                                     }}
                                 ></div>
+                                <ul className="social">
+                                    {about.liens.map((li,i) =>(
+                                        <li key={i}>
+                                            <a href={li.url}>
+                                                <img src={li.image.file.url} alt="" />
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -289,6 +298,15 @@ export default props => (
                     image {
                         file {
                             url
+                        }
+                    }
+                    liens {
+                        label
+                        url
+                        image {
+                            file {
+                                url
+                            }
                         }
                     }
                     pages {

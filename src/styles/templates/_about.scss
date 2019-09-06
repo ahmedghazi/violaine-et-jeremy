@@ -91,10 +91,11 @@
         padding-bottom: $margeSAlt;
         width: calc(100vw - #{$accordionMinus}); 
         height: 100vh;
+        pointer-events: none;
 // background: red;
        .inner{
            width: 100%;
-           
+           pointer-events: auto;
         }
     }
 
@@ -324,6 +325,12 @@
     p{
         white-space: pre-line;
         max-width: 500px;
+    }
+
+    .social{
+        @include flexbox();
+        a{padding: 0 .5em; display: block;}
+        img{width: 34px}
     }
 }
 
