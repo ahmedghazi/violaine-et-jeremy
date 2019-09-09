@@ -35,12 +35,13 @@ const SEO = ({ pageTitle, pageDescription, pageBanner, pathname, page, template 
 
   //const localizedPath = i18n[locale].default ? '' : `/${i18n[locale].path}`
   const homeURL = `${siteUrl}`
-
+  //console.log(pathname)
+  if(pageTitle === "About")pageBanner = defaultBanner
 
   const seo = {
     title: page ? pageTitle+" - "+title : title,
     description: page ? pageDescription : description,
-    image: defaultBanner,
+    image: page ? pageBanner : defaultBanner,
     url: `${siteUrl}${pathname || ''}`,
   }
 

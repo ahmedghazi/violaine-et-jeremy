@@ -135,6 +135,7 @@ class PageHome extends React.Component {
                         pageTitle={options.title}
                         pageDescription={options.description}
                         template="template-home"
+                        page={false}
                         // pathname={location.pathname}
                     />
 
