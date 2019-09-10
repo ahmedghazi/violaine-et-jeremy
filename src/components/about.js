@@ -230,7 +230,10 @@ class About extends Component {
                                 <ul className="social">
                                     {about.liens.map((li,i) =>(
                                         <li key={i}>
-                                            <a href={li.url}>
+                                            <a 
+                                            rel="noopener noreferrer"
+                                            target="_blank"
+                                            href={li.url}>
                                                 <img src={li.image.file.url} alt="" />
                                             </a>
                                         </li>
