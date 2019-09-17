@@ -351,19 +351,25 @@
     }
 }
 
-@media all and (max-height:700px) and (min-width:1200px) {
+// @media all and (max-height:700px) and (min-width:1200px) {
+@media all and (min-height:500px) and (max-height:700px) and (min-width:1024px) {
     $_tabWidth: 110px;
-    $_accordionMinus: $logoWidth + $margeM + $margeS + $_tabWidth;
+    $_accordionMinus: $logoWidth + $_tabWidth + $margeM + 25px;
     .about{
         .panel{width: $_tabWidth;}
         .panel-btn{
             width: $_tabWidth;
         }
+        // .about-toggle{
+
+        // }
         .about-landing{
             //padding-right: $tabWidth;
+            .inner{padding-top: 4em;}
         }
         #accordion{
-            //padding-right: $_tabWidth;
+            //background: red;
+            margin-right: $_tabWidth + $margeS + $margeXS;
             width: calc(100vw - #{$_accordionMinus}); 
         }
         .panel-content .about-page.page-studio .inner .row.middle-xs > .col-md-6{

@@ -224,7 +224,8 @@ p{
 	.about .fXL{font-size: $fontXL}
 }
 
-@media all and (max-height:700px) and (min-width:1200px) {
+// @media all and (max-height:700px) and (min-width:1200px) {
+@media all and (min-height:500px) and (max-height:700px) and (min-width:1024px) {
 	//html,body{background: blue}
 	.fXL{font-size: 105px}
 }

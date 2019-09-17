@@ -138,3 +138,15 @@
         }
     }
 }
+
+@media all and (min-height:500px) and (min-width:1024px) {
+    .card{
+        min-width: auto;
+        width: 29vw;
+        figure{
+            // min-height: calc(100vh - 227px);
+            // max-height: calc(100vh - 227px);
+        }
+ 
+    }
+}
