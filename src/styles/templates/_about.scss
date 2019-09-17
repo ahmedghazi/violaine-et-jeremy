@@ -52,6 +52,10 @@
         .foundry{
             //right: $tabWidth * 2;
         }
+        #accordion{
+            &,
+            & * {pointer-events: auto;}
+        }
     }
     &.is-nav{
         #about{
@@ -92,7 +96,8 @@
         padding-bottom: $margeSAlt;
         width: calc(100vw - #{$accordionMinus}); 
         height: 100vh;
-        pointer-events: none;
+        &,
+        & * {pointer-events: none;}
 // background: red;
        .inner{
            width: 100%;
@@ -376,6 +381,10 @@
             flex-basis: 481px !important;
             max-width: 481px !important;
             .texte{max-width: 100%}
+        }
+        .panel-content .about-page.page-studio .circle{
+            width: 30vw;
+            height: 30vw;
         }
     }
     
