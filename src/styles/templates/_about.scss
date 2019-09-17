@@ -1,6 +1,7 @@
 .about{
     // $tabWidth: 10vw;
     // $tabWidth: 130px;
+    
     $accordionMinus: $logoWidth + $margeM + $margeS + $tabWidth;
     //$accordionMinus: $logoWidth + $tabWidth;
 // @debug $logoWidth;
@@ -348,6 +349,30 @@
             }
         }
     }
+}
+
+@media all and (max-height:700px) and (min-width:1200px) {
+    $_tabWidth: 110px;
+    $_accordionMinus: $logoWidth + $margeM + $margeS + $_tabWidth;
+    .about{
+        .panel{width: $_tabWidth;}
+        .panel-btn{
+            width: $_tabWidth;
+        }
+        .about-landing{
+            //padding-right: $tabWidth;
+        }
+        #accordion{
+            //padding-right: $_tabWidth;
+            width: calc(100vw - #{$_accordionMinus}); 
+        }
+        .panel-content .about-page.page-studio .inner .row.middle-xs > .col-md-6{
+            flex-basis: 481px !important;
+            max-width: 481px !important;
+            .texte{max-width: 100%}
+        }
+    }
+    
 }
 
 @media all and (max-width:$s){

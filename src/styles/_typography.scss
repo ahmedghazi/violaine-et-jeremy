@@ -223,3 +223,8 @@ p{
 	.fXL{font-size: 208px}
 	.about .fXL{font-size: $fontXL}
 }
+
+@media all and (max-height:700px) and (min-width:1200px) {
+	//html,body{background: blue}
+	.fXL{font-size: 105px}
+}
