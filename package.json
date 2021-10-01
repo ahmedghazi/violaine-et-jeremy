@@ -2,18 +2,20 @@
   "name": "violaine-et-jeremy",
   "description": "violaine et jeremy website",
   "license": "MIT",
-  "author": "Connor Wilson <me@cwlsn.com> (https://cwlsn.com)",
+  "author": "Ahmed Ghazi <hello@ahmedghazi.com> (https://ahmedghazi.com)",
   "scripts": {
+    "start": "npm run develop",
     "develop": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "format": "prettier --write src/**/*.{js,jsx}"
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "dploy": "git add . && git commit -m 'push it t' && git push"
   },
   "dependencies": {
     "dotenv": "^6.1.0",
     "gatsby": "^2.3.34",
     "gatsby-image": "^2.0.41",
-    "gatsby-plugin-google-analytics": "^2.0.20",
+    "gatsby-plugin-google-gtag": "^3.14.0",
     "gatsby-plugin-layout": "^1.0.15",
     "gatsby-plugin-manifest": "^2.1.1",
     "gatsby-plugin-react-helmet": "^3.0.12",

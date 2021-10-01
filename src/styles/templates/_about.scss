@@ -54,7 +54,7 @@
         }
         #accordion{
             &,
-            & * {pointer-events: auto;}
+            & * {pointer-events: auto!important;}
         }
     }
     &.is-nav{
@@ -97,7 +97,7 @@
         width: calc(100vw - #{$accordionMinus}); 
         height: 100vh;
         &,
-        & * {pointer-events: none;}
+        & * {pointer-events: none!important;}
 // background: red;
        .inner{
            width: 100%;
