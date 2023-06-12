@@ -7,6 +7,7 @@ export const revalidate = 3600 // revalidate every hour
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
+    metadataBase: new URL(website.url),
     title: website.title,
     description: website.description,
     openGraph: {
