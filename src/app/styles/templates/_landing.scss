@@ -1,0 +1,30 @@
+.landing {
+  height: 100vh;
+  padding: 52px 74px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .message {
+    margin-bottom: 3.4375rem;
+    letter-spacing: 0.1em;
+  }
+  .social {
+    padding-top: 1.7rem;
+    .title {
+      font-style: italic;
+    }
+    li:not(:last-child) {
+      padding-right: 2.625rem;
+    }
+  }
+
+  @media all and (max-width: $md) {
+    padding: 25px;
+    .social {
+      padding-top: 0;
+      li {
+        padding-top: 1rem;
+      }
+    }
+  }
+}
