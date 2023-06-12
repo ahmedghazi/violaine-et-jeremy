@@ -6,7 +6,8 @@ const website = {
     "is a multidisciplinary creative studio believing in beauty, refinement, delicacy and timelessness.",
   headline: "", // Headline for schema.org JSONLD
   url: "https://violaineetjeremy.fr", // Domain of your site. No trailing slash!
-  image: "src/images/logo.png", // Used for SEO
+  image:
+    "https://images.ctfassets.net/8f90vj3zrs3l/2WCHI4r60DLWeF7OnYxfXv/59348f7d97bca1a6b677e373f1bfd854/violaine-et-jeremy-logo.svg", // Used for SEO
   ogLanguage: "fr_FR", // Facebook Language
 
   // JSONLD / Manifest
