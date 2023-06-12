@@ -1,16 +1,1 @@
-{
-  "cssImports": {
-    "/Users/ahmedghazi/Sites/violaine-et-jeremy/www/web-v1/src/app/layout.tsx": [
-      "/Users/ahmedghazi/Sites/violaine-et-jeremy/www/web-v1/src/app/globals.css",
-      "/Users/ahmedghazi/Sites/violaine-et-jeremy/www/web-v1/src/app/styles/tailwind.css",
-      "/Users/ahmedghazi/Sites/violaine-et-jeremy/www/web-v1/src/app/styles/index.scss"
-    ]
-  },
-  "cssModules": {
-    "/Users/ahmedghazi/Sites/violaine-et-jeremy/www/web-v1/src/app/page": [
-      "/Users/ahmedghazi/Sites/violaine-et-jeremy/www/web-v1/src/app/globals.css",
-      "/Users/ahmedghazi/Sites/violaine-et-jeremy/www/web-v1/src/app/styles/tailwind.css",
-      "/Users/ahmedghazi/Sites/violaine-et-jeremy/www/web-v1/src/app/styles/index.scss"
-    ]
-  }
-}
+{"cssImports":{"/Users/ahmedghazi/Sites/violaine-et-jeremy/www/web-v1/src/app/layout.tsx":["/Users/ahmedghazi/Sites/violaine-et-jeremy/www/web-v1/src/app/globals.css","/Users/ahmedghazi/Sites/violaine-et-jeremy/www/web-v1/src/app/styles/tailwind.css","/Users/ahmedghazi/Sites/violaine-et-jeremy/www/web-v1/src/app/styles/index.scss"]},"cssModules":{"/Users/ahmedghazi/Sites/violaine-et-jeremy/www/web-v1/src/app/page":["/Users/ahmedghazi/Sites/violaine-et-jeremy/www/web-v1/src/app/globals.css","/Users/ahmedghazi/Sites/violaine-et-jeremy/www/web-v1/src/app/styles/tailwind.css","/Users/ahmedghazi/Sites/violaine-et-jeremy/www/web-v1/src/app/styles/index.scss"]}}
