@@ -1,11 +1,10 @@
 "use client"
 import React, { useEffect, useState } from "react"
-import { getInfos, getSettings } from "../utils/sanity-queries"
 import { PortableText } from "@portabletext/react"
 import Image from "next/image"
 import { SanityImageAsset } from "sanity-codegen"
 import clsx from "clsx"
-import { publish, subscribe, unsubscribe } from "pubsub-js"
+import { subscribe, unsubscribe } from "pubsub-js"
 import { Infos, Settings } from "../types/schema"
 
 type Props = {
@@ -13,14 +12,11 @@ type Props = {
   settingsData: Settings
 }
 export default function Infos({ infosData, settingsData }: Props) {
-  // const data = await getInfos()
-
   const image: SanityImageAsset | any = infosData.image?.asset
 
   const { links } = settingsData
 
   const _toggle = () => {
-    // setActive(false)
     setActive(!active)
   }
 
@@ -30,9 +26,6 @@ export default function Infos({ infosData, settingsData }: Props) {
     const token = subscribe("IS_INFOS", (e, v) => {
       setActive(v)
     })
-    // const token = subscribe("IS_INFOS", (e, v) => {
-    //   setActive(v)
-    // })
 
     return () => {
       unsubscribe(token)
