@@ -100,3 +100,5 @@ yarn-error.log*
 next-env.d.ts
 
 archive/
+# Local Netlify folder
+.netlify

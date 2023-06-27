@@ -12,7 +12,7 @@ export default function GlobalError({
       <body>
         <h2>Something went wrong!</h2>
         <button onClick={() => reset()}>Try again</button>
-        <pre>{JSON.stringify(error)}</pre>
+        <pre>{JSON.stringify(error, null, 2)}</pre>
       </body>
     </html>
   )
