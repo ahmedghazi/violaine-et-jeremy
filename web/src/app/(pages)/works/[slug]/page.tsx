@@ -1,13 +1,10 @@
-import { getWorks } from "@/app/utils/sanity-queries"
+import { getAllWorks, getWorks } from "@/app/utils/sanity-queries"
 // import { usePathname, useRouter } from "next/navigation"
 import React from "react"
-// import Image from "next/image"
-// import { Project, Space } from "@/app/types/schema"
-import WorkCard from "@/app/components/WorkCard"
 import { Metadata } from "next"
-import Card from "@/app/components/Card"
 import { Project, SanityDocument, Space } from "@/app/types/schema"
 import { _linkResolver } from "@/app/utils/utils"
+import WorkUI from "@/app/components/workUI"
 // The generateStaticParams function can be used in combination with dynamic route segments to statically generate routes at build time instead of on-demand at request time.
 // export async function generateStaticParams() {
 //   const posts = await fetch('https://.../posts').then((res) => res.json())
@@ -22,7 +19,7 @@ type PageProps = {
     slug: string
   }
 }
-interface IWorkItem extends SanityDocument {}
+// interface IWorkItem extends SanityDocument {}
 
 export async function generateMetadata({
   params,
@@ -38,26 +35,15 @@ const Page: ({ params }: PageProps) => Promise<JSX.Element> = async ({
   params,
 }) => {
   const data = await getWorks(params.slug)
-  // const works: (Project | Space)[] = data.works!
+
+  const type = params.slug === "spaces" ? "space" : "project"
+  const allWorks = await getAllWorks(type)
+
   const works: (Project | Space)[] = data.works as (Project | Space)[]
-  // console.log(data)
+
   return (
     <div className="page px-md">
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-md">
-        {works &&
-          works.length > 0 &&
-          works?.map((item, i: number) => (
-            <div key={i}>
-              {/* <WorkCard input={item} /> */}
-              <Card
-                title={item.title || ""}
-                industry={item.industry || ""}
-                link={_linkResolver(item) || ""}
-                image={item.imageCover?.asset || null}
-              />
-            </div>
-          ))}
-      </div>
+      <WorkUI works={works} allWorks={allWorks} />
     </div>
   )
 }

@@ -32,6 +32,7 @@ module.exports = {
       red: "#ff0000",
     },
     fontSize: {
+      xs: ["var(--text-xs)", "1"],
       sm: ["var(--text-sm)", "1.4"],
       md: ["var(--text-md)", "1.2"],
       lg: ["var(--text-lg)", "1"],

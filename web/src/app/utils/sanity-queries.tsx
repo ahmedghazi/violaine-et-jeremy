@@ -3,14 +3,6 @@ import { client } from "./sanity-client"
 import { Home, Infos, Project, Settings, Space, Work } from "../types/schema"
 
 export async function getSettings(): Promise<Settings> {
-  // const sanityClient = client
-  // const client = createClient({
-  //   projectId: process.env.SANITY_PROJECT_ID,
-  //   dataset: "production",
-  //   apiVersion: "2023-03-04",
-  //   useCdn: true,
-  // })
-
   return client.fetch(
     groq`*[_type == "settings"][0]{
       ...,
@@ -71,10 +63,41 @@ export async function getWorks(slug: string): Promise<Work> {
         imageCover {
           ...,
           asset->
+        },
+        content[]{
+          ...,
+          items[]{
+            ...,
+            image{
+              asset->
+            }
+          }
         }
       }
     }`,
     { slug: slug }
+  )
+}
+
+export async function getAllWorks(type: string): Promise<(Project | Space)[]> {
+  return client.fetch(
+    groq`*[_type == $type ]{
+      ...,
+      imageCover {
+        ...,
+        asset->
+      },
+      content[]{
+        ...,
+        items[]{
+          ...,
+          image{
+            asset->
+          }
+        }
+      }
+    }`,
+    { type: type }
   )
 }
 

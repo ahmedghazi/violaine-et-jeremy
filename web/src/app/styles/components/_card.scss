@@ -7,14 +7,28 @@
     }
     .overlay {
       opacity: 1;
+      .bg-blurred {
+        opacity: 1;
+        transform: scale(15);
+      }
     }
   }
   .overlay {
-    transition: opacity 0.2s;
+    transition: opacity 0.6s;
     opacity: 0;
+    overflow: hidden;
+    .bg-blurred {
+      position: absolute;
+      width: 10em;
+      height: 15em;
+      border-radius: 100%;
+      filter: blur(2em);
+      // transform: scale(15);
+      transition: opacity 0.6s, transform 0.4s var(--cubic);
+    }
   }
   .header {
-    transition: opacity 0.2s, transform 0.2s;
+    transition: opacity 0.6s, transform 0.6s;
   }
   figure {
     overflow: hidden;

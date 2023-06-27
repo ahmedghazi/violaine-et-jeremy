@@ -35,11 +35,18 @@ const Card = ({ link, image, title, industry }: Props) => {
               <div
                 className="overlay absolute inset-0 center-x-y"
                 style={{
-                  backgroundColor:
-                    image.metadata.palette.lightVibrant.background,
+                  // backgroundColor:
+                  //   image.metadata.palette.lightVibrant.background,
                   color: image.metadata.palette.muted.background,
                 }}
               >
+                <div
+                  className="bg-blurred"
+                  style={{
+                    backgroundColor:
+                      image.metadata.palette.lightVibrant.background,
+                  }}
+                ></div>
                 <div className="flex justify-center text-lg">
                   <div className="h2">{title}</div>{" "}
                   <span className="sep-dash">—</span>

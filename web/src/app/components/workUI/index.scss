@@ -1,0 +1,28 @@
+@import "../../styles/mixins";
+
+.work-ui {
+  padding-bottom: toRem(100);
+  .header {
+    transform: translateX(-2.1em);
+  }
+  .list {
+    .thead {
+      margin-bottom: 1em;
+    }
+    .td {
+      padding-bottom: 1em;
+    }
+    .images {
+      padding: toRem(5) 0 toRem(25);
+      gap: toRem(5);
+      height: toRem(130);
+      figure,
+      img {
+        height: 100%;
+      }
+    }
+    img {
+      width: auto;
+    }
+  }
+}
