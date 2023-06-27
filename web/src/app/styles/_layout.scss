@@ -1,0 +1,35 @@
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  // overflow-y: auto;
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+  // transition: background-color 0.4s var(--cubic), color 0.4s var(--cubic);
+  // @include debugFiletY(calc(21px));
+  // @include debugFiletY(50vh);
+}
+main {
+  min-height: var(--app-height, 100vh);
+  position: relative;
+  padding-top: toRem(100);
+}
+
+.h-app {
+  height: var(--app-height);
+}
+
+@media all and (min-width: $md) {
+}
+
+.sm-only {
+  display: none;
+}
+@media all and (max-width: $md) {
+  .sm-only {
+    display: block;
+  }
+  .hidden-sm {
+    display: none;
+  }
+}

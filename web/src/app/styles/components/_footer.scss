@@ -1,0 +1,16 @@
+footer {
+  width: 100%;
+  padding-left: toRem(18);
+  padding-right: toRem(18);
+  p {
+    font-family: var(--font-primary);
+  }
+  .inner {
+    padding-top: toRem(18);
+    padding-bottom: toRem(18);
+    border-top: var(--border);
+  }
+  h5 {
+    margin-bottom: 0.6rem;
+  }
+}

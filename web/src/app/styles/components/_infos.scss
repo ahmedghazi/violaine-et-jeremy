@@ -1,0 +1,26 @@
+#infos {
+  .infos-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: var(--color-yellow);
+    padding: 100px var(--space-md);
+    z-index: 0;
+    transform: translateY(-100%);
+    transition: transform 0.7s var(--cubic);
+    &.is-active {
+      transform: translateY(0);
+    }
+  }
+  .btn-toggle {
+    line-height: 1.2;
+  }
+  .links {
+    margin-bottom: 1.5rem;
+  }
+  h5 {
+    margin-bottom: toRem(10);
+  }
+  .sans p {
+    font-family: var(--font-primary);
+  }
+}

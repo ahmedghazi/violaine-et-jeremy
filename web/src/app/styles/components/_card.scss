@@ -1,0 +1,30 @@
+.card {
+  margin-bottom: 5.46rem;
+  &:hover {
+    .header {
+      opacity: 0;
+      transform: translateY(-1em);
+    }
+    .overlay {
+      opacity: 1;
+    }
+  }
+  .overlay {
+    transition: opacity 0.2s;
+    opacity: 0;
+  }
+  .header {
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  figure {
+    overflow: hidden;
+    aspect-ratio: 0.77868852 / 1;
+    margin-bottom: 1rem;
+    img {
+      height: 100% !important;
+      width: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+}

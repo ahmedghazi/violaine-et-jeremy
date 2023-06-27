@@ -1,0 +1,66 @@
+.work-content {
+  .intro {
+    .grid {
+      justify-content: center;
+    }
+    img {
+      height: calc(100vh - var(--space-200));
+      width: auto !important;
+      flex-shrink: 0;
+    }
+    .text {
+      text-align: center;
+    }
+
+    &.is-drapeau {
+      .flex {
+        gap: var(--space-md);
+      }
+      figure {
+        flex-basis: calc(50vw - var(--space-md) * 2);
+        min-width: calc(50vw - var(--space-md) * 2);
+      }
+      img {
+        width: 100% !important;
+        height: auto;
+
+        // width: auto;
+      }
+      .text-intro {
+        padding-top: calc(50vh - (var(--space-100)));
+      }
+      .text {
+        transform: translateY(-45%);
+        text-align: left;
+      }
+    }
+  }
+  .credits > .grid:first-child {
+    margin-bottom: 2.33333333em;
+  }
+  .related {
+    border-top: var(--border);
+    position: relative;
+    padding-top: 5px;
+    &::before,
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background-color: black;
+      border-radius: 100%;
+      position: absolute;
+      top: -3px;
+    }
+    &::after {
+      right: 0;
+    }
+    nav {
+      margin-bottom: toRem(25);
+    }
+    h4 {
+      margin-bottom: 1em;
+    }
+  }
+}
