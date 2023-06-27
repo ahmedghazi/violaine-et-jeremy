@@ -8,7 +8,7 @@ import "./styles/index.scss"
 
 export const metadata = {
   title: {
-    template: `%s | ${config.title}`,
+    template: `%s — ${config.title}`,
   },
   description: config.description,
 }
