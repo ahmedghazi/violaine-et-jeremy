@@ -40,6 +40,7 @@ const List = ({ input }: Props) => {
         }
 
         el.style.setProperty("--custom-max-height", `${130 * scale}px`)
+        el.classList.toggle("can-display-images", scale > 0)
       })
     }
     ref.current?.style.setProperty("--opacity", "1")

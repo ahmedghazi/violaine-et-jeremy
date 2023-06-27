@@ -14,13 +14,17 @@
       padding-bottom: 1em;
     }
     .images {
-      padding: toRem(5) 0 toRem(25);
       gap: toRem(5);
-      height: toRem(130);
-      max-height: var(--custom-max-height);
+      // height: toRem(130);
+      max-height: toRem(130);
+      height: var(--custom-max-height);
 
       max-width: 100vw;
+      transition: padding-top 0.2s, padding-bottom 0.2s;
       // overflow-x: hidden;
+      &.can-display-images {
+        padding: toRem(5) 0 toRem(25);
+      }
       figure,
       img {
         height: 100%;
