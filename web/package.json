@@ -26,7 +26,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sanity-codegen": "^0.9.8",
-    "styled-components": "^6.0.0-rc.5",
+    "sharp": "^0.32.1",
+    "styled-components": "^6.0.0-rc.6",
     "tailwindcss": "3.3.2",
     "typescript": "5.1.3"
   },
