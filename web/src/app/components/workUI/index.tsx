@@ -12,8 +12,8 @@ type Props = {
 }
 
 const WorkUI = ({ works, allWorks }: Props) => {
-  const [display, setDisplay] = useState<string>("grid")
-  console.log(allWorks)
+  const [display, setDisplay] = useState<string>("list")
+  // console.log(allWorks)
   return (
     <div className="work-ui">
       <BtnsDisplay display={display} setDisplay={setDisplay} />

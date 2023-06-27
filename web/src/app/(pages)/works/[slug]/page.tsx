@@ -42,7 +42,7 @@ const Page: ({ params }: PageProps) => Promise<JSX.Element> = async ({
   const works: (Project | Space)[] = data.works as (Project | Space)[]
 
   return (
-    <div className="page px-md">
+    <div className="page px-md-">
       <WorkUI works={works} allWorks={allWorks} />
     </div>
   )

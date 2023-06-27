@@ -10,7 +10,7 @@ type Props = {
 }
 
 const ListItem = ({ input }: Props) => {
-  const maxLen = 5
+  const maxLen = 35
   //
   const images = useMemo(() => {
     let arr: Array<SanityImageAsset> = []
@@ -40,7 +40,7 @@ const ListItem = ({ input }: Props) => {
         </div>
       </div>
       {images.length > 0 && (
-        <div className="images flex justify-center gap-sm">
+        <div className="images flex flex-nowrap  justify-center gap-sm">
           {images.map((image, i) => (
             <figure key={i}>
               <Image

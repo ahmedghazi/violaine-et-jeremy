@@ -16,9 +16,12 @@
       padding: toRem(5) 0 toRem(25);
       gap: toRem(5);
       height: toRem(130);
+      max-height: var(--custom-max-height);
+      opacity: var(--opacity, 0);
       figure,
       img {
         height: 100%;
+        flex-shrink: 0;
       }
     }
     img {

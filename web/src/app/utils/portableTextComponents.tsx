@@ -18,11 +18,11 @@ const components: PortableTextComponents = {
   types: {
     image: ({ value }) => {
       console.log(value)
-      return <img src={urlFor(value.asset)} />
+      return <img src={urlFor(value.asset)} alt="some image" />
     },
     textIcon: ({ value }) => {
       console.log(value)
-      return <img className="icon" src={urlFor(value.icon.asset)} />
+      return <img className="icon" src={urlFor(value.icon.asset)} alt="icon" />
     },
   },
 
