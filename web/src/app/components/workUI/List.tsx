@@ -25,54 +25,42 @@ const List = ({ input }: Props) => {
     // const sy: number = window.scrollY
     const threshold: number = (window.innerHeight / 4) * 3
     // console.log(sy)
-    const rows = ref.current?.querySelectorAll(".project")
+    const rows: HTMLDivElement[] | any =
+      ref.current?.querySelectorAll(".project .images")
     if (rows) {
-      rows.forEach((el) => {
+      rows.forEach((el: HTMLDivElement) => {
         let scale = 0
         const bounding: DOMRect = el.getBoundingClientRect()
-        const distanceToTop = bounding.top
+        const offset = 100
+        const variable = bounding.top * 0.1
+        const distanceToTop = bounding.top - offset
+        // console.log(bounding.top)
         if (distanceToTop < threshold) {
           scale = (100 - (distanceToTop * 100) / threshold) / 100
-          // console.log(distanceToTopPerc)
-          // scale = distanceToTopPerc
         }
 
-        const images: HTMLDivElement = el.querySelector(
-          ".images"
-        ) as HTMLDivElement
-        if (images) {
-          images.style.setProperty("--custom-max-height", `${130 * scale}px`)
-          images.style.setProperty("--opacity", "1")
-        }
+        el.style.setProperty("--custom-max-height", `${130 * scale}px`)
       })
     }
+    ref.current?.style.setProperty("--opacity", "1")
   }
 
   return (
-    <div className="list px-100 overflow-x-hidden" ref={ref}>
-      <div className="thead grid md:grid-cols-6 ">
+    <div className="list  overflow-x-hidden-" ref={ref}>
+      <div className="thead grid md:grid-cols-6 sticky top-100 px-200">
         {thead.map((th: string, i: number) => (
           <div key={i} className="th uppercase">
             {th}
           </div>
         ))}
       </div>
-      <div className="tbody serif">
+      <div className="tbody serif px-200 overflow-x-hidden">
         {input &&
           input.length > 0 &&
           input?.map((item, i: number) => (
             <ListItem key={item.slug?.current} input={item} />
           ))}
-        {input &&
-          input.length > 0 &&
-          input?.map((item, i: number) => (
-            <ListItem key={item.slug?.current} input={item} />
-          ))}
-        {input &&
-          input.length > 0 &&
-          input?.map((item, i: number) => (
-            <ListItem key={item.slug?.current} input={item} />
-          ))}
+        {/* <ListItem key={input[0].slug?.current} input={input[0]} /> */}
       </div>
     </div>
   )
