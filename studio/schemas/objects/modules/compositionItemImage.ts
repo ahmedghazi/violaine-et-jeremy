@@ -65,10 +65,11 @@ export default defineField({
       media: 'image',
     },
     prepare(selection) {
-      const {subtitle} = selection
+      const {subtitle, media} = selection
       return {
         title: 'Image',
         subtitle: subtitle,
+        media: media,
       }
     },
   },

@@ -243,7 +243,7 @@ export interface Work extends SanityDocument {
    *
    *
    */
-  // works?: Array<SanityKeyedReference<Project | Space>>;
+  // works?: Array<SanityKeyedReference<Project | Space>>
   works?: Array<Project | Space>
 }
 
@@ -284,9 +284,28 @@ export interface Project extends SanityDocument {
   look?: "default" | "sift"
 
   /**
+   * Image home — `image`
+   *
+   * visible on home page
+   */
+  imageHome?: {
+    _type: "image"
+    asset: SanityReference<SanityImageAsset>
+    crop?: SanityImageCrop
+    hotspot?: SanityImageHotspot
+  }
+
+  /**
+   * description — `string`
+   *
+   * visible on home page
+   */
+  description?: string
+
+  /**
    * Image Cover — `image`
    *
-   *
+   * visible on project page next to text
    */
   imageCover?: {
     _type: "image"
@@ -308,6 +327,13 @@ export interface Project extends SanityDocument {
    * default false
    */
   textIntroDrapeau?: boolean
+
+  /**
+   * job — `string`
+   *
+   * visible on home page
+   */
+  job?: string
 
   /**
    * year — `number`

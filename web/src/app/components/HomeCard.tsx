@@ -9,7 +9,7 @@ type Props = {
 const HomeCard = ({ input }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
 
-  const imageCover: SanityImageAsset | any = input.imageCover?.asset as
+  const imageHome: SanityImageAsset | any = input.imageHome?.asset as
     | SanityImageAsset
     | any
 
@@ -38,19 +38,19 @@ const HomeCard = ({ input }: Props) => {
           {_splitText()}
         </div>
       </div>
-      {imageCover && (
+      {imageHome && (
         <figure className="mb-1e">
           <Image
-            src={imageCover.url}
-            width={imageCover?.metadata?.dimensions.width}
-            height={imageCover?.metadata?.dimensions.height}
+            src={imageHome.url}
+            width={imageHome?.metadata?.dimensions.width}
+            height={imageHome?.metadata?.dimensions.height}
             alt={input.title || "alt"}
             sizes="100vw"
             style={{
               width: "100%",
               height: "auto",
             }}
-            blurDataURL={imageCover?.metadata?.lqip}
+            blurDataURL={imageHome?.metadata?.lqip}
             placeholder="blur"
           />
         </figure>
@@ -59,12 +59,10 @@ const HomeCard = ({ input }: Props) => {
         <div className="flex justify-center">
           <h2 className="">{input.title}</h2>{" "}
           <span className="sep-dash">—</span>
-          <em className="serif">{input.industry}</em>
+          <em className="serif">{input.job}</em>
         </div>
 
-        <p className="text-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, eum.
-        </p>
+        <p className="text-center italic">{input.description}</p>
       </div>
     </article>
   )

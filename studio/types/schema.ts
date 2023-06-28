@@ -15,7 +15,7 @@ import type {
   SanityImageDimensions,
   SanityImagePalette,
   SanityImagePaletteSwatch,
-} from 'sanity-codegen'
+} from "sanity-codegen";
 
 export type {
   SanityReference,
@@ -34,7 +34,7 @@ export type {
   SanityImageDimensions,
   SanityImagePalette,
   SanityImagePaletteSwatch,
-}
+};
 
 /**
  * Settings
@@ -42,42 +42,42 @@ export type {
  *
  */
 export interface Settings extends SanityDocument {
-  _type: 'settings'
+  _type: "settings";
 
   /**
    * SEO — `seo`
    *
    *
    */
-  seo?: Seo
+  seo?: Seo;
 
   /**
    * Navworks (works, design) — `array`
    *
    *
    */
-  navWorks?: Array<SanityKeyed<LinkInternal>>
+  navWorks?: Array<SanityKeyed<LinkInternal>>;
 
   /**
    * Nav studio (foundry, infos) — `array`
    *
    *
    */
-  navStudio?: Array<SanityKeyed<LinkInternal> | SanityKeyed<LinkExternal>>
+  navStudio?: Array<SanityKeyed<LinkInternal> | SanityKeyed<LinkExternal>>;
 
   /**
    * Footer Links — `array`
    *
    *
    */
-  links?: Array<SanityKeyed<TitleText>>
+  links?: Array<SanityKeyed<TitleText>>;
 
   /**
    * Message 404 — `blockContent`
    *
    *
    */
-  message404?: BlockContent
+  message404?: BlockContent;
 }
 
 /**
@@ -86,35 +86,35 @@ export interface Settings extends SanityDocument {
  *
  */
 export interface Home extends SanityDocument {
-  _type: 'home'
+  _type: "home";
 
   /**
    * seo — `seo`
    *
    *
    */
-  seo?: Seo
+  seo?: Seo;
 
   /**
    * video — `video`
    *
    *
    */
-  video?: Video
+  video?: Video;
 
   /**
    * text — `blockContent`
    *
    *
    */
-  text?: BlockContent
+  text?: BlockContent;
 
   /**
    * Projects featured — `array`
    *
    *
    */
-  projects?: Array<SanityKeyedReference<Project>>
+  projects?: Array<SanityKeyedReference<Project>>;
 }
 
 /**
@@ -123,35 +123,35 @@ export interface Home extends SanityDocument {
  *
  */
 export interface Infos extends SanityDocument {
-  _type: 'infos'
+  _type: "infos";
 
   /**
    * seo — `seo`
    *
    *
    */
-  seo?: Seo
+  seo?: Seo;
 
   /**
    * Title — `string`
    *
    *
    */
-  title?: string
+  title?: string;
 
   /**
    * Slug — `slug`
    *
    * URL based on the title (no space, or char other than a-z-0-9
    */
-  slug?: {_type: 'slug'; current: string}
+  slug?: { _type: "slug"; current: string };
 
   /**
    * Text — `blockContent`
    *
    *
    */
-  text?: BlockContent
+  text?: BlockContent;
 
   /**
    * Image — `image`
@@ -159,11 +159,11 @@ export interface Infos extends SanityDocument {
    *
    */
   image?: {
-    _type: 'image'
-    asset: SanityReference<SanityImageAsset>
-    crop?: SanityImageCrop
-    hotspot?: SanityImageHotspot
-  }
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
 }
 
 /**
@@ -172,28 +172,28 @@ export interface Infos extends SanityDocument {
  *
  */
 export interface PageModulaire extends SanityDocument {
-  _type: 'pageModulaire'
+  _type: "pageModulaire";
 
   /**
    * seo — `seo`
    *
    *
    */
-  seo?: Seo
+  seo?: Seo;
 
   /**
    * Title — `string`
    *
    * Le nom de la page
    */
-  title?: string
+  title?: string;
 
   /**
    * Slug — `slug`
    *
    * URL based on the title (no space, or char other than a-z-0-9
    */
-  slug?: {_type: 'slug'; current: string}
+  slug?: { _type: "slug"; current: string };
 
   /**
    * Modules — `array`
@@ -201,8 +201,11 @@ export interface PageModulaire extends SanityDocument {
    *
    */
   modules?: Array<
-    SanityKeyed<ImageUI> | SanityKeyed<TextUI> | SanityKeyed<TextImageUI> | SanityKeyed<EmbedUI>
-  >
+    | SanityKeyed<ImageUI>
+    | SanityKeyed<TextUI>
+    | SanityKeyed<TextImageUI>
+    | SanityKeyed<EmbedUI>
+  >;
 }
 
 /**
@@ -211,36 +214,35 @@ export interface PageModulaire extends SanityDocument {
  *
  */
 export interface Work extends SanityDocument {
-  _type: 'work'
+  _type: "work";
 
   /**
    * seo — `seo`
    *
    *
    */
-  seo?: Seo
+  seo?: Seo;
 
   /**
    * Title — `string`
    *
    *
    */
-  title?: string
+  title?: string;
 
   /**
    * Slug — `slug`
    *
    * URL based on the title (no space, or char other than a-z-0-9
    */
-  slug?: {_type: 'slug'; current: string}
+  slug?: { _type: "slug"; current: string };
 
   /**
    * works featured — `array`
    *
    *
    */
-  // works?: Array<SanityKeyedReference<Project | Space>>;
-  works?: Array<Project | Space>
+  works?: Array<SanityKeyedReference<Project | Space>>;
 }
 
 /**
@@ -249,110 +251,136 @@ export interface Work extends SanityDocument {
  *
  */
 export interface Project extends SanityDocument {
-  _type: 'project'
+  _type: "project";
 
   /**
    * seo — `seo`
    *
    *
    */
-  seo?: Seo
+  seo?: Seo;
 
   /**
    * Title — `string`
    *
    *
    */
-  title?: string
+  title?: string;
 
   /**
    * Slug — `slug`
    *
    * URL based on the title (no space, or char other than a-z-0-9
    */
-  slug?: {_type: 'slug'; current: string}
+  slug?: { _type: "slug"; current: string };
 
   /**
    * look — `string`
    *
    *
    */
-  look?: 'default' | 'sift'
+  look?: "default" | "sift";
+
+  /**
+   * Image home — `image`
+   *
+   * visible on home page
+   */
+  imageHome?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * description — `string`
+   *
+   * visible on home page
+   */
+  description?: string;
 
   /**
    * Image Cover — `image`
    *
-   *
+   * visible on project page next to text
    */
   imageCover?: {
-    _type: 'image'
-    asset: SanityReference<SanityImageAsset>
-    crop?: SanityImageCrop
-    hotspot?: SanityImageHotspot
-  }
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
 
   /**
    * Text — `blockContent`
    *
    *
    */
-  text?: BlockContent
+  text?: BlockContent;
 
   /**
    * textIntroDrapeau — `boolean`
    *
    * default false
    */
-  textIntroDrapeau?: boolean
+  textIntroDrapeau?: boolean;
+
+  /**
+   * job — `string`
+   *
+   * visible on home page
+   */
+  job?: string;
 
   /**
    * year — `number`
    *
    *
    */
-  year?: number
+  year?: number;
 
   /**
    * client — `string`
    *
    *
    */
-  client?: string
+  client?: string;
 
   /**
    * industry — `string`
    *
    *
    */
-  industry?: string
+  industry?: string;
 
   /**
    * location — `string`
    *
    *
    */
-  location?: string
+  location?: string;
 
   /**
    * credits — `array`
    *
    *
    */
-  credits?: Array<SanityKeyed<Contact>>
+  credits?: Array<SanityKeyed<Contact>>;
 
   /**
    * links — `array`
    *
    *
    */
-  links?: Array<SanityKeyed<Contact>>
+  links?: Array<SanityKeyed<Contact>>;
 
   /**
    * content — `array`
    *
    *
    */
-  content?: Array<SanityKeyed<CompositionUI>>
+  content?: Array<SanityKeyed<CompositionUI>>;
 }
 
 /**
@@ -361,35 +389,35 @@ export interface Project extends SanityDocument {
  *
  */
 export interface Space extends SanityDocument {
-  _type: 'space'
+  _type: "space";
 
   /**
    * seo — `seo`
    *
    *
    */
-  seo?: Seo
+  seo?: Seo;
 
   /**
    * Title — `string`
    *
    *
    */
-  title?: string
+  title?: string;
 
   /**
    * Slug — `slug`
    *
    * URL based on the title (no space, or char other than a-z-0-9
    */
-  slug?: {_type: 'slug'; current: string}
+  slug?: { _type: "slug"; current: string };
 
   /**
    * look — `string`
    *
    *
    */
-  look?: 'default' | 'sift'
+  look?: "default" | "sift";
 
   /**
    * Image Cover — `image`
@@ -397,74 +425,74 @@ export interface Space extends SanityDocument {
    *
    */
   imageCover?: {
-    _type: 'image'
-    asset: SanityReference<SanityImageAsset>
-    crop?: SanityImageCrop
-    hotspot?: SanityImageHotspot
-  }
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
 
   /**
    * Text — `blockContent`
    *
    *
    */
-  text?: BlockContent
+  text?: BlockContent;
 
   /**
    * textIntroDrapeau — `boolean`
    *
    * default false
    */
-  textIntroDrapeau?: boolean
+  textIntroDrapeau?: boolean;
 
   /**
    * year — `number`
    *
    *
    */
-  year?: number
+  year?: number;
 
   /**
    * client — `string`
    *
    *
    */
-  client?: string
+  client?: string;
 
   /**
    * industry — `string`
    *
    *
    */
-  industry?: string
+  industry?: string;
 
   /**
    * location — `string`
    *
    *
    */
-  location?: string
+  location?: string;
 
   /**
    * credits — `array`
    *
    *
    */
-  credits?: Array<SanityKeyed<Contact>>
+  credits?: Array<SanityKeyed<Contact>>;
 
   /**
    * links — `array`
    *
    *
    */
-  links?: Array<SanityKeyed<Contact>>
+  links?: Array<SanityKeyed<Contact>>;
 
   /**
    * content — `array`
    *
    *
    */
-  content?: Array<SanityKeyed<CompositionUI>>
+  content?: Array<SanityKeyed<CompositionUI>>;
 }
 
 /**
@@ -473,38 +501,38 @@ export interface Space extends SanityDocument {
  *
  */
 export interface Tag extends SanityDocument {
-  _type: 'tag'
+  _type: "tag";
 
   /**
    * Title — `string`
    *
    *
    */
-  title?: string
+  title?: string;
 
   /**
    * Description — `text`
    *
    *
    */
-  description?: string
+  description?: string;
 }
 
 export type Seo = {
-  _type: 'seo'
+  _type: "seo";
   /**
    * Meta title — `string`
    *
    *
    */
-  metaTitle?: string
+  metaTitle?: string;
 
   /**
    * Meta description — `string`
    *
    * ~155-160 characters
    */
-  metaDescription?: string
+  metaDescription?: string;
 
   /**
    * Meta image — `image`
@@ -512,62 +540,62 @@ export type Seo = {
    * jpg ou png au format paysage 2:1 (ex: 1200x600px)
    */
   metaImage?: {
-    _type: 'image'
-    asset: SanityReference<SanityImageAsset>
-    crop?: SanityImageCrop
-    hotspot?: SanityImageHotspot
-  }
-}
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+};
 
 export type LinkInternal = {
-  _type: 'linkInternal'
+  _type: "linkInternal";
   /**
    * label — `string`
    *
    *
    */
-  label?: string
+  label?: string;
 
   /**
    * link — `reference`
    *
    *
    */
-  link?: SanityReference<Work | Project | Infos | Home>
-}
+  link?: SanityReference<Work | Project | Infos | Home>;
+};
 
 export type LinkExternal = {
-  _type: 'linkExternal'
+  _type: "linkExternal";
   /**
    * Label — `string`
    *
    *
    */
-  label?: string
+  label?: string;
 
   /**
    * Link — `string`
    *
    *
    */
-  link?: string
-}
+  link?: string;
+};
 
 export type LinkIcon = {
-  _type: 'linkIcon'
+  _type: "linkIcon";
   /**
    * Label — `string`
    *
    *
    */
-  label?: string
+  label?: string;
 
   /**
    * Link — `url`
    *
    *
    */
-  link?: string
+  link?: string;
 
   /**
    * icon — `image`
@@ -575,48 +603,48 @@ export type LinkIcon = {
    *
    */
   icon?: {
-    _type: 'image'
-    asset: SanityReference<SanityImageAsset>
-    crop?: SanityImageCrop
-    hotspot?: SanityImageHotspot
-  }
-}
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+};
 
 export type BlockContent = Array<
   | SanityKeyed<SanityBlock>
   | SanityKeyed<TextIcon>
   | SanityKeyed<{
-      _type: 'image'
-      asset: SanityReference<SanityImageAsset>
-      crop?: SanityImageCrop
-      hotspot?: SanityImageHotspot
+      _type: "image";
+      asset: SanityReference<SanityImageAsset>;
+      crop?: SanityImageCrop;
+      hotspot?: SanityImageHotspot;
     }>
   | SanityKeyed<Embed>
->
+>;
 
 export type TextIcon = {
-  _type: 'textIcon'
+  _type: "textIcon";
   /**
    * icon — `image`
    *
    *
    */
   icon?: {
-    _type: 'image'
-    asset: SanityReference<SanityImageAsset>
-    crop?: SanityImageCrop
-    hotspot?: SanityImageHotspot
-  }
-}
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+};
 
 export type Video = {
-  _type: 'video'
+  _type: "video";
   /**
    * url — `url`
    *
    *
    */
-  url?: string
+  url?: string;
 
   /**
    * placeholder — `image`
@@ -624,96 +652,96 @@ export type Video = {
    *
    */
   placeholder?: {
-    _type: 'image'
-    asset: SanityReference<SanityImageAsset>
-    crop?: SanityImageCrop
-    hotspot?: SanityImageHotspot
-  }
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
 
   /**
    * Aspect Ratio — `string`
    *
    * width / height
    */
-  aspectRatio?: string
-}
+  aspectRatio?: string;
+};
 
 export type Embed = {
-  _type: 'embed'
+  _type: "embed";
   /**
    * url — `url`
    *
    *
    */
-  url?: string
-}
+  url?: string;
+};
 
 export type Contact = {
-  _type: 'contact'
+  _type: "contact";
   /**
    * label — `string`
    *
    *
    */
-  label?: string
+  label?: string;
 
   /**
    * value — `string`
    *
    *
    */
-  value?: string
+  value?: string;
 
   /**
    * url — `string`
    *
    *
    */
-  url?: string
-}
+  url?: string;
+};
 
 export type TitleText = {
-  _type: 'titleText'
+  _type: "titleText";
   /**
    * Title — `string`
    *
    *
    */
-  title?: string
+  title?: string;
 
   /**
    * text — `blockContent`
    *
    *
    */
-  text?: BlockContent
-}
+  text?: BlockContent;
+};
 
 export type TextUI = {
-  _type: 'textUI'
+  _type: "textUI";
   /**
    * title — `string`
    *
    * Module title (displayed only in the admin)
    */
-  title?: string
+  title?: string;
 
   /**
    * Text — `blockContent`
    *
    *
    */
-  text?: BlockContent
-}
+  text?: BlockContent;
+};
 
 export type ImageUI = {
-  _type: 'imageUI'
+  _type: "imageUI";
   /**
    * title — `string`
    *
    * Module title (displayed only in the admin)
    */
-  title?: string
+  title?: string;
 
   /**
    * Image — `image`
@@ -721,73 +749,73 @@ export type ImageUI = {
    *
    */
   image?: {
-    _type: 'image'
-    asset: SanityReference<SanityImageAsset>
-    crop?: SanityImageCrop
-    hotspot?: SanityImageHotspot
-  }
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
 
   /**
    * width — `number`
    *
    * in percentage (default 100)
    */
-  width?: number
+  width?: number;
 
   /**
    * Image caption — `text`
    *
    *
    */
-  caption?: string
-}
+  caption?: string;
+};
 
 export type ImagesUI = {
-  _type: 'imagesUI'
+  _type: "imagesUI";
   /**
    * title — `string`
    *
    * Module title (displayed only in the admin)
    */
-  title?: string
+  title?: string;
 
   /**
    * images — `array`
    *
    *
    */
-  images?: Array<SanityKeyed<ImageUI>>
+  images?: Array<SanityKeyed<ImageUI>>;
 
   /**
    * width — `number`
    *
    * in percentage
    */
-  idth?: number
+  idth?: number;
 
   /**
    * Image caption — `text`
    *
    *
    */
-  caption?: string
-}
+  caption?: string;
+};
 
 export type TextImageUI = {
-  _type: 'textImageUI'
+  _type: "textImageUI";
   /**
    * title — `string`
    *
    * Module title (displayed only in the admin)
    */
-  title?: string
+  title?: string;
 
   /**
    * Text — `blockContent`
    *
    *
    */
-  text?: BlockContent
+  text?: BlockContent;
 
   /**
    * image — `image`
@@ -795,52 +823,52 @@ export type TextImageUI = {
    *
    */
   image?: {
-    _type: 'image'
-    asset: SanityReference<SanityImageAsset>
-    crop?: SanityImageCrop
-    hotspot?: SanityImageHotspot
-  }
-}
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+};
 
 export type EmbedUI = {
-  _type: 'embedUI'
+  _type: "embedUI";
   /**
    * Title — `string`
    *
    * Title
    */
-  title?: string
+  title?: string;
 
   /**
    * video — `video`
    *
    *
    */
-  video?: Video
+  video?: Video;
 
   /**
    * width — `number`
    *
    * in percentage (default 100)
    */
-  width?: number
-}
+  width?: number;
+};
 
 export type CompositionItemImage = {
-  _type: 'compositionItemImage'
+  _type: "compositionItemImage";
   /**
    * title — `string`
    *
    * Module title
    */
-  title?: string
+  title?: string;
 
   /**
    * gridSize — `string`
    *
    *
    */
-  gridSize?: 'quarter' | 'third' | 'half' | 'full'
+  gridSize?: "quarter" | "third" | "half" | "full";
 
   /**
    * gridArea — `string`
@@ -848,15 +876,15 @@ export type CompositionItemImage = {
    *
    */
   gridArea?:
-    | '1/1/2/2'
-    | '1/2/2/3'
-    | '1/3/2/4'
-    | '1/1/2/2'
-    | '2/1/3/2'
-    | '1/2/2/2'
-    | '2/2/2/2'
-    | '1/1/3/2'
-    | '1/2/3/2'
+    | "1/1/2/2"
+    | "1/2/2/3"
+    | "1/3/2/4"
+    | "1/1/2/2"
+    | "2/1/3/2"
+    | "1/2/2/2"
+    | "2/2/2/2"
+    | "1/1/3/2"
+    | "1/2/3/2";
 
   /**
    * Image — `image`
@@ -864,28 +892,28 @@ export type CompositionItemImage = {
    *
    */
   image?: {
-    _type: 'image'
-    asset: SanityReference<SanityImageAsset>
-    crop?: SanityImageCrop
-    hotspot?: SanityImageHotspot
-  }
-}
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+};
 
 export type CompositionItemText = {
-  _type: 'compositionItemText'
+  _type: "compositionItemText";
   /**
    * title — `string`
    *
    * Module title
    */
-  title?: string
+  title?: string;
 
   /**
    * gridSize — `string`
    *
    *
    */
-  gridSize?: 'quarter' | 'third' | 'half' | 'full'
+  gridSize?: "quarter" | "third" | "half" | "full";
 
   /**
    * gridArea — `string`
@@ -893,46 +921,56 @@ export type CompositionItemText = {
    *
    */
   gridArea?:
-    | '1/1/2/2'
-    | '1/2/2/3'
-    | '1/3/2/4'
-    | '1/1/2/2'
-    | '2/1/3/2'
-    | '1/2/2/2'
-    | '2/2/2/2'
-    | '1/1/3/2'
-    | '1/2/3/2'
+    | "1/1/2/2"
+    | "1/2/2/3"
+    | "1/3/2/4"
+    | "1/1/2/2"
+    | "2/1/3/2"
+    | "1/2/2/2"
+    | "2/2/2/2"
+    | "1/1/3/2"
+    | "1/2/3/2";
 
   /**
    * text — `blockContent`
    *
    *
    */
-  text?: BlockContent
-}
+  text?: BlockContent;
+};
 
 export type CompositionUI = {
-  _type: 'compositionUI'
+  _type: "compositionUI";
   /**
    * title — `string`
    *
    * Module title
    */
-  title?: string
+  title?: string;
 
   /**
    * items — `array`
    *
    *
    */
-  items?: Array<SanityKeyed<CompositionItemImage> | SanityKeyed<CompositionItemText>>
+  items?: Array<
+    SanityKeyed<CompositionItemImage> | SanityKeyed<CompositionItemText>
+  >;
 
   /**
    * gutter — `boolean`
    *
    * Gouttière?
    */
-  gutter?: boolean
-}
+  gutter?: boolean;
+};
 
-export type Documents = Settings | Home | Infos | PageModulaire | Work | Project | Space | Tag
+export type Documents =
+  | Settings
+  | Home
+  | Infos
+  | PageModulaire
+  | Work
+  | Project
+  | Space
+  | Tag;

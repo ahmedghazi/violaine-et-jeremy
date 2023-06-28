@@ -69,9 +69,25 @@ export default defineType({
     }),
 
     defineField({
+      name: 'imageHome',
+      type: 'image',
+      title: 'Image home',
+      description: 'visible on home page',
+      group: 'editorial',
+    }),
+    defineField({
+      name: 'description',
+      title: 'description',
+      type: 'string',
+      description: 'visible on home page',
+      group: 'editorial',
+    }),
+
+    defineField({
       name: 'imageCover',
       type: 'image',
       title: 'Image Cover',
+      description: 'visible on project page next to text',
       group: 'editorial',
     }),
 
@@ -96,6 +112,12 @@ export default defineType({
     //   group: 'editorial',
     // }),
 
+    defineField({
+      name: 'job',
+      type: 'string',
+      description: 'visible on home page',
+      group: 'metas',
+    }),
     defineField({
       name: 'year',
       type: 'number',

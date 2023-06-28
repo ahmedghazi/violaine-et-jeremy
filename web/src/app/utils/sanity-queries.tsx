@@ -30,7 +30,9 @@ export async function getHome(): Promise<Home> {
         slug,
         title,
         industry,
-        imageCover {
+        job,
+        description,
+        imageHome {
             ...,
             asset->
           }

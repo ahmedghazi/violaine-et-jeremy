@@ -1,5 +1,6 @@
 import { PortableTextComponents } from "@portabletext/react"
 import { urlFor } from "./sanity-utils"
+import Image from "next/image"
 
 const components: PortableTextComponents = {
   // block(props) {
@@ -21,8 +22,16 @@ const components: PortableTextComponents = {
       return <img src={urlFor(value.asset)} alt="some image" />
     },
     textIcon: ({ value }) => {
-      console.log(value)
-      return <img className="icon" src={urlFor(value.icon.asset)} alt="icon" />
+      console.log(urlFor(value.icon.asset, 60))
+      // return <img className="icon" src={urlFor(value.icon.asset)} alt="icon" />
+      return (
+        <Image
+          src={urlFor(value.icon.asset, 60)}
+          alt="icon"
+          width={60}
+          height={60}
+        />
+      )
     },
   },
 
