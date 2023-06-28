@@ -1,4 +1,4 @@
-.modules {
+.work-content article.look-default .modules {
   // background-color: red;
   // --quarter-w: calc((100vw - (var(--space-md) * 2)) / 2);
   // --quarter-h: calc((100vh - (var(--header-height) * 2)) / 2);
@@ -39,5 +39,12 @@
         max-width: 4em;
       }
     }
+
+    // &:has(.is-half) {
+    //   max-height: unset;
+    //   img {
+    //     height: auto !important;
+    //   }
+    // }
   }
 }

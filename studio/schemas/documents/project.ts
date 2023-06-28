@@ -63,7 +63,7 @@ export default defineType({
       options: {
         list: [
           {title: 'Default', value: 'default'},
-          {title: 'scroll image, sticky text', value: 'sift'},
+          {title: 'Split scroll (sticky text)', value: 'split'},
         ],
       },
     }),

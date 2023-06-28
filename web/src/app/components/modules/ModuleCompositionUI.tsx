@@ -22,7 +22,7 @@ const ItemWrapper = ({ gridSize, gridArea, children }: ItemWrapperProps) => {
   return (
     <div
       className={clsx(
-        "composition--item ",
+        "composition--item",
         `is-${gridSize}`,
         gridSize === "full" ? "col-span-2 row-span-2" : ""
       )}
@@ -67,12 +67,7 @@ const ModuleCompositionUI = ({ input }: Props) => {
 
   return (
     <section
-      className={clsx(
-        "composition grid",
-
-        `grid `,
-        gutter ? "gap-md" : ""
-      )}
+      className={clsx("composition grid", gutter ? "gap-md" : "", input.title)}
     >
       {_renderModules()}
     </section>

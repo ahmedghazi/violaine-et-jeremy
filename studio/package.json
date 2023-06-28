@@ -10,7 +10,8 @@
     "build": "sanity build",
     "deploy-graphql": "sanity graphql deploy",
     "deploy": "sanity deploy",
-    "codegen": "npx sanity-codegen"
+    "codegen": "npx sanity-codegen",
+    "d": "yarn run deploy-graphql && yarn run deploy && yarn run codegen"
   },
   "keywords": [
     "sanity"

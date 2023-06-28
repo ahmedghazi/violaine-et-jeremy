@@ -511,7 +511,7 @@ $sass-burger-add-vendor-prefixes: true !default;
     position: fixed;
     top: $top;
     height: 1px;
-    width: 100vw;
+    width: 100%;
     background: $color;
   }
 }

@@ -114,7 +114,7 @@ export interface Home extends SanityDocument {
    *
    *
    */
-  // projects?: Array<SanityKeyedReference<Project>>
+  // projects?: Array<SanityKeyedReference<Project>>;
   projects?: Array<Project>
 }
 
@@ -243,7 +243,7 @@ export interface Work extends SanityDocument {
    *
    *
    */
-  // works?: Array<SanityKeyedReference<Project | Space>>
+  // works?: Array<SanityKeyedReference<Project | Space>>;
   works?: Array<Project | Space>
 }
 
@@ -281,7 +281,7 @@ export interface Project extends SanityDocument {
    *
    *
    */
-  look?: "default" | "sift"
+  look?: "default" | "split"
 
   /**
    * Image home — `image`

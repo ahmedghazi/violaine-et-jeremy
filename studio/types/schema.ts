@@ -279,7 +279,7 @@ export interface Project extends SanityDocument {
    *
    *
    */
-  look?: "default" | "sift";
+  look?: "default" | "split";
 
   /**
    * Image home — `image`

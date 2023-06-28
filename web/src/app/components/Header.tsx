@@ -35,12 +35,6 @@ export default async function Header() {
               {navStudio?.map((item: LinkInternal | LinkExternal) => (
                 <li key={item.label}>
                   {item._type === "linkInternal" && (
-                    // <button
-                    //   id="btn--toggle-infos"
-                    //   onClick={() => setIsInfos(true)}
-                    // >
-                    //   {item.label}
-                    // </button>
                     <Infos infosData={infos} settingsData={settings} />
                   )}
                   {item._type === "linkExternal" && (

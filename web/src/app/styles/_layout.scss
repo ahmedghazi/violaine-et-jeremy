@@ -7,7 +7,10 @@ body {
   color: var(--color-primary);
   // transition: background-color 0.4s var(--cubic), color 0.4s var(--cubic);
   // @include debugFiletY(calc(21px));
-  // @include debugFiletY(50vh);
+
+  // @include debugOutline(var(--space-md));
+}
+#page {
 }
 main {
   min-height: var(--app-height, 100vh);
@@ -19,6 +22,8 @@ main {
   //   pointer-events: all;
   // }
   min-height: 200vh;
+  // @include debugFiletY(50vh);
+  // @include debugFiletX(50%);
 }
 
 .h-app {

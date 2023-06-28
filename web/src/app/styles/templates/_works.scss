@@ -1,2 +1,16 @@
-.page-work {
+.page-works {
+  .header {
+    span {
+      vertical-align: sub;
+    }
+    button {
+      position: absolute;
+      &:first-child {
+        right: var(--space-sm);
+      }
+      &:last-child {
+        left: var(--space-sm);
+      }
+    }
+  }
 }

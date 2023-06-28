@@ -1,0 +1,20 @@
+.page-project {
+  .look-split {
+    .text-intro {
+      .inner {
+        position: sticky;
+        top: var(--space-100);
+        height: calc(100vh - var(--space-200));
+
+        display: grid;
+        align-items: center;
+        .text {
+        }
+      }
+    }
+    .composition {
+      margin-bottom: var(--space-md);
+      display: block;
+    }
+  }
+}
