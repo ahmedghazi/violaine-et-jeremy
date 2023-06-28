@@ -3,6 +3,7 @@ import { _linkResolver } from "@/app/utils/utils"
 import Link from "next/link"
 import React, { useEffect, useRef } from "react"
 import ListItem from "./ListItem"
+import clsx from "clsx"
 
 type Props = {
   input: (Project | Space)[]
@@ -10,7 +11,7 @@ type Props = {
 
 const List = ({ input }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
-  const thead = ["year", "client", "project", "industry", "location", ""]
+  const thead = ["year", "client", "project", "industry", "location", "link"]
 
   useEffect(() => {
     _onScroll()
@@ -48,12 +49,14 @@ const List = ({ input }: Props) => {
 
   return (
     <div className="list  overflow-x-hidden-" ref={ref}>
-      <div className="thead grid md:grid-cols-6 sticky top-100 px-200">
-        {thead.map((th: string, i: number) => (
-          <div key={i} className="th uppercase">
-            {th}
-          </div>
-        ))}
+      <div className="thead  sticky top-100 px-200">
+        <div className="tr flex">
+          {thead.map((th: string, i: number) => (
+            <div key={i} className={clsx("th uppercase", `col-${th}`)}>
+              {th}
+            </div>
+          ))}
+        </div>
       </div>
       <div className="tbody serif px-200 overflow-x-hidden">
         {input &&

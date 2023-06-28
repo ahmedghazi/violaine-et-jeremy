@@ -21,24 +21,22 @@ export async function getSettings(): Promise<Settings> {
   )
 }
 
-// export async function getHome(): Promise<Home> {
-//   const client = createClient({
-//     projectId: process.env.SANITY_PROJECT_ID,
-//     dataset: "production",
-//     apiVersion: "2023-03-04",
-//     useCdn: true,
-//   })
-
-//   return client.fetch(groq`*[_type == "home"][0]`)
-// }
-
-export async function getHome(slug: string): Promise<Home> {
+export async function getHome(): Promise<Home> {
   return client.fetch(
-    groq`*[_type == "home" && slug.current == $slug][0]{
-      ...
-
+    groq`*[_type == "home"][0]{
+      ...,
+      projects[]->{
+        _type,
+        slug,
+        title,
+        industry,
+        imageCover {
+            ...,
+            asset->
+          }
+        }
     }`,
-    { slug: slug }
+    {}
   )
 }
 

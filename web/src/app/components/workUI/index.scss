@@ -7,11 +7,24 @@
   }
   .list {
     opacity: var(--opacity, 0);
-    .thead {
-      margin-bottom: 1em;
-    }
-    .td {
+    .tr {
       padding-bottom: 1em;
+      // justify-content: space-between;
+    }
+    .col-year {
+      width: toRem(135);
+    }
+    .col-client {
+      width: toRem(250);
+    }
+    .col-project {
+      width: toRem(250);
+    }
+    .col-industry {
+      width: toRem(155);
+    }
+    .col-location {
+      width: toRem(155);
     }
     .images {
       gap: toRem(5);

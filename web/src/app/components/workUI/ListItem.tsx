@@ -29,12 +29,12 @@ const ListItem = ({ input }: Props) => {
 
   return (
     <div className="project  ">
-      <div className="td grid md:grid-cols-6">
-        <div>{input.year}</div>
-        <div>{input.client}</div>
-        <h2>{input.title}</h2>
-        <div>{input.industry}</div>
-        <div>{input.location}</div>
+      <div className="tr flex">
+        <div className="col-year">{input.year}</div>
+        <div className="col-client">{input.client}</div>
+        <h2 className="col-project">{input.title}</h2>
+        <div className="col-industry">{input.industry}</div>
+        <div className="col-location">{input.location}</div>
         <div className="link italic lowercase">
           <Link href={_linkResolver(input)}>see more</Link>
         </div>

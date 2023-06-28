@@ -114,7 +114,8 @@ export interface Home extends SanityDocument {
    *
    *
    */
-  projects?: Array<SanityKeyedReference<Project>>
+  // projects?: Array<SanityKeyedReference<Project>>
+  projects?: Array<Project>
 }
 
 /**
