@@ -7,7 +7,7 @@
   --textAboutHeight: 3 * (var(--text-lg) * 1.2);
   .feed {
     padding-top: calc(100px + var(--textAboutHeight));
-    overflow-x: hidden;
+    // overflow-x: hidden;
   }
   .home-card {
     position: relative;
@@ -19,16 +19,19 @@
     }
     .industry {
       line-height: 1.2;
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateY(-1.2em) translateX(-50%);
-
+      // position: absolute;
+      // top: 0;
+      // left: 50%;
+      // transform: translateY(-1.2em) translateX(-50%);
+      display: flex;
+      justify-content: center;
       .inner {
         min-width: var(--min-width);
-        // max-width: calc(100vw - calc(toRem(18)));
+        max-width: calc(100vw - calc(var(--space-md) * 2));
+        max-width: 100%;
         width: var(--width);
-        transition: width 0.2s ease-out;
+        // transition: width 0.2s ease-out;
+        // border: 1px solid;
       }
     }
     img {

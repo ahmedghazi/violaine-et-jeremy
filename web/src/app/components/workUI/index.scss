@@ -7,24 +7,50 @@
   }
   .list {
     opacity: var(--opacity, 0);
+    // .project {
+    //   border-left: 1px solid red;
+    //   border-right: 1px solid red;
+    // }
     .tr {
       padding-bottom: 1em;
       // justify-content: space-between;
+      .th:not(.col-link),
+      .td:not(.col-link) {
+        padding-right: 1em;
+        // background-color: red;
+      }
     }
+    //1004
     .col-year {
-      width: toRem(135);
+      // width: toRem(135);
+      //97+38 135
+      width: calc(135 * 100% / 1004);
     }
     .col-client {
-      width: toRem(250);
+      // width: toRem(250);
+      //125+125 250
+      width: calc(250 * 100% / 1004);
     }
     .col-project {
-      width: toRem(250);
+      // width: toRem(250);
+      //138+112 250
+      width: calc(250 * 100% / 1004);
     }
     .col-industry {
-      width: toRem(155);
+      // width: toRem(155);
+      //70+85 155
+      width: calc(155 * 100% / 1004);
     }
     .col-location {
-      width: toRem(155);
+      // width: toRem(155);
+      //71+84 155
+      width: calc(135 * 100% / 1004);
+    }
+    .col-link {
+      text-align: right;
+      // width: toRem(59);
+      padding-right: 0;
+      flex-grow: 1;
     }
     .images {
       gap: toRem(5);

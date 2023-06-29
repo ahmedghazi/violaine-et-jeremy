@@ -9,9 +9,17 @@ header {
   // button {
   //   pointer-events: all;
   // }
-  .site-name,
-  .nav-studio li:first-child {
-    margin-right: 4.66666667rem;
+  // .site-name,
+  // .nav-studio li:first-child {
+  //   // margin-right: 4.66666667rem;
+  // }
+  .col-item {
+    width: var(--space-100);
+  }
+  .nav-studio li:last-child {
+    text-align: right;
+  }
+  .nav-works {
   }
   .nav-works {
     &:hover {
@@ -27,5 +35,26 @@ header {
     }
   }
   @media all and (max-width: $md) {
+  }
+}
+
+#page:has(.page-works) {
+  header {
+    .nav-works {
+      ul {
+        position: initial;
+        display: flex;
+        padding-left: var(--space-md);
+        li:not(:has(.is-current-page)) {
+          display: none;
+        }
+      }
+      &:hover ul {
+        padding-left: 0;
+        li {
+          display: block;
+        }
+      }
+    }
   }
 }

@@ -11,7 +11,7 @@ type Props = {
 
 const List = ({ input }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
-  const thead = ["year", "client", "project", "industry", "location", "link"]
+  const thead = ["year", "client", "project", "industry", "location", ""]
 
   useEffect(() => {
     _onScroll()
@@ -49,7 +49,7 @@ const List = ({ input }: Props) => {
 
   return (
     <div className="list  overflow-x-hidden-" ref={ref}>
-      <div className="thead  sticky top-100 px-200">
+      <div className="thead  sticky top-100 px-100 md:px-200">
         <div className="tr flex">
           {thead.map((th: string, i: number) => (
             <div key={i} className={clsx("th uppercase", `col-${th}`)}>
@@ -58,7 +58,7 @@ const List = ({ input }: Props) => {
           ))}
         </div>
       </div>
-      <div className="tbody serif px-200 overflow-x-hidden">
+      <div className="tbody serif px-100 md:px-200 overflow-x-hidden">
         {input &&
           input.length > 0 &&
           input?.map((item, i: number) => (

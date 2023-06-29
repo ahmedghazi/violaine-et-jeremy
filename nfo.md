@@ -6,10 +6,16 @@ Le BAD :) https://xd.adobe.com/view/d564ad4f-22c4-46ac-8bf7-be201733a4e8-8037/?f
 - # modules image
 - # infos / studio
 - # project credits/links
-- footer
-- svg footer
 - sanity preview
 - tuto video
+- compo images ne crop que les quart quart demie
+- # grille lists proj,
+- grille footer contacts
+- glyphs anagram footer
+- video intro
+- repasse callages typos, detail
+- # home industry max with 100vw
+- # callage header
 
 # dev day #2
 

@@ -30,12 +30,12 @@ const ListItem = ({ input }: Props) => {
   return (
     <div className="project  ">
       <div className="tr flex">
-        <div className="col-year">{input.year}</div>
-        <div className="col-client">{input.client}</div>
-        <h2 className="col-project">{input.title}</h2>
-        <div className="col-industry">{input.industry}</div>
-        <div className="col-location">{input.location}</div>
-        <div className="link italic lowercase">
+        <div className="td col-year">{input.year}</div>
+        <div className="td col-client">{input.client}</div>
+        <h2 className="td col-project">{input.title}</h2>
+        <div className="td col-industry">{input.industry}</div>
+        <div className="td col-location">{input.location}</div>
+        <div className="td col-link italic lowercase">
           <Link href={_linkResolver(input)}>see more</Link>
         </div>
       </div>

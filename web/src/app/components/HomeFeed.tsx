@@ -31,7 +31,7 @@ const HomeFeed = ({ input }: Props) => {
       const bounding: DOMRect = el.getBoundingClientRect()
       const distanceToTop = bounding.top - threshold
       if (distanceToTop >= 0) {
-        width = distanceToTop * 20
+        width = distanceToTop * 3
       }
       // console.log(width)
 
