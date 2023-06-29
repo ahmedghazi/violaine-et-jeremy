@@ -4,16 +4,16 @@ import Image from "next/image"
 
 const components: PortableTextComponents = {
   // block(props) {
-  //   // console.log(props);
+  //   console.log(props)
   //   switch (props.node?.style) {
   //     case "h2":
-  //       return <h2>{props.children}</h2>;
+  //       return <h2>{props.children}</h2>
   //     case "text-lg":
-  //       return <p className='text-lg'>{props.children}</p>;
+  //       return <p className="text-lg">{props.children}</p>
   //     case "text-xl":
-  //       return <p className='text-xl'>{props.children}</p>;
+  //       return <p className="text-xl">{props.children}</p>
   //     default:
-  //       return <p>{props.children}</p>;
+  //       return <p>{props.children}</p>
   //   }
   // },
   types: {
@@ -46,6 +46,10 @@ const components: PortableTextComponents = {
         </a>
       )
     },
+    align_center: ({ children, value }) => (
+      <p className="text-center">{children}</p>
+    ),
+    "text-lg": ({ children, value }) => <p className="text-lg">{children}</p>,
   },
 }
 

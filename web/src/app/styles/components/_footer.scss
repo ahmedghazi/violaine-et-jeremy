@@ -2,6 +2,7 @@ footer {
   width: 100%;
   padding-left: toRem(18);
   padding-right: toRem(18);
+  // @include debugOutline(toRem(18));
   p {
     font-family: var(--font-primary);
   }

@@ -1,6 +1,7 @@
 import { PortableText } from "@portabletext/react"
 import React from "react"
 import { TitleText } from "../types/schema"
+import Mailchimp from "./ui/Mailchimp"
 
 type Props = {
   input:
@@ -21,6 +22,15 @@ const Contacts = ({ input }: Props) => {
           </div>
         </div>
       ))}
+      <Mailchimp
+        action="https://buildingparis.us5.list-manage.com/subscribe/post?u=8a8b23b6691303402d5307d91&amp;id=0c368c3d5e"
+        field={{
+          name: "EMAIL",
+          placeholder: "",
+          type: "email",
+          required: true,
+        }}
+      />
     </div>
   )
 }

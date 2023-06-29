@@ -18,7 +18,7 @@ const HomeCard = ({ input }: Props) => {
   useEffect(() => {
     const bounding: DOMRect | any = ref.current?.getBoundingClientRect()
     if (ref.current) {
-      console.log(ref.current)
+      // console.log(ref.current)
       ref.current.style.setProperty("--min-width", `${bounding.width}px`)
       ref.current.classList.add("is-ready-to-animate")
     }

@@ -25,7 +25,7 @@ const HomeFeed = ({ input }: Props) => {
       "article:has(.is-ready-to-animate)"
     )
     if (!items) return
-    console.log(typeof items)
+    // console.log(typeof items)
     items?.forEach((el) => {
       let width = 0
       const bounding: DOMRect = el.getBoundingClientRect()
