@@ -96,6 +96,12 @@ export default defineType({
     // }),
 
     defineField({
+      name: 'job',
+      type: 'string',
+      description: 'visible on home page',
+      group: 'metas',
+    }),
+    defineField({
       name: 'year',
       type: 'number',
       group: 'metas',
@@ -143,6 +149,21 @@ export default defineType({
       of: [
         {
           type: 'compositionUI',
+        },
+      ],
+      group: 'editorial',
+    }),
+    defineField({
+      name: 'related',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            {
+              type: 'space',
+            },
+          ],
         },
       ],
       group: 'editorial',

@@ -27,11 +27,18 @@
         // width: auto;
       }
       .text-intro {
-        padding-top: calc(50vh - (var(--space-100)));
+        // padding-top: calc(50vh - (var(--space-100)));
+        height: calc(100vh - var(--space-200));
+        width: 100%;
+        display: grid;
+        align-items: center;
+        justify-content: center;
       }
       .text {
-        transform: translateY(-45%);
         text-align: left;
+        max-width: toRem(460);
+        // transform: translateY(-45%);
+        // text-align: left;
       }
     }
   }
@@ -61,6 +68,31 @@
     }
     h4 {
       margin-bottom: 1em;
+    }
+  }
+  .nav-related {
+    &:hover {
+      .label {
+        opacity: 0;
+      }
+      .title {
+        opacity: 1;
+      }
+    }
+    .title {
+      opacity: 0;
+      position: absolute;
+      white-space: nowrap;
+    }
+    .nav-related--link {
+      &.prev .title {
+        left: 0;
+      }
+    }
+    .nav-related--link {
+      &.next .title {
+        right: 0;
+      }
     }
   }
 }

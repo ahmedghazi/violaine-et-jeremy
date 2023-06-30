@@ -1,0 +1,17 @@
+.contacts {
+  text-align: left;
+  @media all and (min-width: $md) {
+    .footer-item:nth-child(1) {
+      width: calc((100 + 190) * 100% / 1404);
+    }
+    .footer-item:nth-child(2) {
+      width: calc(368 * 100% / 1404);
+    }
+    .footer-item:nth-child(3) {
+      width: calc(356 * 100% / 1404);
+    }
+    .footer-item:nth-child(4) {
+      width: calc(390 * 100% / 1404);
+    }
+  }
+}

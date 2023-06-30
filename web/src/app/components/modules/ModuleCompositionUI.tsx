@@ -3,7 +3,7 @@ import {
   CompositionItemText,
   CompositionUI,
 } from "@/app/types/schema"
-import React, { Children, ReactNode } from "react"
+import React, { Children, ReactNode, useMemo } from "react"
 import ImageUI from "./ImageUI"
 import TexteUI from "./TexteUI"
 import clsx from "clsx"
@@ -55,7 +55,15 @@ const ModuleCompositionUI = ({ input }: Props) => {
               </ItemWrapper>
             ) : null
           case "compositionItemText":
-            return <TexteUI key={i} input={module} />
+            return (
+              <ItemWrapper
+                key={i}
+                gridArea={module.gridArea || ""}
+                gridSize={module.gridSize || ""}
+              >
+                <TexteUI key={i} input={module} />
+              </ItemWrapper>
+            )
 
           default:
             return null
@@ -65,9 +73,21 @@ const ModuleCompositionUI = ({ input }: Props) => {
     return _modules
   }
 
+  //prevent image crop
+  const isHalfHalf = useMemo(() => {
+    const gridSizes = items?.map((el) => el.gridSize)
+    const notHalfHalf = gridSizes?.filter((el) => el !== "half")
+    return notHalfHalf && notHalfHalf?.length === 0
+  }, [])
+
   return (
     <section
-      className={clsx("composition grid", gutter ? "gap-md" : "", input.title)}
+      className={clsx(
+        "composition grid",
+        gutter ? "gap-md" : "",
+        input.title,
+        isHalfHalf ? "is-half-half" : ""
+      )}
     >
       {_renderModules()}
     </section>

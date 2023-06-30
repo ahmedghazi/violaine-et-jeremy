@@ -3,6 +3,7 @@ import { Project, SanityImageAsset } from "../types/schema"
 import Image from "next/image"
 import Link from "next/link"
 import { _linkResolver } from "../utils/utils"
+import WorkTitle from "./WorkTitle"
 
 type Props = {
   input: Project
@@ -59,11 +60,12 @@ const HomeCard = ({ input }: Props) => {
           </figure>
         )}
         <div className="header  text-sm">
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center">
             <h2 className="">{input.title}</h2>{" "}
             <span className="sep-dash">—</span>
             <em className="serif">{input.job}</em>
-          </div>
+          </div> */}
+          <WorkTitle title={input.title || ""} subtitle={input.job} />
 
           <p className="text-center italic">{input.description}</p>
         </div>

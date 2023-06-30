@@ -8,10 +8,17 @@ footer {
   }
   .inner {
     padding-top: toRem(18);
-    padding-bottom: toRem(18);
+    padding-bottom: toRem(6);
     border-top: var(--border);
   }
   h5 {
     margin-bottom: 0.6rem;
+  }
+  .logos img {
+    width: 100%;
+    height: auto;
+  }
+  .copy {
+    line-height: 1.4;
   }
 }

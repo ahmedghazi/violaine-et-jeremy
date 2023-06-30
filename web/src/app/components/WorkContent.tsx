@@ -4,10 +4,17 @@ import { PortableText } from "@portabletext/react"
 import Image from "next/image"
 import clsx from "clsx"
 import Modules from "./modules"
-import CreditsItem from "./ui/CreditsItem"
+// import CreditsItem from "./ui/CreditsItem"
+import WorkCredits from "./WorkCredits"
+import Link from "next/link"
+import { _linkResolver } from "../utils/utils"
+import { urlFor } from "../utils/sanity-utils"
+import WorkTitle from "./WorkTitle"
+import { ProjectExtend, SpaceExtend } from "../types/extend"
+import WorkRelated from "./WorkRelated"
 
 type Props = {
-  input: Project | Space
+  input: ProjectExtend | SpaceExtend
 }
 type ArticleProps = {
   input: Project | Space
@@ -46,8 +53,10 @@ const ArticleWorkDefault = ({ input, imageCover }: ArticleProps) => (
           </figure>
         )}
         <div className="text-intro">
-          <div className="text py-md">
-            {input.text && <PortableText value={input.text} />}
+          <div className="inner">
+            <div className="text">
+              {input.text && <PortableText value={input.text} />}
+            </div>
           </div>
         </div>
       </div>
@@ -94,8 +103,9 @@ const ArticleWorkSplit = ({ input, imageCover }: ArticleProps) => (
 
 const ArticleWork = ({ input }: Props) => {
   const imageCover: SanityImageAsset | any = input.imageCover?.asset
+  // console.log(input.related)
   return (
-    <div className="work-content mb-200">
+    <div className="work-content mb-50">
       {input.look !== "split" && (
         <ArticleWorkDefault input={input} imageCover={imageCover} />
       )}
@@ -104,60 +114,14 @@ const ArticleWork = ({ input }: Props) => {
         <ArticleWorkSplit input={input} imageCover={imageCover} />
       )}
 
-      {input.links &&
-        input.links.length > 0 &&
+      {input.credits &&
+        input.credits.length > 0 &&
         input.links &&
         input.links?.length > 0 && (
-          <section className="credits b-t py-50">
-            {input.credits && input.credits?.length > 0 && (
-              <div className="grid gap-md md:grid-cols-4 mb-50">
-                <h4>CREDITS</h4>
-                <ul className="credits grid gap-md md:grid-cols-3 col-span-3">
-                  {input.credits?.map((item, i) => (
-                    <li key={i}>
-                      <CreditsItem
-                        label={item.label || ""}
-                        value={item.value || ""}
-                        url={item.url || ""}
-                        labelSerif={true}
-                        valueSerif={false}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {input.links && input.links?.length > 0 && (
-              <div className="grid gap-md md:grid-cols-4">
-                <h4>LINKS</h4>
-                <ul className="credits grid gap-md md:grid-cols-3 col-span-3">
-                  {input.links?.map((item, i) => (
-                    <li key={i}>
-                      <CreditsItem
-                        label={item.label || ""}
-                        value={item.value || ""}
-                        url={item.url || ""}
-                        labelSerif={false}
-                        valueSerif={true}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </section>
+          <WorkCredits credits={input.credits} links={input.links} />
         )}
 
-      <section className="related">
-        <nav className="nav-related flex justify-between serif italic">
-          <div className="prev ">prev</div>
-          <div className="next">next</div>
-        </nav>
-        <h4 className="text-center">Other projects in the same style</h4>
-        card project card project card project
-      </section>
-      {/* <pre>{JSON.stringify(input.credits, null, 2)}</pre>*/}
-      {/* <pre>{JSON.stringify(input.links, null, 2)}</pre> */}
+      <WorkRelated input={input} />
     </div>
   )
 }

@@ -1,17 +1,24 @@
 import React from "react"
 import { getSettings } from "../utils/sanity-queries"
-import { PortableText } from "@portabletext/react"
 import Contacts from "./Contacts"
+import FooterLogos from "./FooterLogos"
 
 const Footer = async () => {
   // export default async function Footer() {
   const settings = await getSettings()
-  const { links } = settings
+  const { links, logos } = settings
   return (
     <footer className="">
       <div className="inner">
-        <Contacts input={links} />
-        <div className="absolute right-0 bottom-0 text-sm">
+        <div className="mb-100">
+          <Contacts input={links} />
+        </div>
+        {logos && (
+          <div className="">
+            <FooterLogos input={logos} />
+          </div>
+        )}
+        <div className="absolute right-0 bottom-0 text-xs copy">
           © {new Date().getFullYear()}
         </div>
       </div>

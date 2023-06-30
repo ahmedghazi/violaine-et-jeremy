@@ -3,6 +3,7 @@ import { Space } from "@/app/types/schema"
 import { Metadata } from "next"
 import { getSpace } from "@/app/utils/sanity-queries"
 import WorkContent from "@/app/components/WorkContent"
+import { ProjectExtend, SpaceExtend } from "@/app/types/extend"
 
 type Props = {
   params: {
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const SpaceSingle: ({ params }: Props) => Promise<JSX.Element> = async ({
   params,
 }) => {
-  const data = await getSpace(params.slug)
+  const data: SpaceExtend = (await getSpace(params.slug)) as SpaceExtend
 
   return (
     <div className="project-single px-md">

@@ -1,6 +1,15 @@
+export declare type SanityReference<T> = T & {
+  _ref: string
+}
+
+export declare type SanityKeyedReference<T> = T & {
+  _key: string
+  _ref: string
+}
+
 import type {
-  SanityReference,
-  SanityKeyedReference,
+  // SanityReference,
+  // SanityKeyedReference,
   SanityAsset,
   SanityImage,
   SanityFile,
@@ -18,8 +27,8 @@ import type {
 } from "sanity-codegen"
 
 export type {
-  SanityReference,
-  SanityKeyedReference,
+  // SanityReference,
+  // SanityKeyedReference,
   SanityAsset,
   SanityImage,
   SanityFile,
@@ -73,6 +82,20 @@ export interface Settings extends SanityDocument {
   links?: Array<SanityKeyed<TitleText>>
 
   /**
+   * Logos glyphs — `array`
+   *
+   *
+   */
+  logos?: Array<
+    SanityKeyed<{
+      _type: "image"
+      asset: SanityReference<SanityImageAsset>
+      crop?: SanityImageCrop
+      hotspot?: SanityImageHotspot
+    }>
+  >
+
+  /**
    * Message 404 — `blockContent`
    *
    *
@@ -114,8 +137,7 @@ export interface Home extends SanityDocument {
    *
    *
    */
-  // projects?: Array<SanityKeyedReference<Project>>;
-  projects?: Array<Project>
+  projects?: Array<SanityKeyedReference<Project>>
 }
 
 /**
@@ -197,16 +219,11 @@ export interface PageModulaire extends SanityDocument {
   slug?: { _type: "slug"; current: string }
 
   /**
-   * Modules — `array`
+   * content — `array`
    *
    *
    */
-  modules?: Array<
-    | SanityKeyed<ImageUI>
-    | SanityKeyed<TextUI>
-    | SanityKeyed<TextImageUI>
-    | SanityKeyed<EmbedUI>
-  >
+  content?: Array<SanityKeyed<CompositionUI>>
 }
 
 /**
@@ -243,8 +260,7 @@ export interface Work extends SanityDocument {
    *
    *
    */
-  // works?: Array<SanityKeyedReference<Project | Space>>;
-  works?: Array<Project | Space>
+  works?: Array<SanityKeyedReference<Project | Space>>
 }
 
 /**
@@ -383,6 +399,13 @@ export interface Project extends SanityDocument {
    *
    */
   content?: Array<SanityKeyed<CompositionUI>>
+
+  /**
+   * related — `array`
+   *
+   *
+   */
+  related?: Array<SanityKeyedReference<Project>>
 }
 
 /**
@@ -448,6 +471,13 @@ export interface Space extends SanityDocument {
   textIntroDrapeau?: boolean
 
   /**
+   * job — `string`
+   *
+   * visible on home page
+   */
+  job?: string
+
+  /**
    * year — `number`
    *
    *
@@ -495,6 +525,13 @@ export interface Space extends SanityDocument {
    *
    */
   content?: Array<SanityKeyed<CompositionUI>>
+
+  /**
+   * related — `array`
+   *
+   *
+   */
+  related?: Array<SanityKeyedReference<Space>>
 }
 
 /**

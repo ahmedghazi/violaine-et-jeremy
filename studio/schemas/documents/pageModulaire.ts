@@ -66,10 +66,13 @@ export default defineType({
     }),
 
     defineField({
-      name: 'modules',
-      title: 'Modules',
+      name: 'content',
       type: 'array',
-      of: modulesList,
+      of: [
+        {
+          type: 'compositionUI',
+        },
+      ],
       group: 'editorial',
     }),
   ],

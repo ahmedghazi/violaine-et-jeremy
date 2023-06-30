@@ -16,14 +16,17 @@ const components: PortableTextComponents = {
   //       return <p>{props.children}</p>
   //   }
   // },
+  block: {
+    h2: ({ children }) => <h2>{children}</h2>,
+    "text-lg": ({ children }) => <p className="text-lg">{children}</p>,
+    // align_center: ({ children }) => <p className="text-center">{children}</p>,
+  },
   types: {
-    image: ({ value }) => {
-      console.log(value)
-      return <img src={urlFor(value.asset)} alt="some image" />
-    },
+    // image: ({ value }) => {
+    //   console.log(value)
+    //   return <img src={urlFor(value.asset)} alt="some image" />
+    // },
     textIcon: ({ value }) => {
-      console.log(urlFor(value.icon.asset, 60))
-      // return <img className="icon" src={urlFor(value.icon.asset)} alt="icon" />
       return (
         <Image
           src={urlFor(value.icon.asset, 60)}
@@ -46,10 +49,15 @@ const components: PortableTextComponents = {
         </a>
       )
     },
+    align_left: ({ children, value }) => (
+      <p className="text-left">{children}</p>
+    ),
     align_center: ({ children, value }) => (
       <p className="text-center">{children}</p>
     ),
-    "text-lg": ({ children, value }) => <p className="text-lg">{children}</p>,
+    align_right: ({ children, value }) => (
+      <p className="text-right">{children}</p>
+    ),
   },
 }
 

@@ -13,3 +13,14 @@
     gtag('config', 'GA-288355952', {"send_page_view":false});
   }
 </script>
+
+# types error SanityReference
+
+export declare type SanityReference<T> = T & {
+\_ref: string
+}
+
+export declare type SanityKeyedReference<T> = T & {
+\_key: string
+\_ref: string
+}

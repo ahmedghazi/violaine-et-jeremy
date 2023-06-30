@@ -80,6 +80,16 @@ export default defineType({
       of: [{type: 'titleText'}],
       group: 'footer',
     }),
+    defineField({
+      name: 'logos',
+      title: 'Logos glyphs',
+      type: 'array',
+      of: [{type: 'image'}],
+      options: {
+        layout: 'grid',
+      },
+      group: 'footer',
+    }),
 
     defineField({
       name: 'message404',

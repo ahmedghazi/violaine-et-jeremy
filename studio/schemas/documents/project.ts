@@ -170,6 +170,21 @@ export default defineType({
       ],
       group: 'editorial',
     }),
+    defineField({
+      name: 'related',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            {
+              type: 'project',
+            },
+          ],
+        },
+      ],
+      group: 'editorial',
+    }),
   ],
 
   preview: {

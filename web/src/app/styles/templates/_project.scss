@@ -1,4 +1,20 @@
 .page-project {
+  .header {
+    span {
+      vertical-align: baseline;
+    }
+    h1,
+    em {
+      position: absolute;
+      white-space: nowrap;
+      &:first-child {
+        right: var(--space-sm);
+      }
+      &:last-child {
+        left: var(--space-sm);
+      }
+    }
+  }
   .look-split {
     .text-intro {
       .inner {
@@ -8,7 +24,9 @@
 
         display: grid;
         align-items: center;
+        justify-content: center;
         .text {
+          max-width: toRem(460);
         }
       }
     }

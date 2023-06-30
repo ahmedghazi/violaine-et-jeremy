@@ -33,9 +33,9 @@ export default defineType({
         {title: 'H2', value: 'h2'},
         {title: 'H3', value: 'h3'},
         {title: 'H4', value: 'h4'},
-        {title: 'Quote', value: 'blockquote'},
-        {title: 'Texte L', value: 'text-lg'},
-        {title: 'Texte XL', value: 'text-xl'},
+        // {title: 'Quote', value: 'blockquote'},
+        {title: 'Texte L', value: 'text_lg'},
+        {title: 'Texte XL', value: 'text_xl'},
       ],
       lists: [{title: 'Bullet', value: 'bullet'}],
       // Marks let you mark up inline text in the block editor.
@@ -48,7 +48,6 @@ export default defineType({
           {
             title: 'Align Left',
             value: 'align_left',
-
             icon: FiAlignLeft,
             component: AlignLeftRender,
           },

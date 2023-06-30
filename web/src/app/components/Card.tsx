@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Project, SanityImageAsset, Space } from "../types/schema"
 import Link from "next/link"
 import { _linkResolver } from "../utils/utils"
+import WorkTitle from "./WorkTitle"
 
 type Props = {
   image?: SanityImageAsset | any
@@ -47,18 +48,21 @@ const Card = ({ link, image, title, industry }: Props) => {
                       image.metadata.palette.lightVibrant.background,
                   }}
                 ></div>
-                <div className="flex justify-center text-lg">
-                  <div className="h2">{title}</div>{" "}
+                <div className=" text-lg">
+                  {/* <div className="h2">{title}</div>{" "}
                   <span className="sep-dash">—</span>
-                  <em className="serif">{industry}</em>
+                  <em className="serif">{industry}</em> */}
+
+                  <WorkTitle title={title || ""} subtitle={industry} />
                 </div>
               </div>
             </figure>
           ))
         }
-        <div className="header  flex justify-center text-sm">
-          <h2 className="">{title}</h2> <span className="sep-dash">—</span>
-          <em className="serif">{industry}</em>
+        <div className="header   text-sm">
+          {/* <h2 className="">{title}</h2> <span className="sep-dash">—</span>
+          <em className="serif">{industry}</em> */}
+          <WorkTitle title={title || ""} subtitle={industry} />
         </div>
       </Link>
     </article>

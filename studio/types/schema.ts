@@ -73,6 +73,20 @@ export interface Settings extends SanityDocument {
   links?: Array<SanityKeyed<TitleText>>;
 
   /**
+   * Logos glyphs — `array`
+   *
+   *
+   */
+  logos?: Array<
+    SanityKeyed<{
+      _type: "image";
+      asset: SanityReference<SanityImageAsset>;
+      crop?: SanityImageCrop;
+      hotspot?: SanityImageHotspot;
+    }>
+  >;
+
+  /**
    * Message 404 — `blockContent`
    *
    *
@@ -196,16 +210,11 @@ export interface PageModulaire extends SanityDocument {
   slug?: { _type: "slug"; current: string };
 
   /**
-   * Modules — `array`
+   * content — `array`
    *
    *
    */
-  modules?: Array<
-    | SanityKeyed<ImageUI>
-    | SanityKeyed<TextUI>
-    | SanityKeyed<TextImageUI>
-    | SanityKeyed<EmbedUI>
-  >;
+  content?: Array<SanityKeyed<CompositionUI>>;
 }
 
 /**
@@ -381,6 +390,13 @@ export interface Project extends SanityDocument {
    *
    */
   content?: Array<SanityKeyed<CompositionUI>>;
+
+  /**
+   * related — `array`
+   *
+   *
+   */
+  related?: Array<SanityKeyedReference<Project>>;
 }
 
 /**
@@ -446,6 +462,13 @@ export interface Space extends SanityDocument {
   textIntroDrapeau?: boolean;
 
   /**
+   * job — `string`
+   *
+   * visible on home page
+   */
+  job?: string;
+
+  /**
    * year — `number`
    *
    *
@@ -493,6 +516,13 @@ export interface Space extends SanityDocument {
    *
    */
   content?: Array<SanityKeyed<CompositionUI>>;
+
+  /**
+   * related — `array`
+   *
+   *
+   */
+  related?: Array<SanityKeyedReference<Space>>;
 }
 
 /**

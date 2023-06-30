@@ -16,6 +16,10 @@ export async function getSettings(): Promise<Settings> {
           ...,
           link->
         }
+      },
+      logos[]{
+        ...,
+        asset->
       }
     }`
   )
@@ -117,7 +121,24 @@ export async function getProject(slug: string): Promise<Project> {
             asset->
           }
         }
-      }
+      },
+      related[]->{
+        ...,
+        _type,
+        slug,
+        title,
+        job,
+        imageCover {
+          ...,
+          asset->
+        },
+      },
+      'prev': *[
+        _type == 'project' && !(_id in path('drafts.**')) && _createdAt < ^._createdAt
+      ]{_type, slug, title} | order(_createdAt desc)[0],
+      'next': *[
+        _type == 'project' && !(_id in path('drafts.**')) && _createdAt > ^._createdAt
+      ]{_type, slug, title} | order(_createdAt desc)[0]
     }`,
     { slug: slug }
   )
