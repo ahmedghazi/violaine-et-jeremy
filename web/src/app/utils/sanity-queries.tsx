@@ -1,9 +1,12 @@
 import { groq } from "next-sanity"
 import { client } from "./sanity-client"
 import { Home, Infos, Project, Settings, Space, Work } from "../types/schema"
+import { cache } from "react"
+
+const clientFetch = cache(client.fetch.bind(client))
 
 export async function getSettings(): Promise<Settings> {
-  return client.fetch(
+  return clientFetch(
     groq`*[_type == "settings"][0]{
       ...,
       navWorks[]{..., link->},
@@ -26,7 +29,7 @@ export async function getSettings(): Promise<Settings> {
 }
 
 export async function getHome(): Promise<Home> {
-  return client.fetch(
+  return clientFetch(
     groq`*[_type == "home"][0]{
       ...,
       projects[]->{
@@ -47,7 +50,7 @@ export async function getHome(): Promise<Home> {
 }
 
 export async function getInfos(): Promise<Infos> {
-  return client.fetch(
+  return clientFetch(
     groq`*[_type == "infos"][0]{...,
       image {
         ...,
@@ -59,7 +62,7 @@ export async function getInfos(): Promise<Infos> {
 }
 
 export async function getWorks(slug: string): Promise<Work> {
-  return client.fetch(
+  return clientFetch(
     groq`*[_type == "work" && slug.current == $slug][0]{
       ...,
       works[]->{
@@ -84,7 +87,7 @@ export async function getWorks(slug: string): Promise<Work> {
 }
 
 export async function getAllWorks(type: string): Promise<(Project | Space)[]> {
-  return client.fetch(
+  return clientFetch(
     groq`*[_type == $type ]{
       ...,
       imageCover {
@@ -106,7 +109,7 @@ export async function getAllWorks(type: string): Promise<(Project | Space)[]> {
 }
 
 export async function getProject(slug: string): Promise<Project> {
-  return client.fetch(
+  return clientFetch(
     groq`*[_type == "project" && slug.current == $slug][0]{
       ...,
       imageCover {
@@ -145,7 +148,7 @@ export async function getProject(slug: string): Promise<Project> {
 }
 
 export async function getSpace(slug: string): Promise<Space> {
-  return client.fetch(
+  return clientFetch(
     groq`*[_type == "space" && slug.current == $slug][0]{
       ...,
       imageCover {

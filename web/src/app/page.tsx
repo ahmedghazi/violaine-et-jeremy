@@ -37,7 +37,6 @@ const Home: ({ params }: PageProps) => Promise<JSX.Element> = async ({
         </div>
       )}
       {data.projects && <HomeFeed input={data.projects} />}
-      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
     </div>
   )
 }

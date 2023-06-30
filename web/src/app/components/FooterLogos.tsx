@@ -28,7 +28,7 @@ const FooterLogos = ({ input }: Props) => {
 
   const _randomLogo = () => {
     const rand = Math.round(Math.random() * input.length - 1)
-    setLogo(input[rand].asset)
+    if (input[rand]) setLogo(input[rand].asset)
   }
 
   return (
