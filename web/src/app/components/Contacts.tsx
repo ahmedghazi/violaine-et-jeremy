@@ -13,7 +13,7 @@ type Props = {
 
 const Contacts = ({ input }: Props) => {
   return (
-    <div className="contacts flex">
+    <div className="contacts flex flex-wrap">
       {input?.map((item, i) => (
         <div className="footer-item" key={i}>
           <h5>{item.title}</h5>

@@ -9,7 +9,7 @@ type Props = {
 
 const Grid = ({ input }: Props) => {
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-md px-md">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-md px-sm md:px-md">
       {input &&
         input.length > 0 &&
         input?.map((item, i: number) => (

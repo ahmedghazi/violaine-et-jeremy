@@ -21,4 +21,10 @@ footer {
   .copy {
     line-height: 1.4;
   }
+
+  @media all and (max-width: $md) {
+    .footer-item {
+      width: 50%;
+    }
+  }
 }

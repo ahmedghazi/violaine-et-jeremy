@@ -3,6 +3,9 @@
   // background-color: red;
   .about {
     letter-spacing: toRem(0.6);
+    @media all and (max-width: $sm) {
+      top: toRem(90);
+    }
   }
   --textAboutHeight: 3 * (var(--text-lg) * 1.2);
   .feed {
@@ -14,8 +17,14 @@
     opacity: 0;
     transition: opacity 0.2s;
     margin-bottom: calc(200px + var(--textAboutHeight));
+    @media all and (max-width: $sm) {
+      margin-bottom: toRem(190);
+    }
     &.can-display-images {
       opacity: 1;
+    }
+    .header {
+      line-height: 1.2;
     }
     .industry {
       line-height: 1.2;
@@ -41,5 +50,11 @@
   }
 }
 
-// @media all and (max-width: $sm) {
-// }
+@media all and (max-width: $sm) {
+  main:has(.page-home) {
+    padding-top: toRem(190);
+    .feed {
+      padding-top: 0;
+    }
+  }
+}

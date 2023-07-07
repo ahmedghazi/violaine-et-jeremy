@@ -41,7 +41,7 @@ const HomeFeed = ({ input }: Props) => {
   }
 
   return (
-    <div className="feed pt-200-" ref={ref}>
+    <div className="feed " ref={ref}>
       {input.map((item, i: number) => (
         <HomeCard input={item} key={item.slug?.current} />
       ))}

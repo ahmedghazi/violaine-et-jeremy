@@ -14,4 +14,13 @@
       width: calc(390 * 100% / 1404);
     }
   }
+  @media all and (max-width: $md) {
+    .footer-item {
+      width: 50%;
+      margin-bottom: 1em;
+      &:last-child {
+        width: 100%;
+      }
+    }
+  }
 }

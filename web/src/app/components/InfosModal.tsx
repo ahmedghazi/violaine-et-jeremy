@@ -12,7 +12,7 @@ type Props = {
   infosData: Infos
   settingsData: Settings
 }
-export default function Infos({ infosData, settingsData }: Props) {
+export default function InfosModal({ infosData, settingsData }: Props) {
   const image: SanityImageAsset | any = infosData.image?.asset
 
   const { links } = settingsData
@@ -39,21 +39,11 @@ export default function Infos({ infosData, settingsData }: Props) {
         {active ? "CLOSE" : "INFOS"}
       </button>
       <div className={clsx("infos-overlay", active ? "is-active" : "")}>
-        {/* <div className="links grid grid-cols-2 md:grid-cols-4 gap-md ">
-          {links?.map((item) => (
-            <div className="links-item" key={item._key}>
-              <h5>{item.title}</h5>
-              <div className="text-sm sans">
-                {item?.text && <PortableText value={item?.text} />}
-              </div>
-            </div>
-          ))}
-        </div> */}
-        <div className="links">
+        <div className="links ">
           <Contacts input={links} />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-md">
+        <div className="grid md:grid-cols-2 gap-md ">
           <div className="grid-item">
             {infosData.text && <PortableText value={infosData.text} />}
           </div>

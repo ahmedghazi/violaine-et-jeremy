@@ -43,7 +43,7 @@ const HomeCard = ({ input }: Props) => {
           </div>
         </div>
         {imageHome && (
-          <figure className="mb-1e">
+          <figure className="mb-sm md:mb-1e">
             <Image
               src={imageHome.url}
               width={imageHome?.metadata?.dimensions.width}
@@ -59,12 +59,7 @@ const HomeCard = ({ input }: Props) => {
             />
           </figure>
         )}
-        <div className="header  text-sm">
-          {/* <div className="flex justify-center">
-            <h2 className="">{input.title}</h2>{" "}
-            <span className="sep-dash">—</span>
-            <em className="serif">{input.job}</em>
-          </div> */}
+        <div className="header text-xs md:text-sm">
           <WorkTitle title={input.title || ""} subtitle={input.job} />
 
           <p className="text-center italic">{input.description}</p>

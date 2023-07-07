@@ -1,5 +1,8 @@
 .card {
   margin-bottom: 5.46rem;
+  @media all and (max-width: $sm) {
+    margin-bottom: toRem(40);
+  }
   &:hover {
     .header {
       opacity: 0;
@@ -34,6 +37,9 @@
     overflow: hidden;
     aspect-ratio: 0.77868852 / 1;
     margin-bottom: 1rem;
+    @media all and (max-width: $sm) {
+      margin-bottom: var(--space-sm);
+    }
     img {
       height: 100% !important;
       width: 100%;

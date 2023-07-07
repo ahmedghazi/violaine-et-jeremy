@@ -2,65 +2,76 @@
 
 .work-ui {
   padding-bottom: toRem(100);
-  .header {
-    // transform: translateX(-2.1em);
-  }
   .list {
     opacity: var(--opacity, 0);
-    // .project {
-    //   border-left: 1px solid red;
-    //   border-right: 1px solid red;
-    // }
+
     .tr {
       padding-bottom: 1em;
-      // justify-content: space-between;
       .th:not(.col-link),
       .td:not(.col-link) {
         padding-right: 1em;
-        // background-color: red;
       }
     }
     //1004
     .col-year {
-      // width: toRem(135);
       //97+38 135
       width: calc(135 * 100% / 1004);
+      @media all and (max-width: 1080px) {
+        width: calc(43 * 100% / 300);
+      }
     }
     .col-client {
-      // width: toRem(250);
       //125+125 250
       width: calc(250 * 100% / 1004);
+      @media all and (max-width: 1080px) {
+        display: none;
+      }
     }
     .col-project {
-      // width: toRem(250);
       //138+112 250
       width: calc(250 * 100% / 1004);
+      // @media all and (max-width: 1080px) {
+      //   width: calc(193 * 100% / 300);
+      //   flex-grow: 1;
+      // }
+    }
+    .col-client-project {
+      @media all and (max-width: 1080px) {
+        width: calc(193 * 100% / 300);
+        flex-grow: 1;
+      }
     }
     .col-industry {
-      // width: toRem(155);
       //70+85 155
       width: calc(155 * 100% / 1004);
+      @media all and (max-width: 1080px) {
+        width: calc(60 * 100% / 300);
+        // text-align: right;
+        padding: 0 !important;
+      }
     }
     .col-location {
-      // width: toRem(155);
       //71+84 155
       width: calc(135 * 100% / 1004);
+      @media all and (max-width: 1080px) {
+        display: none;
+      }
     }
     .col-link {
       text-align: right;
-      // width: toRem(59);
       padding-right: 0;
       flex-grow: 1;
+      @media all and (max-width: 1080px) {
+        display: none;
+      }
     }
     .images {
       gap: toRem(5);
-      // height: toRem(130);
       max-height: toRem(130);
       height: var(--custom-max-height);
 
       max-width: 100vw;
       transition: padding-top 0.2s, padding-bottom 0.2s;
-      // overflow-x: hidden;
       &.can-display-images {
         padding: toRem(5) 0 toRem(25);
       }

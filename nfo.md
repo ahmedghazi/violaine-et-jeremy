@@ -17,6 +17,11 @@ Le BAD :) https://xd.adobe.com/view/d564ad4f-22c4-46ac-8bf7-be201733a4e8-8037/?f
 - # home industry max with 100vw
 - # callage header
 
+# Mobile
+
+- header, menu
+- typos
+
 # 3rd party cache
 
 https://swizec.com/blog/async-react-with-nextjs-13/

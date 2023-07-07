@@ -48,20 +48,14 @@ const Card = ({ link, image, title, industry }: Props) => {
                       image.metadata.palette.lightVibrant.background,
                   }}
                 ></div>
-                <div className=" text-lg">
-                  {/* <div className="h2">{title}</div>{" "}
-                  <span className="sep-dash">—</span>
-                  <em className="serif">{industry}</em> */}
-
+                <div className="text-sm md:text-lg">
                   <WorkTitle title={title || ""} subtitle={industry} />
                 </div>
               </div>
             </figure>
           ))
         }
-        <div className="header   text-sm">
-          {/* <h2 className="">{title}</h2> <span className="sep-dash">—</span>
-          <em className="serif">{industry}</em> */}
+        <div className="header text-sm">
           <WorkTitle title={title || ""} subtitle={industry} />
         </div>
       </Link>
