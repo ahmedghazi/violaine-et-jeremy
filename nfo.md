@@ -19,10 +19,10 @@ Le BAD :) https://xd.adobe.com/view/d564ad4f-22c4-46ac-8bf7-be201733a4e8-8037/?f
 
 # Mobile
 
-- header, menu
+- # header, menu
 - typos
 - infos scrollable
-- pb burger
+- # pb burger
 
 # 3rd party cache
 

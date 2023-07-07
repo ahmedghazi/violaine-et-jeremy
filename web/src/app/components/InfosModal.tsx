@@ -39,30 +39,32 @@ export default function InfosModal({ infosData, settingsData }: Props) {
         {active ? "CLOSE" : "INFOS"}
       </button>
       <div className={clsx("infos-overlay", active ? "is-active" : "")}>
-        <div className="links ">
-          <Contacts input={links} />
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-md ">
-          <div className="grid-item">
-            {infosData.text && <PortableText value={infosData.text} />}
+        <div className="inner scrollable">
+          <div className="links ">
+            <Contacts input={links} />
           </div>
-          <div className="grid-item">
-            {image && (
-              <Image
-                src={image.url}
-                width={image?.metadata?.dimensions.width}
-                height={image?.metadata?.dimensions.height}
-                alt={infosData.title || "alt"}
-                sizes="100vw"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                }}
-                blurDataURL={image?.metadata?.lqip} //automatically provided
-                placeholder="blur" // Optional blur-up while loading
-              />
-            )}
+
+          <div className="grid md:grid-cols-2 gap-md ">
+            <div className="grid-item">
+              {infosData.text && <PortableText value={infosData.text} />}
+            </div>
+            <div className="grid-item">
+              {image && (
+                <Image
+                  src={image.url}
+                  width={image?.metadata?.dimensions.width}
+                  height={image?.metadata?.dimensions.height}
+                  alt={infosData.title || "alt"}
+                  sizes="100vw"
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                  }}
+                  blurDataURL={image?.metadata?.lqip} //automatically provided
+                  placeholder="blur" // Optional blur-up while loading
+                />
+              )}
+            </div>
           </div>
         </div>
       </div>

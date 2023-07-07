@@ -75,6 +75,7 @@ const ModuleCompositionUI = ({ input }: Props) => {
 
   //prevent image crop
   const isHalfHalf = useMemo(() => {
+    if (items?.length !== 2) return false
     const gridSizes = items?.map((el) => el.gridSize)
     const notHalfHalf = gridSizes?.filter((el) => el !== "half")
     return notHalfHalf && notHalfHalf?.length === 0
@@ -84,7 +85,7 @@ const ModuleCompositionUI = ({ input }: Props) => {
     <section
       className={clsx(
         "composition grid",
-        gutter ? "gap-md" : "",
+        gutter ? "gap-sm md:gap-md" : "",
         input.title,
         isHalfHalf ? "is-half-half" : ""
       )}

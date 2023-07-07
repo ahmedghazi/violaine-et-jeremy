@@ -1,5 +1,9 @@
 .page-works {
   .header {
+    top: toRem(50);
+    @media all and (min-width: $md) {
+      top: 0;
+    }
     span {
       vertical-align: sub;
     }

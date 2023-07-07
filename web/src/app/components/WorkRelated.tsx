@@ -12,7 +12,7 @@ type Props = {
 
 const WorkRelated = ({ input }: Props) => {
   return (
-    <section className="related">
+    <section className="related ">
       <nav className="nav-related flex justify-between serif italic">
         {input.prev && (
           <div className="nav-related--link prev ">
@@ -32,7 +32,7 @@ const WorkRelated = ({ input }: Props) => {
         )}
       </nav>
       {input.related && input.related?.length > 0 && (
-        <div className="related-cards">
+        <div className="related-cards -mx-sm md:mx-0">
           <h4 className="text-center text-sm mb-1re">
             Other projects in the same style
           </h4>
@@ -51,7 +51,7 @@ const WorkRelated = ({ input }: Props) => {
                       alt={item.title || "project"}
                     />
                   )}
-                  <div className="text-center pt-1re">
+                  <div className="header text-center pt-1re">
                     <WorkTitle title={item.title || ""} subtitle={item.job} />
                   </div>
                 </Link>

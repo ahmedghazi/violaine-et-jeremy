@@ -16,6 +16,7 @@ module.exports = {
       0: 0,
       "1e": "1em",
       "1re": "1rem",
+      xs: "var(--space-xs)",
       sm: "var(--space-sm)",
       md: "var(--space-md)",
       lg: "var(--space-lg)",

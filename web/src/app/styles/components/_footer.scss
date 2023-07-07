@@ -23,6 +23,8 @@ footer {
   }
 
   @media all and (max-width: $md) {
+    padding-left: toRem(10);
+    padding-right: toRem(10);
     .footer-item {
       width: 50%;
     }

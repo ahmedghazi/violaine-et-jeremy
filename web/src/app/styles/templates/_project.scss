@@ -1,5 +1,9 @@
 .page-project {
   .header {
+    top: toRem(50);
+    @media all and (min-width: $md) {
+      top: 0;
+    }
     span {
       vertical-align: baseline;
     }
@@ -18,15 +22,17 @@
   .look-split {
     .text-intro {
       .inner {
-        position: sticky;
-        top: var(--space-100);
-        height: calc(100vh - var(--space-200));
+        @media all and (min-width: $md) {
+          position: sticky;
+          top: var(--space-100);
+          height: calc(100vh - var(--space-200));
 
-        display: grid;
-        align-items: center;
-        justify-content: center;
-        .text {
-          max-width: toRem(460);
+          display: grid;
+          align-items: center;
+          justify-content: center;
+          .text {
+            max-width: toRem(460);
+          }
         }
       }
     }

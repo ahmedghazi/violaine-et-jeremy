@@ -15,10 +15,15 @@
     &.is-drapeau {
       .flex {
         gap: var(--space-md);
+        @media all and (max-width: $md) {
+          flex-direction: column;
+        }
       }
       figure {
-        flex-basis: calc(50vw - var(--space-md) * 2);
-        min-width: calc(50vw - var(--space-md) * 2);
+        @media all and (min-width: $md) {
+          flex-basis: calc(50vw - var(--space-md) * 2);
+          min-width: calc(50vw - var(--space-md) * 2);
+        }
       }
       img {
         width: 100% !important;
@@ -27,23 +32,34 @@
         // width: auto;
       }
       .text-intro {
-        // padding-top: calc(50vh - (var(--space-100)));
-        height: calc(100vh - var(--space-200));
-        width: 100%;
-        display: grid;
-        align-items: center;
-        justify-content: center;
+        @media all and (min-width: $md) {
+          height: calc(100vh - var(--space-200));
+          width: 100%;
+          display: grid;
+          align-items: center;
+          justify-content: center;
+        }
       }
       .text {
         text-align: left;
         max-width: toRem(460);
-        // transform: translateY(-45%);
-        // text-align: left;
+
+        @media all and (max-width: $md) {
+          text-align: center;
+        }
       }
     }
   }
-  .credits > .grid:first-child {
-    margin-bottom: 2.33333333em;
+  .credits {
+    & > .grid:first-child {
+      margin-bottom: 2.33333333em;
+    }
+    @media all and (max-width: $md) {
+      padding: toRem(37) 0;
+      & > .grid:first-child {
+        margin-bottom: toRem(17);
+      }
+    }
   }
   .related {
     border-top: var(--border);
@@ -64,10 +80,31 @@
       right: 0;
     }
     nav {
-      margin-bottom: toRem(25);
+      margin-bottom: toRem(15);
+      @media all and (min-width: $md) {
+        margin-bottom: toRem(25);
+      }
     }
     h4 {
-      margin-bottom: 1em;
+      margin-bottom: toRem(10);
+      @media all and (min-width: $md) {
+        margin-bottom: 1em;
+      }
+    }
+    .related-cards {
+      @media all and (max-width: $md) {
+        .flex {
+          flex-wrap: nowrap;
+          overflow-x: auto;
+        }
+        article.item {
+          flex-basis: 100px;
+          flex-shrink: 0;
+        }
+        .header {
+          display: none;
+        }
+      }
     }
   }
   .nav-related {
