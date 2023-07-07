@@ -31,7 +31,7 @@ const HeaderSM = ({ titleAlt, settings, infos }: Props) => {
         </Link>
         <button
           className={clsx(
-            "btn-menu-toggle text-center w-1/3",
+            "btn-menu-toggle text-center w-1/3 pointer-events-auto z-10",
             open ? "is-open" : ""
           )}
           onClick={() => setOpen(!open)}
