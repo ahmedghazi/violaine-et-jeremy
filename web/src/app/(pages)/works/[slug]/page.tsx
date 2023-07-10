@@ -37,7 +37,6 @@ const Page: ({ params }: PageProps) => Promise<JSX.Element> = async ({
   return (
     <div className="page-works ">
       <WorkUI worksImages={worksImages} worksTexts={worksTexts} />
-      {/* <pre>{JSON.stringify(worksTexts, null, 2)}</pre> */}
     </div>
   )
 }
