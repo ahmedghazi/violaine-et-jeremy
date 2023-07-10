@@ -4,6 +4,7 @@ import { Project, SanityImageAsset, Space } from "../types/schema"
 import Link from "next/link"
 import { _linkResolver } from "../utils/utils"
 import WorkTitle from "./WorkTitle"
+import ImageColorPalette from "./ui/ImageColorPalette"
 
 type Props = {
   image?: SanityImageAsset | any
@@ -15,7 +16,6 @@ type Props = {
 const Card = ({ link, image, title, industry }: Props) => {
   return (
     <article className="card">
-      {/* <pre className="absolute z-50">{JSON.stringify(image, null, 2)}</pre> */}
       <Link href={link}>
         {
           (image &&= (
@@ -30,17 +30,10 @@ const Card = ({ link, image, title, industry }: Props) => {
                   width: "100%",
                   height: "auto",
                 }}
-                blurDataURL={image?.metadata?.lqip} //automatically provided
-                placeholder="blur" // Optional blur-up while loading
+                blurDataURL={image?.metadata?.lqip}
+                placeholder="blur"
               />
-              <div
-                className="overlay absolute inset-0 center-x-y"
-                style={{
-                  // backgroundColor:
-                  //   image.metadata.palette.lightVibrant.background,
-                  color: image.metadata.palette.muted.background,
-                }}
-              >
+              <div className="overlay absolute inset-0 center-x-y">
                 <div
                   className="bg-blurred"
                   style={{
@@ -48,10 +41,19 @@ const Card = ({ link, image, title, industry }: Props) => {
                       image.metadata.palette.lightVibrant.background,
                   }}
                 ></div>
-                <div className="text-sm md:text-lg">
+                <div
+                  className="text-sm md:text-lg"
+                  style={{
+                    color: image.metadata.palette.darkVibrant.background,
+                  }}
+                >
                   <WorkTitle title={title || ""} subtitle={industry} />
                 </div>
               </div>
+
+              {/* <div className="absolute top-0 left-0 w-full">
+                <ImageColorPalette image={image} />
+              </div> */}
             </figure>
           ))
         }

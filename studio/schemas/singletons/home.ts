@@ -29,7 +29,18 @@ export default defineType({
       type: 'seo',
       group: 'seo',
     }),
-
+    defineField({
+      name: 'slug',
+      type: 'slug',
+      title: 'Slug',
+      description: 'URL based on the title (no space, or char other than a-z-0-9',
+      options: {
+        source: `title`,
+        maxLength: 96,
+      },
+      group: 'editorial',
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: 'video',
       type: 'video',

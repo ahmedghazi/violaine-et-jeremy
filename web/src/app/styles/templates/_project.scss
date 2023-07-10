@@ -1,22 +1,12 @@
-.page-project {
+.project-single {
   .header {
     top: toRem(50);
+    padding-top: toRem(6);
     @media all and (min-width: $md) {
       top: 0;
     }
-    span {
-      vertical-align: baseline;
-    }
-    h1,
-    em {
-      position: absolute;
-      white-space: nowrap;
-      &:first-child {
-        right: var(--space-sm);
-      }
-      &:last-child {
-        left: var(--space-sm);
-      }
+    .inner {
+      display: flex;
     }
   }
   .look-split {

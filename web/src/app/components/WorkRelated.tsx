@@ -15,16 +15,16 @@ const WorkRelated = ({ input }: Props) => {
     <section className="related ">
       <nav className="nav-related flex justify-between serif italic">
         {input.prev && (
-          <div className="nav-related--link prev ">
-            <Link href={_linkResolver(input.prev)}>
+          <div className="nav-related--link prev w-1/2">
+            <Link href={_linkResolver(input.prev)} className="block">
               <span className="label">prev</span>
               <span className="title">{input.prev.title}</span>
             </Link>
           </div>
         )}
         {input.next && (
-          <div className="nav-related--link next">
-            <Link href={_linkResolver(input.next)}>
+          <div className="nav-related--link next w-1/2">
+            <Link href={_linkResolver(input.next)} className="block text-right">
               <span className="label">next</span>
               <span className="title">{input.next.title}</span>
             </Link>

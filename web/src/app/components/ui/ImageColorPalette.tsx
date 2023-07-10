@@ -6,44 +6,84 @@ type Props = {
 }
 
 const ImageColorPalette = ({ image }: Props) => {
+  // const palette = [
+  //   "lightMuted",
+  //   "muted",
+  //   "darkMuted",
+  //   "dominant",
+  //   "lightVibrant",
+  //   "vibrant",
+  //   "darkVibrant",
+  // ]
   return (
-    <div className="flex absolute z-50">
+    <div className="image-color-palette grid grid-cols-7 z-50 text-sm">
+      {/* {palette.map((item, i) => (
+        <div
+          key={i}
+          className="aspect-square center-x-y ellipsis "
+          style={{
+            backgroundColor: image.metadata.palette[item as keyof].background,
+          }}
+        >
+          {item}
+        </div>
+      ))} */}
       <div
-        className="aspect-square w-1e "
+        className="aspect-square center-x-y ellipsis "
         style={{
           backgroundColor: image.metadata.palette.lightMuted.background,
         }}
-      ></div>
+      >
+        lightMuted
+      </div>
       <div
-        className="aspect-square w-1e "
+        className="aspect-square center-x-y ellipsis "
         style={{
           backgroundColor: image.metadata.palette.muted.background,
         }}
-      ></div>
+      >
+        muted
+      </div>
       <div
-        className="aspect-square w-1e "
+        className="aspect-square center-x-y ellipsis "
         style={{
           backgroundColor: image.metadata.palette.darkMuted.background,
         }}
-      ></div>
+      >
+        darkMuted
+      </div>
       <div
-        className="aspect-square w-1e "
+        className="aspect-square center-x-y ellipsis "
         style={{
           backgroundColor: image.metadata.palette.dominant.background,
         }}
-      ></div>
+      >
+        dominant
+      </div>
       <div
-        className="aspect-square w-1e "
+        className="aspect-square center-x-y ellipsis "
         style={{
           backgroundColor: image.metadata.palette.lightVibrant.background,
         }}
-      ></div>
+      >
+        lightVibrant
+      </div>
       <div
-        className="aspect-square w-1e "
+        className="aspect-square center-x-y ellipsis "
         style={{
           backgroundColor: image.metadata.palette.vibrant.background,
         }}
-      ></div>
+      >
+        vibrant
+      </div>
+      <div
+        className="aspect-square center-x-y ellipsis "
+        style={{
+          backgroundColor: image.metadata.palette.darkVibrant.background,
+        }}
+      >
+        darkVibrant
+      </div>
     </div>
   )
 }

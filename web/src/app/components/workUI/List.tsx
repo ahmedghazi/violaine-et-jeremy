@@ -32,15 +32,14 @@ const List = ({ input }: Props) => {
       rows.forEach((el: HTMLDivElement) => {
         let scale = 0
         const bounding: DOMRect = el.getBoundingClientRect()
-        const offset = 100
-        // const variable = bounding.top * 0.1
+        const offset = 133
         const distanceToTop = bounding.top - offset
-        // console.log(bounding.top)
         if (distanceToTop < threshold) {
           scale = (100 - (distanceToTop * 100) / threshold) / 100
         }
 
         el.style.setProperty("--custom-max-height", `${130 * scale}px`)
+        el.style.setProperty("--custom-opacity", `${scale / 1}`)
         el.classList.toggle("can-display-images", scale > 0)
       })
     }
@@ -48,8 +47,8 @@ const List = ({ input }: Props) => {
   }
 
   return (
-    <div className="list  overflow-x-hidden-" ref={ref}>
-      <div className="thead  sticky top-100 px-sm  md:px-200">
+    <div className="list" ref={ref}>
+      <div className="thead  sticky top-100 px-sm md:px-200">
         <div className="tr flex">
           <div className="th col-year">YEAR</div>
           <div className="th col-client hidden-sm">CLIENT</div>
@@ -65,7 +64,8 @@ const List = ({ input }: Props) => {
           input.length > 0 &&
           input?.map((item, i: number) => (
             <ListItem
-              key={item.work?.slug?.current}
+              key={`${item.work?.slug?.current}-
+              ${i}`}
               input={item.work}
               hasLink={item.hasLink}
             />

@@ -25,14 +25,12 @@ const ProjectSingle: ({ params }: Props) => Promise<JSX.Element> = async ({
   const data: ProjectExtend = (await getProject(params.slug)) as ProjectExtend
 
   return (
-    <div className="page-project px-sm md:px-md">
+    <div className="project-single single-design px-sm md:px-md">
       <div className="header fixed top-0 left-0 flex justify-center py-sm w-full pointer-events-none z-40">
         <div className="inner">
-          <h1 className="px-md">{data.title}</h1>{" "}
-          <span className="sep-dash">—</span>
-          <em className="serif px-md">{data.industry}</em>
+          <h1 className="">{data.title}</h1> <span className="sep-dash">—</span>
+          <em className="serif ">{data.industry}</em>
         </div>
-        {/* <WorkTitle title={data.title } subtitle={data.industry} /> */}
       </div>
       <WorkContent input={data} />
     </div>

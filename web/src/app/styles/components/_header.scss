@@ -2,7 +2,7 @@ header {
   position: fixed;
   width: 100%;
   top: 0;
-  padding: toRem(6) toRem(18);
+  padding: toRem(6) var(--space-md);
   z-index: 50;
 
   .col-item {
@@ -12,6 +12,9 @@ header {
     text-align: right;
   }
 
+  a .absolute {
+    transform: translateX(0.2em);
+  }
   .nav-works {
     @media all and (min-width: $md) {
       &:hover {
@@ -87,13 +90,56 @@ header {
   }
 }
 
+#page:has(.single-design) {
+  header {
+    .nav-works {
+      // background-color: red;
+      ul {
+        position: initial;
+        display: flex;
+        padding-left: var(--space-sm);
+        li:not(.nav-design) {
+          display: none;
+        }
+      }
+      &:hover ul {
+        padding-left: 0;
+        li {
+          display: block;
+        }
+      }
+    }
+  }
+}
+#page:has(.single-space) {
+  header {
+    .nav-works {
+      // background-color: red;
+      ul {
+        position: initial;
+        display: flex;
+        padding-left: var(--space-sm);
+        li:not(.nav-space) {
+          display: none;
+        }
+      }
+      &:hover ul {
+        padding-left: 0;
+        li {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
 #page:has(.page-works) {
   header {
     .nav-works {
       ul {
         position: initial;
         display: flex;
-        padding-left: var(--space-md);
+        padding-left: var(--space-sm);
         li:not(:has(.is-current-page)) {
           display: none;
         }

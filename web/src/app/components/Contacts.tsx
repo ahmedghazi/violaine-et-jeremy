@@ -32,6 +32,7 @@ const Contacts = ({ input }: Props) => {
             required: true,
           }}
         />
+        <div>Mentions légales et politiques</div>
       </div>
     </div>
   )

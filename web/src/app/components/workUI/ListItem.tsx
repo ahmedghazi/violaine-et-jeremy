@@ -4,6 +4,7 @@ import { urlFor } from "@/app/utils/sanity-utils"
 import { _linkResolver } from "@/app/utils/utils"
 import Image from "next/image"
 import Link from "next/link"
+import clsx from "clsx"
 
 type Props = {
   input?: Project | Space | any | undefined
@@ -12,7 +13,7 @@ type Props = {
 
 const ListItem = ({ input, hasLink }: Props) => {
   // const [isMobile, setIsMobile] = useState(false)
-  const maxLen = 20
+  const maxLen = 15
   const images = useMemo(() => {
     let arr: Array<SanityImageAsset> = []
     input.content?.forEach((el: any) => {
@@ -29,9 +30,12 @@ const ListItem = ({ input, hasLink }: Props) => {
   }, [])
 
   return (
-    <div className="project">
-      <Link href={_linkResolver(input)}>
-        <div className="tr flex">
+    <div className="tr project">
+      <Link
+        href={hasLink ? _linkResolver(input) : "#"}
+        className={clsx(hasLink ? "" : "pointer-events-none")}
+      >
+        <div className="flex pb-xs">
           <div className="td col-year">{input.year}</div>
           <div className="td col-client hidden-sm">{input.client}</div>
           <h2 className="td col-project hidden-sm">{input.title}</h2>
@@ -45,7 +49,7 @@ const ListItem = ({ input, hasLink }: Props) => {
           )}
         </div>
         {images.length > 0 && (
-          <div className="images flex flex-nowrap  justify-center gap-sm">
+          <div className="images flex flex-nowrap justify-center gap-sm">
             {images.map((image, i) => (
               <figure key={i}>
                 <Image

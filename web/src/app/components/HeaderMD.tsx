@@ -3,6 +3,7 @@ import React from "react"
 import { Infos, LinkExternal, LinkInternal, Settings } from "../types/schema"
 import NavLink from "./NavLink"
 import InfosModal from "./InfosModal"
+import clsx from "clsx"
 
 type Props = {
   titleAlt: string
@@ -22,7 +23,13 @@ const HeaderMD = ({ titleAlt, settings, infos }: Props) => {
             <div className="label">WORKS</div>
             <ul className="flex absolute top-0">
               {settings.navWorks?.map((item: LinkInternal) => (
-                <li key={item.label} className="lowercase serif pr-sm italic">
+                <li
+                  key={item.label}
+                  className={clsx(
+                    "lowercase serif pr-sm italic",
+                    `nav-${item.link?.slug?.current}`
+                  )}
+                >
                   <NavLink input={item} />
                 </li>
               ))}

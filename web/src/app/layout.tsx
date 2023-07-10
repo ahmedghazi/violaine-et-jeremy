@@ -5,6 +5,8 @@ import { PageContextProvider } from "./context/PageContext"
 import config from "./config/website"
 import "./styles/tailwind.css"
 import "./styles/index.scss"
+import { usePathname } from "next/navigation"
+import { ReactNode } from "react"
 
 export const metadata = {
   title: {
@@ -13,11 +15,11 @@ export const metadata = {
   description: config.description,
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+interface RootLayoutProps {
+  children: ReactNode
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body>

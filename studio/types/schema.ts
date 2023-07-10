@@ -110,6 +110,13 @@ export interface Home extends SanityDocument {
   seo?: Seo;
 
   /**
+   * Slug — `slug`
+   *
+   * URL based on the title (no space, or char other than a-z-0-9
+   */
+  slug?: { _type: "slug"; current: string };
+
+  /**
    * video — `video`
    *
    *

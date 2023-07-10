@@ -1,4 +1,4 @@
-import { getAllWorks, getWorks } from "@/app/utils/sanity-queries"
+import { getWorks } from "@/app/utils/sanity-queries"
 // import { usePathname, useRouter } from "next/navigation"
 import React from "react"
 import { Metadata } from "next"

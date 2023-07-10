@@ -3,16 +3,8 @@ import { getWorks } from "@/app/utils/sanity-queries"
 import React from "react"
 // import Image from "next/image"
 // import { Project, Space } from "@/app/types/schema"
-import WorkCard from "@/app/components/WorkCard"
+// import WorkCard from "@/app/components/WorkCard"
 import { Metadata } from "next"
-// The generateStaticParams function can be used in combination with dynamic route segments to statically generate routes at build time instead of on-demand at request time.
-// export async function generateStaticParams() {
-//   const posts = await fetch('https://.../posts').then((res) => res.json())
-
-//   return posts.map((post) => ({
-//     slug: post.slug,
-//   }))
-// }
 
 type PageProps = {
   params: {

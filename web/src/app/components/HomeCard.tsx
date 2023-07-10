@@ -59,8 +59,10 @@ const HomeCard = ({ input }: Props) => {
             />
           </figure>
         )}
-        <div className="header text-xs md:text-sm">
-          <WorkTitle title={input.title || ""} subtitle={input.job} />
+        <div className="infos text-xs md:text-sm">
+          <div className="header">
+            <WorkTitle title={input.title || ""} subtitle={input.job} />
+          </div>
 
           <p className="text-center italic">{input.description}</p>
         </div>

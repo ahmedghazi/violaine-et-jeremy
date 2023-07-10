@@ -16,10 +16,10 @@ type Props = {
 const HeaderSM = ({ titleAlt, settings, infos }: Props) => {
   const [open, setOpen] = useState<boolean>(false)
   const pathName = usePathname()
-  console.log(pathName)
+  // console.log(pathName)
 
   useEffect(() => {
-    console.log(pathName)
+    // console.log(pathName)
     setOpen(false)
   }, [pathName])
 

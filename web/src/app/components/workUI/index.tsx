@@ -17,8 +17,8 @@ const WorkUI = ({ worksImages, worksTexts }: Props) => {
   return (
     <div className="work-ui">
       <BtnsDisplay display={display} setDisplay={setDisplay} />
-      {display === "grid" && <Grid input={worksImages} />}
-      {display === "list" && <List input={worksTexts} />}
+      {worksImages && display === "grid" && <Grid input={worksImages} />}
+      {worksTexts && display === "list" && <List input={worksTexts} />}
     </div>
   )
 }

@@ -1,5 +1,8 @@
 .contacts {
   text-align: left;
+  form {
+    margin-bottom: toRem(38);
+  }
   @media all and (min-width: $md) {
     .footer-item:nth-child(1) {
       width: calc((100 + 190) * 100% / 1404);

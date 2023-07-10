@@ -10,10 +10,10 @@ body {
   color: var(--color-primary);
   // transition: background-color 0.4s var(--cubic), color 0.4s var(--cubic);
   // @include debugFiletX(50%);
-  // @include debugOutline(var(--space-md));
+  // @include debugOutline(toRem(6));
 }
-#page {
-}
+// #page {
+// }
 main {
   min-height: var(--app-height, 100vh);
   position: relative;
