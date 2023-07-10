@@ -1,11 +1,11 @@
 import {defineField, defineType} from 'sanity'
-import {ThListIcon} from '@sanity/icons'
+import {FiList} from 'react-icons/fi'
 
 export default defineType({
   name: 'work',
   title: 'Work',
   type: 'document',
-  icon: ThListIcon,
+  icon: FiList,
   validation: (Rule) =>
     Rule.custom((fields) => {
       return fields?.seo ? true : 'SEO needed'
@@ -47,10 +47,17 @@ export default defineType({
       group: 'editorial',
     }),
     defineField({
-      name: 'works',
-      title: 'works featured',
+      name: 'worksImages',
+      title: 'works images',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'project'}, {type: 'space'}]}],
+      group: 'editorial',
+    }),
+    defineField({
+      name: 'worksTexts',
+      title: 'works texts',
+      type: 'array',
+      of: [{type: 'worksTextsItem'}],
       group: 'editorial',
     }),
   ],

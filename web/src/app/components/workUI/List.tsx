@@ -1,4 +1,4 @@
-import { Project, Space } from "@/app/types/schema"
+import { Project, Space, WorksTextsItem } from "@/app/types/schema"
 import { _linkResolver } from "@/app/utils/utils"
 import Link from "next/link"
 import React, { useEffect, useRef } from "react"
@@ -6,12 +6,12 @@ import ListItem from "./ListItem"
 import clsx from "clsx"
 
 type Props = {
-  input: (Project | Space)[]
+  input: WorksTextsItem[]
 }
 
 const List = ({ input }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
-  const thead = ["year", "client", "project", "industry", "location", "link"]
+  // const thead = ["year", "client", "project", "industry", "location", "link"]
 
   useEffect(() => {
     _onScroll()
@@ -33,7 +33,7 @@ const List = ({ input }: Props) => {
         let scale = 0
         const bounding: DOMRect = el.getBoundingClientRect()
         const offset = 100
-        const variable = bounding.top * 0.1
+        // const variable = bounding.top * 0.1
         const distanceToTop = bounding.top - offset
         // console.log(bounding.top)
         if (distanceToTop < threshold) {
@@ -51,11 +51,6 @@ const List = ({ input }: Props) => {
     <div className="list  overflow-x-hidden-" ref={ref}>
       <div className="thead  sticky top-100 px-sm  md:px-200">
         <div className="tr flex">
-          {/* {thead.map((th: string, i: number) => (
-            <div key={i} className={clsx("th uppercase", `col-${th}`)}>
-              {th !== "link" ? th : ""}
-            </div>
-          ))} */}
           <div className="th col-year">YEAR</div>
           <div className="th col-client hidden-sm">CLIENT</div>
           <div className="th col-project hidden-sm">PROJECT</div>
@@ -69,9 +64,12 @@ const List = ({ input }: Props) => {
         {input &&
           input.length > 0 &&
           input?.map((item, i: number) => (
-            <ListItem key={item.slug?.current} input={item} />
+            <ListItem
+              key={item.work?.slug?.current}
+              input={item.work}
+              hasLink={item.hasLink}
+            />
           ))}
-        {/* <ListItem key={input[0].slug?.current} input={input[0]} /> */}
       </div>
     </div>
   )

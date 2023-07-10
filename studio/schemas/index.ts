@@ -21,6 +21,7 @@ import textIcon from './objects/textIcon'
 import video from './objects/video'
 import embed from './objects/embed'
 import titleText from './objects/titleText'
+import worksTextsItem from './objects/worksTextsItem'
 /* Localization */
 // import localeString from './locale/localeString'
 // import localeText from './locale/localeText'
@@ -56,6 +57,7 @@ export const schemaTypes = [
   embed,
   contact,
   titleText,
+  worksTextsItem,
 
   moduleText,
   moduleImage,

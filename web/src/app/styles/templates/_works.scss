@@ -1,5 +1,5 @@
 .page-works {
-  .header {
+  .header.fixed {
     top: toRem(50);
     @media all and (min-width: $md) {
       top: 0;

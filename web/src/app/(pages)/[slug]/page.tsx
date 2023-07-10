@@ -33,16 +33,16 @@ export async function generateMetadata({
 const Page: ({ params }: PageProps) => Promise<JSX.Element> = async ({
   params,
 }) => {
-  const data = await getWorks(params.slug)
+  // const data = await getWorks(params.slug)
   // console.log(data)
   return (
     <div className="page px-md">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-md">
-        {data.works?.map((item, i) => (
+        {/* {data.works?.map((item, i) => (
           <div key={item.slug?.current}>
             <WorkCard input={item} />
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   )

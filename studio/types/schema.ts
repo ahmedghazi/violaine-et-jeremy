@@ -247,11 +247,18 @@ export interface Work extends SanityDocument {
   slug?: { _type: "slug"; current: string };
 
   /**
-   * works featured — `array`
+   * works images — `array`
    *
    *
    */
-  works?: Array<SanityKeyedReference<Project | Space>>;
+  worksImages?: Array<SanityKeyedReference<Project | Space>>;
+
+  /**
+   * works texts — `array`
+   *
+   *
+   */
+  worksTexts?: Array<SanityKeyed<WorksTextsItem>>;
 }
 
 /**
@@ -745,6 +752,23 @@ export type TitleText = {
    *
    */
   text?: BlockContent;
+};
+
+export type WorksTextsItem = {
+  _type: "worksTextsItem";
+  /**
+   * Has Link ? — `boolean`
+   *
+   *
+   */
+  hasLink?: boolean;
+
+  /**
+   * work — `reference`
+   *
+   *
+   */
+  work?: SanityReference<Project | Space>;
 };
 
 export type TextUI = {

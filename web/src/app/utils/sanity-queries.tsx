@@ -65,20 +65,35 @@ export async function getWorks(slug: string): Promise<Work> {
   return clientFetch(
     groq`*[_type == "work" && slug.current == $slug][0]{
       ...,
-      works[]->{
-        ...,
+      worksImages[]->{
+        _type,
+        title,
+        industry,
+        slug,
         imageCover {
           ...,
           asset->
         },
-        content[]{
-          ...,
+      },
+      worksTexts[]{
+        hasLink,
+        work->{
+          _type,
+          title,
+          industry,
+          year,
+          client,
+          slug,
+          location,
+          title,
+          content[]{
           items[]{
             ...,
             image{
               asset->
             }
           }
+        }
         }
       }
     }`,

@@ -1,21 +1,22 @@
+import React, { useMemo } from "react"
 import { Project, SanityImageAsset, Space } from "@/app/types/schema"
 import { urlFor } from "@/app/utils/sanity-utils"
 import { _linkResolver } from "@/app/utils/utils"
 import Image from "next/image"
 import Link from "next/link"
-import React, { useMemo, useState } from "react"
 
 type Props = {
-  input: Project | Space
+  input?: Project | Space | any | undefined
+  hasLink?: boolean
 }
 
-const ListItem = ({ input }: Props) => {
+const ListItem = ({ input, hasLink }: Props) => {
   // const [isMobile, setIsMobile] = useState(false)
-  const maxLen = 35
+  const maxLen = 20
   const images = useMemo(() => {
     let arr: Array<SanityImageAsset> = []
-    input.content?.forEach((el) => {
-      el.items?.forEach((_el) => {
+    input.content?.forEach((el: any) => {
+      el.items?.forEach((_el: any) => {
         if (_el._type === "compositionItemImage") {
           if (arr.length < maxLen && _el.image) {
             const image: SanityImageAsset | any = _el.image.asset
@@ -39,10 +40,9 @@ const ListItem = ({ input }: Props) => {
           }${input.title}`}</h2>
           <div className="td col-industry">{input.industry}</div>
           <div className="td col-location">{input.location}</div>
-          <div className="td col-link italic lowercase">
-            {/* <Link href={_linkResolver(input)}>see more</Link> */}
-            see more
-          </div>
+          {hasLink && (
+            <div className="td col-link italic lowercase">see more</div>
+          )}
         </div>
         {images.length > 0 && (
           <div className="images flex flex-nowrap  justify-center gap-sm">
