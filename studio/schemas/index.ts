@@ -22,6 +22,7 @@ import video from './objects/video'
 import embed from './objects/embed'
 import titleText from './objects/titleText'
 import worksTextsItem from './objects/worksTextsItem'
+import logos from './objects/logos'
 /* Localization */
 // import localeString from './locale/localeString'
 // import localeText from './locale/localeText'
@@ -58,6 +59,7 @@ export const schemaTypes = [
   contact,
   titleText,
   worksTextsItem,
+  logos,
 
   moduleText,
   moduleImage,

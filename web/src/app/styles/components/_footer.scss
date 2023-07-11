@@ -14,9 +14,21 @@ footer {
   h5 {
     margin-bottom: 0.6rem;
   }
-  .logos img {
-    width: 100%;
-    height: auto;
+  .logos div {
+    width: calc(100% / 4);
+    height: 35vh;
+    &:nth-child(2) {
+      display: flex;
+      justify-content: center;
+    }
+    &:nth-child(3) {
+      display: flex;
+      justify-content: flex-end;
+    }
+    img {
+      width: auto;
+      height: 100%;
+    }
   }
   .copy {
     line-height: 1.4;

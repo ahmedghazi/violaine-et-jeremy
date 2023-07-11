@@ -82,18 +82,11 @@ export interface Settings extends SanityDocument {
   links?: Array<SanityKeyed<TitleText>>
 
   /**
-   * Logos glyphs — `array`
+   * logos — `array`
    *
    *
    */
-  logos?: Array<
-    SanityKeyed<{
-      _type: "image"
-      asset: SanityReference<SanityImageAsset>
-      crop?: SanityImageCrop
-      hotspot?: SanityImageHotspot
-    }>
-  >
+  logos?: Array<SanityKeyed<Logos>>
 
   /**
    * Message 404 — `blockContent`
@@ -785,6 +778,23 @@ export type WorksTextsItem = {
    *
    */
   work?: SanityReference<Project | Space>
+}
+
+export type Logos = {
+  _type: "logos"
+  /**
+   * items — `array`
+   *
+   *
+   */
+  items?: Array<
+    SanityKeyed<{
+      _type: "image"
+      asset: SanityReference<SanityImageAsset>
+      crop?: SanityImageCrop
+      hotspot?: SanityImageHotspot
+    }>
+  >
 }
 
 export type TextUI = {

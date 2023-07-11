@@ -9,7 +9,7 @@ body {
   background-color: var(--color-bg);
   color: var(--color-primary);
   // transition: background-color 0.4s var(--cubic), color 0.4s var(--cubic);
-  // @include debugFiletX(50%);
+  @include debugFiletX(50%);
   // @include debugOutline(toRem(6));
 }
 // #page {

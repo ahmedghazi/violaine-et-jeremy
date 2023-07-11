@@ -7,6 +7,7 @@ const Footer = async () => {
   // export default async function Footer() {
   const settings = await getSettings()
   const { links, logos } = settings
+  // console.log(logos)
   return (
     <footer className="">
       <div className="inner">

@@ -22,7 +22,9 @@ export async function getSettings(): Promise<Settings> {
       },
       logos[]{
         ...,
-        asset->
+        items[]{
+          asset->
+        }
       }
     }`
   )
