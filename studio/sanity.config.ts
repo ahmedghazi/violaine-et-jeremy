@@ -15,6 +15,7 @@ import {
   projectInfoWidget,
 } from '@sanity/dashboard'
 import {media} from 'sanity-plugin-media'
+import {resolveProductionUrl} from './src/actions/resolveProductionUrl'
 
 // const devOnlyPlugins = [getStartedPlugin()]
 
@@ -35,7 +36,10 @@ export default defineConfig({
   dataset: 'production',
 
   plugins: plugins,
-
+  document: {
+    // productionUrl: resolveProductionUrl,
+    actions: [resolveProductionUrl],
+  },
   schema: {
     types: schemaTypes,
   },

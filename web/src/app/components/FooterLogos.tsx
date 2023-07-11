@@ -23,7 +23,7 @@ const FooterLogos = ({ input }: Props) => {
   const [logos, setLogos] = useState<SanityImageAsset | any>(null)
 
   const pathname = usePathname()
-  console.log(logos)
+  // console.log(logos)
   useEffect(() => {
     _randomLogo()
   }, [pathname])

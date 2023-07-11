@@ -1,27 +1,26 @@
-const baseURL = 'https://preview-lomestudiomain.gatsbyjs.io'
+const baseURL = 'http://localhost:3000/api/preview'
 // const baseURL = 'http://localhost:8000/'
-export function resolveProductionUrl(props) {
+export function resolveProductionUrl(props: any) {
   console.log(props)
   const _onHandle = async () => {
     const {_type, slug} = props.published
     // console.log(location.origin)
-    let pagePath = ''
+    let pagePath = `?slug=${slug.current}&type=${_type}`
 
-    switch (_type) {
-      case 'home':
-        pagePath = ''
-        break
-      case 'project':
-        pagePath = `project/${slug.current}`
-        break
+    // switch (_type) {
+    //   case 'home':
+    //     pagePath = `?slug=${slug.current}&type=${_type}`
+    //     break
+    //   case 'project':
+    //     pagePath = `project/${slug.current}`
+    //     break
 
-      default:
-        pagePath = `${slug.current}`
-        break
-    }
-
+    //   default:
+    //     pagePath = `${slug.current}`
+    //     break
+    // }
+    // alert(pagePath)
     if (window) window.open(`${baseURL}/${pagePath}`, '_blank')
-    // window.location.href = `${baseURL}/${pagePath}`
   }
 
   return {

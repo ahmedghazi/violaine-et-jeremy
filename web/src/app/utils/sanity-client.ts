@@ -1,6 +1,7 @@
 import { createClient } from "next-sanity"
 import type { SanityClient } from "@sanity/client"
 import { apiVersion, dataset, projectId, useCdn } from "./env"
+import { cache } from "react"
 
 export const sanityConfig = {
   projectId: projectId,
@@ -14,11 +15,12 @@ export const client = createClient({
   perspective: "published",
 })
 
-export function getClient({
-  preview,
-}: {
-  preview?: { token: string }
-}): SanityClient {
+// export function getClient({
+//   preview,
+// }: {
+//   preview?: { token: string }
+// }): SanityClient {
+export function getClient(preview?: { token?: string }): SanityClient {
   if (preview) {
     if (!preview.token) {
       throw new Error("You must provide a token to preview drafts")
@@ -31,4 +33,10 @@ export function getClient({
     })
   }
   return client
+}
+
+export const getCachedClient = (preview?: { token?: string }) => {
+  const client = getClient(preview)
+
+  return cache(client.fetch.bind(client))
 }

@@ -25,6 +25,10 @@ const Home: () => Promise<JSX.Element> = async () => {
     ? { token: process.env.SANITY_API_READ_TOKEN }
     : undefined
   const data = await getHome()
+
+  // if (preview && preview.token) {
+  //   return <div>is preview</div>
+  // }
   return (
     <div className="page-home px-sm md:px-md">
       {data.text && (

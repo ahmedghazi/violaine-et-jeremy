@@ -3,10 +3,12 @@ import { client } from "./sanity-client"
 import { Home, Infos, Project, Settings, Space, Work } from "../types/schema"
 import { cache } from "react"
 
-const clientFetch = cache(client.fetch.bind(client))
+// const clientFetch = cache(client.fetch.bind(client))
+// Add cachedClient export
+export const cachedClient = cache(client.fetch.bind(client))
 
 export async function getSettings(): Promise<Settings> {
-  return clientFetch(
+  return cachedClient(
     groq`*[_type == "settings"][0]{
       ...,
       navWorks[]{..., link->},
@@ -31,7 +33,7 @@ export async function getSettings(): Promise<Settings> {
 }
 
 export async function getHome(): Promise<Home> {
-  return clientFetch(
+  return cachedClient(
     groq`*[_type == "home"][0]{
       ...,
       projects[]->{
@@ -52,7 +54,7 @@ export async function getHome(): Promise<Home> {
 }
 
 export async function getInfos(): Promise<Infos> {
-  return clientFetch(
+  return cachedClient(
     groq`*[_type == "infos"][0]{...,
       image {
         ...,
@@ -64,7 +66,7 @@ export async function getInfos(): Promise<Infos> {
 }
 
 export async function getWorks(slug: string): Promise<Work> {
-  return clientFetch(
+  return cachedClient(
     groq`*[_type == "work" && slug.current == $slug][0]{
       ...,
       worksImages[]->{
@@ -104,7 +106,7 @@ export async function getWorks(slug: string): Promise<Work> {
 }
 
 export async function getAllWorks(type: string): Promise<(Project | Space)[]> {
-  return clientFetch(
+  return cachedClient(
     groq`*[_type == $type ]{
       ...,
       imageCover {
@@ -126,7 +128,7 @@ export async function getAllWorks(type: string): Promise<(Project | Space)[]> {
 }
 
 export async function getProject(slug: string): Promise<Project> {
-  return clientFetch(
+  return cachedClient(
     groq`*[_type == "project" && slug.current == $slug][0]{
       ...,
       imageCover {
@@ -165,7 +167,7 @@ export async function getProject(slug: string): Promise<Project> {
 }
 
 export async function getSpace(slug: string): Promise<Space> {
-  return clientFetch(
+  return cachedClient(
     groq`*[_type == "space" && slug.current == $slug][0]{
       ...,
       imageCover {
@@ -176,3 +178,8 @@ export async function getSpace(slug: string): Promise<Space> {
     { slug: slug }
   )
 }
+
+// Get all post slugs
+export const postPathsQuery = groq`*[_type == "project" && defined(slug.current)][]{
+  "params": { "slug": slug.current }
+}`
