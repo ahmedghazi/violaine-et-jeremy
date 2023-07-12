@@ -127,6 +127,39 @@ export async function getAllWorks(type: string): Promise<(Project | Space)[]> {
   )
 }
 
+export const projectQuery = groq`*[_type == "project" && slug.current == $slug][0]{
+  ...,
+  imageCover {
+    ...,
+    asset->
+  },
+  content[]{
+    ...,
+    items[]{
+      ...,
+      image{
+        asset->
+      }
+    }
+  },
+  related[]->{
+    ...,
+    _type,
+    slug,
+    title,
+    job,
+    imageCover {
+      ...,
+      asset->
+    },
+  },
+  'prev': *[
+    _type == 'project' && !(_id in path('drafts.**')) && _createdAt < ^._createdAt
+  ]{_type, slug, title} | order(_createdAt desc)[0],
+  'next': *[
+    _type == 'project' && !(_id in path('drafts.**')) && _createdAt > ^._createdAt
+  ]{_type, slug, title} | order(_createdAt desc)[0]
+}`
 export async function getProject(slug: string): Promise<Project> {
   return cachedClient(
     groq`*[_type == "project" && slug.current == $slug][0]{

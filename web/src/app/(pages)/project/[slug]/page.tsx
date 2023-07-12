@@ -1,9 +1,11 @@
 import React from "react"
 import { Metadata } from "next"
-import { getProject } from "@/app/utils/sanity-queries"
+import { getProject, projectQuery } from "@/app/utils/sanity-queries"
 import WorkContent from "@/app/components/WorkContent"
-import WorkTitle from "@/app/components/WorkTitle"
+// import WorkTitle from "@/app/components/WorkTitle"
 import { ProjectExtend } from "@/app/types/extend"
+import { draftMode } from "next/headers"
+import { getCachedClient, getClient } from "@/app/utils/sanity-client"
 
 type Props = {
   params: {
@@ -22,7 +24,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const ProjectSingle: ({ params }: Props) => Promise<JSX.Element> = async ({
   params,
 }) => {
-  const data: ProjectExtend = (await getProject(params.slug)) as ProjectExtend
+  const { isEnabled: preview } = draftMode()
+  let data: ProjectExtend
+  if (preview) {
+    data = await getClient({ token: process.env.SANITY_API_READ_TOKEN }).fetch(
+      projectQuery,
+      params
+    )
+  } else {
+    data = (await getProject(params.slug)) as ProjectExtend
+  }
+
+  console.log(data.title)
+  // const data: ProjectExtend = (await getProject(params.slug)) as ProjectExtend
 
   return (
     <div className="project-single single-design px-sm md:px-md">
