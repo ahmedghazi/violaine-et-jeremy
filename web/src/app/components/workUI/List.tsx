@@ -48,7 +48,7 @@ const List = ({ input }: Props) => {
 
   return (
     <div className="list" ref={ref}>
-      <div className="thead  sticky top-100 px-sm md:px-200">
+      <div className="thead  sticky top-100 px-sm md:px-200 text-xs md:text-md ">
         <div className="tr flex">
           <div className="th col-year">YEAR</div>
           <div className="th col-client hidden-sm">CLIENT</div>
@@ -59,7 +59,7 @@ const List = ({ input }: Props) => {
           <div className="th col-link  lowercase"></div>
         </div>
       </div>
-      <div className="tbody serif px-sm md:px-200 overflow-x-hidden">
+      <div className="tbody serif px-sm md:px-200 overflow-x-hidden text-sm md:text-md">
         {input &&
           input.length > 0 &&
           input?.map((item, i: number) => (

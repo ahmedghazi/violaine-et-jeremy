@@ -1,10 +1,7 @@
-import { getWorks } from "@/app/utils/sanity-queries"
-// import { usePathname, useRouter } from "next/navigation"
+import { getPageModulaire, getWorks } from "@/app/utils/sanity-queries"
 import React from "react"
-// import Image from "next/image"
-// import { Project, Space } from "@/app/types/schema"
-// import WorkCard from "@/app/components/WorkCard"
 import { Metadata } from "next"
+import Modules from "@/app/components/modules"
 
 type PageProps = {
   params: {
@@ -15,27 +12,34 @@ type PageProps = {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const data = await getWorks(params.slug)
+  const data = await getPageModulaire(params.slug)
   return {
     title: `${data?.seo?.metaTitle}`,
     description: data?.seo?.metaDescription,
+    openGraph: {
+      images: data?.seo?.metaImage?.asset.url,
+    },
   }
 }
 
 const Page: ({ params }: PageProps) => Promise<JSX.Element> = async ({
   params,
 }) => {
-  // const data = await getWorks(params.slug)
+  const data = await getPageModulaire(params.slug)
   // console.log(data)
   return (
-    <div className="page px-md">
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-md">
-        {/* {data.works?.map((item, i) => (
-          <div key={item.slug?.current}>
-            <WorkCard input={item} />
-          </div>
-        ))} */}
+    <div className="page px-sm md:px-md">
+      <div className="header fixed top-0 left-0 flex justify-center py-sm w-full pointer-events-none z-40">
+        <div className="inner">
+          <h1 className="">{data.title}</h1>
+        </div>
       </div>
+      {/* <pre>{JSON.stringify(data.seo, null, 2)}</pre> */}
+      <article className="look-default">
+        {data.content && data.content.length && (
+          <Modules input={data.content} />
+        )}
+      </article>
     </div>
   )
 }

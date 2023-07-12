@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: data?.seo?.metaTitle || website.title,
     description: data?.seo?.metaDescription || website.description,
     openGraph: {
-      images: [website.image],
+      images: data?.seo?.metaImage?.asset.url || website.image,
     },
   }
 }
@@ -32,11 +32,11 @@ const Home: () => Promise<JSX.Element> = async () => {
   return (
     <div className="page-home px-sm md:px-md">
       {data.text && (
-        <div className="about fixed left-0 top-100 w-full px-md text-center serif italic md:text-lg  text">
+        <div className="about fixed left-0 top-100 w-full px-md text-center serif italic md:text-lg text">
           <PortableText value={data?.text} />
         </div>
       )}
-      {preview && <div>preview test</div>}
+
       {data.projects && <HomeFeed input={data.projects} />}
     </div>
   )

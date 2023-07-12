@@ -15,21 +15,21 @@ const variants = {
   enter: {
     opacity: 1,
     // y: " 0",
-    transition: {
-      duration: duration,
-      // delay: duration * 2,
-      // when: "beforeChildren",
-      // ease: [0.775, 0, 0.17, 1.005],
-    },
+    // transition: {
+    //   duration: duration,
+    //   // delay: duration * 2,
+    //   // when: "beforeChildren",
+    //   // ease: [0.775, 0, 0.17, 1.005],
+    // },
   },
   exit: {
     // opacity: 0,
     // y: "200",
-    transition: {
-      duration: duration,
-      // delay: duration,
-      // when: 'beforeChildren',
-    },
+    // transition: {
+    //   duration: duration,
+    //   // delay: duration,
+    //   // when: 'beforeChildren',
+    // },
   },
 }
 
@@ -55,6 +55,11 @@ const PageTransition = ({ location, children }: PageContextProps) => {
         initial="initial"
         animate="enter"
         exit="exit"
+        transition={{
+          duration: duration,
+          // when: "beforeChildren",
+          // ease: [0.775, 0, 0.17, 1.005],
+        }}
         // onAnimationComplete={_onAnimationComplete}
       >
         {children}

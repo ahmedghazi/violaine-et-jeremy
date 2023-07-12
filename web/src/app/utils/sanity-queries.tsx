@@ -1,6 +1,14 @@
 import { groq } from "next-sanity"
 import { client } from "./sanity-client"
-import { Home, Infos, Project, Settings, Space, Work } from "../types/schema"
+import {
+  Home,
+  Infos,
+  PageModulaire,
+  Project,
+  Settings,
+  Space,
+  Work,
+} from "../types/schema"
 import { cache } from "react"
 
 // const clientFetch = cache(client.fetch.bind(client))
@@ -11,6 +19,7 @@ export async function getSettings(): Promise<Settings> {
   return cachedClient(
     groq`*[_type == "settings"][0]{
       ...,
+      linkLegals->,
       navWorks[]{..., link->},
       navStudio[]{
         ...,
@@ -160,43 +169,9 @@ export const projectQuery = groq`*[_type == "project" && slug.current == $slug][
     _type == 'project' && !(_id in path('drafts.**')) && _createdAt > ^._createdAt
   ]{_type, slug, title} | order(_createdAt desc)[0]
 }`
+
 export async function getProject(slug: string): Promise<Project> {
-  return cachedClient(
-    groq`*[_type == "project" && slug.current == $slug][0]{
-      ...,
-      imageCover {
-        ...,
-        asset->
-      },
-      content[]{
-        ...,
-        items[]{
-          ...,
-          image{
-            asset->
-          }
-        }
-      },
-      related[]->{
-        ...,
-        _type,
-        slug,
-        title,
-        job,
-        imageCover {
-          ...,
-          asset->
-        },
-      },
-      'prev': *[
-        _type == 'project' && !(_id in path('drafts.**')) && _createdAt < ^._createdAt
-      ]{_type, slug, title} | order(_createdAt desc)[0],
-      'next': *[
-        _type == 'project' && !(_id in path('drafts.**')) && _createdAt > ^._createdAt
-      ]{_type, slug, title} | order(_createdAt desc)[0]
-    }`,
-    { slug: slug }
-  )
+  return cachedClient(projectQuery, { slug: slug })
 }
 
 export async function getSpace(slug: string): Promise<Space> {
@@ -207,6 +182,24 @@ export async function getSpace(slug: string): Promise<Space> {
         ...,
         asset->
       }
+    }`,
+    { slug: slug }
+  )
+}
+
+export async function getPageModulaire(slug: string): Promise<PageModulaire> {
+  return cachedClient(
+    groq`*[_type == "pageModulaire" && slug.current == $slug][0]{
+      ...,
+      content[]{
+        ...,
+        items[]{
+          ...,
+          image{
+            asset->
+          }
+        }
+      },
     }`,
     { slug: slug }
   )

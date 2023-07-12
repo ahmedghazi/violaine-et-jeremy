@@ -21,6 +21,9 @@ export async function generateMetadata({
   return {
     title: `${data?.seo?.metaTitle}`,
     description: data?.seo?.metaDescription,
+    openGraph: {
+      images: data?.seo?.metaImage?.asset.url,
+    },
   }
 }
 

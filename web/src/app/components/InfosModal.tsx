@@ -15,7 +15,7 @@ type Props = {
 export default function InfosModal({ infosData, settingsData }: Props) {
   const image: SanityImageAsset | any = infosData.image?.asset
 
-  const { links } = settingsData
+  const { links, linkLegals } = settingsData
 
   const _toggle = () => {
     setActive(!active)
@@ -41,7 +41,7 @@ export default function InfosModal({ infosData, settingsData }: Props) {
       <div className={clsx("infos-overlay", active ? "is-active" : "")}>
         <div className="inner scrollable">
           <div className="links ">
-            <Contacts input={links} />
+            <Contacts input={links} linkLegals={linkLegals} />
           </div>
 
           <div className="grid md:grid-cols-2 gap-md ">

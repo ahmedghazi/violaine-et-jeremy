@@ -52,6 +52,7 @@ export default defineType({
       type: 'string',
       title: 'Title',
       description: 'Le nom de la page',
+      group: 'editorial',
     }),
     defineField({
       name: 'slug',
@@ -63,6 +64,7 @@ export default defineType({
         maxLength: 96,
       },
       validation: (Rule) => Rule.required(),
+      group: 'editorial',
     }),
 
     defineField({

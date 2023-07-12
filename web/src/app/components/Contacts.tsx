@@ -1,7 +1,9 @@
 import { PortableText } from "@portabletext/react"
 import React from "react"
-import { TitleText } from "../types/schema"
+import { PageModulaire, TitleText } from "../types/schema"
 import Mailchimp from "./ui/Mailchimp"
+import Link from "next/link"
+import { _linkResolver } from "../utils/utils"
 
 type Props = {
   input:
@@ -9,9 +11,10 @@ type Props = {
         _key: string
       })[]
     | undefined
+  linkLegals: PageModulaire | undefined
 }
 
-const Contacts = ({ input }: Props) => {
+const Contacts = ({ input, linkLegals }: Props) => {
   return (
     <div className="contacts flex flex-wrap">
       {input?.map((item, i) => (
@@ -32,7 +35,11 @@ const Contacts = ({ input }: Props) => {
             required: true,
           }}
         />
-        <div>Mentions légales et politiques</div>
+        <div className="text-xs md:text-sm">
+          {linkLegals && (
+            <Link href={_linkResolver(linkLegals)}>{linkLegals.title}</Link>
+          )}
+        </div>
       </div>
     </div>
   )

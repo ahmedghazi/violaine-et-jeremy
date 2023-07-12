@@ -1,7 +1,27 @@
 .work-content {
-  .look-default .intro {
-    figure {
-      margin-bottom: toRem(50);
+  .look-default .intro figure {
+    margin-bottom: toRem(50);
+  }
+  .look-split {
+    .text-intro {
+      .inner {
+        @media all and (min-width: $md) {
+          position: sticky;
+          top: var(--space-100);
+          height: calc(100vh - var(--space-200));
+
+          display: grid;
+          align-items: center;
+          justify-content: center;
+          .text {
+            max-width: toRem(460);
+          }
+        }
+      }
+    }
+    .composition {
+      margin-bottom: var(--space-md);
+      display: block;
     }
   }
   .intro {

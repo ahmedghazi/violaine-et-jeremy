@@ -80,6 +80,13 @@ export default defineType({
       of: [{type: 'titleText'}],
       group: 'footer',
     }),
+    defineField({
+      name: 'linkLegals',
+      title: 'Link legals',
+      type: 'reference',
+      to: [{type: 'pageModulaire'}],
+      group: 'footer',
+    }),
     // defineField({
     //   name: 'logos',
     //   title: 'Logos glyphs',

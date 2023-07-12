@@ -73,6 +73,13 @@ export interface Settings extends SanityDocument {
   links?: Array<SanityKeyed<TitleText>>;
 
   /**
+   * Link legals — `reference`
+   *
+   *
+   */
+  linkLegals?: SanityReference<PageModulaire>;
+
+  /**
    * logos — `array`
    *
    *
