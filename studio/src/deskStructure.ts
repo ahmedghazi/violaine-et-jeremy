@@ -54,7 +54,7 @@ export const structure: StructureResolver = (S) =>
 
       S.listItem().title('Project').schemaType('project').child(S.documentTypeList('project')),
       S.listItem().title('Space').schemaType('space').child(S.documentTypeList('space')),
-      S.listItem().title('Tag').schemaType('tag').child(S.documentTypeList('tag')),
+      // S.listItem().title('Tag').schemaType('tag').child(S.documentTypeList('tag')),
 
       // We also need to remove the new singletons from the main list
       ...S.documentTypeListItems().filter(hiddenDocTypes),

@@ -307,11 +307,11 @@ export interface Project extends SanityDocument {
   slug?: { _type: "slug"; current: string }
 
   /**
-   * look — `string`
+   * description — `string`
    *
-   *
+   * Short desc, visible on home page
    */
-  look?: "default" | "split"
+  description?: string
 
   /**
    * Image home — `image`
@@ -324,13 +324,6 @@ export interface Project extends SanityDocument {
     crop?: SanityImageCrop
     hotspot?: SanityImageHotspot
   }
-
-  /**
-   * description — `string`
-   *
-   * visible on home page
-   */
-  description?: string
 
   /**
    * Image Cover — `image`
@@ -359,9 +352,16 @@ export interface Project extends SanityDocument {
   textIntroDrapeau?: boolean
 
   /**
+   * look — `string`
+   *
+   *
+   */
+  look?: "default" | "split"
+
+  /**
    * job — `string`
    *
-   * visible on home page
+   *
    */
   job?: string
 
@@ -394,6 +394,13 @@ export interface Project extends SanityDocument {
   location?: string
 
   /**
+   * content — `array`
+   *
+   *
+   */
+  content?: Array<SanityKeyed<CompositionUI>>
+
+  /**
    * credits — `array`
    *
    *
@@ -406,13 +413,6 @@ export interface Project extends SanityDocument {
    *
    */
   links?: Array<SanityKeyed<Contact>>
-
-  /**
-   * content — `array`
-   *
-   *
-   */
-  content?: Array<SanityKeyed<CompositionUI>>
 
   /**
    * related — `array`

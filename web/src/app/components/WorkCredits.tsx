@@ -12,7 +12,7 @@ const WorkCredits = ({ credits, links }: Props) => {
     <section className="credits b-t py-50 text-sm md:text-md">
       <div className="grid gap-sm md:gap-md grid-cols-3 md:grid-cols-4 mb-50">
         <h4>CREDITS</h4>
-        <ul className="credits--detail grid gap-xs md:gap-md md:grid-cols-3 col-span-2 md:col-span-3">
+        <ul className="credits--detail grid gap-xs md:gap-md- md:grid-cols-3 col-span-2 md:col-span-3">
           {credits?.map((item, i) => (
             <li key={i}>
               <CreditsItem
@@ -28,7 +28,7 @@ const WorkCredits = ({ credits, links }: Props) => {
       </div>
       <div className="grid gap-sm md:gap-md grid-cols-3 md:grid-cols-4 ">
         <h4>LINKS</h4>
-        <ul className="credits--detail grid gap-xs md:gap-md md:grid-cols-3 col-span-2 md:col-span-3">
+        <ul className="credits--detail grid gap-xs md:gap-md- md:grid-cols-3 col-span-2 md:col-span-3">
           {links?.map((item, i) => (
             <li key={i}>
               <CreditsItem

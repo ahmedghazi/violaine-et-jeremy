@@ -57,28 +57,16 @@ export default defineType({
     }),
 
     defineField({
-      name: 'look',
+      name: 'description',
+      title: 'description',
       type: 'string',
+      description: 'Short desc, visible on home page',
       group: 'editorial',
-      options: {
-        list: [
-          {title: 'Default', value: 'default'},
-          {title: 'Split scroll (sticky text)', value: 'split'},
-        ],
-      },
     }),
-
     defineField({
       name: 'imageHome',
       type: 'image',
       title: 'Image home',
-      description: 'visible on home page',
-      group: 'editorial',
-    }),
-    defineField({
-      name: 'description',
-      title: 'description',
-      type: 'string',
       description: 'visible on home page',
       group: 'editorial',
     }),
@@ -103,7 +91,17 @@ export default defineType({
       group: 'editorial',
       description: 'default false',
     }),
-
+    defineField({
+      name: 'look',
+      type: 'string',
+      group: 'editorial',
+      options: {
+        list: [
+          {title: 'Default', value: 'default'},
+          {title: 'Split scroll (sticky text)', value: 'split'},
+        ],
+      },
+    }),
     // defineField({
     //   name: 'modules',
     //   title: 'Modules',
@@ -115,7 +113,7 @@ export default defineType({
     defineField({
       name: 'job',
       type: 'string',
-      description: 'visible on home page',
+      // description: 'visible on home page',
       group: 'metas',
     }),
     defineField({
@@ -138,6 +136,18 @@ export default defineType({
       type: 'string',
       group: 'metas',
     }),
+
+    defineField({
+      name: 'content',
+      type: 'array',
+      of: [
+        {
+          type: 'compositionUI',
+        },
+      ],
+      group: 'editorial',
+    }),
+
     defineField({
       name: 'credits',
       type: 'array',
@@ -160,16 +170,7 @@ export default defineType({
       ],
       group: 'editorial',
     }),
-    defineField({
-      name: 'content',
-      type: 'array',
-      of: [
-        {
-          type: 'compositionUI',
-        },
-      ],
-      group: 'editorial',
-    }),
+
     defineField({
       name: 'related',
       type: 'array',
