@@ -12,6 +12,8 @@ import {FiAlignCenter, FiAlignLeft, FiAlignRight, FiExternalLink, FiLink} from '
  *  }
  */
 
+const Normal = (props: any) => <span style={{fontFamily: 'serif'}}>{props.children}</span>
+const Sans = (props: any) => <span style={{fontFamily: 'sans-serif'}}>{props.children}</span>
 const AlignLeftRender = (props: any) => <p style={{textAlign: 'left'}}>{props.children}</p>
 const AlignCenterRender = (props: any) => <p style={{textAlign: 'center'}}>{props.children}</p>
 const AlignRightRender = (props: any) => <p style={{textAlign: 'right'}}>{props.children}</p>
@@ -29,13 +31,14 @@ export default defineType({
       // you want and decide how you want to deal with it where you want to
       // use your content.
       styles: [
-        {title: 'Normal', value: 'normal'},
+        {title: 'Normal', value: 'normal', component: Normal},
         {title: 'H2', value: 'h2'},
         {title: 'H3', value: 'h3'},
         {title: 'H4', value: 'h4'},
         // {title: 'Quote', value: 'blockquote'},
         {title: 'Texte L', value: 'text_lg'},
-        {title: 'Texte XL', value: 'text_xl'},
+        // { title: 'Texte XL', value: 'text_xl' },
+        // {title: 'Sans', value: 'sans'},
       ],
       lists: [{title: 'Bullet', value: 'bullet'}],
       // Marks let you mark up inline text in the block editor.
@@ -43,6 +46,7 @@ export default defineType({
         // Decorators usually describe a single property – e.g. a typographic
         // preference or highlighting by editors.
         decorators: [
+          {title: 'Sans', value: 'sans', component: Sans, icon: () => 'Sans'},
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
           {

@@ -10,9 +10,16 @@ footer {
     padding-top: toRem(18);
     padding-bottom: toRem(6);
     border-top: var(--border);
+    // .footer-item:not(:first-child) p {
+    //   line-height: toRem(24);
+    // }
   }
   h5 {
     margin-bottom: 0.6rem;
+  }
+  ul li {
+    margin-bottom: toRem(6);
+    line-height: toRem(18);
   }
   .logos div {
     width: calc(100% / 4);

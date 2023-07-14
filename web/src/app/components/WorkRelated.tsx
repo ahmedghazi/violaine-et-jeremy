@@ -51,7 +51,7 @@ const WorkRelated = ({ input }: Props) => {
                       alt={item.title || "project"}
                     />
                   )}
-                  <div className="header text-center pt-1re">
+                  <div className="header text-center pt-1re text-sm">
                     <WorkTitle title={item.title || ""} subtitle={item.job} />
                   </div>
                 </Link>

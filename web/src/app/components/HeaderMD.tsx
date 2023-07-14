@@ -26,7 +26,7 @@ const HeaderMD = ({ titleAlt, settings, infos }: Props) => {
                 <li
                   key={item.label}
                   className={clsx(
-                    "lowercase serif pr-sm italic",
+                    "lowercase serif pr-sm- italic",
                     `nav-${item.link?.slug?.current}`
                   )}
                 >

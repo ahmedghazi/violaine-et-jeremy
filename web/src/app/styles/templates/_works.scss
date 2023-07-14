@@ -3,6 +3,7 @@
     top: toRem(50);
     @media all and (min-width: $md) {
       top: 0;
+      padding-top: 0.8em;
     }
     span {
       vertical-align: sub;

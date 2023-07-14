@@ -14,7 +14,7 @@ const BtnsDisplay = ({ display, setDisplay }: Props) => {
         <button
           className={clsx(
             "px-sm pointer-events-auto",
-            display !== "grid" ? "serif" : ""
+            display !== "grid" ? "serif-" : ""
           )}
           onClick={() => setDisplay("grid")}
         >
@@ -24,7 +24,7 @@ const BtnsDisplay = ({ display, setDisplay }: Props) => {
         <button
           className={clsx(
             "px-sm pointer-events-auto",
-            display !== "list" ? "serif" : ""
+            display !== "list" ? "serif-" : ""
           )}
           onClick={() => setDisplay("list")}
         >

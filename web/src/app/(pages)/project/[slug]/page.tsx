@@ -38,7 +38,7 @@ const ProjectSingle: ({ params }: Props) => Promise<JSX.Element> = async ({
     data = (await getProject(params.slug)) as ProjectExtend
   }
 
-  console.log(data.title)
+  // console.log(data.title)
   // const data: ProjectExtend = (await getProject(params.slug)) as ProjectExtend
 
   return (

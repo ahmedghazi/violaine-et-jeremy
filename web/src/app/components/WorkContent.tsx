@@ -12,6 +12,7 @@ import { urlFor } from "../utils/sanity-utils"
 import WorkTitle from "./WorkTitle"
 import { ProjectExtend, SpaceExtend } from "../types/extend"
 import WorkRelated from "./WorkRelated"
+import components from "../utils/portableTextComponents"
 
 type Props = {
   input: ProjectExtend | SpaceExtend
@@ -49,13 +50,20 @@ const ArticleWorkDefault = ({ input, imageCover }: ArticleProps) => (
               }}
               blurDataURL={imageCover?.metadata?.lqip} //automatically provided
               placeholder="blur" // Optional blur-up while loading
+              className={clsx(
+                imageCover?.metadata?.dimensions.aspectRatio > 1
+                  ? "is-landscape"
+                  : "is-portrait"
+              )}
             />
           </figure>
         )}
         <div className="text-intro">
           <div className="inner">
             <div className="text">
-              {input.text && <PortableText value={input.text} />}
+              {input.text && (
+                <PortableText value={input.text} components={components} />
+              )}
             </div>
           </div>
         </div>
@@ -72,6 +80,11 @@ const ArticleWorkSplit = ({ input, imageCover }: ArticleProps) => (
       {imageCover && (
         <figure className="mb-md">
           <Image
+            className={clsx(
+              imageCover?.metadata?.dimensions.aspectRatio > 1
+                ? "is-landscape"
+                : "is-portrait"
+            )}
             src={imageCover.url}
             width={imageCover?.metadata?.dimensions.width}
             height={imageCover?.metadata?.dimensions.height}

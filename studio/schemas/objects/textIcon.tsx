@@ -27,7 +27,7 @@ export function PreviewImage(props) {
 }
 
 export default {
-  title: 'Text Icon',
+  title: 'Icon',
   name: 'textIcon',
   type: 'object',
 

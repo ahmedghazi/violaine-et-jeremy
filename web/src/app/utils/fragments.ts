@@ -1,19 +1,26 @@
-export const grid = `
-	_type == 'grid' => {
+export const projectCard = `
+	...,
+	_type,
+	slug,
+	title,
+	job,
+	imageCover {
 		...,
-		items[] {
-			...,
-			ctas[] {
-				...,
-				link->{link, slug}
-			}
-		}
-	}
+		asset->
+	},
+	imageHome {
+		...,
+		asset->
+	},
 `
 
-export const spacer = `
-	_type == 'spacer' => {
-		...
+export const content = `
+	...,
+	items[]{
+		...,
+		image{
+			asset->
+		}
 	}
 `
 

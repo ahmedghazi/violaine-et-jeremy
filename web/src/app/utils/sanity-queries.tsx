@@ -10,11 +10,13 @@ import {
   Work,
 } from "../types/schema"
 import { cache } from "react"
+import { content, projectCard } from "./fragments"
 
 // const clientFetch = cache(client.fetch.bind(client))
 // Add cachedClient export
 export const cachedClient = cache(client.fetch.bind(client))
 
+/***************************************************************************************/
 export async function getSettings(): Promise<Settings> {
   return cachedClient(
     groq`*[_type == "settings"][0]{
@@ -41,6 +43,7 @@ export async function getSettings(): Promise<Settings> {
   )
 }
 
+/***************************************************************************************/
 export async function getHome(): Promise<Home> {
   return cachedClient(
     groq`*[_type == "home"][0]{
@@ -53,15 +56,16 @@ export async function getHome(): Promise<Home> {
         job,
         description,
         imageHome {
-            ...,
-            asset->
-          }
+          ...,
+          asset->
         }
+      }
     }`,
     {}
   )
 }
 
+/***************************************************************************************/
 export async function getInfos(): Promise<Infos> {
   return cachedClient(
     groq`*[_type == "infos"][0]{...,
@@ -74,19 +78,13 @@ export async function getInfos(): Promise<Infos> {
   )
 }
 
+/***************************************************************************************/
 export async function getWorks(slug: string): Promise<Work> {
   return cachedClient(
     groq`*[_type == "work" && slug.current == $slug][0]{
       ...,
       worksImages[]->{
-        _type,
-        title,
-        industry,
-        slug,
-        imageCover {
-          ...,
-          asset->
-        },
+        ${projectCard}
       },
       worksTexts[]{
         hasLink,
@@ -114,28 +112,23 @@ export async function getWorks(slug: string): Promise<Work> {
   )
 }
 
-export async function getAllWorks(type: string): Promise<(Project | Space)[]> {
-  return cachedClient(
-    groq`*[_type == $type ]{
-      ...,
-      imageCover {
-        ...,
-        asset->
-      },
-      content[]{
-        ...,
-        items[]{
-          ...,
-          image{
-            asset->
-          }
-        }
-      }
-    }`,
-    { type: type }
-  )
-}
+// export async function getAllWorks(type: string): Promise<(Project | Space)[]> {
+//   return cachedClient(
+//     groq`*[_type == $type ]{
+//       ...,
+//       imageCover {
+//         ...,
+//         asset->
+//       },
+//       content[]{
+//         ${content}
+//       }
+//     }`,
+//     { type: type }
+//   )
+// }
 
+/***************************************************************************************/
 export const projectQuery = groq`*[_type == "project" && slug.current == $slug][0]{
   ...,
   imageCover {
@@ -143,24 +136,10 @@ export const projectQuery = groq`*[_type == "project" && slug.current == $slug][
     asset->
   },
   content[]{
-    ...,
-    items[]{
-      ...,
-      image{
-        asset->
-      }
-    }
+    ${content}
   },
   related[]->{
-    ...,
-    _type,
-    slug,
-    title,
-    job,
-    imageCover {
-      ...,
-      asset->
-    },
+    ${projectCard}
   },
   'prev': *[
     _type == 'project' && !(_id in path('drafts.**')) && _createdAt < ^._createdAt
@@ -174,6 +153,7 @@ export async function getProject(slug: string): Promise<Project> {
   return cachedClient(projectQuery, { slug: slug })
 }
 
+/***************************************************************************************/
 export async function getSpace(slug: string): Promise<Space> {
   return cachedClient(
     groq`*[_type == "space" && slug.current == $slug][0]{
@@ -192,13 +172,7 @@ export async function getPageModulaire(slug: string): Promise<PageModulaire> {
     groq`*[_type == "pageModulaire" && slug.current == $slug][0]{
       ...,
       content[]{
-        ...,
-        items[]{
-          ...,
-          image{
-            asset->
-          }
-        }
+        ${content}
       },
     }`,
     { slug: slug }

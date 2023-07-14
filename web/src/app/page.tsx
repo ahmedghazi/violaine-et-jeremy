@@ -4,6 +4,7 @@ import { getHome } from "./utils/sanity-queries"
 import { PortableText } from "@portabletext/react"
 import HomeFeed from "./components/HomeFeed"
 import { draftMode } from "next/headers"
+import components from "./utils/portableTextComponents"
 
 export const revalidate = 3600 // revalidate every hour
 
@@ -33,7 +34,7 @@ const Home: () => Promise<JSX.Element> = async () => {
     <div className="page-home px-sm md:px-md">
       {data.text && (
         <div className="about sticky left-0 top-100 w-full px-md text-center serif italic md:text-lg text">
-          <PortableText value={data?.text} />
+          <PortableText value={data?.text} components={components} />
         </div>
       )}
 

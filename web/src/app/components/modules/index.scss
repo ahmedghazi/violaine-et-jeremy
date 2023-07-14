@@ -28,6 +28,11 @@ article.look-default .modules {
         height: auto !important;
         object-fit: contain;
       }
+      @media all and (min-width: 1080px) {
+        .text {
+          margin: auto;
+        }
+      }
     }
 
     .module {

@@ -4,6 +4,7 @@ import { PageModulaire, TitleText } from "../types/schema"
 import Mailchimp from "./ui/Mailchimp"
 import Link from "next/link"
 import { _linkResolver } from "../utils/utils"
+import components from "../utils/portableTextComponents"
 
 type Props = {
   input:
@@ -21,7 +22,9 @@ const Contacts = ({ input, linkLegals }: Props) => {
         <div className="footer-item" key={i}>
           <h5>{item.title}</h5>
           <div className="text-sm">
-            {item?.text && <PortableText value={item?.text} />}
+            {item?.text && (
+              <PortableText value={item?.text} components={components} />
+            )}
           </div>
         </div>
       ))}
@@ -35,7 +38,7 @@ const Contacts = ({ input, linkLegals }: Props) => {
             required: true,
           }}
         />
-        <div className="text-xs md:text-sm">
+        <div className="text-sm ">
           {linkLegals && (
             <Link href={_linkResolver(linkLegals)}>{linkLegals.title}</Link>
           )}

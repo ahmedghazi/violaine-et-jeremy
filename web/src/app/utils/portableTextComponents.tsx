@@ -3,19 +3,6 @@ import { urlFor } from "./sanity-utils"
 import Image from "next/image"
 
 const components: PortableTextComponents = {
-  // block(props) {
-  //   console.log(props)
-  //   switch (props.node?.style) {
-  //     case "h2":
-  //       return <h2>{props.children}</h2>
-  //     case "text-lg":
-  //       return <p className="text-lg">{props.children}</p>
-  //     case "text-xl":
-  //       return <p className="text-xl">{props.children}</p>
-  //     default:
-  //       return <p>{props.children}</p>
-  //   }
-  // },
   block: {
     h2: ({ children }) => <h2>{children}</h2>,
     "text-lg": ({ children }) => <p className="text-lg">{children}</p>,
@@ -39,16 +26,24 @@ const components: PortableTextComponents = {
   },
 
   marks: {
-    link: ({ children, value }) => {
-      const rel = !value.href.startsWith("/")
-        ? "noreferrer noopener"
-        : undefined
+    // link: ({ children, value }) => {
+    //   const rel = !value.href.startsWith("/")
+    //     ? "noreferrer noopener"
+    //     : undefined
+    //   return (
+    //     <a href={value.href} rel={rel}>
+    //       {children}
+    //     </a>
+    //   )
+    // },
+    linkExternal: ({ children, value }) => {
       return (
-        <a href={value.href} rel={rel}>
+        <a href={value.href} rel={"noopener noreferrer"} target="_blank">
           {children}
         </a>
       )
     },
+    sans: ({ children }) => <span className="sans">{children}</span>,
     align_left: ({ children, value }) => (
       <p className="text-left">{children}</p>
     ),

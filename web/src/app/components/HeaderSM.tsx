@@ -51,7 +51,7 @@ const HeaderSM = ({ titleAlt, settings, infos }: Props) => {
             <div className="label">WORKS</div>
             <ul className="flex absolute top-0">
               {settings.navWorks?.map((item: LinkInternal) => (
-                <li key={item.label} className="lowercase serif pr-sm italic">
+                <li key={item.label} className="lowercase serif pr-sm- italic">
                   <NavLink input={item} />
                 </li>
               ))}

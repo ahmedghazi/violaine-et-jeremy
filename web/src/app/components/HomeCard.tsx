@@ -64,7 +64,7 @@ const HomeCard = ({ input }: Props) => {
             <WorkTitle title={input.title || ""} subtitle={input.job} />
           </div>
 
-          <p className="text-center italic">{input.description}</p>
+          <p className="text-center italic-">{input.description}</p>
         </div>
       </Link>
     </article>

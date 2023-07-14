@@ -17,12 +17,14 @@ body {
   -webkit-font-smoothing: antialiased;
   letter-spacing: 0.02rem;
 }
-.sans {
+.sans,
+.font-primary {
   font-family: var(--font-primary);
 }
 .serif {
   font-family: var(--font-secondary);
   letter-spacing: 0.02em;
+  // transform: translateY(-0.02em);
 }
 
 html {
@@ -139,6 +141,7 @@ strong {
 
 button {
   background: transparent;
+  letter-spacing: inherit;
 }
 
 input {

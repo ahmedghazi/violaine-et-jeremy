@@ -1,6 +1,15 @@
 .work-content {
   .look-default .intro figure {
     margin-bottom: toRem(50);
+    &:has(.is-landscape) {
+      width: 100%;
+    }
+    img {
+      &.is-landscape {
+        height: auto;
+        width: 100% !important;
+      }
+    }
   }
   .look-split {
     .text-intro {
@@ -48,6 +57,8 @@
         @media all and (min-width: $md) {
           flex-basis: calc(50vw - var(--space-md) * 2);
           min-width: calc(50vw - var(--space-md) * 2);
+          flex-basis: calc(620 * 100% / 1404);
+          min-width: calc(620 * 100% / 1404);
         }
       }
       img {
@@ -76,6 +87,33 @@
     }
   }
   .credits {
+    /*
+    .footer-item:nth-child(1) {
+      width: calc((100 + 190) * 100% / 1404);
+    }
+    .footer-item:nth-child(2) {
+      width: calc(368 * 100% / 1404);
+    }
+    .footer-item:nth-child(3) {
+      width: calc(356 * 100% / 1404);
+    }
+    .footer-item:nth-child(4) {
+      width: calc(390 * 100% / 1404);
+    }
+    */
+    @media all and (min-width: $md) {
+      .flex {
+        h4 {
+          width: calc((100 + 190) * 100% / 1404);
+        }
+        .credits-item:nth-child(2) {
+          width: calc(368 * 100% / 1404);
+        }
+        .credits-item:nth-child(3) {
+          width: calc(356 * 100% / 1404);
+        }
+      }
+    }
     & > .grid {
       line-height: 1.4;
     }

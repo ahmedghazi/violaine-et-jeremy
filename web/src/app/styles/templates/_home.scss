@@ -4,6 +4,7 @@
   // background-color: red;
   .about {
     letter-spacing: toRem(0.6);
+    top: calc(var(--space-100) - 0.2em);
     @media all and (max-width: $sm) {
       top: toRem(90);
       position: sticky;
@@ -25,8 +26,15 @@
     &.can-display-images {
       opacity: 1;
     }
+    .infos {
+      position: absolute;
+      width: 100%;
+    }
     .header {
       line-height: 1.2;
+    }
+    em {
+      transform: translateY(-0.02em);
     }
     .industry {
       line-height: 1.2;
@@ -43,6 +51,15 @@
         width: var(--width);
         // transition: width 0.2s ease-out;
         // border: 1px solid;
+        span {
+          letter-spacing: toRem(1.8);
+        }
+      }
+    }
+    p {
+      font-family: var(--font-primary);
+      @media all and (min-width: $md) {
+        font-size: 12px;
       }
     }
     img {
