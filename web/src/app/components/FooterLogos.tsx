@@ -29,7 +29,8 @@ const FooterLogos = ({ input }: Props) => {
   }, [pathname])
 
   const _randomLogo = () => {
-    const rand = Math.round(Math.random() * input.length - 1)
+    const rand = Math.round(Math.random() * (input.length - 1))
+    // console.log(rand)
     if (input[rand]) setLogos(input[rand].items)
   }
 
