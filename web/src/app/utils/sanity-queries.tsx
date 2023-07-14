@@ -143,10 +143,10 @@ export const projectQuery = groq`*[_type == "project" && slug.current == $slug][
   },
   'prev': *[
     _type == 'project' && !(_id in path('drafts.**')) && _createdAt < ^._createdAt
-  ]{_type, slug, title} | order(_createdAt desc)[0],
+  ]{ ${projectCard}} | order(_createdAt desc)[0],
   'next': *[
     _type == 'project' && !(_id in path('drafts.**')) && _createdAt > ^._createdAt
-  ]{_type, slug, title} | order(_createdAt desc)[0]
+  ]{ ${projectCard}} | order(_createdAt desc)[0]
 }`
 
 export async function getProject(slug: string): Promise<Project> {

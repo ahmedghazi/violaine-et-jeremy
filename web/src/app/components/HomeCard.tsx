@@ -11,7 +11,7 @@ type Props = {
   // isLast: boolean
 }
 
-const HomeCard = ({ input, isLast }: Props) => {
+const HomeCard = ({ input }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
 
   const imageHome: SanityImageAsset | any = input.imageHome?.asset as
