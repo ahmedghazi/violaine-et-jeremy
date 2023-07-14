@@ -44,26 +44,28 @@ export default function InfosModal({ infosData, settingsData }: Props) {
             <Contacts input={links} linkLegals={linkLegals} />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-md ">
-            <div className="grid-item">
-              {infosData.text && <PortableText value={infosData.text} />}
-            </div>
-            <div className="grid-item">
-              {image && (
-                <Image
-                  src={image.url}
-                  width={image?.metadata?.dimensions.width}
-                  height={image?.metadata?.dimensions.height}
-                  alt={infosData.title || "alt"}
-                  sizes="100vw"
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                  }}
-                  blurDataURL={image?.metadata?.lqip} //automatically provided
-                  placeholder="blur" // Optional blur-up while loading
-                />
-              )}
+          <div className="content pb-100">
+            <div className="md:flex ">
+              <div className="grid-item md:pr-md">
+                {infosData.text && <PortableText value={infosData.text} />}
+              </div>
+              <div className="grid-item">
+                {image && (
+                  <Image
+                    src={image.url}
+                    width={image?.metadata?.dimensions.width}
+                    height={image?.metadata?.dimensions.height}
+                    alt={infosData.title || "alt"}
+                    sizes="100vw"
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                    }}
+                    blurDataURL={image?.metadata?.lqip} //automatically provided
+                    placeholder="blur" // Optional blur-up while loading
+                  />
+                )}
+              </div>
             </div>
           </div>
         </div>

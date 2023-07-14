@@ -12,6 +12,15 @@
     }
   }
   .look-split {
+    @media all and (min-width: $md) {
+      .content {
+        flex-basis: calc(620 * 100% / 1404);
+        min-width: calc(620 * 100% / 1404);
+      }
+      .text-intro {
+        flex: 2;
+      }
+    }
     .text-intro {
       .inner {
         @media all and (min-width: $md) {
@@ -161,12 +170,20 @@
       article.item {
         .header {
           transition: opacity 0.6s, transform 0.6s;
+          bottom: 0;
+          top: unset;
+          position: absolute;
+          width: 100%;
           opacity: 0;
-          transform: translateY(-1em);
+          transform: translateY(0%);
+        }
+        img {
+          z-index: 1;
+          position: relative;
         }
         &:hover .header {
           opacity: 1;
-          transform: translateY(0);
+          transform: translateY(100%);
         }
       }
       @media all and (max-width: $md) {

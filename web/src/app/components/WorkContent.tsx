@@ -75,7 +75,7 @@ const ArticleWorkDefault = ({ input, imageCover }: ArticleProps) => (
 )
 
 const ArticleWorkSplit = ({ input, imageCover }: ArticleProps) => (
-  <article className="look-split grid md:grid-cols-2 gap-md">
+  <article className="look-split grid- md:grid-cols-2- gap-md- flex">
     <div className="content">
       {imageCover && (
         <figure className="mb-md">
@@ -107,7 +107,9 @@ const ArticleWorkSplit = ({ input, imageCover }: ArticleProps) => (
     <div className="text-intro">
       <div className="inner">
         <div className="text">
-          {input.text && <PortableText value={input.text} />}
+          {input.text && (
+            <PortableText value={input.text} components={components} />
+          )}
         </div>
       </div>
     </div>
@@ -118,7 +120,7 @@ const ArticleWork = ({ input }: Props) => {
   const imageCover: SanityImageAsset | any = input.imageCover?.asset
   // console.log(input.related)
   return (
-    <div className="work-content mb-50">
+    <div className="work-content">
       {input.look !== "split" && (
         <ArticleWorkDefault input={input} imageCover={imageCover} />
       )}

@@ -5,9 +5,10 @@ import Card from "../Card"
 
 type Props = {
   input: (Project | Space)[]
+  withColorPalette: boolean
 }
 
-const Grid = ({ input }: Props) => {
+const Grid = ({ input, withColorPalette }: Props) => {
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-md px-sm md:px-md">
       {input &&
@@ -19,6 +20,7 @@ const Grid = ({ input }: Props) => {
               industry={item.industry || ""}
               link={_linkResolver(item) || ""}
               image={item.imageCover?.asset || null}
+              withColorPalette={withColorPalette}
             />
           </div>
         ))}

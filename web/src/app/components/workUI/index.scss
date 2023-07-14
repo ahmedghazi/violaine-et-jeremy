@@ -1,7 +1,7 @@
 @import "../../styles/mixins";
 
 .work-ui {
-  padding-bottom: toRem(100);
+  // padding-bottom: toRem(100);
   .list {
     opacity: var(--opacity, 0);
     .thead {

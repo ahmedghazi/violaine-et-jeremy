@@ -18,4 +18,11 @@
       }
     }
   }
+  .works-ui > .grid {
+    // row-gap: 5.46rem;
+    row-gap: toRem(81.9);
+    @media all and (max-width: $sm) {
+      row-gap: toRem(40);
+    }
+  }
 }

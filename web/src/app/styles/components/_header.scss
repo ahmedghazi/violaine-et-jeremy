@@ -10,7 +10,7 @@ header {
   }
 
   nav.nav-studio {
-    li:last-child {
+    li.col-item:last-child {
       text-align: right;
     }
     a[target="_blank"] {

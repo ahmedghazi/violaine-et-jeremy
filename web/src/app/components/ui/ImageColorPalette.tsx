@@ -16,25 +16,14 @@ const ImageColorPalette = ({ image }: Props) => {
   //   "darkVibrant",
   // ]
   return (
-    <div className="image-color-palette grid grid-cols-7 z-50 text-sm">
-      {/* {palette.map((item, i) => (
-        <div
-          key={i}
-          className="aspect-square center-x-y ellipsis "
-          style={{
-            backgroundColor: image.metadata.palette[item as keyof].background,
-          }}
-        >
-          {item}
-        </div>
-      ))} */}
+    <div className="image-color-palette grid grid-cols-3 z-50 text-sm">
       <div
         className="aspect-square center-x-y ellipsis "
         style={{
           backgroundColor: image.metadata.palette.lightMuted.background,
         }}
       >
-        lightMuted
+        <span className="opacity-0">lightMuted</span>
       </div>
       <div
         className="aspect-square center-x-y ellipsis "
@@ -42,7 +31,7 @@ const ImageColorPalette = ({ image }: Props) => {
           backgroundColor: image.metadata.palette.muted.background,
         }}
       >
-        muted
+        <span className="opacity-0">muted</span>
       </div>
       <div
         className="aspect-square center-x-y ellipsis "
@@ -50,9 +39,9 @@ const ImageColorPalette = ({ image }: Props) => {
           backgroundColor: image.metadata.palette.darkMuted.background,
         }}
       >
-        darkMuted
+        <span className="opacity-0">darkMuted</span>
       </div>
-      <div
+      {/* <div
         className="aspect-square center-x-y ellipsis "
         style={{
           backgroundColor: image.metadata.palette.dominant.background,
@@ -83,7 +72,7 @@ const ImageColorPalette = ({ image }: Props) => {
         }}
       >
         darkVibrant
-      </div>
+      </div> */}
     </div>
   )
 }

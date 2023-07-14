@@ -19,6 +19,7 @@ main {
   min-height: var(--app-height, 100vh);
   position: relative;
   padding-top: var(--space-100);
+  padding-bottom: toRem(85);
   // z-index: 0;
   // pointer-events: none;
   // .page {

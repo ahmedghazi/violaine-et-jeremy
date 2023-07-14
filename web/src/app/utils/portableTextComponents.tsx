@@ -5,7 +5,7 @@ import Image from "next/image"
 const components: PortableTextComponents = {
   block: {
     h2: ({ children }) => <h2>{children}</h2>,
-    "text-lg": ({ children }) => <p className="text-lg">{children}</p>,
+    "text-lg": ({ children }) => <div className="text-lg">{children}</div>,
     // align_center: ({ children }) => <p className="text-center">{children}</p>,
   },
   types: {
@@ -26,16 +26,6 @@ const components: PortableTextComponents = {
   },
 
   marks: {
-    // link: ({ children, value }) => {
-    //   const rel = !value.href.startsWith("/")
-    //     ? "noreferrer noopener"
-    //     : undefined
-    //   return (
-    //     <a href={value.href} rel={rel}>
-    //       {children}
-    //     </a>
-    //   )
-    // },
     linkExternal: ({ children, value }) => {
       return (
         <a href={value.href} rel={"noopener noreferrer"} target="_blank">
@@ -43,6 +33,7 @@ const components: PortableTextComponents = {
         </a>
       )
     },
+    linkInternal: ({ children }) => <div>link internal {children}</div>,
     sans: ({ children }) => <span className="sans">{children}</span>,
     align_left: ({ children, value }) => (
       <p className="text-left">{children}</p>

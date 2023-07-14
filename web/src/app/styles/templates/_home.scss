@@ -19,9 +19,14 @@
     position: relative;
     opacity: 0;
     transition: opacity 0.2s;
-    margin-bottom: calc(200px + var(--textAboutHeight));
-    @media all and (max-width: $sm) {
-      margin-bottom: toRem(190);
+    &:not(:last-child) {
+      margin-bottom: calc(200px + var(--textAboutHeight));
+      @media all and (max-width: $sm) {
+        margin-bottom: toRem(190);
+      }
+    }
+    &:last-child {
+      margin-bottom: calc(1em + toRem(32));
     }
     &.can-display-images {
       opacity: 1;

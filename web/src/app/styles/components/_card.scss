@@ -1,8 +1,8 @@
 .card {
-  margin-bottom: 5.46rem;
-  @media all and (max-width: $sm) {
-    margin-bottom: toRem(40);
-  }
+  // margin-bottom: 5.46rem;
+  // @media all and (max-width: $sm) {
+  //   margin-bottom: toRem(40);
+  // }
   &:hover {
     .header {
       opacity: 0;

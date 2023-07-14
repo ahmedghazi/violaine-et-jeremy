@@ -36,10 +36,10 @@ const WorkRelated = ({ input }: Props) => {
           <h4 className="text-center text-sm mb-1re">
             Other projects in the same style
           </h4>
-          <div className="flex justify-center gap-md">
+          <div className="flex justify-center items-start gap-md">
             {input.related?.map((item) => (
               <article className="item w-200" key={item._id}>
-                <Link href={_linkResolver(item)}>
+                <Link href={_linkResolver(item)} className="relative">
                   {item.imageCover && (
                     <Image
                       src={urlFor(item.imageCover?.asset)}
@@ -51,7 +51,7 @@ const WorkRelated = ({ input }: Props) => {
                       alt={item.title || "project"}
                     />
                   )}
-                  <div className="header text-center pt-1re text-sm">
+                  <div className="header text-center pt-1re text-sm ">
                     <WorkTitle title={item.title || ""} subtitle={item.job} />
                   </div>
                 </Link>

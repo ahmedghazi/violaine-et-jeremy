@@ -45,12 +45,6 @@ const HomeFeed = ({ input }: Props) => {
       {input.map((item, i: number) => (
         <HomeCard input={item} key={item.slug?.current} />
       ))}
-      {input.map((item, i: number) => (
-        <HomeCard input={item} key={item.slug?.current} />
-      ))}
-      {input.map((item, i: number) => (
-        <HomeCard input={item} key={item.slug?.current} />
-      ))}
     </div>
   )
 }

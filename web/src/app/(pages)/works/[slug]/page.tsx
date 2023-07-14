@@ -38,8 +38,12 @@ const Page: ({ params }: PageProps) => Promise<JSX.Element> = async ({
   const worksTexts: WorksTextsItem[] = data.worksTexts as WorksTextsItem[]
 
   return (
-    <div className="page-works ">
-      <WorkUI worksImages={worksImages} worksTexts={worksTexts} />
+    <div className={`page-works page-works--${params.slug}`}>
+      <WorkUI
+        worksImages={worksImages}
+        worksTexts={worksTexts}
+        isDesign={params.slug === "design"}
+      />
     </div>
   )
 }

@@ -11,12 +11,13 @@ type Props = {
   title: string
   industry?: string
   link: string
+  withColorPalette: boolean
 }
 
-const Card = ({ link, image, title, industry }: Props) => {
+const Card = ({ link, image, title, industry, withColorPalette }: Props) => {
   return (
     <article className="card">
-      <Link href={link}>
+      <Link href={link} className="relative">
         {
           (image &&= (
             <figure className="relative">
@@ -49,11 +50,13 @@ const Card = ({ link, image, title, industry }: Props) => {
                 >
                   <WorkTitle title={title || ""} subtitle={industry} />
                 </div>
-              </div>
 
-              {/* <div className="absolute top-0 left-0 w-full">
-                <ImageColorPalette image={image} />
-              </div> */}
+                {withColorPalette && (
+                  <div className="absolute top-0 left-0 w-full">
+                    <ImageColorPalette image={image} />
+                  </div>
+                )}
+              </div>
             </figure>
           ))
         }

@@ -4,12 +4,14 @@ import Image from "next/image"
 import Link from "next/link"
 import { _linkResolver } from "../utils/utils"
 import WorkTitle from "./WorkTitle"
+import clsx from "clsx"
 
 type Props = {
   input: Project
+  // isLast: boolean
 }
 
-const HomeCard = ({ input }: Props) => {
+const HomeCard = ({ input, isLast }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
 
   const imageHome: SanityImageAsset | any = input.imageHome?.asset as
@@ -32,7 +34,7 @@ const HomeCard = ({ input }: Props) => {
   }
 
   return (
-    <article className="home-card mb-100">
+    <article className={clsx("home-card")}>
       <Link href={_linkResolver(input)}>
         <div className="industry text-lg text-center serif uppercase">
           <div
