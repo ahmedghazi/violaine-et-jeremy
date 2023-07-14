@@ -12,8 +12,14 @@ header {
     text-align: right;
   }
 
-  a .absolute {
-    transform: translateX(0.2em);
+  nav.nav-studio a[target="_blank"] {
+    &:hover .absolute {
+      transform: translate(0.4em, -0.3em);
+    }
+    .absolute {
+      transform: translateX(0.2em);
+      transition: transform 0.2s;
+    }
   }
   .nav-works {
     @media all and (min-width: $md) {
@@ -30,6 +36,7 @@ header {
       }
     }
   }
+
   @media all and (max-width: $md) {
     padding: toRem(7) toRem(10);
     .btn-menu-toggle {

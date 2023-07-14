@@ -32,7 +32,7 @@ const Home: () => Promise<JSX.Element> = async () => {
   return (
     <div className="page-home px-sm md:px-md">
       {data.text && (
-        <div className="about fixed left-0 top-100 w-full px-md text-center serif italic md:text-lg text">
+        <div className="about sticky left-0 top-100 w-full px-md text-center serif italic md:text-lg text">
           <PortableText value={data?.text} />
         </div>
       )}

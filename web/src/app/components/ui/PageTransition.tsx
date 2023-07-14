@@ -42,7 +42,7 @@ interface PageContextProps {
 
 const PageTransition = ({ location, children }: PageContextProps) => {
   const pathName = usePathname()
-  console.log(pathName)
+  // console.log(pathName)
   return (
     <AnimatePresence>
       <motion.div

@@ -1,10 +1,12 @@
 .page-home {
-  // padding-top: var(--header-height);
+  padding-top: calc(50vh - (var(--space-100) + 30px));
+
   // background-color: red;
   .about {
     letter-spacing: toRem(0.6);
     @media all and (max-width: $sm) {
       top: toRem(90);
+      position: sticky;
     }
   }
   --textAboutHeight: 3 * (var(--text-lg) * 1.2);
