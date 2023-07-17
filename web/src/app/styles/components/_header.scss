@@ -78,6 +78,7 @@ header {
       }
     }
     .nav-overlay {
+      max-height: calc(100vh - var(--space-md));
       background-color: white;
       position: fixed;
       padding-top: var(--space-100);

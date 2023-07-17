@@ -20,6 +20,7 @@
       padding: 100px var(--space-md);
     }
     @media all and (max-width: $md) {
+      max-height: calc(100vh - var(--space-md));
       .grid-item:has(p) {
         margin-bottom: 1em;
       }
