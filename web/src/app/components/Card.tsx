@@ -5,16 +5,17 @@ import Link from "next/link"
 import { _linkResolver } from "../utils/utils"
 import WorkTitle from "./WorkTitle"
 import ImageColorPalette from "./ui/ImageColorPalette"
+import ColorPalette from "./ui/ColorPalette"
 
 type Props = {
   image?: SanityImageAsset | any
   title: string
   industry?: string
   link: string
-  withColorPalette: boolean
+  colorPalette?: any[] | null
 }
 
-const Card = ({ link, image, title, industry, withColorPalette }: Props) => {
+const Card = ({ link, image, title, industry, colorPalette }: Props) => {
   return (
     <article className="card">
       <Link href={link} className="relative">
@@ -51,9 +52,9 @@ const Card = ({ link, image, title, industry, withColorPalette }: Props) => {
                   <WorkTitle title={title || ""} subtitle={industry} />
                 </div>
 
-                {withColorPalette && (
+                {colorPalette && (
                   <div className="absolute top-0 left-0 w-full">
-                    <ImageColorPalette image={image} />
+                    <ColorPalette input={colorPalette} />
                   </div>
                 )}
               </div>

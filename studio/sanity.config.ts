@@ -4,6 +4,7 @@ import {deskTool} from 'sanity/desk'
 import {schemaTypes} from './schemas'
 // import {getStartedPlugin} from './plugins/sanity-plugin-tutorial'
 import {structure} from './src/deskStructure'
+import {colorInput} from '@sanity/color-input'
 
 // import {resolveProductionUrl} from './src/actions/resolveProductionUrl'
 // import {helloWord} from './src/actions/helloWorld'
@@ -26,6 +27,7 @@ const plugins = [
   dashboardTool({widgets: [projectInfoWidget(), projectUsersWidget()]}),
   media(),
   visionTool(),
+  colorInput(),
 ]
 
 export default defineConfig({

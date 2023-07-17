@@ -12,6 +12,7 @@ export const projectCard = `
 		...,
 		asset->
 	},
+	colorPalette
 `
 
 export const content = `

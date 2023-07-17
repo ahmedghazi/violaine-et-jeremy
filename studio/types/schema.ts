@@ -329,6 +329,13 @@ export interface Project extends SanityDocument {
   };
 
   /**
+   * colorPalette — `array`
+   *
+   *
+   */
+  colorPalette?: Array<SanityKeyed<Color>>;
+
+  /**
    * Text — `blockContent`
    *
    *
@@ -410,7 +417,7 @@ export interface Project extends SanityDocument {
    *
    *
    */
-  related?: Array<SanityKeyedReference<Project>>;
+  related?: Array<SanityKeyedReference<Project | Space>>;
 }
 
 /**
@@ -443,16 +450,28 @@ export interface Space extends SanityDocument {
   slug?: { _type: "slug"; current: string };
 
   /**
-   * look — `string`
+   * description — `string`
    *
-   *
+   * Short desc, visible on home page
    */
-  look?: "default" | "sift";
+  description?: string;
+
+  /**
+   * Image home — `image`
+   *
+   * visible on home page
+   */
+  imageHome?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
 
   /**
    * Image Cover — `image`
    *
-   *
+   * visible on project page next to text
    */
   imageCover?: {
     _type: "image";
@@ -460,6 +479,13 @@ export interface Space extends SanityDocument {
     crop?: SanityImageCrop;
     hotspot?: SanityImageHotspot;
   };
+
+  /**
+   * colorPalette — `array`
+   *
+   *
+   */
+  colorPalette?: Array<SanityKeyed<Color>>;
 
   /**
    * Text — `blockContent`
@@ -476,9 +502,16 @@ export interface Space extends SanityDocument {
   textIntroDrapeau?: boolean;
 
   /**
+   * look — `string`
+   *
+   *
+   */
+  look?: "default" | "split";
+
+  /**
    * job — `string`
    *
-   * visible on home page
+   *
    */
   job?: string;
 
@@ -511,6 +544,13 @@ export interface Space extends SanityDocument {
   location?: string;
 
   /**
+   * content — `array`
+   *
+   *
+   */
+  content?: Array<SanityKeyed<CompositionUI>>;
+
+  /**
    * credits — `array`
    *
    *
@@ -525,18 +565,11 @@ export interface Space extends SanityDocument {
   links?: Array<SanityKeyed<Contact>>;
 
   /**
-   * content — `array`
-   *
-   *
-   */
-  content?: Array<SanityKeyed<CompositionUI>>;
-
-  /**
    * related — `array`
    *
    *
    */
-  related?: Array<SanityKeyedReference<Space>>;
+  related?: Array<SanityKeyedReference<Project | Space>>;
 }
 
 /**
@@ -1052,3 +1085,10 @@ export type Documents =
   | Project
   | Space
   | Tag;
+
+/**
+ * This interface is a stub. It was referenced in your sanity schema but
+ * the definition was not actually found. Future versions of
+ * sanity-codegen will let you type this explicity.
+ */
+type Color = any;

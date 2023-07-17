@@ -31,12 +31,24 @@ export const PageContextProvider = (props: PageContextProps) => {
     _format()
     window.addEventListener("resize", _format)
     window.addEventListener("scroll", _scroll)
-
+    document.addEventListener("keydown", _onKey)
     return () => {
       window.removeEventListener("resize", _format)
       window.removeEventListener("scroll", _scroll)
+      document.removeEventListener("keydown", _onKey)
     }
   }, [])
+
+  const _onKey = (e: KeyboardEvent) => {
+    if (e.key !== "g") return
+    const isShown = document.body.classList.contains("show-guides")
+    // console.log(isShown)
+    if (isShown) {
+      document.body.classList.remove("show-guides")
+    } else {
+      document.body.classList.add("show-guides")
+    }
+  }
 
   const _format = () => {
     const wh = window.innerHeight
