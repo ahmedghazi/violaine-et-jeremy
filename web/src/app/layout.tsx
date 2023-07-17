@@ -27,8 +27,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <PageContextProvider>
             <Header />
             <main>{children}</main>
+            <Footer />
           </PageContextProvider>
-          <Footer />
         </div>
       </body>
     </html>

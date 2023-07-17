@@ -13,7 +13,7 @@ import HeaderSM from "./HeaderSM"
 
 export default async function Header() {
   const settings = await getSettings()
-  const { navWorks, navStudio } = settings
+  // const { navWorks, navStudio } = settings
   const infos = await getInfos()
 
   return (

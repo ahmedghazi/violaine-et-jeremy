@@ -10,8 +10,7 @@ html {
 body {
   background-color: var(--color-bg);
   color: var(--color-primary);
-  // @include debugFiletX(50%);
-  // @include debugOutline(toRem(6));
+
   &.show-guides {
     @include debugFiletX(50%);
     @include debugFiletY(50%);
@@ -27,14 +26,6 @@ main {
   position: relative;
   padding-top: var(--space-100);
   padding-bottom: toRem(85);
-  // z-index: 0;
-  // pointer-events: none;
-  // .page {
-  //   pointer-events: all;
-  // }
-  // min-height: 200vh;
-  // @include debugFiletY(50vh);
-  // @include debugFiletX(50%);
 }
 
 .h-app {
