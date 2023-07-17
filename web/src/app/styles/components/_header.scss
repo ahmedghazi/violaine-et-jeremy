@@ -124,69 +124,71 @@ header {
   }
 }
 
-#page:has(.single-design) {
-  header {
-    .nav-works {
-      // background-color: red;
-      ul {
-        position: initial;
-        display: flex;
-        padding-left: var(--space-sm);
-        li:not(.nav-design) {
-          display: none;
+@media all and (min-width: $md) {
+  #page:has(.single-design) {
+    header {
+      .nav-works {
+        // background-color: red;
+        ul {
+          position: initial;
+          display: flex;
+          padding-left: var(--space-sm);
+          li:not(.nav-design) {
+            display: none;
+          }
         }
-      }
-      &:hover ul {
-        padding-left: 0;
-        li {
-          display: block;
-        }
-      }
-    }
-  }
-}
-#page:has(.single-space) {
-  header {
-    .nav-works {
-      // background-color: red;
-      ul {
-        position: initial;
-        display: flex;
-        padding-left: var(--space-sm);
-        li:not(.nav-space) {
-          display: none;
-        }
-      }
-      &:hover ul {
-        padding-left: 0;
-        li {
-          display: block;
+        &:hover ul {
+          padding-left: 0;
+          li {
+            display: block;
+          }
         }
       }
     }
   }
-}
+  #page:has(.single-space) {
+    header {
+      .nav-works {
+        // background-color: red;
+        ul {
+          position: initial;
+          display: flex;
+          padding-left: var(--space-sm);
+          li:not(.nav-space) {
+            display: none;
+          }
+        }
+        &:hover ul {
+          padding-left: 0;
+          li {
+            display: block;
+          }
+        }
+      }
+    }
+  }
 
-#page:has(.page-works) {
-  header {
-    .nav-works {
-      ul {
-        position: initial;
-        display: flex;
-        padding-left: var(--space-sm);
-        li:not(:has(.is-current-page)) {
-          display: none;
+  #page:has(.page-works) {
+    header {
+      .nav-works {
+        ul {
+          position: initial;
+          display: flex;
+          padding-left: var(--space-sm);
+          li:not(:has(.is-current-page)) {
+            display: none;
+          }
+          li:after {
+            display: none;
+          }
         }
-        li:after {
-          display: none;
-        }
-      }
-      &:hover ul {
-        padding-left: 0;
-        li {
-          display: block;
-          &::after {
-            display: inline-block;
+        &:hover ul {
+          padding-left: 0;
+          li {
+            display: block;
+            &::after {
+              display: inline-block;
+            }
           }
         }
       }

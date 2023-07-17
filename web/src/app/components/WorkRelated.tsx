@@ -42,16 +42,7 @@ const WorkRelated = ({ input }: Props) => {
           <h4 className="text-center text-sm mb-1re">
             Other projects in the same style
           </h4>
-          <div className="flex justify-center items-start gap-md">
-            {input.related?.map((item) => (
-              <CardMini
-                key={item.slug?.current}
-                title={item.title || ""}
-                industry={item.industry || ""}
-                link={_linkResolver(item) || ""}
-                image={item.imageCover?.asset || null}
-              />
-            ))}
+          <div className="flex justify-center items-start gap-sm md:gap-md">
             {input.related?.map((item) => (
               <CardMini
                 key={item.slug?.current}
