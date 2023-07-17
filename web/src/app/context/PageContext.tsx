@@ -25,12 +25,16 @@ export const PageContextProvider = (props: PageContextProps) => {
     pathname,
   }
 
+  let _prevScrollTop: number = 0
+
   useEffect(() => {
     _format()
     window.addEventListener("resize", _format)
+    window.addEventListener("scroll", _scroll)
 
     return () => {
       window.removeEventListener("resize", _format)
+      window.removeEventListener("scroll", _scroll)
     }
   }, [])
 
@@ -49,6 +53,18 @@ export const PageContextProvider = (props: PageContextProps) => {
         headerBounding.height + "px"
       )
     }
+  }
+
+  const _scroll = () => {
+    let direction = ""
+    if (window.scrollY >= 10) {
+      direction = window.scrollY > _prevScrollTop ? "down" : "up"
+    } else {
+      direction = "up"
+    }
+
+    _prevScrollTop = window.scrollY
+    // document.body.classList.toggle('is-top', window.scrollY === 0);
   }
 
   return (

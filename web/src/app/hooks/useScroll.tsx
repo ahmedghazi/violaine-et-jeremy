@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from "react"
 
 export function useScroll() {
   // const [lastScrollTop, setLastScrollTop] = useState(0)
@@ -17,22 +17,22 @@ export function useScroll() {
   const [scrollY, setScrollY] = useState(bodyOffset.top)
   const [scrollX, setScrollX] = useState(bodyOffset.left)
   const [isBelowViewPort, setIsBelowViewPort] = useState(false)
-  const [scrollDirection, setScrollDirection] = useState()
+  const [scrollDirection, setScrollDirection] = useState("")
   const [isBottom, setIsBottom] = useState(false)
   const bottomThreshold = 100
   // let _prevScrollTop = 0
   const lastScrollTopRef = useRef(0)
   const lastScrollTop = lastScrollTopRef.current
 
-  const listener = e => {
+  const listener = (e: any) => {
     setBodyOffset(
-      typeof window === 'undefined' || !window.document
+      typeof window === "undefined" || !window.document
         ? EmptySSRRect
         : document.body.getBoundingClientRect()
     )
     setScrollY(-bodyOffset.top)
     setScrollX(bodyOffset.left)
-    setScrollDirection(lastScrollTop > -bodyOffset.top ? 'down' : 'up')
+    setScrollDirection(lastScrollTop > -bodyOffset.top ? "up" : "down")
     // lastScrollTopRef.current = -bodyOffset.top
     // console.log(window.scrollY, window.innerHeight)
     setIsBelowViewPort(window.scrollY > 50)
@@ -44,9 +44,9 @@ export function useScroll() {
   }
 
   useEffect(() => {
-    window.addEventListener('scroll', listener)
+    window.addEventListener("scroll", listener)
     return () => {
-      window.removeEventListener('scroll', listener)
+      window.removeEventListener("scroll", listener)
     }
   })
 

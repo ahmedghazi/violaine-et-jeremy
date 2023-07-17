@@ -6,6 +6,7 @@ import InfosModal from "./InfosModal"
 import NavLink from "./NavLink"
 import clsx from "clsx"
 import { usePathname } from "next/navigation"
+import { useScroll } from "../hooks/useScroll"
 
 type Props = {
   titleAlt: string
@@ -17,14 +18,15 @@ const HeaderSM = ({ titleAlt, settings, infos }: Props) => {
   const [open, setOpen] = useState<boolean>(false)
   const pathName = usePathname()
   // console.log(pathName)
-
+  const { scrollDirection } = useScroll()
+  // console.log({ scrollDirection })
   useEffect(() => {
     // console.log(pathName)
     setOpen(false)
   }, [pathName])
 
   return (
-    <div className="sm-only">
+    <div className={clsx("header--sm sm-only", `scroll-${scrollDirection}`)}>
       <div className="inner flex justify-between z-10">
         <Link href={"/"} className="w-1/3 site-name relative z-10">
           {titleAlt}

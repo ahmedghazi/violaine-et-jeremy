@@ -8,6 +8,9 @@
     @media all and (max-width: $sm) {
       top: toRem(90);
       position: sticky;
+      br {
+        display: none;
+      }
     }
   }
   --textAboutHeight: 3 * (var(--text-lg) * 1.2);

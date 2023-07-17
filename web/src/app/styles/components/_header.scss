@@ -9,6 +9,9 @@ header {
     width: var(--space-100);
   }
 
+  .site-name {
+    z-index: 21;
+  }
   nav.nav-studio {
     li.col-item:last-child {
       text-align: right;
@@ -51,6 +54,14 @@ header {
 
   @media all and (max-width: $md) {
     padding: toRem(7) toRem(10);
+    .header--sm {
+      transition: transform 0.4s cubic-bezier(0.53, 0, 0.36, 1),
+        opacity 0.4s cubic-bezier(0.53, 0, 0.36, 1);
+      &.scroll-down {
+        opacity: 0;
+        transform: translateY(-100%);
+      }
+    }
     .btn-menu-toggle {
       font-size: toRem(22);
       display: flex;
@@ -98,6 +109,10 @@ header {
             position: initial;
             li {
               padding-left: var(--space-sm);
+              padding-left: 0;
+              &::after {
+                margin: 0 1em;
+              }
             }
           }
         }

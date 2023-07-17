@@ -20,6 +20,7 @@ module.exports = {
       sm: "var(--space-sm)",
       md: "var(--space-md)",
       lg: "var(--space-lg)",
+      40: "var(--space-40)",
       50: "var(--space-50)",
       100: "var(--space-100)",
       200: "var(--space-200)",

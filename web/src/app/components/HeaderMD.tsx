@@ -13,7 +13,7 @@ type Props = {
 
 const HeaderMD = ({ titleAlt, settings, infos }: Props) => {
   return (
-    <div className="hidden-sm">
+    <div className="header--md hidden-sm">
       <div className="inner flex justify-between">
         <div className="header-section flex">
           <Link href={"/"} className="col-item site-name relative z-10">

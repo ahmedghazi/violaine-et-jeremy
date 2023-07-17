@@ -44,6 +44,7 @@ footer {
   @media all and (max-width: $md) {
     padding-left: toRem(10);
     padding-right: toRem(10);
+
     .inner {
       padding-top: toRem(20);
       padding-bottom: toRem(8);
@@ -53,6 +54,7 @@ footer {
     }
     .logos div {
       height: 12vh;
+      width: calc(100% / 3);
     }
   }
 }

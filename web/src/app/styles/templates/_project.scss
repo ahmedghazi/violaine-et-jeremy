@@ -5,30 +5,17 @@
     @media all and (min-width: $md) {
       top: 0;
     }
+    @media all and (max-width: $md) {
+      transition: transform 0.4s cubic-bezier(0.53, 0, 0.36, 1),
+        opacity 0.4s cubic-bezier(0.53, 0, 0.36, 1);
+    }
     .inner {
       display: flex;
     }
   }
-  // .look-split {
-  //   .text-intro {
-  //     .inner {
-  //       @media all and (min-width: $md) {
-  //         position: sticky;
-  //         top: var(--space-100);
-  //         height: calc(100vh - var(--space-200));
+}
 
-  //         display: grid;
-  //         align-items: center;
-  //         justify-content: center;
-  //         .text {
-  //           max-width: toRem(460);
-  //         }
-  //       }
-  //     }
-  //   }
-  //   .composition {
-  //     margin-bottom: var(--space-md);
-  //     display: block;
-  //   }
-  // }
+#page:has(.header--sm.scroll-down) .project-single .header {
+  opacity: 0;
+  transform: translateY(-100%);
 }

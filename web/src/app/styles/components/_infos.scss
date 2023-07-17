@@ -5,7 +5,7 @@
     inset: 0;
     background-color: var(--color-yellow);
     padding: 0;
-    z-index: 0;
+    z-index: 20;
 
     // opacity: 0;
     transform: translateY(-100%);
@@ -20,6 +20,9 @@
       padding: 100px var(--space-md);
     }
     @media all and (max-width: $md) {
+      .grid-item:has(p) {
+        margin-bottom: 1em;
+      }
       .inner.scrollable {
         display: flex;
         flex-direction: column-reverse;
@@ -34,6 +37,7 @@
   }
   .btn-toggle {
     line-height: 1.2;
+    z-index: 21;
   }
   .links {
     margin-bottom: 1.5rem;

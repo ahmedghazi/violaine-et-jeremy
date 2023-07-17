@@ -1,10 +1,6 @@
-import Link from "next/link"
 import React from "react"
 import { _linkResolver } from "../utils/utils"
-import WorkTitle from "./WorkTitle"
 import { ProjectExtend, SpaceExtend } from "../types/extend"
-import { urlFor } from "../utils/sanity-utils"
-import Image from "next/image"
 import CardMini from "./CardMini"
 
 type Props = {
@@ -47,6 +43,24 @@ const WorkRelated = ({ input }: Props) => {
             Other projects in the same style
           </h4>
           <div className="flex justify-center items-start gap-md">
+            {input.related?.map((item) => (
+              <CardMini
+                key={item.slug?.current}
+                title={item.title || ""}
+                industry={item.industry || ""}
+                link={_linkResolver(item) || ""}
+                image={item.imageCover?.asset || null}
+              />
+            ))}
+            {input.related?.map((item) => (
+              <CardMini
+                key={item.slug?.current}
+                title={item.title || ""}
+                industry={item.industry || ""}
+                link={_linkResolver(item) || ""}
+                image={item.imageCover?.asset || null}
+              />
+            ))}
             {input.related?.map((item) => (
               <CardMini
                 key={item.slug?.current}

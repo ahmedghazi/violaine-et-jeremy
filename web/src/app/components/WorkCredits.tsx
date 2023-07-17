@@ -13,7 +13,7 @@ const WorkCredits = ({ credits, links }: Props) => {
       <div className="flex flex-wrap mb-50">
         <h4>CREDITS</h4>
         {credits?.map((item, i) => (
-          <div key={i} className="credits-item">
+          <div key={i} className="credits-item hidden-sm">
             <CreditsItem
               label={item.label || ""}
               value={item.value || ""}
@@ -23,7 +23,7 @@ const WorkCredits = ({ credits, links }: Props) => {
             />
           </div>
         ))}
-        {/* <ul className="credits--detail grid gap-xs md:gap-md- md:grid-cols-3 col-span-2 md:col-span-3">
+        <ul className="credits--detail sm-only">
           {credits?.map((item, i) => (
             <li key={i}>
               <CreditsItem
@@ -35,12 +35,12 @@ const WorkCredits = ({ credits, links }: Props) => {
               />
             </li>
           ))}
-        </ul> */}
+        </ul>
       </div>
       <div className="flex flex-wrap">
         <h4>LINKS</h4>
         {links?.map((item, i) => (
-          <div key={i} className="credits-item">
+          <div key={i} className="credits-item hidden-sm">
             <CreditsItem
               label={item.label || ""}
               value={item.value || ""}
@@ -50,6 +50,20 @@ const WorkCredits = ({ credits, links }: Props) => {
             />
           </div>
         ))}
+
+        <ul className="credits--detail sm-only">
+          {links?.map((item, i) => (
+            <li key={i}>
+              <CreditsItem
+                label={item.label || ""}
+                value={item.value || ""}
+                url={item.url || ""}
+                labelSerif={false}
+                valueSerif={true}
+              />
+            </li>
+          ))}
+        </ul>
       </div>
       {/* <div className="grid gap-sm md:gap-md grid-cols-3 md:grid-cols-4 mb-50">
         <h4>CREDITS</h4>
