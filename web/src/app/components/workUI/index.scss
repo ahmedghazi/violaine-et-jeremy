@@ -6,7 +6,7 @@
     opacity: var(--opacity, 0);
     padding-top: var(--space-100);
     min-height: 200vh;
-    @include debugFiletY(200px);
+    // @include debugFiletY(200px);
     .thead {
       // margin-bottom: toRem(100);
       margin-bottom: toRem(25);

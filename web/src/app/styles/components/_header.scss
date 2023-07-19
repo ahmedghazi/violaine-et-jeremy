@@ -171,6 +171,10 @@ header {
 
   #page:has(.page-works) {
     header {
+      pointer-events: none;
+      .header-section {
+        pointer-events: all;
+      }
       .nav-works {
         ul {
           position: initial;
