@@ -22,10 +22,11 @@
     overflow: hidden;
     .bg-blurred {
       position: absolute;
-      width: 10em;
-      height: 15em;
-      border-radius: 100%;
-      filter: blur(2em);
+      inset: 0;
+      // width: 10em;
+      // height: 15em;
+      // border-radius: 100%;
+      // filter: blur(2em);
       // transition: opacity 0.6s, transform 0.4s var(--cubic);
     }
   }

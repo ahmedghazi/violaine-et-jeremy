@@ -23,10 +23,12 @@ const List = ({ input }: Props) => {
   }, [])
 
   const _onScroll = () => {
-    const threshold: number = 100
-    // const offset = 150
-    const offset = 143
-    // console.log(sy)
+    // const threshold: number = 100
+    // const offset = 143
+    // console.log(window.scrollY)
+    const threshold: number = 120
+    const offset = 130
+
     const rows: HTMLDivElement[] | any =
       ref.current?.querySelectorAll(".project .images")
     if (rows) {
@@ -36,13 +38,13 @@ const List = ({ input }: Props) => {
         // const offset = 133
 
         const distanceToTop = bounding.top - offset
-        console.log(distanceToTop, threshold)
+        // console.log(distanceToTop, threshold)
         if (distanceToTop < threshold) {
           scale = (100 - (distanceToTop * 100) / threshold) / 100
-          if (scale > 1) scale = 1
+          if (scale >= 1) scale = 1
         }
 
-        el.style.setProperty("--custom-max-height", `${130 * scale}px`)
+        el.style.setProperty("--custom-max-height", `${110 * scale}px`)
         el.style.setProperty("--custom-scale", `${scale / 1}`)
         el.style.setProperty("--dist", `${distanceToTop}`)
         el.classList.toggle("can-display-images", scale > 0)

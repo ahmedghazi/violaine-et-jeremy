@@ -96,27 +96,29 @@ const Mailchimp = (props: Props) => {
     <>
       <form onSubmit={handleSubmit} className={clsx("mailchimp text-sm")}>
         <div className="flex  items-baseline">
-          <div className="title text-lg-">NEWSLETTER</div>
-          <div className="flex-2 input-wrapper">
-            <input
-              {...field}
-              role="textbox"
-              onChange={({ target }) =>
-                // setState({ [input.name]: target.value })
-                setEmail(target.value)
-              }
-              className="w-full"
-              // defaultValue={state[input.name]}
-            />
-          </div>
-          <button
-            disabled={status === "sending" || status === "success"}
-            type="submit"
-            aria-label="submit"
-            className={"italic serif"}
-          >
-            <span>{getButtonMsg()}</span>
-          </button>
+          <div className="title text-md">NEWSLETTER</div>
+          {status !== "success" && (
+            <>
+              <div className="flex-2 input-wrapper">
+                <input
+                  {...field}
+                  role="textbox"
+                  onChange={({ target }) => setEmail(target.value)}
+                  className="w-full"
+                  // defaultValue={state[input.name]}
+                />
+              </div>
+              <button
+                disabled={status === "sending" || status === "success"}
+                type="submit"
+                aria-label="submit"
+                className={"italic serif"}
+              >
+                <span>{getButtonMsg()}</span>
+              </button>
+            </>
+          )}
+          {status === "success" && <span>{getButtonMsg()}</span>}
         </div>
       </form>
     </>

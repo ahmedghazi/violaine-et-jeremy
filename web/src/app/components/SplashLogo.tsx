@@ -15,7 +15,7 @@ const SplashLogo = (props: Props) => {
   // const [scope, animate] = useAnimate()
   // useEffect(() => {}, [])
 
-  const duration: number = 0.6
+  const duration: number = 0.4
   const violaine: string[] = "IOLAINE".split("")
   const jeremy: string[] = "ÉRÉMY".split("")
 
@@ -27,7 +27,7 @@ const SplashLogo = (props: Props) => {
       opacity: 0,
       transition: {
         duration: duration,
-        delay: 0.5,
+        delay: duration / 2,
       },
       transitionEnd: {
         display: "none",
@@ -39,29 +39,41 @@ const SplashLogo = (props: Props) => {
       height: "100%",
     },
     end: {
-      height: 0,
+      height: "50%",
       transition: {
         duration: duration,
-        delay: 0.5,
-      },
-      transitionEnd: {
-        display: "none",
+        ease: "easeIn",
+        // staggerChildren: 5,
       },
     },
   }
+  const letterVariantsContainer = {
+    hide: {
+      // opacity: 0
+    },
+    show: {
+      // opacity: 1,
+      transition: {
+        // when: "beforeChildren",
+        // delayChildren: 0,
+        staggerChildren: 5,
+      },
+    },
+  }
+
   const letterVariants = {
-    anime: {
+    show: {
+      width: "auto",
+    },
+    hide: {
       width: 0,
       // opacity: 0,
       transition: {
         duration: duration,
-        delay: 0.5,
-        when: "beforeChildren",
-        staggerChildren: 0.2,
       },
-      transitionEnd: {
-        display: "none",
-      },
+      // transitionEnd: {
+      //   display: "none",
+      // },
     },
   }
 
@@ -78,7 +90,6 @@ const SplashLogo = (props: Props) => {
       className="splash splash--sm fixed inset-0 bg-bg- z-50 text-lg"
     >
       <motion.div
-        // initial="start"
         variants={bgVariants}
         animate={isEnd && "end"}
         className="absolute inset-0- w-full h-full top-1/2 -translate-y-1/2 bg-bg overflow-clip "
@@ -90,17 +101,25 @@ const SplashLogo = (props: Props) => {
               style={{ right: "0.7em" }}
             >
               <div>V</div>
-              {violaine.map((item, i) => (
-                <motion.div
-                  key={`${item}-${i}`}
-                  variants={letterVariants}
-                  animate="anime"
-                  style={{ overflow: "hidden" }}
-                  onAnimationComplete={() => _onAnimationComplete(item)}
-                >
-                  {item}
-                </motion.div>
-              ))}
+              <motion.div
+                variants={letterVariantsContainer}
+                initial="hide"
+                animate={"show"}
+                className="flex"
+              >
+                {violaine.map((item, i) => (
+                  <motion.div
+                    key={`${item}-${i}`}
+                    variants={letterVariants}
+                    initial="show"
+                    animate="hide"
+                    style={{ overflow: "clip" }}
+                    onAnimationComplete={() => _onAnimationComplete(item)}
+                  >
+                    {item}
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
             <div>&</div>
             <div
@@ -108,17 +127,25 @@ const SplashLogo = (props: Props) => {
               style={{ left: "0.7em" }}
             >
               <div>J</div>
-              {jeremy.map((item, i) => (
-                <motion.div
-                  key={`${item}-${i}`}
-                  variants={letterVariants}
-                  animate="anime"
-                  style={{ overflow: "hidden" }}
-                  onAnimationComplete={() => _onAnimationComplete(item)}
-                >
-                  {item}
-                </motion.div>
-              ))}
+              <motion.div
+                variants={letterVariantsContainer}
+                initial="hide"
+                animate={"show"}
+                className="flex"
+              >
+                {jeremy.map((item, i) => (
+                  <motion.div
+                    key={`${item}-${i}`}
+                    variants={letterVariants}
+                    initial="show"
+                    animate="hide"
+                    style={{ overflow: "clip" }}
+                    onAnimationComplete={() => _onAnimationComplete(item)}
+                  >
+                    {item}
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
           </div>
         </div>
