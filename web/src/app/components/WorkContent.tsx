@@ -129,12 +129,13 @@ const ArticleWork = ({ input }: Props) => {
         <ArticleWorkSplit input={input} imageCover={imageCover} />
       )}
 
-      {input.credits &&
+      {/* {input.credits &&
         input.credits.length > 0 &&
         input.links &&
         input.links?.length > 0 && (
           <WorkCredits credits={input.credits} links={input.links} />
-        )}
+        )} */}
+      <WorkCredits credits={input.credits} links={input.links} />
 
       <WorkRelated input={input} />
     </div>

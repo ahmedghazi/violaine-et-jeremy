@@ -1,11 +1,13 @@
-import React from "react"
+"use client"
+import React, { useState } from "react"
 import Image from "next/image"
 import { Project, SanityImageAsset, Space } from "../types/schema"
 import Link from "next/link"
 import { _linkResolver } from "../utils/utils"
 import WorkTitle from "./WorkTitle"
-import ImageColorPalette from "./ui/ImageColorPalette"
+// import ImageColorPalette from "./ui/ImageColorPalette"
 import ColorPalette from "./ui/ColorPalette"
+import clsx from "clsx"
 
 type Props = {
   image?: SanityImageAsset | any
@@ -16,8 +18,13 @@ type Props = {
 }
 
 const Card = ({ link, image, title, industry, colorPalette }: Props) => {
+  const [hover, setHover] = useState<boolean>(false)
   return (
-    <article className="card">
+    <article
+      className={clsx("card", hover ? "is-hover" : "")}
+      onMouseEnter={() => setHover(!hover)}
+      // onMouseLeave={() => setHover(false)}
+    >
       <Link href={link} className="relative">
         {
           (image &&= (

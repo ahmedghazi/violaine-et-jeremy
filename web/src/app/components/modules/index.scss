@@ -13,6 +13,11 @@ article.look-default .modules {
     &:has(.module--image) {
       margin-bottom: var(--space-100);
     }
+    .is-full {
+      img {
+        margin: 0 auto;
+      }
+    }
     &:has(.is-third) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
       grid-template-rows: unset;
@@ -38,10 +43,13 @@ article.look-default .modules {
     .module {
       height: 100%;
     }
-    img {
-      height: 100% !important;
-      object-fit: cover;
+    .composition--item:not(.is-full) {
+      img {
+        height: 100% !important;
+        object-fit: cover;
+      }
     }
+
     .text {
       max-width: 29em;
       .icon {

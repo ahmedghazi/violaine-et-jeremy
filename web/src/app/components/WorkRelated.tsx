@@ -2,6 +2,7 @@ import React from "react"
 import { _linkResolver } from "../utils/utils"
 import { ProjectExtend, SpaceExtend } from "../types/extend"
 import CardMini from "./CardMini"
+import Link from "next/link"
 
 type Props = {
   input: ProjectExtend | SpaceExtend
@@ -14,26 +15,32 @@ const WorkRelated = ({ input }: Props) => {
       <nav className="nav-related flex justify-between serif italic">
         {input.prev && (
           <div className="nav-related--link prev w-1/2">
-            <div className="label">prev</div>
-            <CardMini
+            <Link href={_linkResolver(input.prev)}>
+              <div className="label">previous</div>
+              <div className="title absolute">{input.prev.title || ""}</div>
+            </Link>
+            {/* <CardMini
               key={input.prev.slug?.current}
               title={input.prev.title || ""}
               industry={input.prev.industry || ""}
               link={_linkResolver(input.prev) || ""}
               image={input.prev.imageCover?.asset || null}
-            />
+            /> */}
           </div>
         )}
         {input.next && (
           <div className="nav-related--link next w-1/2">
-            <div className="label">next</div>
-            <CardMini
+            <Link href={_linkResolver(input.next)}>
+              <div className="label">next</div>
+              <div className="title absolute">{input.next.title || ""}</div>
+            </Link>
+            {/* <CardMini
               key={input.next.slug?.current}
               title={input.next.title || ""}
               industry={input.next.industry || ""}
               link={_linkResolver(input.next) || ""}
               image={input.next.imageCover?.asset || null}
-            />
+            /> */}
           </div>
         )}
       </nav>

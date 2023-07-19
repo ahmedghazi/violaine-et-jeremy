@@ -29,10 +29,10 @@ const ImageUI = ({ input }: Props): JSX.Element => {
           height={image?.metadata?.dimensions.height}
           alt={input.title || "alt"}
           sizes="100vw"
-          style={{
-            width: "100%",
-            height: "auto",
-          }}
+          // style={{
+          //   width: "100%",
+          //   height: "auto",
+          // }}
           blurDataURL={image?.metadata?.lqip}
           placeholder="blur"
         />

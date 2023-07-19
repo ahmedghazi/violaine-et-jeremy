@@ -13,7 +13,7 @@ type Props = {
 }
 
 const WorkUI = ({ worksImages, worksTexts, isDesign }: Props) => {
-  const [display, setDisplay] = useState<string>("grid")
+  const [display, setDisplay] = useState<string>("list")
   // console.log(allWorks)
   return (
     <div className="work-ui">

@@ -23,8 +23,9 @@ const List = ({ input }: Props) => {
   }, [])
 
   const _onScroll = () => {
-    // const sy: number = window.scrollY
-    const threshold: number = (window.innerHeight / 4) * 3
+    const threshold: number = 100
+    // const offset = 150
+    const offset = 143
     // console.log(sy)
     const rows: HTMLDivElement[] | any =
       ref.current?.querySelectorAll(".project .images")
@@ -32,14 +33,18 @@ const List = ({ input }: Props) => {
       rows.forEach((el: HTMLDivElement) => {
         let scale = 0
         const bounding: DOMRect = el.getBoundingClientRect()
-        const offset = 133
+        // const offset = 133
+
         const distanceToTop = bounding.top - offset
+        console.log(distanceToTop, threshold)
         if (distanceToTop < threshold) {
           scale = (100 - (distanceToTop * 100) / threshold) / 100
+          if (scale > 1) scale = 1
         }
 
         el.style.setProperty("--custom-max-height", `${130 * scale}px`)
-        // el.style.setProperty("--custom-opacity", `${scale / 1}`)
+        el.style.setProperty("--custom-scale", `${scale / 1}`)
+        el.style.setProperty("--dist", `${distanceToTop}`)
         el.classList.toggle("can-display-images", scale > 0)
       })
     }
@@ -60,6 +65,26 @@ const List = ({ input }: Props) => {
         </div>
       </div>
       <div className="tbody serif px-sm md:px-200 overflow-x-hidden text-sm md:text-md">
+        {input &&
+          input.length > 0 &&
+          input?.map((item, i: number) => (
+            <ListItem
+              key={`${item.work?.slug?.current}-
+              ${i}`}
+              input={item.work}
+              hasLink={item.hasLink}
+            />
+          ))}
+        {input &&
+          input.length > 0 &&
+          input?.map((item, i: number) => (
+            <ListItem
+              key={`${item.work?.slug?.current}-
+              ${i}`}
+              input={item.work}
+              hasLink={item.hasLink}
+            />
+          ))}
         {input &&
           input.length > 0 &&
           input?.map((item, i: number) => (

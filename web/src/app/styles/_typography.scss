@@ -6,6 +6,12 @@
     url("./fonts/ABCDiatype-Regular.woff2") format("woff2");
   font-display: swap;
 }
+@font-face {
+  font-family: "GT-Alpina-Fine-Standard-Light-Italic";
+  src: url("./fonts/GT-Alpina-Fine-Standard-Light-Italic.woff") format("woff"),
+    url("./fonts/GT-Alpina-Fine-Standard-Light-Italic.woff2") format("woff2");
+  font-display: swap;
+}
 
 //ABCDiatype-Regular
 body {
@@ -25,6 +31,9 @@ body {
   font-family: var(--font-secondary);
   letter-spacing: 0.02em;
   // transform: translateY(-0.02em);
+}
+.gt-alpina {
+  font-family: var(--font-tertiary);
 }
 
 html {
@@ -98,6 +107,9 @@ p,
     font-family: var(--font-primary);
   }
 }
+p.text-lg {
+  line-height: 1.15;
+}
 .ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -106,9 +118,7 @@ p,
 .sep-dash {
   padding: 0 0.3em;
 }
-.text-xl .text {
-  line-height: 1.1;
-}
+
 .text {
   h2,
   h3 {

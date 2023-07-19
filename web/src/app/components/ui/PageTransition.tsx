@@ -2,7 +2,7 @@
 import React, { ReactNode } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { usePathname } from "next/navigation"
-import SplashSM from "../SplashSM"
+import SplashLogo from "../SplashLogo"
 // import { useMemo } from "react"
 
 const duration = 0.6
@@ -65,7 +65,7 @@ const PageTransition = ({ location, children }: PageContextProps) => {
       >
         {children}
       </motion.div>
-      {pathName === "/" && <SplashSM />}
+      {pathName === "/" && <SplashLogo />}
     </AnimatePresence>
   )
 }

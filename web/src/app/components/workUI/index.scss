@@ -4,8 +4,13 @@
   // padding-bottom: toRem(100);
   .list {
     opacity: var(--opacity, 0);
+    padding-top: var(--space-100);
+    min-height: 200vh;
+    @include debugFiletY(200px);
     .thead {
-      margin-bottom: toRem(75);
+      // margin-bottom: toRem(100);
+      margin-bottom: toRem(25);
+      // margin-bottom: toRem(200);
     }
     .tr {
       // padding-bottom: 1em;
@@ -80,7 +85,7 @@
       max-width: 100vw;
       // transition: padding-top 0.2s, padding-bottom 0.2s;
       // display: none;
-      padding-bottom: calc(25px * var(--custom-opacity));
+      padding-bottom: calc(15px * var(--custom-scale));
       &.can-display-images {
         // display: flex;
         // padding: toRem(5) 0 toRem(25);
@@ -99,5 +104,8 @@
     img {
       width: auto;
     }
+  }
+  .grid--images {
+    grid-auto-rows: max-content;
   }
 }

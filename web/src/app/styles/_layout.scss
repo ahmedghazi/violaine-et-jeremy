@@ -25,7 +25,8 @@ main {
   min-height: var(--app-height, 100vh);
   position: relative;
   padding-top: var(--space-100);
-  padding-bottom: toRem(85);
+  padding-bottom: toRem(210);
+  // @include debugFiletY(100px);
 }
 
 .h-app {

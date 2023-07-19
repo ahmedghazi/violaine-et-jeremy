@@ -7,6 +7,7 @@ import clsx from "clsx"
 import { subscribe, unsubscribe } from "pubsub-js"
 import { Infos, Settings } from "../types/schema"
 import Contacts from "./Contacts"
+import components from "../utils/portableTextComponents"
 
 type Props = {
   infosData: Infos
@@ -44,10 +45,15 @@ export default function InfosModal({ infosData, settingsData }: Props) {
             <Contacts input={links} linkLegals={linkLegals} />
           </div>
 
-          <div className="content pb-100">
+          <div className="content pb-100-">
             <div className="md:flex ">
-              <div className="grid-item md:pr-md">
-                {infosData.text && <PortableText value={infosData.text} />}
+              <div className="grid-item md:pr-md text-lg-">
+                {infosData.text && (
+                  <PortableText
+                    value={infosData.text}
+                    components={components}
+                  />
+                )}
               </div>
               <div className="grid-item">
                 {image && (

@@ -6,6 +6,7 @@ const components: PortableTextComponents = {
   block: {
     h2: ({ children }) => <h2>{children}</h2>,
     "text-lg": ({ children }) => <div className="text-lg">{children}</div>,
+    text_lg: ({ children }) => <p className="text-lg">{children}</p>,
     // align_center: ({ children }) => <p className="text-center">{children}</p>,
   },
   types: {
@@ -35,6 +36,9 @@ const components: PortableTextComponents = {
     },
     linkInternal: ({ children }) => <div>link internal {children}</div>,
     sans: ({ children }) => <span className="sans">{children}</span>,
+    "gt-alpina": ({ children }) => (
+      <span className="gt-alpina">{children}</span>
+    ),
     align_left: ({ children, value }) => (
       <p className="text-left">{children}</p>
     ),

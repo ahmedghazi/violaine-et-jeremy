@@ -46,7 +46,8 @@ export default defineType({
         // Decorators usually describe a single property – e.g. a typographic
         // preference or highlighting by editors.
         decorators: [
-          {title: 'Sans', value: 'sans', component: Sans, icon: () => 'Sans'},
+          {title: 'Diatype Sans', value: 'sans', component: Sans, icon: () => 'Diatype Sans'},
+          {title: 'GT Alpina', value: 'gt-alpina', component: Sans, icon: () => 'GT Alpina'},
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
           {

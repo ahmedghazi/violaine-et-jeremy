@@ -1,6 +1,6 @@
 .page-home {
   padding-top: calc(50vh - (var(--space-100) + 30px));
-
+  padding-top: calc(55vh);
   // background-color: red;
   .about {
     letter-spacing: toRem(0.6);
@@ -16,6 +16,7 @@
   --textAboutHeight: 3 * (var(--text-lg) * 1.2);
   .feed {
     padding-top: calc(100px + var(--textAboutHeight));
+    padding-top: 95px;
     // overflow-x: hidden;
   }
   .home-card {
@@ -66,7 +67,7 @@
       }
     }
     p {
-      font-family: var(--font-primary);
+      // font-family: var(--font-primary);
       @media all and (min-width: $md) {
         font-size: 12px;
       }

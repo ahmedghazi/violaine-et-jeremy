@@ -3,7 +3,7 @@
   // @media all and (max-width: $sm) {
   //   margin-bottom: toRem(40);
   // }
-  &:hover {
+  &.is-hover {
     .header {
       opacity: 0;
       transform: translateY(-1em);
@@ -30,7 +30,7 @@
     }
   }
   .header {
-    transition: opacity 0.6s, transform 0.6s;
+    // transition: opacity 0.6s, transform 0.6s;
   }
   figure {
     overflow: hidden;

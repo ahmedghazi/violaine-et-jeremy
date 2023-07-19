@@ -10,7 +10,7 @@ type Props = {
 
 const Grid = ({ input, withColorPalette }: Props) => {
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-md px-sm md:px-md gap-y-40 md:gap-y-40-">
+    <div className="grid--images grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-md px-sm md:px-md gap-y-40 md:gap-y-40-">
       {input &&
         input.length > 0 &&
         input?.map((item, i: number) => (

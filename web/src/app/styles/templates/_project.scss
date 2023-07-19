@@ -16,6 +16,8 @@
 }
 
 #page:has(.header--sm.scroll-down) .project-single .header {
-  opacity: 0;
-  transform: translateY(-100%);
+  @media all and (max-width: $md) {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
 }

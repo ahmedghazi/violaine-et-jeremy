@@ -20,7 +20,7 @@ const HomeFeed = ({ input }: Props) => {
 
   const _onScroll = () => {
     // console.log(window.scrollY)
-    const threshold = 200
+    const threshold = 150
     const items = ref.current?.querySelectorAll<HTMLElement>(
       "article:has(.is-ready-to-animate)"
     )
