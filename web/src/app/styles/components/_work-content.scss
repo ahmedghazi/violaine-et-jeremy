@@ -1,6 +1,6 @@
 .work-content {
   // background-color: red;
-  article {
+  & > article {
     padding-bottom: toRem(210);
   }
   .look-default .intro {
@@ -114,9 +114,9 @@
         text-align: left;
         // max-width: toRem(460);
 
-        // @media all and (max-width: $md) {
-        //   text-align: center;
-        // }
+        @media all and (max-width: $md) {
+          text-align: center;
+        }
       }
     }
   }

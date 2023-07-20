@@ -1,14 +1,8 @@
 "use client"
 import React, { useEffect, useState } from "react"
-import { motion, useAnimate } from "framer-motion"
-import { styled } from "styled-components"
-type Props = {}
+import { motion } from "framer-motion"
 
-const Container = styled.div`
-  .person div {
-    overflow: hidden;
-  }
-`
+type Props = {}
 
 const SplashLogo = (props: Props) => {
   const [isEnd, setIsEnd] = useState<boolean>(false)
@@ -16,6 +10,7 @@ const SplashLogo = (props: Props) => {
   const duration: number = 0.4
   const violaine: string[] = "IOLAINE".split("")
   const jeremy: string[] = "ÉRÉMY".split("")
+  const length = violaine.length + jeremy.length
 
   const containeVariants = {
     show: {
@@ -24,30 +19,15 @@ const SplashLogo = (props: Props) => {
     hidden: {
       height: "0vh",
       transition: {
-        duration: duration,
-        // delay: duration * 3,
+        duration: duration * 2,
         ease: "easeOut",
       },
       transitionEnd: {
-        // display: "none",
+        display: "none",
       },
     },
   }
-  // const bgVariants = {
-  //   start: {
-  //     height: "100%",
-  //   },
-  //   end: {
-  //     height: "0%",
-  //     transition: {
-  //       duration: duration * 3,
-  //       ease: "easeOut",
-  //     },
-  //     transitionEnd: {
-  //       // display: "none",
-  //     },
-  //   },
-  // }
+
   const letterVariantsContainer = {
     hidden: {
       opacity: 1,
@@ -78,7 +58,7 @@ const SplashLogo = (props: Props) => {
   }
 
   useEffect(() => {
-    if (count === violaine.length + jeremy.length) {
+    if (count === length) {
       console.log("anime end")
       setIsEnd(true)
     }
