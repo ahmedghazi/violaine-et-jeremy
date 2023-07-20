@@ -12,52 +12,52 @@ const Container = styled.div`
 
 const SplashLogo = (props: Props) => {
   const [isEnd, setIsEnd] = useState<boolean>(false)
-  // const [scope, animate] = useAnimate()
-  // useEffect(() => {}, [])
-
+  const [count, setCount] = useState<number>(0)
   const duration: number = 0.4
   const violaine: string[] = "IOLAINE".split("")
   const jeremy: string[] = "ÉRÉMY".split("")
 
   const containeVariants = {
-    start: {
-      opacity: 1,
+    show: {
+      height: "100vh",
     },
-    end: {
-      opacity: 0,
+    hidden: {
+      height: "0vh",
       transition: {
         duration: duration,
-        delay: duration / 2,
+        // delay: duration * 3,
+        ease: "easeOut",
       },
       transitionEnd: {
-        display: "none",
+        // display: "none",
       },
     },
   }
-  const bgVariants = {
-    start: {
-      height: "100%",
-    },
-    end: {
-      height: "50%",
-      transition: {
-        duration: duration,
-        ease: "easeIn",
-        // staggerChildren: 5,
-      },
-    },
-  }
+  // const bgVariants = {
+  //   start: {
+  //     height: "100%",
+  //   },
+  //   end: {
+  //     height: "0%",
+  //     transition: {
+  //       duration: duration * 3,
+  //       ease: "easeOut",
+  //     },
+  //     transitionEnd: {
+  //       // display: "none",
+  //     },
+  //   },
+  // }
   const letterVariantsContainer = {
-    hide: {
-      // opacity: 0
+    hidden: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        staggerDirection: -1,
+      },
     },
     show: {
-      // opacity: 1,
-      transition: {
-        // when: "beforeChildren",
-        // delayChildren: 0,
-        staggerChildren: 5,
-      },
+      opacity: 1,
     },
   }
 
@@ -65,91 +65,83 @@ const SplashLogo = (props: Props) => {
     show: {
       width: "auto",
     },
-    hide: {
+    hidden: {
       width: 0,
-      // opacity: 0,
-      transition: {
-        duration: duration,
+      transitionEnd: {
+        display: "none",
       },
-      // transitionEnd: {
-      //   display: "none",
-      // },
     },
   }
 
-  const _onAnimationComplete = (item: string) => {
-    if (item === "Y") {
-      console.log("_onAnimationComplete", item)
+  const _onAnimationComplete = () => {
+    setCount((prev) => prev + 1)
+  }
+
+  useEffect(() => {
+    if (count === violaine.length + jeremy.length) {
+      console.log("anime end")
       setIsEnd(true)
     }
-  }
+  }, [count])
+
   return (
     <motion.div
       variants={containeVariants}
-      animate={isEnd && "end"}
-      className="splash splash--sm fixed inset-0 bg-bg- z-50 text-lg"
+      initial="show"
+      animate={isEnd && "hidden"}
+      className="splash splash--sm fixed inset-0 top-1/2 -translate-y-1/2 w-full bg-bg z-50 text-lg overflow-clip"
     >
-      <motion.div
-        variants={bgVariants}
-        animate={isEnd && "end"}
-        className="absolute inset-0- w-full h-full top-1/2 -translate-y-1/2 bg-bg overflow-clip "
-      >
-        <div className="center-x-y outter h-full">
-          <div className="inner flex">
-            <div
-              className="person absolute  text-right flex"
-              style={{ right: "0.7em" }}
+      <div className="center-x-y outter h-full">
+        <div className="inner flex">
+          <div
+            className="person absolute  text-right flex"
+            style={{ right: "0.7em" }}
+          >
+            <div>V</div>
+            <motion.div
+              variants={letterVariantsContainer}
+              initial="show"
+              animate="hidden"
+              className="flex"
             >
-              <div>V</div>
-              <motion.div
-                variants={letterVariantsContainer}
-                initial="hide"
-                animate={"show"}
-                className="flex"
-              >
-                {violaine.map((item, i) => (
-                  <motion.div
-                    key={`${item}-${i}`}
-                    variants={letterVariants}
-                    initial="show"
-                    animate="hide"
-                    style={{ overflow: "clip" }}
-                    onAnimationComplete={() => _onAnimationComplete(item)}
-                  >
-                    {item}
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-            <div>&</div>
-            <div
-              className="person absolute left-1e flex"
-              style={{ left: "0.7em" }}
+              {violaine.map((item, i) => (
+                <motion.div
+                  key={`${item}-${i}`}
+                  variants={letterVariants}
+                  style={{ overflow: "clip" }}
+                  onAnimationComplete={() => _onAnimationComplete()}
+                >
+                  {item}
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+          <div>&</div>
+          <div
+            className="person absolute left-1e flex"
+            style={{ left: "0.7em" }}
+          >
+            <div>J</div>
+            <motion.div
+              variants={letterVariantsContainer}
+              initial="show"
+              animate="hidden"
+              className="flex"
             >
-              <div>J</div>
-              <motion.div
-                variants={letterVariantsContainer}
-                initial="hide"
-                animate={"show"}
-                className="flex"
-              >
-                {jeremy.map((item, i) => (
-                  <motion.div
-                    key={`${item}-${i}`}
-                    variants={letterVariants}
-                    initial="show"
-                    animate="hide"
-                    style={{ overflow: "clip" }}
-                    onAnimationComplete={() => _onAnimationComplete(item)}
-                  >
-                    {item}
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
+              {jeremy.map((item, i) => (
+                <motion.div
+                  key={`${item}-${i}`}
+                  variants={letterVariants}
+                  style={{ overflow: "clip" }}
+                  onAnimationComplete={() => _onAnimationComplete()}
+                >
+                  {item}
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   )
 }
