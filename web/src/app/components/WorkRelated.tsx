@@ -3,6 +3,7 @@ import { _linkResolver } from "../utils/utils"
 import { ProjectExtend, SpaceExtend } from "../types/extend"
 import CardMini from "./CardMini"
 import Link from "next/link"
+import WorkTitle from "./WorkTitle"
 
 type Props = {
   input: ProjectExtend | SpaceExtend
@@ -12,35 +13,32 @@ const WorkRelated = ({ input }: Props) => {
   // console.log(input)
   return (
     <section className="related ">
-      <nav className="nav-related flex justify-between serif italic">
+      <nav className="nav-related flex justify-between serif ">
         {input.prev && (
           <div className="nav-related--link prev w-1/2">
             <Link href={_linkResolver(input.prev)}>
-              <div className="label">previous</div>
-              <div className="title absolute">{input.prev.title || ""}</div>
+              <div className="label italic">previous</div>
+
+              <div className="title absolute">
+                <WorkTitle
+                  title={input.prev.title || ""}
+                  subtitle={input.prev.industry}
+                />
+              </div>
             </Link>
-            {/* <CardMini
-              key={input.prev.slug?.current}
-              title={input.prev.title || ""}
-              industry={input.prev.industry || ""}
-              link={_linkResolver(input.prev) || ""}
-              image={input.prev.imageCover?.asset || null}
-            /> */}
           </div>
         )}
         {input.next && (
           <div className="nav-related--link next w-1/2">
             <Link href={_linkResolver(input.next)}>
-              <div className="label">next</div>
-              <div className="title absolute">{input.next.title || ""}</div>
+              <div className="label italic">next</div>
+              <div className="title absolute">
+                <WorkTitle
+                  title={input.next.title || ""}
+                  subtitle={input.next.industry}
+                />
+              </div>
             </Link>
-            {/* <CardMini
-              key={input.next.slug?.current}
-              title={input.next.title || ""}
-              industry={input.next.industry || ""}
-              link={_linkResolver(input.next) || ""}
-              image={input.next.imageCover?.asset || null}
-            /> */}
           </div>
         )}
       </nav>
