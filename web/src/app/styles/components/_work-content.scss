@@ -68,8 +68,10 @@
       justify-content: center;
     }
     img {
-      height: calc(100vh - var(--space-200));
-      width: auto !important;
+      @media all and (orientation: landscape) {
+        height: calc(100vh - var(--space-200));
+        width: auto !important;
+      }
       flex-shrink: 0;
     }
     .text {
@@ -113,14 +115,32 @@
       .text {
         text-align: left;
         // max-width: toRem(460);
-
+        p.text-xs {
+          margin-bottom: 0.5em;
+          // font-size: 11px;
+        }
         @media all and (max-width: $md) {
           text-align: center;
         }
       }
     }
+    &:not(.is-drapeau) {
+      .text-intro {
+        width: 100%;
+      }
+      .text {
+        @media all and (min-width: $md) {
+          max-width: unset;
+          padding-left: var(--space-200);
+          padding-right: var(--space-200);
+        }
+      }
+    }
   }
   .credits {
+    &:empty {
+      display: none;
+    }
     @media all and (min-width: $md) {
       .flex {
         h4 {
@@ -214,6 +234,7 @@
     border-top: var(--border);
     position: relative;
     padding-top: 5px;
+    padding-bottom: toRem(88);
     &::before,
     &::after {
       content: "";

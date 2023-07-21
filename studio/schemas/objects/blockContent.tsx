@@ -13,6 +13,8 @@ import {FiAlignCenter, FiAlignLeft, FiAlignRight, FiExternalLink, FiLink} from '
  */
 
 const Normal = (props: any) => <span style={{fontFamily: 'serif'}}>{props.children}</span>
+const TextSM = (props: any) => <span style={{fontSize: '13px'}}>{props.children}</span>
+const TextLG = (props: any) => <span style={{fontSize: '20px'}}>{props.children}</span>
 const Sans = (props: any) => <span style={{fontFamily: 'sans-serif'}}>{props.children}</span>
 const AlignLeftRender = (props: any) => <p style={{textAlign: 'left'}}>{props.children}</p>
 const AlignCenterRender = (props: any) => <p style={{textAlign: 'center'}}>{props.children}</p>
@@ -36,7 +38,8 @@ export default defineType({
         {title: 'H3', value: 'h3'},
         {title: 'H4', value: 'h4'},
         // {title: 'Quote', value: 'blockquote'},
-        {title: 'Texte L', value: 'text_lg'},
+        {title: 'Texte S', value: 'text_sm', component: TextSM},
+        {title: 'Texte L', value: 'text_lg', component: TextLG},
         // { title: 'Texte XL', value: 'text_xl' },
         // {title: 'Sans', value: 'sans'},
       ],

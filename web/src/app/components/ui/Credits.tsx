@@ -6,13 +6,21 @@ type Props = {}
 const Credits = (props: Props) => {
   const [open, setOpen] = useState<boolean>(false)
   return (
-    <div className="credits flex">
-      <div className="label mr-lg" onClick={() => setOpen(!open)}>
+    <div
+      className="credits flex items-baseline "
+      onMouseLeave={() => setOpen(false)}
+    >
+      <div
+        className="label mr-lg"
+        onClick={() => setOpen(!open)}
+        onMouseEnter={() => setOpen(!open)}
+        // onMouseLeave={() => setOpen(false)}
+      >
         CREDITS
       </div>
       {open && (
-        <div className="value ">
-          <span className="serif">Design by</span>{" "}
+        <div className="value text-xs">
+          <em className="serif">Design by</em>{" "}
           <a
             href="https://joanna-spadiliero.com/"
             target="_blank"
@@ -21,7 +29,7 @@ const Credits = (props: Props) => {
           >
             JOANNA SPADILIERO
           </a>{" "}
-          <span className="serif ">Code by</span>{" "}
+          <em className="serif ">Code by</em>{" "}
           <a
             href="https://ahmedghazi.com/"
             target="_blank"

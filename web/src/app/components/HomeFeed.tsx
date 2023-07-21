@@ -12,7 +12,7 @@ const HomeFeed = ({ input }: Props) => {
   useEffect(() => {
     _onScroll()
     window.addEventListener("scroll", _onScroll)
-
+    document.querySelector(".page-home")?.classList.add("reveal")
     return () => {
       window.removeEventListener("scroll", _onScroll)
     }
@@ -20,7 +20,8 @@ const HomeFeed = ({ input }: Props) => {
 
   const _onScroll = () => {
     // console.log(window.scrollY)
-    const threshold = 150
+    // const threshold = 150
+    const threshold = 160
     const items = ref.current?.querySelectorAll<HTMLElement>(
       "article:has(.is-ready-to-animate)"
     )
@@ -31,7 +32,7 @@ const HomeFeed = ({ input }: Props) => {
       const bounding: DOMRect = el.getBoundingClientRect()
       const distanceToTop = bounding.top - threshold
       if (distanceToTop >= 0) {
-        width = distanceToTop * 3
+        width = distanceToTop * 9
       }
       // console.log(width)
 

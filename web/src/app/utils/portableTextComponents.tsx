@@ -7,6 +7,7 @@ const components: PortableTextComponents = {
     h2: ({ children }) => <h2>{children}</h2>,
     "text-lg": ({ children }) => <div className="text-lg">{children}</div>,
     text_lg: ({ children }) => <p className="text-lg">{children}</p>,
+    text_sm: ({ children }) => <p className="text-xs ">{children}</p>,
     // align_center: ({ children }) => <p className="text-center">{children}</p>,
   },
   types: {

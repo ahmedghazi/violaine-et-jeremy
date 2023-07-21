@@ -33,6 +33,8 @@ module.exports = {
       secondary: "var(--color-secondary)",
       hover: "var(--color-hover)",
       red: "#ff0000",
+      black: "#000",
+      white: "#fff",
     },
     fontSize: {
       xs: ["var(--text-xs)", "1"],

@@ -19,7 +19,7 @@ const WorkRelated = ({ input }: Props) => {
             <Link href={_linkResolver(input.prev)}>
               <div className="label italic">previous</div>
 
-              <div className="title absolute">
+              <div className="title absolute text-sm">
                 <WorkTitle
                   title={input.prev.title || ""}
                   subtitle={input.prev.industry}
@@ -32,7 +32,7 @@ const WorkRelated = ({ input }: Props) => {
           <div className="nav-related--link next w-1/2">
             <Link href={_linkResolver(input.next)}>
               <div className="label italic">next</div>
-              <div className="title absolute">
+              <div className="title absolute text-sm">
                 <WorkTitle
                   title={input.next.title || ""}
                   subtitle={input.next.industry}
@@ -48,16 +48,7 @@ const WorkRelated = ({ input }: Props) => {
             Other projects in the same style
           </h4>
           <div className="flex justify-center items-start gap-sm md:gap-md">
-            {input.related?.map((item) => (
-              <CardMini
-                key={item.slug?.current}
-                title={item.title || ""}
-                industry={item.industry || ""}
-                link={_linkResolver(item) || ""}
-                image={item.imageCover?.asset || null}
-              />
-            ))}
-            {input.related?.map((item) => (
+            {input.related?.slice(0, 3).map((item) => (
               <CardMini
                 key={item.slug?.current}
                 title={item.title || ""}

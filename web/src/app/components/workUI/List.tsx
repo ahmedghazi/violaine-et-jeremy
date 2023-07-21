@@ -27,7 +27,7 @@ const List = ({ input }: Props) => {
     // const offset = 143
     // console.log(window.scrollY)
     const threshold: number = 120
-    const offset = 130
+    const offset = 140
 
     const rows: HTMLDivElement[] | any =
       ref.current?.querySelectorAll(".project .images")
@@ -44,7 +44,8 @@ const List = ({ input }: Props) => {
           if (scale >= 1) scale = 1
         }
 
-        el.style.setProperty("--custom-max-height", `${110 * scale}px`)
+        el.style.setProperty("--custom-max-height", `${80 * scale}px`)
+        // el.style.setProperty("--custom-max-height", `${4 * scale}rem`)
         el.style.setProperty("--custom-scale", `${scale / 1}`)
         el.style.setProperty("--dist", `${distanceToTop}`)
         el.classList.toggle("can-display-images", scale > 0)

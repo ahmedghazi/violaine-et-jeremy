@@ -14,12 +14,14 @@ const SplashLogo = (props: Props) => {
 
   const containeVariants = {
     show: {
-      height: "100vh",
+      // height: "100vh",
+      opacity: "1",
     },
     hidden: {
-      height: "0vh",
+      // height: "0vh",
+      opacity: duration,
       transition: {
-        duration: duration * 2,
+        duration: duration,
         ease: "easeOut",
       },
       transitionEnd: {
@@ -64,12 +66,23 @@ const SplashLogo = (props: Props) => {
     }
   }, [count])
 
+  useEffect(() => {
+    // if (!isEnd) return
+    // console.log(isEnd)
+    // setTimeout(() => {
+    //   // const y = (55 * window.innerHeight) / 100
+    //   // window.scroll(0, y)
+
+    // }, 200)
+    document.querySelector(".page-home")?.classList.add("reveal")
+  }, [isEnd])
+
   return (
     <motion.div
       variants={containeVariants}
       initial="show"
       animate={isEnd && "hidden"}
-      className="splash splash--sm fixed inset-0 top-1/2 -translate-y-1/2 w-full bg-bg z-50 text-lg overflow-clip"
+      className="splash splash--sm fixed inset-0 top-1/2- -translate-y-1/2- w-full bg-bg text-white- z-50 text-lg overflow-clip"
     >
       <div className="center-x-y outter h-full">
         <div className="inner flex">

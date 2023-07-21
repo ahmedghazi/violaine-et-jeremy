@@ -65,7 +65,7 @@ const PageTransition = ({ location, children }: PageContextProps) => {
       >
         {children}
       </motion.div>
-      {pathName === "/" && <SplashLogo />}
+      {/* {pathName === "/" && <SplashLogo />} */}
     </AnimatePresence>
   )
 }

@@ -58,7 +58,7 @@ const ArticleWorkDefault = ({ input, imageCover }: ArticleProps) => (
             />
           </figure>
         )}
-        <div className="text-intro">
+        <div className="text-intro text-md">
           <div className="inner">
             <div className="text">
               {input.text && (
