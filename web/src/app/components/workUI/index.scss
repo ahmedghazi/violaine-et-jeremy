@@ -88,12 +88,7 @@
       // transition: height 0.2s;
       // display: none;
       padding-bottom: calc(15px * var(--custom-scale));
-      @media all and (max-width: 1080px) {
-        display: none;
-        &.is-active {
-          display: block;
-        }
-      }
+
       &.can-display-images {
         // display: flex;
         // padding: toRem(5) 0 toRem(25);
@@ -115,5 +110,33 @@
   }
   .grid--images {
     grid-auto-rows: max-content;
+  }
+}
+
+@media all and (max-width: 1080px) {
+  .work-ui {
+    .list {
+      opacity: 1;
+      .btn-toggle-images {
+        padding-left: 14.3333333333%;
+      }
+      .images {
+        height: toRem(60);
+        gap: toRem(2);
+        display: none;
+        &.is-active {
+          display: flex;
+          overflow-x: scroll;
+        }
+      }
+      .list-item--actions {
+        padding: toRem(5) 0;
+        a {
+          // background-color: red;
+          width: calc(60 * 100% / 300);
+          display: block;
+        }
+      }
+    }
   }
 }

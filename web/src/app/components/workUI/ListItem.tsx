@@ -1,4 +1,4 @@
-import React, { useMemo } from "react"
+import React, { useMemo, useState } from "react"
 import { Project, SanityImageAsset, Space } from "@/app/types/schema"
 import { urlFor } from "@/app/utils/sanity-utils"
 import { _linkResolver } from "@/app/utils/utils"
@@ -13,6 +13,7 @@ type Props = {
 
 const ListItem = ({ input, hasLink }: Props) => {
   // const [isMobile, setIsMobile] = useState(false)
+  const [active, setActive] = useState<boolean>(false)
   const maxLen = 15
   const images = useMemo(() => {
     let arr: Array<SanityImageAsset> = []
@@ -48,9 +49,19 @@ const ListItem = ({ input, hasLink }: Props) => {
             <div className="td col-link italic lowercase">see more</div>
           )}
         </div>
-        <button>✛</button>
-        {images.length > 0 && (
-          <div className="images flex flex-nowrap justify-center gap-sm">
+      </Link>
+
+      {images.length > 0 && (
+        <Link
+          href={hasLink ? _linkResolver(input) : "#"}
+          className={clsx(hasLink ? "" : "pointer-events-none")}
+        >
+          <div
+            className={clsx(
+              "images flex flex-nowrap justify-center gap-sm hide-sb",
+              active ? "is-active" : ""
+            )}
+          >
             {images.map((image, i) => (
               <figure key={i}>
                 <Image
@@ -68,8 +79,24 @@ const ListItem = ({ input, hasLink }: Props) => {
               </figure>
             ))}
           </div>
-        )}
-      </Link>
+        </Link>
+      )}
+
+      <div className="sm-only list-item--actions">
+        <div className="flex justify-between">
+          <button
+            className="btn-toggle-images sm-only"
+            onClick={() => setActive(!active)}
+          >
+            {active ? "-" : "✛"}
+          </button>
+          {hasLink && active && (
+            <Link href={hasLink ? _linkResolver(input) : "#"}>
+              <div className=" italic lowercase">see more</div>
+            </Link>
+          )}
+        </div>
+      </div>
     </div>
   )
 }
