@@ -10,7 +10,8 @@
   }
   @media all and (max-width: $sm) {
     padding-top: calc(50vh - (var(--textAboutHeightMobile)));
-    padding-top: 0;
+    padding-top: calc(100vh);
+    // padding-top: 0;
   }
   // background-color: red;
   .about {
