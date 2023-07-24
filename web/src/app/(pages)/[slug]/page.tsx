@@ -26,7 +26,8 @@ const Page: ({ params }: PageProps) => Promise<JSX.Element> = async ({
   params,
 }) => {
   const data = await getPageModulaire(params.slug)
-  // console.log(data)
+  console.log(params.slug)
+  if (!data) return <div>please edit page</div>
   return (
     <div className="page px-sm md:px-md">
       <div className="header fixed top-0 left-0 flex justify-center py-sm w-full pointer-events-none z-40">

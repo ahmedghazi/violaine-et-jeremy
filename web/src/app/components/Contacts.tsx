@@ -20,8 +20,8 @@ const Contacts = ({ input, linkLegals }: Props) => {
     <div className="contacts flex flex-wrap">
       {input?.map((item, i) => (
         <div className="footer-item" key={i}>
-          <h5>{item.title}</h5>
-          <div className="text-sm">
+          <h5 className="text-sm md:text-md">{item.title}</h5>
+          <div className="text-xs md:text-sm">
             {item?.text && (
               <PortableText value={item?.text} components={components} />
             )}
@@ -38,7 +38,7 @@ const Contacts = ({ input, linkLegals }: Props) => {
             required: true,
           }}
         />
-        <div className="text-sm ">
+        <div className="text-xs md:text-sm ">
           {linkLegals && (
             <Link href={_linkResolver(linkLegals)}>{linkLegals.title}</Link>
           )}

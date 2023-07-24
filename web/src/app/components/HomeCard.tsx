@@ -36,7 +36,7 @@ const HomeCard = ({ input }: Props) => {
   return (
     <article className={clsx("home-card")}>
       <Link href={_linkResolver(input)}>
-        <div className="industry text-lg text-center serif uppercase">
+        <div className="industry text-sm md:text-lg text-center serif uppercase">
           <div
             className="inner flex justify-between flex-nowrap whitespace-nowrap"
             ref={ref}

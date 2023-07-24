@@ -1,5 +1,5 @@
 "use client"
-import React, { ReactNode } from "react"
+import React, { ReactNode, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { usePathname } from "next/navigation"
 import SplashLogo from "../SplashLogo"
@@ -44,6 +44,10 @@ interface PageContextProps {
 const PageTransition = ({ location, children }: PageContextProps) => {
   const pathName = usePathname()
   // console.log(pathName)
+  useEffect(() => {
+    window.scroll(0, 0)
+  }, [])
+
   return (
     <AnimatePresence>
       <motion.div

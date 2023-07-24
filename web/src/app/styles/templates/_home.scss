@@ -21,7 +21,7 @@
       position: sticky;
       margin-bottom: toRem(84);
       br {
-        display: none;
+        // display: none;
       }
     }
   }
@@ -85,10 +85,10 @@
         font-size: 12px;
       }
     }
-    img {
-      max-height: 500px;
-      object-fit: cover;
-    }
+    // img {
+    //   max-height: 500px;
+    //   object-fit: cover;
+    // }
   }
 }
 

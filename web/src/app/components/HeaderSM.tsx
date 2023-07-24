@@ -26,8 +26,13 @@ const HeaderSM = ({ titleAlt, settings, infos }: Props) => {
   }, [pathName])
 
   return (
-    <div className={clsx("header--sm sm-only", `scroll-${scrollDirection}`)}>
-      <div className="inner flex justify-between z-10">
+    <div
+      className={clsx(
+        "header--sm sm-only text-sm",
+        `scroll-${scrollDirection}--`
+      )}
+    >
+      <div className="inner flex justify-between z-10 ">
         <Link href={"/"} className="w-1/3 site-name relative z-10">
           {titleAlt}
         </Link>

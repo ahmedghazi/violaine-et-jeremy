@@ -220,6 +220,7 @@ $sass-burger-add-vendor-prefixes: true !default;
     outline: 1px solid transparent; // 1
     transition-property: background-color, transform;
     transition-duration: $transition-duration;
+    transition-duration: 0s;
   }
 
   &::before,

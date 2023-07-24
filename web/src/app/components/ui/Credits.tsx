@@ -4,6 +4,10 @@ import React, { useState } from "react"
 type Props = {}
 
 const Credits = (props: Props) => {
+  const designer = {
+    name: "JOANNA SPADILIERO",
+    url: "https://joanna-spadiliero.com",
+  }
   const [open, setOpen] = useState<boolean>(false)
   return (
     <div
@@ -22,12 +26,12 @@ const Credits = (props: Props) => {
         <div className="value text-xs">
           <em className="serif">Design by</em>{" "}
           <a
-            href="https://joanna-spadiliero.com/"
+            href={designer.url}
             target="_blank"
             rel="noopener noreferrer"
             className="mr-1e"
           >
-            JOANNA SPADILIERO
+            {designer.name}
           </a>{" "}
           <em className="serif ">Code by</em>{" "}
           <a
