@@ -3,7 +3,9 @@
 .work-ui {
   // padding-bottom: toRem(100);
   .list {
-    opacity: var(--opacity, 0);
+    @media all and (min-width: 1080px) {
+      opacity: var(--opacity, 0);
+    }
     padding-top: var(--space-100);
     min-height: 200vh;
     // @include debugFiletY(200px);
@@ -86,6 +88,12 @@
       // transition: height 0.2s;
       // display: none;
       padding-bottom: calc(15px * var(--custom-scale));
+      @media all and (max-width: 1080px) {
+        display: none;
+        &.is-active {
+          display: block;
+        }
+      }
       &.can-display-images {
         // display: flex;
         // padding: toRem(5) 0 toRem(25);

@@ -17,6 +17,9 @@ body {
     @include debugFiletY(50%);
     #page {
       @include debugOutline(var(--space-md));
+      @media all and (max-width: $md) {
+        @include debugOutline(calc(var(--space-md) + 2px));
+      }
     }
   }
 }
@@ -46,5 +49,12 @@ main {
   }
   .hidden-sm {
     display: none;
+  }
+}
+
+.work-title {
+  // background-color: red;
+  @media all and (max-width: $md) {
+    font-size: var(--text-xs);
   }
 }

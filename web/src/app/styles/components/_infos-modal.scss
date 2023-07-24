@@ -11,8 +11,12 @@
     transform: translateY(-101%);
     transition: opacity 0.6s var(--cubic), transform 0.6s var(--cubic);
     // max-height: 100vh;
-    max-height: calc(100vh - toRem(28));
+    // max-height: calc(100vh - toRem(28));
 
+    height: 100vh;
+    @media all and (min-width: $md) {
+      max-height: calc(100vh - var(--space-md));
+    }
     // overflow-y: auto;
 
     &.is-active {
@@ -47,8 +51,8 @@
       }
     }
     @media all and (max-width: $md) {
-      max-height: calc(100vh - var(--space-md));
-      overflow-y: auto;
+      // max-height: calc(100vh - var(--space-md));
+      // overflow-y: auto;
       .grid-item:has(p) {
         margin-bottom: 1em;
       }
@@ -60,6 +64,9 @@
       }
 
       .grid {
+        margin-bottom: toRem(35);
+      }
+      .content {
         margin-bottom: toRem(35);
       }
     }
@@ -92,6 +99,33 @@
       }
       .grid-item:last-child {
         flex: 2;
+      }
+    }
+  }
+  @media all and (min-width: $md) {
+    .credits br {
+      display: none;
+    }
+  }
+}
+
+@media all and (max-width: $md) {
+  #infos {
+    .infos-overlay {
+      overflow-y: auto;
+      .inner.scrollable {
+        overflow-y: unset;
+        padding-bottom: var(--space-md);
+        height: auto;
+      }
+      .links {
+        margin-bottom: 0;
+      }
+      .credits {
+        margin-top: toRem(50);
+        .value {
+          line-height: 1.8;
+        }
       }
     }
   }

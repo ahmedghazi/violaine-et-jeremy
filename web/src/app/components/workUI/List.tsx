@@ -26,6 +26,8 @@ const List = ({ input }: Props) => {
     // const threshold: number = 100
     // const offset = 143
     // console.log(window.scrollY)
+    if (window.innerWidth < 1080) return
+
     const threshold: number = 120
     const offset = 140
 

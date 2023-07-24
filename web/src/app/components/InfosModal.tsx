@@ -44,13 +44,17 @@ export default function InfosModal({ infosData, settingsData }: Props) {
         <div className="inner scrollable">
           <div className="links ">
             <Contacts input={links} linkLegals={linkLegals} />
+
+            <div className="sm-only">
+              <Credits />
+            </div>
           </div>
 
           <div className="content pb-100-">
             <div className="md:flex ">
               <div className="grid-item md:pr-md text-lg-">
                 <div className="flex flex-col justify-between h-full pb-md">
-                  <div className="text">
+                  <div className="text ">
                     {infosData.text && (
                       <PortableText
                         value={infosData.text}
@@ -58,7 +62,9 @@ export default function InfosModal({ infosData, settingsData }: Props) {
                       />
                     )}
                   </div>
-                  <Credits />
+                  <div className="hidden-sm">
+                    <Credits />
+                  </div>
                 </div>
               </div>
               <div className="grid-item">

@@ -40,7 +40,7 @@ const ListItem = ({ input, hasLink }: Props) => {
           <div className="td col-client hidden-sm">{input.client}</div>
           <h2 className="td col-project hidden-sm">{input.title}</h2>
           <h2 className="td col-client-project sm-only">{`${
-            input.client ? `${input.client} ◆ ` : ""
+            input.client ? `${input.client} . ` : ""
           }${input.title}`}</h2>
           <div className="td col-industry">{input.industry}</div>
           <div className="td col-location">{input.location}</div>
@@ -48,6 +48,7 @@ const ListItem = ({ input, hasLink }: Props) => {
             <div className="td col-link italic lowercase">see more</div>
           )}
         </div>
+        <button>✛</button>
         {images.length > 0 && (
           <div className="images flex flex-nowrap justify-center gap-sm">
             {images.map((image, i) => (

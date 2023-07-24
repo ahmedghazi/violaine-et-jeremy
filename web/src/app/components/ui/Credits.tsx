@@ -33,6 +33,7 @@ const Credits = (props: Props) => {
           >
             {designer.name}
           </a>{" "}
+          <br />
           <em className="serif ">Code by</em>{" "}
           <a
             href="https://ahmedghazi.com/"

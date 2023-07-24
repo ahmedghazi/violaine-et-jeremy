@@ -29,7 +29,7 @@ const HeaderSM = ({ titleAlt, settings, infos }: Props) => {
     <div
       className={clsx(
         "header--sm sm-only text-sm",
-        `scroll-${scrollDirection}--`
+        `scroll-${scrollDirection}`
       )}
     >
       <div className="inner flex justify-between z-10 ">

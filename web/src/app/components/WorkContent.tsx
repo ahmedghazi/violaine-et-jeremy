@@ -58,7 +58,7 @@ const ArticleWorkDefault = ({ input, imageCover }: ArticleProps) => (
             />
           </figure>
         )}
-        <div className="text-intro text-md">
+        <div className="text-intro text-sm md:text-md">
           <div className="inner">
             <div className="text">
               {input.text && (
@@ -75,10 +75,10 @@ const ArticleWorkDefault = ({ input, imageCover }: ArticleProps) => (
 )
 
 const ArticleWorkSplit = ({ input, imageCover }: ArticleProps) => (
-  <article className="look-split grid- md:grid-cols-2- gap-md- flex">
+  <article className="look-split grid- md:grid-cols-2- gap-md- flex flex-col-reverse md:flex-row">
     <div className="content">
       {imageCover && (
-        <figure className="mb-md">
+        <figure className="mb-md hidden-sm">
           <Image
             className={clsx(
               imageCover?.metadata?.dimensions.aspectRatio > 1
@@ -104,9 +104,32 @@ const ArticleWorkSplit = ({ input, imageCover }: ArticleProps) => (
         <Modules input={input.content} />
       )}
     </div>
-    <div className="text-intro">
+    <div className="text-intro text-sm md:text-md mb-lg md:mb-0">
       <div className="inner">
         <div className="text">
+          {imageCover && (
+            <figure className="mb-md sm-only">
+              <Image
+                className={clsx(
+                  imageCover?.metadata?.dimensions.aspectRatio > 1
+                    ? "is-landscape"
+                    : "is-portrait"
+                )}
+                src={imageCover.url}
+                width={imageCover?.metadata?.dimensions.width}
+                height={imageCover?.metadata?.dimensions.height}
+                alt={input.title || "alt"}
+                sizes="100vw"
+                style={{
+                  // width: "100%",
+                  // height: "auto",
+                  aspectRatio: `${imageCover?.metadata?.dimensions.width} / ${imageCover?.metadata?.dimensions.height}`,
+                }}
+                blurDataURL={imageCover?.metadata?.lqip} //automatically provided
+                placeholder="blur" // Optional blur-up while loading
+              />
+            </figure>
+          )}
           {input.text && (
             <PortableText value={input.text} components={components} />
           )}

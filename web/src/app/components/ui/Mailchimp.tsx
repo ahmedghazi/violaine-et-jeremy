@@ -96,7 +96,7 @@ const Mailchimp = (props: Props) => {
     <>
       <form onSubmit={handleSubmit} className={clsx("mailchimp text-sm")}>
         <div className="flex  items-baseline">
-          <div className="title text-md">NEWSLETTER</div>
+          <div className="title text-sm  md:text-md">NEWSLETTER</div>
           {status !== "success" && (
             <>
               <div className="flex-2 input-wrapper">

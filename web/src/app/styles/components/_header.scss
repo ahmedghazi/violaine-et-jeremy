@@ -17,6 +17,7 @@ header {
       text-align: right;
     }
     a[target="_blank"] {
+      position: relative;
       &:hover .absolute {
         transform: translate(0.4em, -0.3em);
       }
@@ -55,9 +56,11 @@ header {
   @media all and (max-width: $md) {
     padding: toRem(7) toRem(10);
     .header--sm {
-      transition: transform 0.4s cubic-bezier(0.53, 0, 0.36, 1),
-        opacity 0.4s cubic-bezier(0.53, 0, 0.36, 1);
-      &.scroll-down {
+      .btn-menu-toggle {
+        transition: transform 0.4s cubic-bezier(0.53, 0, 0.36, 1),
+          opacity 0.4s cubic-bezier(0.53, 0, 0.36, 1);
+      }
+      &.scroll-down .btn-menu-toggle {
         opacity: 0;
         transform: translateY(-100%);
       }
@@ -78,7 +81,10 @@ header {
       }
     }
     .nav-overlay {
-      max-height: calc(100vh - var(--space-md));
+      height: 100vh;
+      @media all and (min-width: $md) {
+        max-height: calc(100vh - var(--space-md));
+      }
       background-color: white;
       position: fixed;
       padding-top: var(--space-100);

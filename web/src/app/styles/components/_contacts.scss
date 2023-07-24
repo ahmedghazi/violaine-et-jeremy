@@ -25,9 +25,17 @@
         width: 100%;
       }
     }
+    form {
+      margin-bottom: toRem(30);
+    }
+    // &:nth-child(2) {
+    //   // background-color: red;
+    //   margin-bottom: toRem(40);
+    // }
     // gap: var(--space-sm);
     .footer-item:nth-child(2) {
       order: 3;
+      margin-bottom: toRem(40);
     }
     .footer-item:nth-child(3) {
       order: 2;
