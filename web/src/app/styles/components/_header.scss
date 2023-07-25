@@ -60,7 +60,7 @@ header {
         transition: transform 0.4s cubic-bezier(0.53, 0, 0.36, 1),
           opacity 0.4s cubic-bezier(0.53, 0, 0.36, 1);
       }
-      &.scroll-down .btn-menu-toggle {
+      #page:has(.project-single) &.scroll-down .btn-menu-toggle {
         opacity: 0;
         transform: translateY(-100%);
       }
