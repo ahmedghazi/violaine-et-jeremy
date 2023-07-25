@@ -1,32 +1,23 @@
 "use client"
+import { usePageContext } from "@/app/context/PageContext"
 import clsx from "clsx"
 import React, { useState } from "react"
 
-type Props = {
-  display: string
-  setDisplay: Function
-}
-
-const BtnsDisplay = ({ display, setDisplay }: Props) => {
+const BtnsDisplay = () => {
+  const { worksView, setWorksView } = usePageContext()
   return (
     <div className="header fixed top-0 flex justify-center items-center py-sm w-full pointer-events-none z-50 text-xs">
       <div className="inner">
         <button
-          className={clsx(
-            "px-sm pointer-events-auto",
-            display !== "grid" ? "serif-" : ""
-          )}
-          onClick={() => setDisplay("grid")}
+          className={clsx("px-sm pointer-events-auto")}
+          onClick={() => setWorksView("grid")}
         >
           images
         </button>
         <span>·</span>
         <button
-          className={clsx(
-            "px-sm pointer-events-auto",
-            display !== "list" ? "serif-" : ""
-          )}
-          onClick={() => setDisplay("list")}
+          className={clsx("px-sm pointer-events-auto")}
+          onClick={() => setWorksView("list")}
         >
           texts
         </button>

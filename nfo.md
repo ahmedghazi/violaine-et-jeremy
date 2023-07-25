@@ -4,29 +4,35 @@ Preprod: https://violaine-et-jeremy-git-preprod-aeai.vercel.app/
 
 # to do
 
-- # modules image
-- # infos / studio
-- # project credits/links
-- sanity preview (https://github.com/sanity-io/preview-kit#sanitypreview-kit-1)
-- tuto video
-- # compo images ne crop que les quart quart demie
-- # grille lists proj,
-- # grille footer contacts
-- # glyphs anagram footer
-- video intro
-- repasse callages typos, detail
-- # home industry max with 100vw
-- # callage header
-- # index list avec projets cliquable
+# Roll over card pb zone reactive même dans le blanc
 
-# Mobile
+# Menu works dans works afficher le sous menu
 
-- # header, menu
-- typos
-- # infos scrollable
-- # pb burger
-- header projet ou works full centered
-- footer logos group letters ainsi on peux controller chaque taille de lettres
+Index
+
+# Click que sur see more
+
+# Works stocker la vue image ou liste quand on revient depuis projet
+
+Liste
+Thead stocky à 100px
+1 seul projet ouvert
+Images à 130px de haut
+
+Home
+
+# Ajouter scroll snap ppur que l anime se compose avec le about
+
+Typo cormorand ne se charge pas
+
+# Mobile home intro pas de br
+
+# Plus vérifier le corps
+
+Burger devient bouton menu
+Mobile Header negatif
+
+# Projet intro line height mobile + marge entre image et texte similaire à entre modules
 
 # 3rd party cache
 

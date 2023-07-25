@@ -4,7 +4,8 @@ header {
   top: 0;
   padding: toRem(6) var(--space-md);
   z-index: 40;
-
+  z-index: 251;
+  // background-color: white;
   .col-item {
     width: var(--space-100);
   }
@@ -185,20 +186,25 @@ header {
         ul {
           position: initial;
           display: flex;
-          padding-left: var(--space-sm);
+          padding-left: var(--space-md);
           li:not(:has(.is-current-page)) {
-            display: none;
+            // display: none;
           }
           li:after {
-            display: none;
+            // display: none;
           }
         }
-        &:hover ul {
-          padding-left: 0;
-          li {
+        &:hover {
+          .label {
             display: block;
-            &::after {
-              display: inline-block;
+          }
+          ul {
+            // padding-left: 0;
+            li {
+              // display: block;
+              &::after {
+                // display: inline-block;
+              }
             }
           }
         }

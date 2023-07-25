@@ -32,54 +32,46 @@ const ListItem = ({ input, hasLink }: Props) => {
 
   return (
     <div className="tr project">
-      <Link
-        href={hasLink ? _linkResolver(input) : "#"}
-        className={clsx(hasLink ? "" : "pointer-events-none")}
-      >
-        <div className="flex pb-xs">
-          <div className="td col-year">{input.year}</div>
-          <div className="td col-client hidden-sm">{input.client}</div>
-          <h2 className="td col-project hidden-sm">{input.title}</h2>
-          <h2 className="td col-client-project sm-only">{`${
-            input.client ? `${input.client} . ` : ""
-          }${input.title}`}</h2>
-          <div className="td col-industry">{input.industry}</div>
-          <div className="td col-location">{input.location}</div>
-          {hasLink && (
+      <div className="flex pb-xs">
+        <div className="td col-year">{input.year}</div>
+        <div className="td col-client hidden-sm">{input.client}</div>
+        <h2 className="td col-project hidden-sm">{input.title}</h2>
+        <h2 className="td col-client-project sm-only">{`${
+          input.client ? `${input.client} . ` : ""
+        }${input.title}`}</h2>
+        <div className="td col-industry">{input.industry}</div>
+        <div className="td col-location">{input.location}</div>
+        {hasLink && (
+          <Link href={hasLink ? _linkResolver(input) : "#"}>
             <div className="td col-link italic lowercase">see more</div>
-          )}
-        </div>
-      </Link>
+          </Link>
+        )}
+      </div>
 
       {images.length > 0 && (
-        <Link
-          href={hasLink ? _linkResolver(input) : "#"}
-          className={clsx(hasLink ? "" : "pointer-events-none")}
+        <div
+          className={clsx(
+            "images flex flex-nowrap justify-center gap-sm hide-sb",
+            active ? "is-active" : ""
+          )}
         >
-          <div
-            className={clsx(
-              "images flex flex-nowrap justify-center gap-sm hide-sb",
-              active ? "is-active" : ""
-            )}
-          >
-            {images.map((image, i) => (
-              <figure key={i}>
-                <Image
-                  src={urlFor(
-                    image.url,
-                    Math.round(130 * image?.metadata?.dimensions.aspectRatio)
-                  )}
-                  width={130 * image?.metadata?.dimensions.aspectRatio}
-                  height={130}
-                  alt={input.title || "alt"}
-                  sizes="100vw"
-                  blurDataURL={image?.metadata?.lqip}
-                  placeholder="blur"
-                />
-              </figure>
-            ))}
-          </div>
-        </Link>
+          {images.map((image, i) => (
+            <figure key={i}>
+              <Image
+                src={urlFor(
+                  image.url,
+                  Math.round(130 * image?.metadata?.dimensions.aspectRatio)
+                )}
+                width={130 * image?.metadata?.dimensions.aspectRatio}
+                height={130}
+                alt={input.title || "alt"}
+                sizes="100vw"
+                blurDataURL={image?.metadata?.lqip}
+                placeholder="blur"
+              />
+            </figure>
+          ))}
+        </div>
       )}
 
       <div className="sm-only list-item--actions">

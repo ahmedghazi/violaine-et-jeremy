@@ -43,10 +43,17 @@ interface PageContextProps {
 
 const PageTransition = ({ location, children }: PageContextProps) => {
   const pathName = usePathname()
-  // console.log(pathName)
-  useEffect(() => {
-    window.scroll(0, 0)
-  }, [])
+  // // console.log(pathName)
+  // useEffect(() => {
+  //   window.scroll(0, 0)
+  // }, [])
+
+  // useEffect(() => {
+  //   console.log({ pathName })
+
+  //   document.documentElement.classList.remove("can-snap")
+  //   document.documentElement.classList.toggle("is-home", pathName === "/")
+  // }, [pathName])
 
   return (
     <AnimatePresence>

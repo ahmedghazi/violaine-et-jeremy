@@ -18,12 +18,13 @@
     letter-spacing: toRem(0.6);
     top: calc(var(--space-100) - 0.2em);
     @media all and (max-width: $sm) {
-      top: var(--space-100);
-      position: sticky;
-      margin-bottom: toRem(84);
-      br {
-        // display: none;
-      }
+      // top: var(--space-100);
+      // position: sticky;
+      // margin-bottom: toRem(84);
+      // margin-bottom: toRem(154);
+      // br {
+      //   // display: none;
+      // }
     }
   }
 
@@ -31,6 +32,7 @@
     padding-top: calc(100px + var(--textAboutHeight));
     padding-top: 95px;
     padding-top: 195px;
+    padding-top: 35vh;
     // overflow-x: hidden;
   }
   .home-card {
@@ -66,7 +68,7 @@
       // left: 50%;
       // transform: translateY(-1.2em) translateX(-50%);
       display: flex;
-      justify-content: center;
+      justify-content: space-evenly;
       .inner {
         min-width: var(--min-width);
         max-width: calc(100vw - calc(var(--space-md) * 2));
@@ -93,12 +95,57 @@
   }
 }
 
+html.is-home.can-snap {
+  &,
+  body {
+    scroll-snap-type: y proximity;
+  }
+  article {
+    scroll-snap-align: start;
+    scroll-margin-top: calc(
+      var(--space-100) + 3 * (var(--text-md) * 1.2) + 1.5em
+    );
+  }
+}
+
 @media all and (max-width: $sm) {
   main:has(.page-home) {
     padding-top: toRem(190);
     padding-top: var(--space-100);
+    .about {
+      top: var(--space-100);
+      position: sticky;
+      margin-bottom: toRem(84);
+      // margin-bottom: toRem(04);
+      // margin-bottom: 0;
+      br {
+        // display: none;
+      }
+    }
     .feed {
       padding-top: 0;
+      // padding-top: 20vh;
+      // background-color: red;
+      article {
+        .industry {
+          margin-bottom: calc(var(--space-sm) * 0.6);
+        }
+        .work-title {
+          margin-bottom: calc(var(--space-sm) * 0.6);
+        }
+        p {
+          line-height: 1.2;
+        }
+      }
+    }
+  }
+
+  html.is-home.can-snap {
+    article {
+      scroll-margin-top: calc(
+        var(--space-100) + 3 * (var(--text-md) * 1.2) +
+          calc(var(--space-sm) * 0.5)
+      );
     }
   }
 }

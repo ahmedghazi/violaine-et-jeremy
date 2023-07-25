@@ -22,10 +22,14 @@ const Card = ({ link, image, title, industry, colorPalette }: Props) => {
   return (
     <article
       className={clsx("card", hover ? "is-hover" : "")}
-      onMouseEnter={() => setHover(!hover)}
+      // onMouseEnter={() => setHover(!hover)}
       // onMouseLeave={() => setHover(false)}
     >
-      <Link href={link} className="relative">
+      <Link
+        href={link}
+        className="relative"
+        onMouseEnter={() => setHover(!hover)}
+      >
         {
           (image &&= (
             <figure className="relative">

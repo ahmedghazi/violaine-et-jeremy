@@ -312,6 +312,9 @@
       text-align: center;
       min-height: auto;
       margin-bottom: toRem(40);
+      .flex {
+        gap: 2.5rem !important;
+      }
     }
     .related {
       .related-cards .header {

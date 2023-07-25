@@ -12,18 +12,23 @@ type Props = {
 }
 
 const HomeCard = ({ input }: Props) => {
-  const ref = useRef<HTMLDivElement>(null)
+  const refArticle = useRef<HTMLDivElement>(null)
+  const refIndustry = useRef<HTMLDivElement>(null)
 
   const imageHome: SanityImageAsset | any = input.imageHome?.asset as
     | SanityImageAsset
     | any
 
   useEffect(() => {
-    const bounding: DOMRect | any = ref.current?.getBoundingClientRect()
-    if (ref.current) {
-      // console.log(ref.current)
-      ref.current.style.setProperty("--min-width", `${bounding.width}px`)
-      ref.current.classList.add("is-ready-to-animate")
+    const bounding: DOMRect | any = refIndustry.current?.getBoundingClientRect()
+    if (refIndustry.current && refArticle.current) {
+      // console.log(refIndustry.current)
+      refArticle.current.dataset.minWidth = bounding.width
+      refIndustry.current.style.setProperty(
+        "--min-width",
+        `${bounding.width}px`
+      )
+      refIndustry.current.classList.add("is-ready-to-animate")
     }
   }, [])
 
@@ -34,12 +39,12 @@ const HomeCard = ({ input }: Props) => {
   }
 
   return (
-    <article className={clsx("home-card")}>
+    <article className={clsx("home-card")} ref={refArticle}>
       <Link href={_linkResolver(input)}>
         <div className="industry text-sm md:text-lg text-center serif uppercase">
           <div
-            className="inner flex justify-between flex-nowrap whitespace-nowrap"
-            ref={ref}
+            className="inner flex justify-evenly  flex-nowrap whitespace-nowrap"
+            ref={refIndustry}
           >
             {_splitText()}
           </div>

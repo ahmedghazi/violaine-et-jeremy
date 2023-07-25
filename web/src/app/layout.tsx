@@ -1,11 +1,11 @@
-// import "./globals.css"
+import "./globals.css"
+import "./styles/tailwind.css"
+import "./styles/index.scss"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import { PageContextProvider } from "./context/PageContext"
 import config from "./config/website"
-import "./styles/tailwind.css"
-import "./styles/index.scss"
-import { usePathname } from "next/navigation"
+// import { usePathname } from "next/navigation"
 import { ReactNode } from "react"
 
 export const metadata = {

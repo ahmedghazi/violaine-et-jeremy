@@ -35,6 +35,10 @@ export default function InfosModal({ infosData, settingsData }: Props) {
     }
   }, [])
 
+  useEffect(() => {
+    document.body.classList.toggle("is-infos", active)
+  }, [active])
+
   return (
     <div id="infos">
       <button onClick={_toggle} className="btn-toggle z-10 relative">

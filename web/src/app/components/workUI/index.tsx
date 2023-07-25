@@ -1,10 +1,11 @@
 "use client"
 import { Project, Space, WorksTextsItem } from "@/app/types/schema"
-import React, { useState } from "react"
+import React from "react"
 import BtnsDisplay from "./BtnsDisplay"
 import Grid from "./Grid"
 import List from "./List"
 import "./index.scss"
+import { usePageContext } from "@/app/context/PageContext"
 
 type Props = {
   worksImages: (Project | Space)[]
@@ -13,15 +14,15 @@ type Props = {
 }
 
 const WorkUI = ({ worksImages, worksTexts, isDesign }: Props) => {
-  const [display, setDisplay] = useState<string>("grid")
-  // console.log(allWorks)
+  const { worksView } = usePageContext()
+
   return (
     <div className="work-ui">
-      {isDesign && <BtnsDisplay display={display} setDisplay={setDisplay} />}
-      {worksImages && display === "grid" && (
+      {isDesign && <BtnsDisplay />}
+      {worksImages && worksView === "grid" && (
         <Grid input={worksImages} withColorPalette={!isDesign} />
       )}
-      {worksTexts && display === "list" && isDesign && (
+      {worksTexts && worksView === "list" && isDesign && (
         <List input={worksTexts} />
       )}
     </div>

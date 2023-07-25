@@ -490,6 +490,7 @@ $sass-burger-add-vendor-prefixes: true !default;
     z-index: 999;
     content: "";
     position: fixed;
+    position: absolute;
     top: $top;
     height: 1px;
     width: 100%;

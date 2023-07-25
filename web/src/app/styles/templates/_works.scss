@@ -1,6 +1,9 @@
 .page-works {
   .header.fixed {
     top: toRem(50);
+    z-index: 251;
+    transition: transform 0.4s cubic-bezier(0.53, 0, 0.36, 1),
+      opacity 0.4s cubic-bezier(0.53, 0, 0.36, 1);
     @media all and (min-width: $md) {
       top: 0;
       padding-top: 0.75em;
@@ -25,4 +28,13 @@
       row-gap: toRem(40);
     }
   }
+}
+
+.is-infos .page-works .header.fixed {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.is-works main {
+  padding-top: 0;
 }

@@ -8,7 +8,7 @@ import React, {
 } from "react"
 import { usePathname } from "next/navigation"
 
-const PageContext = createContext({})
+// const PageContext = createContext({})
 
 interface PageContextProps {
   // location?: object;
@@ -16,18 +16,41 @@ interface PageContextProps {
   // pageContext: object;
 }
 
+type ContextProps = {
+  settings: any
+  isInfos: boolean
+  setIsInfos: Function
+  worksView: string
+  setWorksView: Function
+}
+
+const PageContext = createContext<ContextProps>({} as ContextProps)
+
 export const PageContextProvider = (props: PageContextProps) => {
   const { children } = props
   const pathname = usePathname()
-  // console.log(pathname);
   const [isInfos, setIsInfos] = useState<boolean>(false)
+  const [worksView, setWorksView] = useState<string>("list")
   const settings = {
     pathname,
   }
 
-  let _prevScrollTop: number = 0
+  const pathName = usePathname()
+
+  // console.log(pathName)
 
   useEffect(() => {
+    console.log(pathName.includes("works"))
+    document.documentElement.classList.remove("can-snap")
+    document.documentElement.classList.toggle("is-home", pathName === "/")
+    document.documentElement.classList.toggle(
+      "is-works",
+      pathName.includes("works")
+    )
+  }, [pathName])
+
+  useEffect(() => {
+    window.scroll(0, 0)
     _format()
     window.addEventListener("resize", _format)
     window.addEventListener("scroll", _scroll)
@@ -67,6 +90,7 @@ export const PageContextProvider = (props: PageContextProps) => {
     }
   }
 
+  let _prevScrollTop: number = 0
   const _scroll = () => {
     let direction = ""
     if (window.scrollY >= 10) {
@@ -80,7 +104,9 @@ export const PageContextProvider = (props: PageContextProps) => {
   }
 
   return (
-    <PageContext.Provider value={{ settings, isInfos, setIsInfos }}>
+    <PageContext.Provider
+      value={{ settings, isInfos, setIsInfos, worksView, setWorksView }}
+    >
       {children}
     </PageContext.Provider>
   )
