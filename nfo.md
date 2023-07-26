@@ -15,9 +15,12 @@ Index
 # Works stocker la vue image ou liste quand on revient depuis projet
 
 Liste
-Thead stocky à 100px
-1 seul projet ouvert
-Images à 130px de haut
+
+# Thead stocky à 100px
+
+# 1 seul projet ouvert
+
+# Images à 130px de haut
 
 Home
 

@@ -23,7 +23,7 @@ const List = ({ input }: Props) => {
   }, [])
 
   const threshold: number = 120
-  const offset = threshold + 20 //
+  const offset = threshold + 40 //
 
   const _onScroll = () => {
     // const threshold: number = 100
@@ -36,27 +36,27 @@ const List = ({ input }: Props) => {
     if (rows) {
       let uniqueRowFound: boolean = false
       rows.forEach((el: HTMLDivElement, index: number) => {
-        // let scale = 0
-        // const bounding: DOMRect = el.getBoundingClientRect()
-        // const distanceToTop = bounding.top - offset
-        // if (distanceToTop < threshold) {
-        //   scale = (100 - (distanceToTop * 100) / threshold) / 100
-        //   if (scale >= 1) scale = 1
-        // }
-        // el.style.setProperty("--custom-max-height", `${80 * scale}px`)
-        // el.style.setProperty("--custom-scale", `${scale / 1}`)
-        // el.style.setProperty("--dist", `${distanceToTop}`)
-        // el.classList.toggle("can-display-images", scale > 0)
-
+        let scale = 0
         const bounding: DOMRect = el.getBoundingClientRect()
         const distanceToTop = bounding.top - offset
-        // if (index === 0) console.log(distanceToTop, threshold)
-        if (distanceToTop < threshold && distanceToTop > 0 && !uniqueRowFound) {
-          el.classList.add("show-images")
-          uniqueRowFound = true
-        } else {
-          el.classList.remove("show-images")
+        if (distanceToTop < threshold) {
+          scale = (100 - (distanceToTop * 100) / threshold) / 100
+          if (scale >= 1) scale = 1
         }
+        el.style.setProperty("--custom-max-height", `${110 * scale}px`)
+        el.style.setProperty("--custom-scale", `${scale / 1}`)
+        el.style.setProperty("--dist", `${distanceToTop}`)
+        el.classList.toggle("can-display-images", scale > 0)
+
+        // const bounding: DOMRect = el.getBoundingClientRect()
+        // const distanceToTop = bounding.top - offset
+        // // if (index === 0) console.log(distanceToTop, threshold)
+        // if (distanceToTop < threshold && distanceToTop > 0 && !uniqueRowFound) {
+        //   el.classList.add("show-images")
+        //   uniqueRowFound = true
+        // } else {
+        //   el.classList.remove("show-images")
+        // }
       })
     }
     ref.current?.style.setProperty("--opacity", "1")
