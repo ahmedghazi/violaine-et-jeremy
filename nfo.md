@@ -26,13 +26,14 @@ Home
 
 # Ajouter scroll snap ppur que l anime se compose avec le about
 
-Typo cormorand ne se charge pas
+# Typo cormorand ne se charge pas
 
 # Mobile home intro pas de br
 
 # Plus vérifier le corps
 
-Burger devient bouton menu
+# Burger devient bouton menu
+
 Mobile Header negatif
 
 # Projet intro line height mobile + marge entre image et texte similaire à entre modules

@@ -9,7 +9,8 @@
       // transition: transform 0.4s cubic-bezier(0.53, 0, 0.36, 1),
       //   opacity 0.4s cubic-bezier(0.53, 0, 0.36, 1);
       transition: top 0.4s cubic-bezier(0.53, 0, 0.36, 1);
-
+      color: white;
+      mix-blend-mode: difference;
       // top: 0;
     }
     .inner {
