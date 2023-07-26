@@ -38,13 +38,14 @@ const HeaderSM = ({ titleAlt, settings, infos }: Props) => {
         </Link>
         <button
           className={clsx(
-            "btn-menu-toggle text-center w-1/3 pointer-events-auto z-10",
+            "btn-menu-toggle text-center w-1/3 pointer-events-auto z-10 text-sm",
             open ? "is-open" : ""
           )}
           onClick={() => setOpen(!open)}
         >
-          <div className="icon">✾</div>
-          <div className="burger"></div>
+          {/* <div className="icon">✾</div>
+          <div className="burger"></div> */}
+          {open ? "CLOSE" : "MENU"}
         </button>
         <div className="w-1/3 flex justify-end">
           <InfosModal infosData={infos} settingsData={settings} />
