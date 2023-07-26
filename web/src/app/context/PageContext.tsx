@@ -30,7 +30,7 @@ export const PageContextProvider = (props: PageContextProps) => {
   const { children } = props
   const pathname = usePathname()
   const [isInfos, setIsInfos] = useState<boolean>(false)
-  const [worksView, setWorksView] = useState<string>("list")
+  const [worksView, setWorksView] = useState<string>("grid")
   const settings = {
     pathname,
   }

@@ -18,4 +18,9 @@ export default defineField({
       type: 'blockContent',
     }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+    },
+  },
 })

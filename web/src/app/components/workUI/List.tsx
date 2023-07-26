@@ -102,7 +102,7 @@ const List = ({ input }: Props) => {
               hasLink={item.hasLink}
             />
           ))}
-        {input &&
+        {/* {input &&
           input.length > 0 &&
           input?.map((item, i: number) => (
             <ListItem
@@ -121,7 +121,7 @@ const List = ({ input }: Props) => {
               input={item.work}
               hasLink={item.hasLink}
             />
-          ))}
+          ))} */}
       </div>
     </div>
   )
