@@ -25,6 +25,10 @@ const HeaderSM = ({ titleAlt, settings, infos }: Props) => {
     setOpen(false)
   }, [pathName])
 
+  useEffect(() => {
+    document.body.classList.toggle("is-modal", open)
+  }, [open])
+
   return (
     <div
       className={clsx(

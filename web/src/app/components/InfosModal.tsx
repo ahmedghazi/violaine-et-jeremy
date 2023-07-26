@@ -36,7 +36,7 @@ export default function InfosModal({ infosData, settingsData }: Props) {
   }, [])
 
   useEffect(() => {
-    document.body.classList.toggle("is-infos", active)
+    document.body.classList.toggle("is-modal", active)
   }, [active])
 
   return (

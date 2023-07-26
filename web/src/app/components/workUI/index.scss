@@ -44,8 +44,10 @@
       .td:not(.col-link) {
         padding-right: 1em;
       }
-      &.project {
-        min-height: toRem(150);
+      @media all and (min-width: 1080px) {
+        &.project {
+          min-height: toRem(150);
+        }
       }
     }
     .tbody .tr {
