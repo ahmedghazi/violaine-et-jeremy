@@ -179,7 +179,6 @@ header {
       .nav-works {
         ul {
           display: flex;
-          // flex-direction: row-reverse;
           li:not(.nav-space) {
             display: none;
           }
