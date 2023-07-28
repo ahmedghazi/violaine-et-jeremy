@@ -98,7 +98,7 @@
 html.is-home.can-snap {
   &,
   body {
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
   }
   article {
     scroll-snap-align: start;

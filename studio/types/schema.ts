@@ -135,7 +135,7 @@ export interface Home extends SanityDocument {
    *
    *
    */
-  projects?: Array<SanityKeyedReference<Project>>;
+  projects?: Array<SanityKeyedReference<Project | Space>>;
 }
 
 /**
@@ -352,7 +352,7 @@ export interface Project extends SanityDocument {
   /**
    * look — `string`
    *
-   *
+   * Page look, default or double scroll with sticky text
    */
   look?: "default" | "split";
 
@@ -394,7 +394,7 @@ export interface Project extends SanityDocument {
   /**
    * content — `array`
    *
-   *
+   * modular content zone (image, images, text)
    */
   content?: Array<SanityKeyed<CompositionUI>>;
 
@@ -413,7 +413,7 @@ export interface Project extends SanityDocument {
   links?: Array<SanityKeyed<Contact>>;
 
   /**
-   * related — `array`
+   * Work related — `array`
    *
    *
    */
@@ -504,7 +504,7 @@ export interface Space extends SanityDocument {
   /**
    * look — `string`
    *
-   *
+   * Page look, default or double scroll with sticky text
    */
   look?: "default" | "split";
 
@@ -546,7 +546,7 @@ export interface Space extends SanityDocument {
   /**
    * content — `array`
    *
-   *
+   * modular content zone (image, images, text)
    */
   content?: Array<SanityKeyed<CompositionUI>>;
 
@@ -565,7 +565,7 @@ export interface Space extends SanityDocument {
   links?: Array<SanityKeyed<Contact>>;
 
   /**
-   * related — `array`
+   * Work related — `array`
    *
    *
    */

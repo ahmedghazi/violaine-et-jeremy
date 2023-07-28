@@ -55,7 +55,7 @@ export default defineType({
       name: 'projects',
       title: 'Projects featured',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'project'}]}],
+      of: [{type: 'reference', to: [{type: 'project'}, {type: 'space'}]}],
       group: 'editorial',
     }),
   ],
