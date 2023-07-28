@@ -317,6 +317,18 @@ export interface Project extends SanityDocument {
   };
 
   /**
+   * Image home mobile — `image`
+   *
+   * visible on home page
+   */
+  imageHomeMobile?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
    * Image Cover — `image`
    *
    * visible on project page next to text
@@ -462,6 +474,18 @@ export interface Space extends SanityDocument {
    * visible on home page
    */
   imageHome?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * Image home mobile — `image`
+   *
+   * visible on home page
+   */
+  imageHomeMobile?: {
     _type: "image";
     asset: SanityReference<SanityImageAsset>;
     crop?: SanityImageCrop;

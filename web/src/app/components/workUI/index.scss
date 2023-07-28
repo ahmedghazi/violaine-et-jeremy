@@ -44,11 +44,11 @@
       .td:not(.col-link) {
         padding-right: 1em;
       }
-      @media all and (min-width: 1080px) {
-        &.project {
-          min-height: toRem(150);
-        }
-      }
+      // @media all and (min-width: 1080px) {
+      //   &.project {
+      //     min-height: toRem(150);
+      //   }
+      // }
     }
     .tbody .tr {
       margin-bottom: toRem(11);
@@ -105,14 +105,24 @@
     .images {
       gap: toRem(5);
       max-width: 100vw;
-      max-height: toRem(130);
-      height: var(--custom-max-height);
+      // max-height: toRem(130);
+      // height: var(--custom-max-height);
       // opacity: var(--custom-opacity);
       // height: toRem(30);
       // transition: height 0.4s ease-in;
       // padding-bottom: calc(15px * var(--custom-scale));
+      // position: absolute;
+      display: none;
+      height: 9.66666667rem;
+      z-index: 25;
+      // height: 145px;
+      padding-bottom: 1rem;
+      &.is-active {
+        display: flex;
+        // overflow-x: auto;
+      }
       &.show-images {
-        height: toRem(130);
+        // height: toRem(130);
         // margin-bottom: calc(35px);
       }
       &.can-display-images {

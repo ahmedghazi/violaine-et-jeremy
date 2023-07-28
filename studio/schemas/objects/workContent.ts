@@ -40,7 +40,13 @@ export const workcontent = [
     description: 'visible on home page',
     group: 'editorial',
   }),
-
+  defineField({
+    name: 'imageHomeMobile',
+    type: 'image',
+    title: 'Image home mobile',
+    description: 'visible on home page',
+    group: 'editorial',
+  }),
   defineField({
     name: 'imageCover',
     type: 'image',

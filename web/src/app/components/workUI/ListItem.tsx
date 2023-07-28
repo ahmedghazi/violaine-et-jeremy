@@ -32,7 +32,12 @@ const ListItem = ({ input, hasLink }: Props) => {
 
   return (
     <div className="tr project">
-      <div className="flex pb-xs">
+      <div
+        className="flex pb-xs btn"
+        onClick={() => setActive(!active)}
+        // onMouseEnter={() => setActive(true)}
+        // onMouseLeave={() => setActive(false)}
+      >
         <div className="td col-year">{input.year}</div>
         <div className="td col-client hidden-sm">{input.client}</div>
         <h2 className="td col-project hidden-sm">{input.title}</h2>
@@ -41,12 +46,12 @@ const ListItem = ({ input, hasLink }: Props) => {
         }${input.title}`}</h2>
         <div className="td col-industry">{input.industry}</div>
         <div className="td col-location">{input.location}</div>
-        {hasLink && (
-          <Link href={hasLink ? _linkResolver(input) : "#"}>
-            <div className="td col-link italic lowercase">see more</div>
-          </Link>
-        )}
       </div>
+      {hasLink && (
+        <div className="td--- col-link italic lowercase absolute top-0 right-0">
+          <Link href={hasLink ? _linkResolver(input) : "#"}>see more</Link>
+        </div>
+      )}
 
       {images.length > 0 && (
         <div
@@ -54,6 +59,7 @@ const ListItem = ({ input, hasLink }: Props) => {
             "images flex flex-nowrap justify-center gap-sm hide-sb",
             active ? "is-active" : ""
           )}
+          // onMouseEnter={() => setActive(true)}
         >
           {images.map((image, i) => (
             <figure key={i}>
