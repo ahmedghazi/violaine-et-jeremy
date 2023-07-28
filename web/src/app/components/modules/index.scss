@@ -16,6 +16,8 @@ article.look-default .modules {
     .is-full {
       img {
         margin: 0 auto;
+        height: 100%;
+        object-fit: contain;
       }
     }
     &:has(.is-third) {
@@ -29,14 +31,23 @@ article.look-default .modules {
       height: auto;
       max-height: unset;
       min-height: calc(100vh - (var(--header-height) * 2));
-      img {
-        height: auto !important;
-        object-fit: contain;
+      .module--image img {
+        // height: auto !important;
+        // object-fit: contain;
+        width: 100%;
+        height: auto;
       }
       @media all and (min-width: 1080px) {
         .text {
           margin: auto;
         }
+      }
+    }
+
+    &:has(.is-quarter):has(.is-half) {
+      // background-color: red;
+      .is-half img {
+        width: 100%;
       }
     }
 

@@ -69,6 +69,7 @@ export const workcontent = [
   defineField({
     name: 'look',
     type: 'string',
+    description: 'Page look, default or double scroll with sticky text',
     group: 'editorial',
     options: {
       list: [
@@ -107,6 +108,7 @@ export const workcontent = [
 
   defineField({
     name: 'content',
+    description: 'modular content zone (image, images, text)',
     type: 'array',
     of: [
       {
@@ -141,6 +143,7 @@ export const workcontent = [
 
   defineField({
     name: 'related',
+    title: 'Work related',
     type: 'array',
     of: [
       {
