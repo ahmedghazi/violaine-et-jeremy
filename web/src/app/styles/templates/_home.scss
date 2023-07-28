@@ -4,11 +4,11 @@
 }
 .page-home {
   // padding-top: calc(55vh);
-  padding-top: calc(100vh);
-  transition: padding-top 1.6s var(--cubic);
+  // padding-top: calc(100vh);
+  // transition: padding-top 1.6s var(--cubic);
   // transition-delay: 1s;
   &.reveal {
-    padding-top: 0;
+    // padding-top: 0;
     // .feed {
     //   padding-top: 0;
     // }
@@ -103,24 +103,38 @@
 }
 
 html.is-home {
-  &.can-snap {
-    &,
-    body {
-      scroll-snap-type: y mandatory;
-    }
-    article.home-card {
-      scroll-snap-align: start;
-      scroll-margin-top: calc(
-        var(--space-100) + 3 * (var(--text-md) * 1.2) + 1.5em
-      );
-    }
-    footer {
-      scroll-snap-align: start;
-    }
+  // &.can-snap {
+  //   &,
+  //   body {
+  //     scroll-snap-type: y mandatory;
+  //   }
+  //   article.home-card {
+  //     scroll-snap-align: start;
+  //     scroll-margin-top: calc(
+  //       var(--space-100) + 3 * (var(--text-md) * 1.2) + 1.5em
+  //     );
+  //   }
+  //   footer {
+  //     scroll-snap-align: start;
+  //   }
+  // }
+  &,
+  body {
+    scroll-snap-type: y mandatory;
+  }
+  article.home-card {
+    scroll-snap-align: start;
+    scroll-margin-top: calc(
+      var(--space-100) + 3 * (var(--text-md) * 1.2) + 1.5em
+    );
+  }
+  footer {
+    scroll-snap-align: start;
   }
   main {
     padding-bottom: calc(200px + var(--textAboutHeight));
     padding-bottom: 310px;
+    padding-top: 0;
   }
 }
 

@@ -45,7 +45,7 @@ const Home: () => Promise<JSX.Element> = async () => {
   const projects: Project[] | Space[] = data.projects as Project[] | Space[]
   return (
     <div className="page-home px-sm md:px-md">
-      {/* <div className="spacer h-screen bg-red"></div> */}
+      <div className="spacer h-screen bg-red- snap-start"></div>
       {data.text && (
         <div className="about sticky left-0 top-100 w-full px-0 md:px-md text-center serif italic text-md md:text-lg text">
           <PortableText value={data?.text} components={components} />

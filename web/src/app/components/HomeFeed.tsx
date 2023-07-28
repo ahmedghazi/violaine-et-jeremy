@@ -13,9 +13,10 @@ const HomeFeed = ({ input }: Props) => {
   useEffect(() => {
     _onScroll()
     window.addEventListener("scroll", _onScroll)
-    document.querySelector(".page-home")?.classList.add("reveal")
+    // document.querySelector(".page-home")?.classList.add("reveal")
+    document.documentElement.classList.add("can-snap")
     setTimeout(() => {
-      document.documentElement.classList.add("can-snap")
+      window.scroll(0, window.innerHeight)
     }, 1600)
     return () => {
       window.removeEventListener("scroll", _onScroll)
