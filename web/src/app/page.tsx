@@ -5,6 +5,7 @@ import { PortableText } from "@portabletext/react"
 import HomeFeed from "./components/HomeFeed"
 import { draftMode } from "next/headers"
 import components from "./utils/portableTextComponents"
+import { Project, Space } from "./types/schema"
 
 export const revalidate = 3600 // revalidate every hour
 
@@ -30,15 +31,17 @@ const Home: () => Promise<JSX.Element> = async () => {
   // if (preview && preview.token) {
   //   return <div>is preview</div>
   // }
+  const projects: Project[] | Space[] = data.projects as Project[] | Space[]
   return (
     <div className="page-home px-sm md:px-md">
+      {/* <div className="spacer h-screen bg-red"></div> */}
       {data.text && (
         <div className="about sticky left-0 top-100 w-full px-0 md:px-md text-center serif italic text-md md:text-lg text">
           <PortableText value={data?.text} components={components} />
         </div>
       )}
 
-      {data.projects && <HomeFeed input={data.projects} />}
+      {data.projects && <HomeFeed input={projects} />}
     </div>
   )
 }

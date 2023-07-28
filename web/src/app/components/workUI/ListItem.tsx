@@ -59,6 +59,7 @@ const ListItem = ({ input, hasLink }: Props) => {
             "images flex flex-nowrap justify-center gap-sm hide-sb",
             active ? "is-active" : ""
           )}
+          onClick={() => setActive(false)}
           // onMouseEnter={() => setActive(true)}
         >
           {images.map((image, i) => (

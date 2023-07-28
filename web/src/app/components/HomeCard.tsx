@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react"
-import { Project, SanityImageAsset } from "../types/schema"
+import { Project, SanityImageAsset, Space } from "../types/schema"
 import Image from "next/image"
 import Link from "next/link"
 import { _linkResolver } from "../utils/utils"
@@ -7,7 +7,7 @@ import WorkTitle from "./WorkTitle"
 import clsx from "clsx"
 
 type Props = {
-  input: Project
+  input: Project | Space
   // isLast: boolean
 }
 

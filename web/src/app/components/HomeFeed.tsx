@@ -1,10 +1,10 @@
 "use client"
 import React, { useEffect, useRef } from "react"
-import { Project } from "../types/schema"
+import { Project, Space } from "../types/schema"
 import HomeCard from "./HomeCard"
 
 type Props = {
-  input: Project[]
+  input: Project[] | Space[]
 }
 
 const HomeFeed = ({ input }: Props) => {
