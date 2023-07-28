@@ -1,12 +1,17 @@
-.page-home {
+:root {
   --textAboutHeight: 3 * (var(--text-lg) * 1.2);
   --textAboutHeightMobile: 3 * (var(--text-md) * 1.2);
+}
+.page-home {
   // padding-top: calc(55vh);
   padding-top: calc(100vh);
   transition: padding-top 1.6s var(--cubic);
   // transition-delay: 1s;
   &.reveal {
     padding-top: 0;
+    // .feed {
+    //   padding-top: 0;
+    // }
   }
   @media all and (max-width: $sm) {
     padding-top: calc(50vh - (var(--textAboutHeightMobile)));
@@ -33,6 +38,7 @@
     padding-top: 95px;
     padding-top: 195px;
     padding-top: 35vh;
+    // transition: padding-top 1.6s var(--cubic);
     // overflow-x: hidden;
   }
   .home-card {
@@ -46,7 +52,7 @@
       }
     }
     &:last-child {
-      margin-bottom: calc(1em + toRem(32));
+      // margin-bottom: calc(1em + toRem(32));
     }
     &.can-display-images {
       opacity: 1;
@@ -69,6 +75,7 @@
       // transform: translateY(-1.2em) translateX(-50%);
       display: flex;
       justify-content: space-evenly;
+      margin-bottom: toRem(5);
       .inner {
         min-width: var(--min-width);
         max-width: calc(100vw - calc(var(--space-md) * 2));
@@ -84,9 +91,9 @@
     }
     p {
       // font-family: var(--font-primary);
-      @media all and (min-width: $md) {
-        font-size: 12px;
-      }
+      // @media all and (min-width: $md) {
+      //   font-size: 12px;
+      // }
     }
     // img {
     //   max-height: 500px;
@@ -95,16 +102,25 @@
   }
 }
 
-html.is-home.can-snap {
-  &,
-  body {
-    scroll-snap-type: y mandatory;
+html.is-home {
+  &.can-snap {
+    &,
+    body {
+      scroll-snap-type: y mandatory;
+    }
+    article.home-card {
+      scroll-snap-align: start;
+      scroll-margin-top: calc(
+        var(--space-100) + 3 * (var(--text-md) * 1.2) + 1.5em
+      );
+    }
+    footer {
+      scroll-snap-align: start;
+    }
   }
-  article {
-    scroll-snap-align: start;
-    scroll-margin-top: calc(
-      var(--space-100) + 3 * (var(--text-md) * 1.2) + 1.5em
-    );
+  main {
+    padding-bottom: calc(200px + var(--textAboutHeight));
+    padding-bottom: 310px;
   }
 }
 
@@ -127,12 +143,13 @@ html.is-home.can-snap {
       // padding-top: 20vh;
       // background-color: red;
       article {
-        .industry {
-          margin-bottom: calc(var(--space-sm) * 0.6);
-        }
+        .industry,
         .work-title {
           margin-bottom: calc(var(--space-sm) * 0.6);
         }
+        // .work-title {
+        //   margin-bottom: calc(var(--space-sm) * 0.6);
+        // }
         p {
           line-height: 1.2;
         }

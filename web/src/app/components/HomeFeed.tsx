@@ -41,7 +41,7 @@ const HomeFeed = ({ input }: Props) => {
       if (distanceToTop >= 0) {
         width = distanceToTop * 5 + minWidth
       }
-      console.log(distanceToTop, minWidth)
+      // console.log(distanceToTop, minWidth)
 
       el.style.setProperty("--width", `${width}px`)
       el.classList.add("can-display-images")

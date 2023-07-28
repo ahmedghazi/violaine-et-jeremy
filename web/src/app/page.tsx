@@ -28,6 +28,17 @@ const Home: () => Promise<JSX.Element> = async () => {
     : undefined
   const data = await getHome()
 
+  // const { isEnabled: preview } = draftMode()
+  // let data: ProjectExtend
+  // if (preview) {
+  //   data = await getClient({ token: process.env.SANITY_API_READ_TOKEN }).fetch(
+  //     homeQuery,
+  //     params
+  //   )
+  // } else {
+  //   data = (await getHome(params.slug)) as ProjectExtend
+  // }
+
   // if (preview && preview.token) {
   //   return <div>is preview</div>
   // }

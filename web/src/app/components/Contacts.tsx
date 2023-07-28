@@ -55,11 +55,11 @@ const Contacts = ({ input, linkLegals }: Props) => {
             required: true,
           }}
         />
-        <div className="text-xs md:text-sm ">
+        {/* <div className="text-xs md:text-sm ">
           {linkLegals && (
             <Link href={_linkResolver(linkLegals)}>{linkLegals.title}</Link>
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   )

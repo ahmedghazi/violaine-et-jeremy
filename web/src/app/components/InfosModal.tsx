@@ -9,6 +9,7 @@ import { Infos, Settings } from "../types/schema"
 import Contacts from "./Contacts"
 import components from "../utils/portableTextComponents"
 import Credits from "./ui/Credits"
+import { usePathname } from "next/navigation"
 
 type Props = {
   infosData: Infos
@@ -16,8 +17,8 @@ type Props = {
 }
 export default function InfosModal({ infosData, settingsData }: Props) {
   const image: SanityImageAsset | any = infosData.image?.asset
-
   const { links, linkLegals } = settingsData
+  const pathname = usePathname()
 
   const _toggle = () => {
     setActive(!active)
@@ -34,6 +35,11 @@ export default function InfosModal({ infosData, settingsData }: Props) {
       unsubscribe(token)
     }
   }, [])
+
+  useEffect(() => {
+    // console.log(pathname)
+    setActive(false)
+  }, [pathname])
 
   useEffect(() => {
     document.body.classList.toggle("is-modal", active)

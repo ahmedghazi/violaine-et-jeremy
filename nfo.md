@@ -41,3 +41,7 @@ Mobile Header negatif
 # 3rd party cache
 
 https://swizec.com/blog/async-react-with-nextjs-13/
+
+- menu works à caller (hovers)
+- pb pomme r
+- intro home

@@ -6,6 +6,8 @@ header {
   z-index: 40;
   z-index: 251;
   // background-color: white;
+  // color: white;
+  // mix-blend-mode: difference;
   .col-item {
     width: var(--space-100);
   }
@@ -41,15 +43,19 @@ header {
     }
     @media all and (min-width: $md) {
       &:hover {
-        .label {
-          display: none;
-        }
         ul {
-          display: flex;
+          display: flex !important;
+          li {
+            display: flex !important;
+            &::after {
+              display: inline-block !important;
+            }
+          }
         }
       }
       ul {
         display: none;
+        padding-left: var(--space-md);
       }
     }
   }
@@ -132,6 +138,14 @@ header {
   }
 }
 
+// header {
+//   color: white;
+//   mix-blend-mode: difference;
+// }
+// .is-modal header {
+//   color: red;
+//   mix-blend-mode: unset;
+// }
 @media all and (max-width: $md) {
   header {
     color: white;
@@ -147,20 +161,15 @@ header {
   #page:has(.single-design) {
     header {
       .nav-works {
-        // background-color: red;
         ul {
-          position: initial;
           display: flex;
-          padding-left: var(--space-sm);
+          // flex-direction: row-reverse;
           li:not(.nav-design) {
             display: none;
           }
         }
-        &:hover ul {
-          padding-left: 0;
-          li {
-            display: block;
-          }
+        &:hover ul li {
+          display: flex;
         }
       }
     }
@@ -168,20 +177,15 @@ header {
   #page:has(.single-space) {
     header {
       .nav-works {
-        // background-color: red;
         ul {
-          position: initial;
           display: flex;
-          padding-left: var(--space-sm);
+          // flex-direction: row-reverse;
           li:not(.nav-space) {
             display: none;
           }
         }
-        &:hover ul {
-          padding-left: 0;
-          li {
-            display: block;
-          }
+        &:hover ul li {
+          display: flex;
         }
       }
     }
@@ -195,29 +199,16 @@ header {
       }
       .nav-works {
         ul {
-          position: initial;
           display: flex;
-          padding-left: var(--space-md);
           li:not(:has(.is-current-page)) {
-            // display: none;
+            display: none;
           }
           li:after {
-            // display: none;
+            display: none;
           }
         }
-        &:hover {
-          .label {
-            display: block;
-          }
-          ul {
-            // padding-left: 0;
-            li {
-              // display: block;
-              &::after {
-                // display: inline-block;
-              }
-            }
-          }
+        &:hover ul li {
+          display: flex;
         }
       }
     }

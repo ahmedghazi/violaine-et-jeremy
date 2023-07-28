@@ -3,6 +3,7 @@
 
 .work-ui {
   .list {
+    padding-top: calc(toRem(25) + toRem(18));
     .ruller {
       z-index: 999;
       position: fixed;
@@ -37,6 +38,8 @@
       margin-bottom: toRem(25);
       background-color: white;
       z-index: 250;
+      position: fixed;
+      width: 100%;
     }
     .tr {
       // @include debugFiletY(0px);
@@ -109,17 +112,22 @@
       // height: var(--custom-max-height);
       // opacity: var(--custom-opacity);
       // height: toRem(30);
-      // transition: height 0.4s ease-in;
+      transition: height 0.2s ease-in-out, padding-bottom 0.2s ease-in-out;
       // padding-bottom: calc(15px * var(--custom-scale));
       // position: absolute;
-      display: none;
-      height: 9.66666667rem;
+      // display: none;
+      @media all and (min-width: 1080px) {
+        height: 9.66666667rem;
+        height: 0;
+      }
       z-index: 25;
       // height: 145px;
-      padding-bottom: 1rem;
+      // padding-bottom: 1rem;
       &.is-active {
         display: flex;
         // overflow-x: auto;
+        height: 9.66666667rem;
+        padding-bottom: 1rem;
       }
       &.show-images {
         // height: toRem(130);

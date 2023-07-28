@@ -5,6 +5,7 @@ import Link from "next/link"
 import { _linkResolver } from "../utils/utils"
 import WorkTitle from "./WorkTitle"
 import clsx from "clsx"
+import useDeviceDetect from "../hooks/useDeviceDetect"
 
 type Props = {
   input: Project | Space
@@ -14,10 +15,12 @@ type Props = {
 const HomeCard = ({ input }: Props) => {
   const refArticle = useRef<HTMLDivElement>(null)
   const refIndustry = useRef<HTMLDivElement>(null)
-
+  const { isMobile } = useDeviceDetect()
   const imageHome: SanityImageAsset | any = input.imageHome?.asset as
     | SanityImageAsset
     | any
+  const imageHomeMobile: SanityImageAsset | any = input.imageHomeMobile
+    ?.asset as SanityImageAsset | any
 
   useEffect(() => {
     const bounding: DOMRect | any = refIndustry.current?.getBoundingClientRect()
@@ -38,6 +41,11 @@ const HomeCard = ({ input }: Props) => {
     return parts.map((item: string, i: number) => <span key={i}>{item}</span>)
   }
 
+  const image = isMobile
+    ? imageHomeMobile
+      ? imageHomeMobile
+      : imageHome
+    : imageHome
   return (
     <article className={clsx("home-card")} ref={refArticle}>
       <Link href={_linkResolver(input)}>
@@ -49,19 +57,19 @@ const HomeCard = ({ input }: Props) => {
             {_splitText()}
           </div>
         </div>
-        {imageHome && (
+        {image && (
           <figure className="mb-sm md:mb-1e">
             <Image
-              src={imageHome.url}
-              width={imageHome?.metadata?.dimensions.width}
-              height={imageHome?.metadata?.dimensions.height}
+              src={image.url}
+              width={image?.metadata?.dimensions.width}
+              height={image?.metadata?.dimensions.height}
               alt={input.title || "alt"}
               sizes="100vw"
               style={{
                 width: "100%",
                 height: "auto",
               }}
-              blurDataURL={imageHome?.metadata?.lqip}
+              blurDataURL={image?.metadata?.lqip}
               placeholder="blur"
             />
           </figure>

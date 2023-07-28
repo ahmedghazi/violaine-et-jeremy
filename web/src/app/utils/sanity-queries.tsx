@@ -58,6 +58,10 @@ export async function getHome(): Promise<Home> {
         imageHome {
           ...,
           asset->
+        },
+        imageHomeMobile {
+          ...,
+          asset->
         }
       }
     }`,

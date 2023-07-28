@@ -340,7 +340,7 @@ export interface Project extends SanityDocument {
   /**
    * Image Cover — `image`
    *
-   * visible on project page next to text
+   * visible on works image
    */
   imageCover?: {
     _type: "image"
@@ -355,6 +355,18 @@ export interface Project extends SanityDocument {
    *
    */
   colorPalette?: Array<SanityKeyed<Color>>
+
+  /**
+   * Image Intro — `image`
+   *
+   * visible on project page next to text intro
+   */
+  imageIntro?: {
+    _type: "image"
+    asset: SanityReference<SanityImageAsset>
+    crop?: SanityImageCrop
+    hotspot?: SanityImageHotspot
+  }
 
   /**
    * Text — `blockContent`
@@ -504,7 +516,7 @@ export interface Space extends SanityDocument {
   /**
    * Image Cover — `image`
    *
-   * visible on project page next to text
+   * visible on works image
    */
   imageCover?: {
     _type: "image"
@@ -519,6 +531,18 @@ export interface Space extends SanityDocument {
    *
    */
   colorPalette?: Array<SanityKeyed<Color>>
+
+  /**
+   * Image Intro — `image`
+   *
+   * visible on project page next to text intro
+   */
+  imageIntro?: {
+    _type: "image"
+    asset: SanityReference<SanityImageAsset>
+    crop?: SanityImageCrop
+    hotspot?: SanityImageHotspot
+  }
 
   /**
    * Text — `blockContent`

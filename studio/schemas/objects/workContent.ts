@@ -51,13 +51,20 @@ export const workcontent = [
     name: 'imageCover',
     type: 'image',
     title: 'Image Cover',
-    description: 'visible on project page next to text',
+    description: 'visible on works image',
     group: 'editorial',
   }),
   defineField({
     name: 'colorPalette',
     type: 'array',
     of: [{type: 'color', name: 'color'}],
+    group: 'editorial',
+  }),
+  defineField({
+    name: 'imageIntro',
+    type: 'image',
+    title: 'Image Intro',
+    description: 'visible on project page next to text intro',
     group: 'editorial',
   }),
   defineField({
