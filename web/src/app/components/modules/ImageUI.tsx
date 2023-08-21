@@ -24,6 +24,7 @@ const ImageUI = ({ input }: Props): JSX.Element => {
     >
       {image && (
         <Image
+          className="image-ui"
           src={image.url}
           width={image?.metadata?.dimensions.width}
           height={image?.metadata?.dimensions.height}

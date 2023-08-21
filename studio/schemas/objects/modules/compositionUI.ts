@@ -61,10 +61,18 @@ export default defineField({
     },
     prepare(selection) {
       const {title, items, align, justify} = selection
-      const compString = items.map((item) => (item.gridSize ? item.gridSize : '')).toString()
-
+      // const compString = items.map((item: any) => (item.gridSize ? item.gridSize : '')).toString()
+      const compString = items
+        .map((item: any) => {
+          // console.log(item)
+          const gridSize = item.gridSize ? item.gridSize : ''
+          const type = item._type === 'compositionItemImage' ? 'image' : 'text'
+          return `${type} (${gridSize})`
+        })
+        .toString()
+      // console.log(title, compString)
       let subtitle = `${items.length} item${items.length > 1 ? 's' : ''}`
-      subtitle += items.length > 1 ? `: ${compString.replace(',', ', ')}` : ''
+      subtitle += items.length > 1 ? `: ${compString.replace(',', ', ')}` : `: ${compString}`
 
       return {
         title: title,

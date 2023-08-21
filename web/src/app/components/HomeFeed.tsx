@@ -14,16 +14,17 @@ const HomeFeed = ({ input }: Props) => {
     _onScroll()
     window.addEventListener("scroll", _onScroll)
     // document.querySelector(".page-home")?.classList.add("reveal")
-    document.documentElement.classList.add("can-snap")
+    // document.documentElement.classList.add("can-snap")
     setTimeout(() => {
       window.scroll(0, window.innerHeight)
-    }, 1600)
+    }, 1000)
     return () => {
       window.removeEventListener("scroll", _onScroll)
     }
   }, [])
 
   const _onScroll = () => {
+    document.documentElement.classList.add("can-snap")
     // console.log(window.scrollY)
     // const threshold = 150
     if (!ref.current) return

@@ -39,7 +39,7 @@ article.look-default .modules {
       }
       @media all and (min-width: 1080px) {
         .text {
-          margin: auto;
+          // margin: auto;
         }
       }
     }
@@ -55,7 +55,7 @@ article.look-default .modules {
       height: 100%;
     }
     .composition--item:not(.is-full) {
-      img {
+      img:not(.text-icon) {
         height: 100% !important;
         object-fit: cover;
       }
@@ -63,8 +63,12 @@ article.look-default .modules {
 
     .text {
       max-width: 29em;
+      & > img {
+        height: auto !important;
+      }
       .icon {
         max-width: 4em;
+        height: auto !important;
       }
     }
 

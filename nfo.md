@@ -42,6 +42,10 @@ Mobile Header negatif
 
 https://swizec.com/blog/async-react-with-nextjs-13/
 
-- menu works à caller (hovers)
+- # menu works à caller (hovers)
 - pb pomme r
-- intro home
+- # intro home
+
+- # text icon ne pas resize en front
+- image home mobile
+- # module text vertical justif center, end, default start

@@ -46,6 +46,7 @@ const HomeCard = ({ input }: Props) => {
       ? imageHomeMobile
       : imageHome
     : imageHome
+  console.log(isMobile, imageHomeMobile)
   return (
     <article className={clsx("home-card")} ref={refArticle}>
       <Link href={_linkResolver(input)}>

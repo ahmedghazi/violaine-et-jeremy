@@ -103,25 +103,13 @@
 }
 
 html.is-home {
-  // &.can-snap {
-  //   &,
-  //   body {
-  //     scroll-snap-type: y mandatory;
-  //   }
-  //   article.home-card {
-  //     scroll-snap-align: start;
-  //     scroll-margin-top: calc(
-  //       var(--space-100) + 3 * (var(--text-md) * 1.2) + 1.5em
-  //     );
-  //   }
-  //   footer {
-  //     scroll-snap-align: start;
-  //   }
-  // }
-  &,
-  body {
-    scroll-snap-type: y mandatory;
+  &.can-snap {
+    &,
+    body {
+      scroll-snap-type: y mandatory;
+    }
   }
+
   article.home-card {
     scroll-snap-align: start;
     scroll-margin-top: calc(

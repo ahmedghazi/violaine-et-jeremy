@@ -17,11 +17,17 @@ const components: PortableTextComponents = {
     // },
     textIcon: ({ value }) => {
       return (
-        <Image
-          src={urlFor(value.icon.asset, 60)}
-          alt="icon"
-          width={60}
-          height={60}
+        // <Image
+        //   src={urlFor(value.icon.asset, 360)}
+        //   alt="icon"
+        //   width={360}
+        //   height={360}
+        //   className="text-icon"
+        // />
+        <img
+          src={urlFor(value.icon.asset)}
+          alt="text-icon"
+          className="text-icon"
         />
       )
     },

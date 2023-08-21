@@ -54,6 +54,18 @@ export default defineField({
       },
     }),
     defineField({
+      name: 'align',
+      type: 'string',
+      description: 'Alignement vertical',
+      options: {
+        list: [
+          {title: 'Default', value: 'start'},
+          {title: 'Center', value: 'center'},
+          {title: 'Bottom', value: 'end'},
+        ],
+      },
+    }),
+    defineField({
       name: 'text',
       type: 'blockContent',
     }),

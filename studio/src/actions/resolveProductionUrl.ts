@@ -5,7 +5,7 @@ const previewURL = window.location.hostname === 'localhost' ? localURL : remoteU
 // const baseURL = 'http://localhost:3000/api/preview'
 // const baseURL = 'http://localhost:8000/'
 export function resolveProductionUrl(props: any) {
-  console.log(props)
+  // console.log(props)
   const _onHandle = async () => {
     const {_type, slug} = props.published
     // console.log(location.origin)

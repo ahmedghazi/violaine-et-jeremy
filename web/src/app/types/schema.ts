@@ -900,6 +900,13 @@ export type TextUI = {
    *
    */
   text?: BlockContent
+
+  /**
+   * align — `string`
+   *
+   * Alignement vertical
+   */
+  align?: "start" | "center" | "end"
 }
 
 export type ImageUI = {
@@ -1098,6 +1105,13 @@ export type CompositionItemText = {
     | "2/2/2/2"
     | "1/1/3/2"
     | "1/2/3/2"
+
+  /**
+   * align — `string`
+   *
+   * Alignement vertical
+   */
+  align?: "start" | "center" | "end"
 
   /**
    * text — `blockContent`

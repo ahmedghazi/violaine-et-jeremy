@@ -40,7 +40,7 @@ export const PageContextProvider = (props: PageContextProps) => {
   // console.log(pathName)
 
   useEffect(() => {
-    console.log(pathName.includes("works"))
+    // console.log(pathName.includes("works"))
     document.documentElement.classList.remove("can-snap")
     document.documentElement.classList.toggle("is-home", pathName === "/")
     document.documentElement.classList.toggle(
