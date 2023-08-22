@@ -11,7 +11,7 @@ type Props = {
 }
 const TexteUI = ({ input }: Props) => {
   const { text, align } = input
-  console.log(input)
+  // console.log(input)
   return (
     <div className="module module--text">
       <div

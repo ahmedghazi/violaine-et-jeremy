@@ -22,3 +22,7 @@ export function urlFor(source: any, width: number = 2000) {
 //   projectId: sanityConfig.projectId,
 //   dataset: sanityConfig.dataset,
 // })
+
+export function urlForNoWidth(source: any) {
+  return imageBuilder.image(source).auto("format").fit("max").url()
+}

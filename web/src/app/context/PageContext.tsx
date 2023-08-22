@@ -46,6 +46,7 @@ export const PageContextProvider = (props: PageContextProps) => {
     }, 50)
     document.documentElement.classList.remove("can-snap")
     document.documentElement.classList.toggle("is-home", pathName === "/")
+    document.documentElement.classList.toggle("can-snap", pathName === "/")
     document.documentElement.classList.toggle(
       "is-works",
       pathName.includes("works")

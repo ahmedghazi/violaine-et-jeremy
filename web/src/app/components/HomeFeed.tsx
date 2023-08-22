@@ -15,16 +15,29 @@ const HomeFeed = ({ input }: Props) => {
     window.addEventListener("scroll", _onScroll)
     // document.querySelector(".page-home")?.classList.add("reveal")
     // document.documentElement.classList.add("can-snap")
+    // window.addEventListener("click", () => {
+    //   window.scrollBy(0, window.innerHeight)
+    // })
+    // setTimeout(() => {
+    //   console.log("ready to scroll")
+    //   // window.scroll(0, window.innerHeight)
+    //   document.querySelector(".feed")?.scrollIntoView({
+    //     behavior: "smooth",
+    //   })
+
+    //   document.documentElement.classList.add("can-snap")
+    //   setTimeout(() => {}, 500)
+    // }, 1200)
     setTimeout(() => {
-      window.scroll(0, window.innerHeight)
-    }, 1000)
+      document.querySelector(".spacer")?.classList.add("collapse")
+    }, 600)
     return () => {
       window.removeEventListener("scroll", _onScroll)
     }
   }, [])
 
   const _onScroll = () => {
-    document.documentElement.classList.add("can-snap")
+    // document.documentElement.classList.add("can-snap")
     // console.log(window.scrollY)
     // const threshold = 150
     if (!ref.current) return

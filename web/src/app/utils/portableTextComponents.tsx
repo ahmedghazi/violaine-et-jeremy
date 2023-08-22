@@ -1,6 +1,6 @@
 import { PortableTextComponents } from "@portabletext/react"
-import { urlFor } from "./sanity-utils"
-import Image from "next/image"
+import { urlFor, urlForNoWidth } from "./sanity-utils"
+// import Image from "next/image"
 
 const components: PortableTextComponents = {
   block: {
@@ -8,14 +8,10 @@ const components: PortableTextComponents = {
     "text-lg": ({ children }) => <div className="md:text-lg">{children}</div>,
     text_lg: ({ children }) => <p className="md:text-lg">{children}</p>,
     text_sm: ({ children }) => <p className="text-xs ">{children}</p>,
-    // align_center: ({ children }) => <p className="text-center">{children}</p>,
   },
   types: {
-    // image: ({ value }) => {
-    //   console.log(value)
-    //   return <img src={urlFor(value.asset)} alt="some image" />
-    // },
     textIcon: ({ value }) => {
+      console.log(urlForNoWidth(value.icon.asset))
       return (
         // <Image
         //   src={urlFor(value.icon.asset, 360)}
@@ -25,7 +21,7 @@ const components: PortableTextComponents = {
         //   className="text-icon"
         // />
         <img
-          src={urlFor(value.icon.asset)}
+          src={urlForNoWidth(value.icon.asset)}
           alt="text-icon"
           className="text-icon"
         />
@@ -47,13 +43,13 @@ const components: PortableTextComponents = {
       <span className="gt-alpina">{children}</span>
     ),
     align_left: ({ children, value }) => (
-      <p className="text-left">{children}</p>
+      <span className="text-left inline-block">{children}</span>
     ),
     align_center: ({ children, value }) => (
-      <p className="text-center">{children}</p>
+      <span className="text-center inline-block">{children}</span>
     ),
     align_right: ({ children, value }) => (
-      <p className="text-right">{children}</p>
+      <span className="text-right inline-block">{children}</span>
     ),
   },
 }
