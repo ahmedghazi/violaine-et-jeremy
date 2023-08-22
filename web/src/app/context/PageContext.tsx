@@ -41,6 +41,9 @@ export const PageContextProvider = (props: PageContextProps) => {
 
   useEffect(() => {
     // console.log(pathName.includes("works"))
+    setTimeout(() => {
+      window.scroll(0, 0)
+    }, 50)
     document.documentElement.classList.remove("can-snap")
     document.documentElement.classList.toggle("is-home", pathName === "/")
     document.documentElement.classList.toggle(

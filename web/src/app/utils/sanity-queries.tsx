@@ -139,6 +139,10 @@ export const projectQuery = groq`*[_type == "project" && slug.current == $slug][
     ...,
     asset->
   },
+  imageIntro {
+    ...,
+    asset->
+  },
   content[]{
     ${content}
   },
