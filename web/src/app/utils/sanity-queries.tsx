@@ -169,7 +169,23 @@ export async function getSpace(slug: string): Promise<Space> {
       imageCover {
         ...,
         asset->
-      }
+      },
+      imageIntro {
+        ...,
+        asset->
+      },
+      content[]{
+        ${content}
+      },
+      related[]->{
+        ${projectCard}
+      },
+      'prev': *[
+        _type == 'project' && !(_id in path('drafts.**')) && _createdAt < ^._createdAt
+      ]{ ${projectCard}} | order(_createdAt desc)[0],
+      'next': *[
+        _type == 'project' && !(_id in path('drafts.**')) && _createdAt > ^._createdAt
+      ]{ ${projectCard}} | order(_createdAt desc)[0]
     }`,
     { slug: slug }
   )

@@ -2,6 +2,16 @@
   --textAboutHeight: 3 * (var(--text-lg) * 1.2);
   --textAboutHeightMobile: 3 * (var(--text-md) * 1.2);
 }
+.is-home {
+  &,
+  body {
+    // overflow: hidden;
+  }
+  // .page-home {
+  //   height: 100vh;
+  //   overflow: clip;
+  // }
+}
 .page-home {
   // padding-top: calc(55vh);
   // padding-top: calc(100vh);
@@ -40,10 +50,12 @@
     }
   }
   .feed {
+    transition: transform 1s ease;
     padding-top: calc(100px + var(--textAboutHeight));
     padding-top: 95px;
     padding-top: 195px;
     padding-top: 35vh;
+    // padding-top: calc(30px + var(--textAboutHeight));
     // transition: padding-top 1.6s var(--cubic);
     // overflow-x: hidden;
   }
@@ -109,22 +121,22 @@
 }
 
 html.is-home {
-  &.can-snap {
-    &,
-    body {
-      scroll-snap-type: y mandatory;
-    }
-  }
+  // &.can-snap {
+  //   &,
+  //   body {
+  //     scroll-snap-type: y mandatory;
+  //   }
+  // }
 
-  article.home-card {
-    scroll-snap-align: start;
-    scroll-margin-top: calc(
-      var(--space-100) + 3 * (var(--text-md) * 1.2) + 1.5em
-    );
-  }
-  footer {
-    scroll-snap-align: start;
-  }
+  // article.home-card {
+  //   scroll-snap-align: start;
+  //   scroll-margin-top: calc(
+  //     var(--space-100) + 3 * (var(--text-md) * 1.2) + 1.5em
+  //   );
+  // }
+  // footer {
+  //   scroll-snap-align: start;
+  // }
   main {
     padding-bottom: calc(200px + var(--textAboutHeight));
     padding-bottom: 310px;
