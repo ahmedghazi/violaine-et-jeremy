@@ -15,6 +15,23 @@ export const projectCard = `
 	colorPalette
 `
 
+export const spaceCard = `
+	...,
+	_type,
+	slug,
+	title,
+	job,
+	imageCover {
+		...,
+		asset->
+	},
+	imageHome {
+		...,
+		asset->
+	},
+	colorPalette
+`
+
 export const content = `
 	...,
 	items[]{

@@ -10,7 +10,7 @@ import {
   Work,
 } from "../types/schema"
 import { cache } from "react"
-import { content, projectCard } from "./fragments"
+import { content, projectCard, spaceCard } from "./fragments"
 
 // const clientFetch = cache(client.fetch.bind(client))
 // Add cachedClient export
@@ -162,18 +162,45 @@ export async function getProject(slug: string): Promise<Project> {
 }
 
 /***************************************************************************************/
+export const spaceQuery = groq`*[_type == "space" && slug.current == $slug][0]{
+  ...,
+  imageCover {
+    ...,
+    asset->
+  },
+  imageIntro {
+    ...,
+    asset->
+  },
+  content[]{
+    ${content}
+  },
+  related[]->{
+    ${spaceCard}
+  },
+  'prev': *[
+    _type == 'space' && !(_id in path('drafts.**')) && _createdAt < ^._createdAt
+  ]{ ${spaceCard}} | order(_createdAt desc)[0],
+  'next': *[
+    _type == 'space' && !(_id in path('drafts.**')) && _createdAt > ^._createdAt
+  ]{ ${spaceCard}} | order(_createdAt desc)[0]
+}`
+
 export async function getSpace(slug: string): Promise<Space> {
-  return cachedClient(
-    groq`*[_type == "space" && slug.current == $slug][0]{
-      ...,
-      imageCover {
-        ...,
-        asset->
-      }
-    }`,
-    { slug: slug }
-  )
+  return cachedClient(spaceQuery, { slug: slug })
 }
+// export async function getSpace(slug: string): Promise<Space> {
+//   return cachedClient(
+//     groq`*[_type == "space" && slug.current == $slug][0]{
+//       ...,
+//       imageCover {
+//         ...,
+//         asset->
+//       }
+//     }`,
+//     { slug: slug }
+//   )
+// }
 
 export async function getPageModulaire(slug: string): Promise<PageModulaire> {
   return cachedClient(
