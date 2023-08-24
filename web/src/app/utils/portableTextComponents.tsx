@@ -11,7 +11,7 @@ const components: PortableTextComponents = {
   },
   types: {
     textIcon: ({ value }) => {
-      console.log(urlForNoWidth(value.icon.asset))
+      // console.log(urlForNoWidth(value.icon.asset))
       return (
         // <Image
         //   src={urlFor(value.icon.asset, 360)}

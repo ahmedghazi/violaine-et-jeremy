@@ -20,7 +20,7 @@ const HeaderMD = ({ titleAlt, settings, infos }: Props) => {
             {titleAlt}
           </Link>
           <nav className="nav-works col-item  relative flex btn">
-            <div className="label">WORKS</div>
+            <div className="label">{settings.navWorksLabel}</div>
             <ul className="flex absolute- top-0-">
               {settings.navWorks?.map((item: LinkInternal) => (
                 <li

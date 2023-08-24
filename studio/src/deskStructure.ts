@@ -28,9 +28,14 @@ export const structure: StructureResolver = (S) =>
     .title('Base')
     .items([
       S.listItem()
-        .title('Settings')
+        .title('Settings (header, footer)')
         .schemaType('settings')
-        .child(S.editor().title('Settings').schemaType('settings').documentId('settings')),
+        .child(
+          S.editor()
+            .title('Settings (header, footer)')
+            .schemaType('settings')
+            .documentId('settings')
+        ),
       S.divider(),
 
       S.listItem()

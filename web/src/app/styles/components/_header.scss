@@ -9,7 +9,8 @@ header {
   // color: white;
   // mix-blend-mode: difference;
   .col-item {
-    width: var(--space-100);
+    // width: var(--space-100);
+    min-width: var(--space-100);
   }
 
   .site-name {

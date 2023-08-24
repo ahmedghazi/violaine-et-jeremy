@@ -1,7 +1,7 @@
 import {CogIcon} from '@sanity/icons'
 import {defineType, defineField, defineArrayMember} from 'sanity'
 
-const TITLE = 'Settings'
+const TITLE = 'Settings (header, footer)'
 // interface ProductOptions {
 //   title: string
 // }
@@ -46,7 +46,11 @@ export default defineType({
       type: 'seo',
       group: 'seo',
     }),
-
+    defineField({
+      name: 'navWorksLabel',
+      type: 'string',
+      group: 'header',
+    }),
     defineField({
       name: 'navWorks',
       title: 'Navworks (works, design)',

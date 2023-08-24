@@ -49,5 +49,5 @@ https://swizec.com/blog/async-react-with-nextjs-13/
 - # text icon ne pas resize en front
 - image home mobile
 - # module text vertical justif center, end, default start
-- click depuis la home vers works, pb scroll reste bottom
-- project intro appeler la bonne image imageIntro
+- # click depuis la home vers works, pb scroll reste bottom
+- # project intro appeler la bonne image imageIntro

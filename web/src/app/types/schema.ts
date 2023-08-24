@@ -46,7 +46,7 @@ export type {
 }
 
 /**
- * Settings
+ * Settings (header, footer)
  *
  *
  */
@@ -59,6 +59,13 @@ export interface Settings extends SanityDocument {
    *
    */
   seo?: Seo
+
+  /**
+   * navWorksLabel — `string`
+   *
+   *
+   */
+  navWorksLabel?: string
 
   /**
    * Navworks (works, design) — `array`

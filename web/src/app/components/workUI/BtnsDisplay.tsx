@@ -12,14 +12,14 @@ const BtnsDisplay = () => {
           className={clsx("px-sm pointer-events-auto")}
           onClick={() => setWorksView("grid")}
         >
-          images
+          selected
         </button>
         <span>·</span>
         <button
           className={clsx("px-sm pointer-events-auto")}
           onClick={() => setWorksView("list")}
         >
-          texts
+          archive
         </button>
       </div>
     </div>
