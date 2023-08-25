@@ -1,11 +1,7 @@
 "use client"
-import React, { useEffect, useMemo, useRef, useState, WheelEvent } from "react"
+import React, { useEffect, useRef } from "react"
 import { Project, Space } from "../types/schema"
 import HomeCard from "./HomeCard"
-import { debounce } from "throttle-debounce"
-// import { SmoothScroll } from "./ui/SmoothScroll"
-// import SmoothSnap from "./ui/SmoothSnap"
-import { ReactLenis, useLenis } from "@studio-freight/react-lenis"
 
 type Props = {
   input: Project[] | Space[]
@@ -18,58 +14,55 @@ type WinSize = {
 
 const HomeFeed = ({ input }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
-  const lenisRef = useRef()
-  // const indexRef = useRef<number>(0)
-  // const [index, setIndex] = useState(0)
-  // const [y, setY] = useState<number>(0)
-  const lenis = useLenis(({ scroll }) => {
-    // called every scroll
-    console.log(scroll)
-    _onScroll()
-    // if (scroll > 1000) {
-    //   lenisRef.current.stop()
-    // }
-  })
 
   useEffect(() => {
     _onScroll()
-    // window.addEventListener("scroll", _onScroll)
-    // window.addEventListener("wheel", _onWheelThrottle)
+    // _bindScrollSnap()
+    // const abcjsInit = async () => {
+    //   const createScrollSnap = (await import("scroll-snap")).default
+    //   const element = ref.current
+    //   createScrollSnap(
+    //     element,
+    //     {
+    //       snapDestinationY: "90%",
+    //       duration: 800,
+    //     },
+    //     () => console.log("snapped")
+    //   )
+    // }
+    // abcjsInit()
+
+    // const asyncLoad = async () => {
+    //   const PanelSnap = (await import("panelsnap")).default
+    //   const panelSnapInstance = new PanelSnap({
+    //     container: document.body,
+    //     panelSelector: "article.home-card",
+    //     directionThreshold: 0,
+    //     delay: 0,
+    //     duration: 800,
+    //     // easing: function(t) { return t },
+    //   })
+    //   panelSnapInstance.on("activatePanel", (panel: any) => {
+    //     console.log(panel)
+    //   })
+    // }
+    // asyncLoad()
+
+    window.addEventListener("scroll", _onScroll)
 
     setTimeout(() => {
       document.querySelector(".spacer")?.classList.add("collapse")
     }, 600)
 
     return () => {
-      // window.removeEventListener("scroll", _onScroll)
-      // window.removeEventListener("wheel", _onWheelThrottle)
+      window.removeEventListener("scroll", _onScroll)
     }
   }, [])
 
-  // const _onWheelThrottle = debounce(
-  //   300,
-  //   (e) => {
-  //     indexRef.current =
-  //       e.deltaY > 0 ? indexRef.current + 1 : indexRef.current - 1
-  //     // console.log(indexRef.current)
-
-  //     const step: number =
-  //       document.querySelector(".home-card")?.getBoundingClientRect().height +
-  //         272 || 500
-  //     const max = ref.current?.getBoundingClientRect().height
-  //     let translateY = step * indexRef.current * -1
-  //     console.log(translateY, step, max)
-  //     if (translateY < step && translateY > max * -1)
-  //       ref.current.style.transform = `translateY(${translateY}px)`
-  //     requestAnimationFrame(tick)
-  //   },
-  //   { atBegin: true }
-  // )
-
   const _onScroll = () => {
     if (!ref.current) return
-    // const threshold = 160
-    const threshold = 180
+    // const threshold = 180
+    const threshold = 20
     const items = ref.current?.querySelectorAll<HTMLElement>(
       "article:has(.is-ready-to-animate)"
     )
@@ -92,29 +85,12 @@ const HomeFeed = ({ input }: Props) => {
   }
 
   return (
-    <ReactLenis
-      ref={lenisRef}
-      root
-      smoothWheel={true}
-      // duration={20}
-      wheelMultiplier={0.01}
-    >
-      <div className="feed " ref={ref}>
-        {input.map((item, i: number) => (
-          <HomeCard input={item} key={item.slug?.current} />
-        ))}
-      </div>
-    </ReactLenis>
+    <div className="feed " ref={ref}>
+      {input.map((item, i: number) => (
+        <HomeCard input={item} key={item.slug?.current} />
+      ))}
+    </div>
   )
 }
 
 export default HomeFeed
-
-const fixedContainer: React.CSSProperties = {
-  position: "fixed",
-  width: "100%",
-  height: "100%",
-  top: 0,
-  left: 0,
-  overflow: "hidden",
-}

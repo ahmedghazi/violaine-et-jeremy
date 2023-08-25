@@ -54,7 +54,7 @@
     padding-top: calc(100px + var(--textAboutHeight));
     padding-top: 95px;
     padding-top: 195px;
-    padding-top: 35vh;
+    // padding-top: 35vh;
     // padding-top: calc(30px + var(--textAboutHeight));
     // transition: padding-top 1.6s var(--cubic);
     // overflow-x: hidden;
@@ -63,14 +63,17 @@
     position: relative;
     opacity: 0;
     transition: opacity 0.2s;
+    padding-top: calc(90px + var(--textAboutHeight));
+
     // position: sticky;
     // top: 20vh;
     // background-color: white;
+    min-height: 100vh;
     &:not(:last-child) {
-      margin-bottom: calc(200px + var(--textAboutHeight));
-      @media all and (max-width: $sm) {
-        margin-bottom: toRem(190);
-      }
+      // margin-bottom: calc(200px + var(--textAboutHeight));
+      // @media all and (max-width: $sm) {
+      //   margin-bottom: toRem(190);
+      // }
     }
     &:last-child {
       // margin-bottom: calc(1em + toRem(32));
@@ -129,7 +132,7 @@ html.is-home {
     body {
       height: auto;
       // scroll-snap-type: y mandatory;
-      scroll-behavior: auto;
+      // scroll-behavior: smooth;
     }
   }
 
