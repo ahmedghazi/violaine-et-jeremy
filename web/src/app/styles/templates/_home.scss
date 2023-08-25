@@ -63,6 +63,9 @@
     position: relative;
     opacity: 0;
     transition: opacity 0.2s;
+    // position: sticky;
+    // top: 20vh;
+    // background-color: white;
     &:not(:last-child) {
       margin-bottom: calc(200px + var(--textAboutHeight));
       @media all and (max-width: $sm) {
@@ -121,22 +124,24 @@
 }
 
 html.is-home {
-  // &.can-snap {
-  //   &,
-  //   body {
-  //     scroll-snap-type: y mandatory;
-  //   }
-  // }
+  &.can-snap {
+    &,
+    body {
+      height: auto;
+      // scroll-snap-type: y mandatory;
+      scroll-behavior: auto;
+    }
+  }
 
-  // article.home-card {
-  //   scroll-snap-align: start;
-  //   scroll-margin-top: calc(
-  //     var(--space-100) + 3 * (var(--text-md) * 1.2) + 1.5em
-  //   );
-  // }
-  // footer {
-  //   scroll-snap-align: start;
-  // }
+  article.home-card {
+    scroll-snap-align: start;
+    scroll-margin-top: calc(
+      var(--space-100) + 3 * (var(--text-md) * 1.2) + 1.5em
+    );
+  }
+  footer {
+    scroll-snap-align: start;
+  }
   main {
     padding-bottom: calc(200px + var(--textAboutHeight));
     padding-bottom: 310px;

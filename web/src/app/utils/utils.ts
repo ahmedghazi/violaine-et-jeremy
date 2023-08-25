@@ -23,3 +23,7 @@ export const MathUtils = {
   getRandomFloat: (min: number, max: number): number =>
     parseFloat((Math.random() * (max - min) + min).toFixed(2)),
 }
+
+export function lerp(start: number, end: number, amt: number) {
+  return (1 - amt) * start + amt * end
+}

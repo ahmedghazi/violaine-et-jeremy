@@ -3,8 +3,9 @@ import React, { useEffect, useMemo, useRef, useState, WheelEvent } from "react"
 import { Project, Space } from "../types/schema"
 import HomeCard from "./HomeCard"
 import { debounce } from "throttle-debounce"
-import { SmoothScroll } from "./ui/SmoothScroll"
-import SmoothSnap from "./ui/SmoothSnap"
+// import { SmoothScroll } from "./ui/SmoothScroll"
+// import SmoothSnap from "./ui/SmoothSnap"
+import { ReactLenis, useLenis } from "@studio-freight/react-lenis"
 
 type Props = {
   input: Project[] | Space[]
@@ -17,13 +18,22 @@ type WinSize = {
 
 const HomeFeed = ({ input }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
-  const indexRef = useRef<number>(0)
+  const lenisRef = useRef()
+  // const indexRef = useRef<number>(0)
   // const [index, setIndex] = useState(0)
-  const [y, setY] = useState<number>(0)
+  // const [y, setY] = useState<number>(0)
+  const lenis = useLenis(({ scroll }) => {
+    // called every scroll
+    console.log(scroll)
+    _onScroll()
+    // if (scroll > 1000) {
+    //   lenisRef.current.stop()
+    // }
+  })
 
   useEffect(() => {
     _onScroll()
-    window.addEventListener("scroll", _onScroll)
+    // window.addEventListener("scroll", _onScroll)
     // window.addEventListener("wheel", _onWheelThrottle)
 
     setTimeout(() => {
@@ -31,44 +41,30 @@ const HomeFeed = ({ input }: Props) => {
     }, 600)
 
     return () => {
-      window.removeEventListener("scroll", _onScroll)
+      // window.removeEventListener("scroll", _onScroll)
       // window.removeEventListener("wheel", _onWheelThrottle)
     }
-  }, [y])
+  }, [])
 
-  const _onWheelThrottle = debounce(
-    300,
-    (e) => {
-      indexRef.current =
-        e.deltaY > 0 ? indexRef.current + 1 : indexRef.current - 1
-      // console.log(indexRef.current)
+  // const _onWheelThrottle = debounce(
+  //   300,
+  //   (e) => {
+  //     indexRef.current =
+  //       e.deltaY > 0 ? indexRef.current + 1 : indexRef.current - 1
+  //     // console.log(indexRef.current)
 
-      const step: number =
-        document.querySelector(".home-card")?.getBoundingClientRect().height +
-          272 || 500
-      const max = ref.current?.getBoundingClientRect().height
-      let translateY = step * indexRef.current * -1
-      console.log(translateY, step, max)
-      if (translateY < step && translateY > max * -1)
-        ref.current.style.transform = `translateY(${translateY}px)`
-      requestAnimationFrame(tick)
-    },
-    { atBegin: true }
-  )
-
-  const time = {
-    start: performance.now(),
-    total: 2000,
-  }
-
-  function lerp(start: number, end: number, amt: number) {
-    return (1 - amt) * start + amt * end
-  }
-
-  const tick = (now: any) => {
-    _onScroll()
-    requestAnimationFrame(tick)
-  }
+  //     const step: number =
+  //       document.querySelector(".home-card")?.getBoundingClientRect().height +
+  //         272 || 500
+  //     const max = ref.current?.getBoundingClientRect().height
+  //     let translateY = step * indexRef.current * -1
+  //     console.log(translateY, step, max)
+  //     if (translateY < step && translateY > max * -1)
+  //       ref.current.style.transform = `translateY(${translateY}px)`
+  //     requestAnimationFrame(tick)
+  //   },
+  //   { atBegin: true }
+  // )
 
   const _onScroll = () => {
     if (!ref.current) return
@@ -96,15 +92,19 @@ const HomeFeed = ({ input }: Props) => {
   }
 
   return (
-    <div style={fixedContainer}>
-      <SmoothSnap parent=".page-home">
-        <div className="feed " ref={ref}>
-          {input.map((item, i: number) => (
-            <HomeCard input={item} key={item.slug?.current} />
-          ))}
-        </div>
-      </SmoothSnap>
-    </div>
+    <ReactLenis
+      ref={lenisRef}
+      root
+      smoothWheel={true}
+      // duration={20}
+      wheelMultiplier={0.01}
+    >
+      <div className="feed " ref={ref}>
+        {input.map((item, i: number) => (
+          <HomeCard input={item} key={item.slug?.current} />
+        ))}
+      </div>
+    </ReactLenis>
   )
 }
 
