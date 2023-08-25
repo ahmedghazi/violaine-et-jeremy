@@ -102,26 +102,6 @@ const List = ({ input }: Props) => {
               hasLink={item.hasLink}
             />
           ))}
-        {input &&
-          input.length > 0 &&
-          input?.map((item, i: number) => (
-            <ListItem
-              key={`${item.work?.slug?.current}-
-              ${i}`}
-              input={item.work}
-              hasLink={item.hasLink}
-            />
-          ))}
-        {input &&
-          input.length > 0 &&
-          input?.map((item, i: number) => (
-            <ListItem
-              key={`${item.work?.slug?.current}-
-              ${i}`}
-              input={item.work}
-              hasLink={item.hasLink}
-            />
-          ))}
       </div>
     </div>
   )

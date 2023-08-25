@@ -7,42 +7,62 @@ type Props = {
   input: Project[] | Space[]
 }
 
+type WinSize = {
+  width: number
+  height: number
+}
+
 const HomeFeed = ({ input }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     _onScroll()
-    window.addEventListener("scroll", _onScroll)
-    // document.querySelector(".page-home")?.classList.add("reveal")
-    // document.documentElement.classList.add("can-snap")
-    // window.addEventListener("click", () => {
-    //   window.scrollBy(0, window.innerHeight)
-    // })
-    // setTimeout(() => {
-    //   console.log("ready to scroll")
-    //   // window.scroll(0, window.innerHeight)
-    //   document.querySelector(".feed")?.scrollIntoView({
-    //     behavior: "smooth",
-    //   })
+    // _bindScrollSnap()
+    // const abcjsInit = async () => {
+    //   const createScrollSnap = (await import("scroll-snap")).default
+    //   const element = ref.current
+    //   createScrollSnap(
+    //     element,
+    //     {
+    //       snapDestinationY: "90%",
+    //       duration: 800,
+    //     },
+    //     () => console.log("snapped")
+    //   )
+    // }
+    // abcjsInit()
 
-    //   document.documentElement.classList.add("can-snap")
-    //   setTimeout(() => {}, 500)
-    // }, 1200)
+    // const asyncLoad = async () => {
+    //   const PanelSnap = (await import("panelsnap")).default
+    //   const panelSnapInstance = new PanelSnap({
+    //     container: document.body,
+    //     panelSelector: "article.home-card",
+    //     directionThreshold: 0,
+    //     delay: 0,
+    //     duration: 800,
+    //     // easing: function(t) { return t },
+    //   })
+    //   panelSnapInstance.on("activatePanel", (panel: any) => {
+    //     console.log(panel)
+    //   })
+    // }
+    // asyncLoad()
+
+    window.addEventListener("scroll", _onScroll)
+
     setTimeout(() => {
       document.querySelector(".spacer")?.classList.add("collapse")
     }, 600)
+
     return () => {
       window.removeEventListener("scroll", _onScroll)
     }
   }, [])
 
   const _onScroll = () => {
-    // document.documentElement.classList.add("can-snap")
-    // console.log(window.scrollY)
-    // const threshold = 150
     if (!ref.current) return
-    // const threshold = 160
-    const threshold = 180
+    // const threshold = 180
+    const threshold = 20
     const items = ref.current?.querySelectorAll<HTMLElement>(
       "article:has(.is-ready-to-animate)"
     )
@@ -52,6 +72,7 @@ const HomeFeed = ({ input }: Props) => {
       let width: number = 0
       const minWidth: number = Number(el.dataset.minWidth) || 0
       const bounding: DOMRect = el.getBoundingClientRect()
+      // console.log(bounding)
       const distanceToTop: number = bounding.top - threshold
       if (distanceToTop >= 0) {
         width = distanceToTop * 5 + minWidth
