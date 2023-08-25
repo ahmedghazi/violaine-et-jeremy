@@ -3,16 +3,6 @@
   --textAboutHeightMobile: 3 * (var(--text-md) * 1.2);
 }
 .page-home {
-  // padding-top: calc(55vh);
-  // padding-top: calc(100vh);
-  // transition: padding-top 1.6s var(--cubic);
-  // transition-delay: 1s;
-  &.reveal {
-    // padding-top: 0;
-    // .feed {
-    //   padding-top: 0;
-    // }
-  }
   @media all and (max-width: $sm) {
     padding-top: calc(50vh - (var(--textAboutHeightMobile)));
     padding-top: calc(100vh);
@@ -23,13 +13,6 @@
     letter-spacing: toRem(0.6);
     top: calc(var(--space-100) - 0.2em);
     @media all and (max-width: $sm) {
-      // top: var(--space-100);
-      // position: sticky;
-      // margin-bottom: toRem(84);
-      // margin-bottom: toRem(154);
-      // br {
-      //   // display: none;
-      // }
     }
   }
 
@@ -44,14 +27,14 @@
     padding-top: 95px;
     padding-top: 195px;
     padding-top: 35vh;
-    // transition: padding-top 1.6s var(--cubic);
-    // overflow-x: hidden;
+    // padding-top: 0;
   }
   .home-card {
     position: relative;
     opacity: 0;
     transition: opacity 0.2s;
-    min-height: 100vh;
+    // min-height: 100vh;
+    padding-top: calc(90px + var(--textAboutHeight));
     &:not(:last-child) {
       margin-bottom: calc(200px + var(--textAboutHeight));
       @media all and (max-width: $sm) {
@@ -76,10 +59,7 @@
     }
     .industry {
       line-height: 1.2;
-      // position: absolute;
-      // top: 0;
-      // left: 50%;
-      // transform: translateY(-1.2em) translateX(-50%);
+
       display: flex;
       justify-content: space-evenly;
       margin-bottom: toRem(5);
@@ -88,24 +68,13 @@
         max-width: calc(100vw - calc(var(--space-md) * 2));
         max-width: 100%;
         width: var(--width);
-        // transition: width 0.2s ease-out;
-        // border: 1px solid;
+
         span {
           letter-spacing: toRem(1.8);
           white-space: pre;
         }
       }
     }
-    p {
-      // font-family: var(--font-primary);
-      // @media all and (min-width: $md) {
-      //   font-size: 12px;
-      // }
-    }
-    // img {
-    //   max-height: 500px;
-    //   object-fit: cover;
-    // }
   }
 }
 
