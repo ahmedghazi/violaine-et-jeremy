@@ -99,6 +99,13 @@ export interface Settings extends SanityDocument {
    *
    */
   message404?: BlockContent;
+
+  /**
+   * Message cookies — `blockContent`
+   *
+   *
+   */
+  messageCookies?: BlockContent;
 }
 
 /**

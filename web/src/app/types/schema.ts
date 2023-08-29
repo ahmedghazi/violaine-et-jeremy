@@ -108,6 +108,13 @@ export interface Settings extends SanityDocument {
    *
    */
   message404?: BlockContent
+
+  /**
+   * Message cookies — `blockContent`
+   *
+   *
+   */
+  messageCookies?: BlockContent
 }
 
 /**
@@ -1205,10 +1212,3 @@ export type Documents =
   | Project
   | Space
   | Tag
-
-/**
- * This interface is a stub. It was referenced in your sanity schema but
- * the definition was not actually found. Future versions of
- * sanity-codegen will let you type this explicity.
- */
-type Color = any

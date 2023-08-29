@@ -114,6 +114,12 @@ export default defineType({
       group: 'misc',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'messageCookies',
+      title: 'Message cookies',
+      group: 'misc',
+      type: 'blockContent',
+    }),
   ],
   preview: {
     prepare() {
