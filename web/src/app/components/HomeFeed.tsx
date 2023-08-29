@@ -4,6 +4,10 @@ import { Project, Space } from "../types/schema"
 import HomeCard from "./HomeCard"
 import { debounce } from "throttle-debounce"
 import scrollTo from "../utils/scrollTo"
+import {
+  smoothScrollToElement,
+  EASING_FUNCTIONS,
+} from "../utils/sliding-scroll.min.js"
 type Props = {
   input: Project[] | Space[]
 }
@@ -78,6 +82,7 @@ const HomeFeed = ({ input }: Props) => {
       arg.preventDefault()
       const delta = Math.sign(arg.deltaY)
       let targetY
+      if (refIndex.current === 0) return
       refIndex.current = delta > 0 ? refIndex.current + 1 : refIndex.current - 1
       console.log(refIndex.current)
       targetY = window.innerHeight * refIndex.current
@@ -94,7 +99,13 @@ const HomeFeed = ({ input }: Props) => {
         // console.log(bounding)
         const diff = window.scrollY + bounding.top + 30
         // console.log(diff)
-        scrollTo(diff, 1000)
+        // scrollTo(diff, 1000)
+        smoothScrollToElement(activeItem, {
+          duration: 1200,
+          easingFunction: EASING_FUNCTIONS.slowInSlowOut,
+          offsetTop: 0,
+          offsetLeft: 0,
+        })
       }
     },
     { atBegin: true }
@@ -110,7 +121,7 @@ const HomeFeed = ({ input }: Props) => {
 
   // }
   const _onScroll = () => {
-    console.log(window.scrollY)
+    // console.log(window.scrollY)
     if (!ref.current) return
     // const threshold = 180
     const threshold = 20
