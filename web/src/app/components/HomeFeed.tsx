@@ -1,7 +1,8 @@
 "use client"
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { Project, Space } from "../types/schema"
 import HomeCard from "./HomeCard"
+import { debounce } from "throttle-debounce"
 
 type Props = {
   input: Project[] | Space[]
@@ -14,6 +15,7 @@ type WinSize = {
 
 const HomeFeed = ({ input }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
+  const [index, setIndex] = useState<number>(0)
 
   useEffect(() => {
     _onScroll()
@@ -47,6 +49,7 @@ const HomeFeed = ({ input }: Props) => {
     //   })
     // }
     // asyncLoad()
+    // window.addEventListener("wheel", _onWheel, { passive: false })
 
     window.addEventListener("scroll", _onScroll)
 
@@ -59,6 +62,11 @@ const HomeFeed = ({ input }: Props) => {
     }
   }, [])
 
+  const _onWheel = (event: WheelEvent) => {
+    event.preventDefault()
+    const delta = Math.sign(event.deltaY)
+    console.info(delta)
+  }
   const _onScroll = () => {
     if (!ref.current) return
     // const threshold = 180
