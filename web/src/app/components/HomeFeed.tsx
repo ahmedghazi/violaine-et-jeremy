@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react"
 import { Project, Space } from "../types/schema"
 import HomeCard from "./HomeCard"
 import { debounce } from "throttle-debounce"
-
+import scrollTo from "../utils/scrollTo"
 type Props = {
   input: Project[] | Space[]
 }
@@ -15,6 +15,7 @@ type WinSize = {
 
 const HomeFeed = ({ input }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
+  const refIndex = useRef<number>(0)
   const [index, setIndex] = useState<number>(0)
 
   useEffect(() => {
@@ -49,7 +50,15 @@ const HomeFeed = ({ input }: Props) => {
     //   })
     // }
     // asyncLoad()
-    // window.addEventListener("wheel", _onWheel, { passive: false })
+    const controller = new AbortController()
+    window.addEventListener(
+      "wheel",
+      (e) => {
+        e.preventDefault()
+        debouncedWheel(e)
+      },
+      { passive: false, signal: controller.signal }
+    )
 
     window.addEventListener("scroll", _onScroll)
 
@@ -59,15 +68,49 @@ const HomeFeed = ({ input }: Props) => {
 
     return () => {
       window.removeEventListener("scroll", _onScroll)
+      controller.abort()
     }
   }, [])
 
-  const _onWheel = (event: WheelEvent) => {
-    event.preventDefault()
-    const delta = Math.sign(event.deltaY)
-    console.info(delta)
-  }
+  const debouncedWheel = debounce(
+    300,
+    (arg) => {
+      arg.preventDefault()
+      const delta = Math.sign(arg.deltaY)
+      let targetY
+      refIndex.current = delta > 0 ? refIndex.current + 1 : refIndex.current - 1
+      console.log(refIndex.current)
+      targetY = window.innerHeight * refIndex.current
+      if (refIndex.current === 1) {
+        // targetY = 300
+      }
+      // console.log(targetY)
+      // scrollTo(targetY, 1000)
+      const activeItem = ref.current?.querySelector(
+        `.home-card:nth-child(${refIndex.current})`
+      )
+      if (activeItem) {
+        const bounding: DOMRect = activeItem.getBoundingClientRect()
+        // console.log(bounding)
+        const diff = window.scrollY + bounding.top + 30
+        // console.log(diff)
+        scrollTo(diff, 1000)
+      }
+    },
+    { atBegin: true }
+  )
+
+  // const _onWheel = (e: WheelEvent) => {
+  //   const delta = Math.sign(e.deltaY)
+  //   // console.info(delta)
+  //   const nextIndex = delta > 0 ? index + 1 : index - 1
+  //   console.log(nextIndex)
+  // }
+  // const _updateIndex = (e) => {
+
+  // }
   const _onScroll = () => {
+    console.log(window.scrollY)
     if (!ref.current) return
     // const threshold = 180
     const threshold = 20
