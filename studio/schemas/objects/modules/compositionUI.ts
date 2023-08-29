@@ -20,32 +20,12 @@ export default defineField({
         {
           type: 'compositionItemText',
         },
+        {
+          type: 'compositionItemEmbed',
+        },
       ],
     }),
-    // defineField({
-    //   name: 'align',
-    //   type: 'string',
-    //   options: {
-    //     list: [
-    //       {title: 'start', value: 'start'},
-    //       {title: 'center', value: 'center'},
-    //       {title: 'end', value: 'end'},
-    //     ],
-    //   },
-    //   description: 'Vertical alignement. If contains qurter items, default start',
-    // }),
-    // defineField({
-    //   name: 'justify',
-    //   type: 'string',
-    //   options: {
-    //     list: [
-    //       {title: 'start', value: 'start'},
-    //       {title: 'center', value: 'center'},
-    //       {title: 'end', value: 'end'},
-    //     ],
-    //   },
-    //   description: 'Horizontal alignement, default start',
-    // }),
+
     defineField({
       name: 'gutter',
       type: 'boolean',

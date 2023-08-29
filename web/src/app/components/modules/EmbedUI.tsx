@@ -1,46 +1,50 @@
-// import React from 'react';
-// // import { SanityModuleEmbed } from '../../../graphql-types';
-// import { VideoWrapper } from 'components/ui/player';
-// import clsx from 'clsx';
-// import { Embed } from '@/app/types/schema';
+import React from "react"
+import clsx from "clsx"
+import { CompositionItemEmbed, Embed } from "@/app/types/schema"
+import { VideoWrapper } from "../ui/player"
+// import { Embed } from "@/app/types/schema"
 
-// type Props = {
-//   input: Embed;
-// };
+type Props = {
+  input: CompositionItemEmbed
+}
 
-// const EmbedUI = ({ input }: Props) => {
-//   // console.log(input.video);
-//   return (
-//     <section
-//       className={clsx(
-//         'module module--embed w-full p-sm md:p-md',
-//         // input.width ? 'has-width' : '',
-//       )}
-//       style={{
-//         // width: input.width ? `calc(${input.width}% - var(--space-sm))` : '100%',
-//         // width: input.width ? `calc(${input.width}% ` : '100%',
-//         // '--module-width': input.width ? `${input.width}%` : '100%',
-//       }}
-//     >
-//       <div
-//         className="inner"
-//         style={{
-//           aspectRatio: input.video?.aspectRatio,
-//         }}
-//       >
-//         {input.video && input.video.url && (
-//           <VideoWrapper
-//             url={input.video.url}
-//             showControls={input.video.showControls}
-//             // showControls={true}
-//             aspectRatio={input.video.aspectRatio || '16 / 9'}
-//             loop={input.video.loop || false}
-//             autoplay={input.video.autoplay || false}
-//           />
-//         )}
-//       </div>
-//     </section>
-//   );
-// };
+const EmbedUI = ({ input }: Props) => {
+  // console.log(input.video);
+  return (
+    <section
+      className={clsx(
+        "module module--embed w-full p-sm md:p-md"
+        // input.width ? 'has-width' : '',
+      )}
+      style={
+        {
+          // width: input.width ? `calc(${input.width}% - var(--space-sm))` : '100%',
+          // width: input.width ? `calc(${input.width}% ` : '100%',
+          // '--module-width': input.width ? `${input.width}%` : '100%',
+        }
+      }
+    >
+      <div
+        className="inner"
+        style={{
+          // aspectRatio: input?.aspectRatio,
+          aspectRatio: "16 / 9",
+        }}
+      >
+        {/* <pre>{JSON.stringify(input, null, 2)}</pre> */}
+        {input.embed && input.embed.url && (
+          <VideoWrapper
+            url={input.embed.url}
+            // showControls={input.showControls}
+            // // showControls={true}
+            // aspectRatio={input.aspectRatio || "16 / 9"}
+            // loop={input.loop || false}
+            // autoplay={input.autoplay || false}
+          />
+        )}
+      </div>
+    </section>
+  )
+}
 
-// export default EmbedUI;
+export default EmbedUI

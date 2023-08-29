@@ -23,6 +23,7 @@ import embed from './objects/embed'
 import titleText from './objects/titleText'
 import worksTextsItem from './objects/worksTextsItem'
 import logos from './objects/logos'
+// import embed from './objects/embed'
 /* Localization */
 // import localeString from './locale/localeString'
 // import localeText from './locale/localeText'
@@ -36,7 +37,9 @@ import moduleTextImage from './objects/modules/textImageUI'
 import moduleEmbed from './objects/modules/embedUI'
 import compositionItemImage from './objects/modules/compositionItemImage'
 import compositionItemText from './objects/modules/compositionItemText'
+import compositionItemEmbed from './objects/modules/compositionItemEmbed'
 import moduleCompositionUI from './objects/modules/compositionUI'
+// import moduleEmbedUI from './objects/modules/embedUI'
 
 export const schemaTypes = [
   settings,
@@ -68,6 +71,7 @@ export const schemaTypes = [
   moduleEmbed,
   compositionItemImage,
   compositionItemText,
+  compositionItemEmbed,
   moduleCompositionUI,
 ]
 

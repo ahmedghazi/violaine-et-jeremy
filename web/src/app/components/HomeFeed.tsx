@@ -81,23 +81,23 @@ const HomeFeed = ({ input }: Props) => {
     (arg) => {
       arg.preventDefault()
       const delta = Math.sign(arg.deltaY)
-      let targetY
-      if (refIndex.current === 0) return
+      // let targetY
       refIndex.current = delta > 0 ? refIndex.current + 1 : refIndex.current - 1
+      if (refIndex.current < 1) refIndex.current = 1
       console.log(refIndex.current)
-      targetY = window.innerHeight * refIndex.current
-      if (refIndex.current === 1) {
-        // targetY = 300
-      }
+      // targetY = window.innerHeight * refIndex.current
+      // if (refIndex.current === 1) {
+      //   // targetY = 300
+      // }
       // console.log(targetY)
       // scrollTo(targetY, 1000)
       const activeItem = ref.current?.querySelector(
         `.home-card:nth-child(${refIndex.current})`
       )
       if (activeItem) {
-        const bounding: DOMRect = activeItem.getBoundingClientRect()
+        // const bounding: DOMRect = activeItem.getBoundingClientRect()
         // console.log(bounding)
-        const diff = window.scrollY + bounding.top + 30
+        // const diff = window.scrollY + bounding.top + 30
         // console.log(diff)
         // scrollTo(diff, 1000)
         smoothScrollToElement(activeItem, {

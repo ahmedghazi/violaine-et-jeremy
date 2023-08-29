@@ -1,8 +1,8 @@
 import {defineField} from 'sanity'
 
 export default defineField({
-  name: 'compositionItemImage',
-  title: 'Image',
+  name: 'compositionItemEmbed',
+  title: 'Embed',
   type: 'object',
   fields: [
     defineField({
@@ -42,22 +42,21 @@ export default defineField({
       },
     }),
     defineField({
-      name: 'image',
-      type: 'image',
-      title: 'Image',
+      name: 'embed',
+      type: 'embed',
+      title: 'embed',
     }),
   ],
   preview: {
     select: {
       subtitle: `gridSize`,
-      media: 'image',
+      // media: 'image',
     },
     prepare(selection) {
-      const {subtitle, media} = selection
+      const {subtitle} = selection
       return {
         title: 'Image',
         subtitle: subtitle,
-        media: media,
       }
     },
   },

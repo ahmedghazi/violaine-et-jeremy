@@ -1,4 +1,5 @@
 import {
+  CompositionItemEmbed,
   CompositionItemImage,
   CompositionItemText,
   CompositionUI,
@@ -6,6 +7,7 @@ import {
 import React, { Children, ReactNode, useMemo } from "react"
 import ImageUI from "./ImageUI"
 import TexteUI from "./TexteUI"
+import EmbedUI from "./EmbedUI"
 import clsx from "clsx"
 
 type Props = {
@@ -42,7 +44,13 @@ const ModuleCompositionUI = ({ input }: Props) => {
     if (!items) return ""
 
     const _modules = items.map(
-      (module: CompositionItemImage | CompositionItemText, i) => {
+      (
+        module:
+          | CompositionItemImage
+          | CompositionItemText
+          | CompositionItemEmbed,
+        i
+      ) => {
         switch (module._type) {
           case "compositionItemImage":
             return module.image ? (
@@ -62,6 +70,17 @@ const ModuleCompositionUI = ({ input }: Props) => {
                 gridSize={module.gridSize || ""}
               >
                 <TexteUI key={i} input={module} />
+              </ItemWrapper>
+            )
+
+          case "compositionItemEmbed":
+            return (
+              <ItemWrapper
+                key={i}
+                gridArea={module.gridArea || ""}
+                gridSize={module.gridSize || ""}
+              >
+                <EmbedUI key={i} input={module} />
               </ItemWrapper>
             )
 

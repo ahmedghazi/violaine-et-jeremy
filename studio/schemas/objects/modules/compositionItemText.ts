@@ -10,19 +10,7 @@ export default defineField({
       type: 'string',
       description: 'Module title',
     }),
-    // defineField({
-    //   name: 'size',
-    //   type: 'string',
-    //   options: {
-    //     list: [
-    //       {title: 'Quarter', value: 'quarter'},
-    //       {title: 'Third', value: 'third'},
-    //       {title: 'half', value: 'half'},
-    //       {title: 'full', value: 'full'},
-    //     ],
-    //   },
-    //   // invitialValue: 'full',
-    // }),
+
     defineField({
       name: 'gridSize',
       type: 'string',

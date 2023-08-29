@@ -1003,8 +1003,8 @@ export type TextImageUI = {
   };
 };
 
-export type EmbedUI = {
-  _type: "embedUI";
+export type ModuleEmbed = {
+  _type: "moduleEmbed";
   /**
    * Title — `string`
    *
@@ -1013,18 +1013,18 @@ export type EmbedUI = {
   title?: string;
 
   /**
-   * video — `video`
+   * embed — `embed`
    *
    *
    */
-  video?: Video;
+  embed?: Embed;
 
   /**
-   * width — `number`
+   * defaultUi — `boolean`
    *
-   * in percentage (default 100)
+   * show vimeo default ui (for password protected videos for example)
    */
-  width?: number;
+  defaultUi?: boolean;
 };
 
 export type CompositionItemImage = {
@@ -1119,6 +1119,46 @@ export type CompositionItemText = {
   text?: BlockContent;
 };
 
+export type CompositionItemEmbed = {
+  _type: "compositionItemEmbed";
+  /**
+   * title — `string`
+   *
+   * Module title
+   */
+  title?: string;
+
+  /**
+   * gridSize — `string`
+   *
+   *
+   */
+  gridSize?: "quarter" | "third" | "half" | "full";
+
+  /**
+   * gridArea — `string`
+   *
+   *
+   */
+  gridArea?:
+    | "1/1/2/2"
+    | "1/2/2/3"
+    | "1/3/2/4"
+    | "1/1/2/2"
+    | "2/1/3/2"
+    | "1/2/2/2"
+    | "2/2/2/2"
+    | "1/1/3/2"
+    | "1/2/3/2";
+
+  /**
+   * embed — `embed`
+   *
+   *
+   */
+  embed?: Embed;
+};
+
 export type CompositionUI = {
   _type: "compositionUI";
   /**
@@ -1134,7 +1174,9 @@ export type CompositionUI = {
    *
    */
   items?: Array<
-    SanityKeyed<CompositionItemImage> | SanityKeyed<CompositionItemText>
+    | SanityKeyed<CompositionItemImage>
+    | SanityKeyed<CompositionItemText>
+    | SanityKeyed<CompositionItemEmbed>
   >;
 
   /**
