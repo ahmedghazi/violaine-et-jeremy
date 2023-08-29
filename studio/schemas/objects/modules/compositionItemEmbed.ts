@@ -55,7 +55,7 @@ export default defineField({
     prepare(selection) {
       const {subtitle} = selection
       return {
-        title: 'Image',
+        title: 'Embed',
         subtitle: subtitle,
       }
     },
