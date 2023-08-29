@@ -1,4 +1,5 @@
-import React from "react"
+"use client"
+import React, { useEffect, useState } from "react"
 import clsx from "clsx"
 import { CompositionItemEmbed, Embed } from "@/app/types/schema"
 import { VideoWrapper } from "../ui/player"
@@ -10,6 +11,11 @@ type Props = {
 
 const EmbedUI = ({ input }: Props) => {
   // console.log(input.video);
+  const [ready, setReady] = useState<boolean>(false)
+  useEffect(() => {
+    setReady(true)
+  }, [])
+
   return (
     <section
       className={clsx(
@@ -24,25 +30,27 @@ const EmbedUI = ({ input }: Props) => {
         }
       }
     >
-      <div
-        className="inner"
-        style={{
-          // aspectRatio: input?.aspectRatio,
-          aspectRatio: "640 / 304",
-        }}
-      >
-        {/* <pre>{JSON.stringify(input, null, 2)}</pre> */}
-        {input.embed && input.embed.url && (
-          <VideoWrapper
-            url={input.embed.url}
-            // showControls={input.showControls}
-            // // showControls={true}
-            // aspectRatio={input.aspectRatio || "16 / 9"}
-            // loop={input.loop || false}
-            // autoplay={input.autoplay || false}
-          />
-        )}
-      </div>
+      {ready && (
+        <div
+          className="inner"
+          style={{
+            // aspectRatio: input?.aspectRatio,
+            aspectRatio: "640 / 304",
+          }}
+        >
+          {/* <pre>{JSON.stringify(input, null, 2)}</pre> */}
+          {input.embed && input.embed.url && (
+            <VideoWrapper
+              url={input.embed.url}
+              // showControls={input.showControls}
+              // // showControls={true}
+              // aspectRatio={input.aspectRatio || "16 / 9"}
+              // loop={input.loop || false}
+              // autoplay={input.autoplay || false}
+            />
+          )}
+        </div>
+      )}
     </section>
   )
 }

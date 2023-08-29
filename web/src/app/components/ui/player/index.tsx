@@ -185,8 +185,8 @@ const VideoWrapper: React.FC<InputProps> = ({
             loop={true}
             playsinline
             config={config}
-            muted={autoplay || video.mute}
-            volume={1}
+            muted={true}
+            // volume={1}
             onDuration={_onDuration}
             onReady={_onReady}
             onProgress={_onProgress}
