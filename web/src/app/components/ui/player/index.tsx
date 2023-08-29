@@ -182,7 +182,7 @@ const VideoWrapper: React.FC<InputProps> = ({
             height="100%"
             playing={true}
             controls={false}
-            loop={loop || false}
+            loop={true}
             playsinline
             config={config}
             muted={autoplay || video.mute}
