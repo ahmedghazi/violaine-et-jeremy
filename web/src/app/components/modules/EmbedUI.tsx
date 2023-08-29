@@ -28,7 +28,7 @@ const EmbedUI = ({ input }: Props) => {
         className="inner"
         style={{
           // aspectRatio: input?.aspectRatio,
-          aspectRatio: "16 / 9",
+          aspectRatio: "640 / 304",
         }}
       >
         {/* <pre>{JSON.stringify(input, null, 2)}</pre> */}

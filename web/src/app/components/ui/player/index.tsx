@@ -157,7 +157,7 @@ const VideoWrapper: React.FC<InputProps> = ({
       <div
         // id='video-wrapper'
         className={clsx(
-          "video-wrapper bg-black h-full transition-opacity duration-150",
+          "video-wrapper bg-black h-full transition-opacity duration-150 pointer-events-auto",
           autoplay && "is-autoplay",
           ready ? "opacity-100" : "opacity-0 "
           // defaultUi ? '' : ''
@@ -180,8 +180,8 @@ const VideoWrapper: React.FC<InputProps> = ({
             url={url}
             width="100%"
             height="100%"
-            playing={autoplay || video.playing}
-            controls={true}
+            playing={true}
+            controls={false}
             loop={loop || false}
             playsinline
             config={config}
