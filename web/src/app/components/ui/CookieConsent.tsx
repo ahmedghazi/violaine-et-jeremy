@@ -20,7 +20,6 @@ const CookieConsent = ({ message }: Props) => {
     setShowConsent(true)
     setCookie("localConsent", "true", {})
   }
-  console.log(showConsent)
 
   if (showConsent) {
     return null

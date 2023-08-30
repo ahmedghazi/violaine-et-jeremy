@@ -11,6 +11,7 @@ type Props = {
 }
 
 const EmbedUI = ({ input }: Props) => {
+  const embed: Embed = input.embed as Embed
   const [ready, setReady] = useState<boolean>(false)
   const [showPlayer, setShowPlayer] = useState<boolean>(true)
 
@@ -27,12 +28,12 @@ const EmbedUI = ({ input }: Props) => {
         <div
           className="inner"
           style={{
-            aspectRatio: "640 / 304",
+            aspectRatio: embed.ratio,
           }}
         >
-          {input.embed && input.embed.url && (
+          {embed && embed.url && (
             <VideoWrapper
-              url={input.embed.url}
+              url={embed.url}
               // showControls={input.showControls}
               // // showControls={true}
               // aspectRatio={input.aspectRatio || "16 / 9"}

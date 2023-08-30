@@ -822,6 +822,13 @@ export type Embed = {
    *
    */
   url?: string
+
+  /**
+   * ratio — `string`
+   *
+   * format width / height. Ex: 1200 / 600
+   */
+  ratio?: string
 }
 
 export type Contact = {
@@ -1212,3 +1219,10 @@ export type Documents =
   | Project
   | Space
   | Tag
+
+/**
+ * This interface is a stub. It was referenced in your sanity schema but
+ * the definition was not actually found. Future versions of
+ * sanity-codegen will let you type this explicity.
+ */
+type Color = any

@@ -813,6 +813,13 @@ export type Embed = {
    *
    */
   url?: string;
+
+  /**
+   * ratio — `string`
+   *
+   * format width / height. Ex: 1200 / 600
+   */
+  ratio?: string;
 };
 
 export type Contact = {

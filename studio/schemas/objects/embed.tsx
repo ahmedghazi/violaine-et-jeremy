@@ -1,9 +1,8 @@
 import React from 'react'
 import ReactPlayer from 'react-player'
 type Props = {
-  props: {
-    url: string
-  }
+  url: string
+  renderDefault: Function
 }
 
 const EmbedPreview = (props: Props): JSX.Element => {
@@ -20,7 +19,7 @@ const EmbedPreview = (props: Props): JSX.Element => {
         cc_load_policy: 0,
         showinfo: 0,
         rel: 0,
-        origin: 'https://lome-backoffice.sanity.studio',
+        origin: 'https://violaine-et-jeremy-backoffice.sanity.studio',
       },
       embedOptions: {
         host: 'https://www.youtube-nocookie.com',
@@ -46,6 +45,11 @@ export default {
     {
       name: 'url',
       type: 'url',
+    },
+    {
+      name: 'ratio',
+      type: 'string',
+      description: 'format width / height. Ex: 1200 / 600',
     },
   ],
   components: {
