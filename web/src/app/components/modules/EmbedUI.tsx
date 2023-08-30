@@ -23,12 +23,12 @@ const EmbedUI = ({ input }: Props) => {
   }, [])
 
   return (
-    <section className={clsx("module module--embed w-full p-sm md:p-md")}>
+    <section className={clsx("module module--embed w-full p-sm- md:p-md-")}>
       {ready && (
         <div
           className="inner"
           style={{
-            aspectRatio: embed.ratio,
+            aspectRatio: embed.ratio ? embed.ratio : "640 / 360",
           }}
         >
           {embed && embed.url && (
