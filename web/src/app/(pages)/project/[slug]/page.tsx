@@ -41,7 +41,9 @@ const ProjectSingle: ({ params }: Props) => Promise<JSX.Element> = async ({
   // console.log(data.title)
   // const data: ProjectExtend = (await getProject(params.slug)) as ProjectExtend
 
-  return (
+  return !data ? (
+    <div></div>
+  ) : (
     <div className="project-single single-design px-sm md:px-md">
       <div className="header fixed top-0 left-0 flex justify-center py-sm w-full pointer-events-none z-40 text-sm md:text-md">
         <div className="inner">

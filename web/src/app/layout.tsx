@@ -6,6 +6,7 @@ import { PageContextProvider } from "./context/PageContext"
 import config from "./config/website"
 import { ReactNode } from "react"
 import CookieWrapper from "./components/ui/CookieWrapper"
+import { LenisProvider } from "./components/ui/LenisProvider"
 
 export const metadata = {
   title: {
@@ -22,14 +23,22 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body>
-        <div id="page">
-          <PageContextProvider>
-            <Header />
-            <main>{children}</main>
-            <Footer />
-            <CookieWrapper />
-          </PageContextProvider>
-        </div>
+        <LenisProvider
+          options={{
+            lerp: 0.1,
+            wheelMultiplier: 0.8,
+            smoothWheel: true,
+          }}
+        >
+          <div id="page">
+            <PageContextProvider>
+              <Header />
+              <main>{children}</main>
+              <Footer />
+              <CookieWrapper />
+            </PageContextProvider>
+          </div>
+        </LenisProvider>
       </body>
     </html>
   )

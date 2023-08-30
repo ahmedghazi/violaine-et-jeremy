@@ -30,10 +30,10 @@ const CookieConsent = ({ message }: Props) => {
       <div className="inner bg-primary text-white p-md flex place-items-end">
         <div className="mr-md">
           {/* <pre>{JSON.stringify(settings.messageCookies, null, 2)}</pre> */}
-          {/* This website uses cookies to improve user experience. By using our
+          This website uses cookies to improve user experience. By using our
           website you consent to all cookies in accordance with our Cookie
-          Policy. */}
-          <PortableText value={message} components={components} />
+          Policy.
+          {/* <PortableText value={message} components={components} /> */}
         </div>
         <button
           className="bg-green-500 py-2 px-8 rounded underline"

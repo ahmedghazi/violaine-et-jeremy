@@ -84,7 +84,7 @@ const HomeFeed = ({ input }: Props) => {
       // let targetY
       refIndex.current = delta > 0 ? refIndex.current + 1 : refIndex.current - 1
       if (refIndex.current < 1) refIndex.current = 1
-      console.log(refIndex.current)
+      // console.log(refIndex.current)
       // targetY = window.innerHeight * refIndex.current
       // if (refIndex.current === 1) {
       //   // targetY = 300
@@ -101,7 +101,7 @@ const HomeFeed = ({ input }: Props) => {
         // console.log(diff)
         // scrollTo(diff, 1000)
         smoothScrollToElement(activeItem, {
-          duration: 1200,
+          duration: 800,
           easingFunction: EASING_FUNCTIONS.slowInSlowOut,
           offsetTop: 0,
           offsetLeft: 0,
