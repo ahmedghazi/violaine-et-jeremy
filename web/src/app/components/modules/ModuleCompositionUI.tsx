@@ -106,7 +106,8 @@ const ModuleCompositionUI = ({ input }: Props) => {
         "composition grid",
         gutter ? "gap-sm md:gap-md" : "",
         input.title,
-        isHalfHalf ? "is-half-half" : ""
+        isHalfHalf ? "is-half-half" : "",
+        input.autoHeight ? "auto-height" : ""
       )}
     >
       {_renderModules()}

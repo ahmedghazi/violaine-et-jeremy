@@ -1199,6 +1199,13 @@ export type CompositionUI = {
    * Gouttière?
    */
   gutter?: boolean;
+
+  /**
+   * autoHeight — `boolean`
+   *
+   * default min screen height minus padding
+   */
+  autoHeight?: boolean;
 };
 
 export type Documents =

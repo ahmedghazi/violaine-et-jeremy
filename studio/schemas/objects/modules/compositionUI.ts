@@ -31,6 +31,11 @@ export default defineField({
       type: 'boolean',
       description: 'Gouttière?',
     }),
+    defineField({
+      name: 'autoHeight',
+      type: 'boolean',
+      description: 'default min screen height minus padding',
+    }),
   ],
   preview: {
     select: {
