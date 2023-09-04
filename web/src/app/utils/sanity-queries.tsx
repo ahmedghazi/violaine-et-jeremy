@@ -202,16 +202,21 @@ export async function getSpace(slug: string): Promise<Space> {
 //   )
 // }
 
-export async function getPageModulaire(slug: string): Promise<PageModulaire> {
-  return cachedClient(
-    groq`*[_type == "pageModulaire" && slug.current == $slug][0]{
+export const pageModulaireQuery = groq`*[_type == "pageModulaire" && slug.current == $slug][0]{
+  ...,
+  seo{
+    ...,
+    metaImage{
       ...,
-      content[]{
-        ${content}
-      },
-    }`,
-    { slug: slug }
-  )
+      asset->
+    }
+  },
+  content[]{
+    ${content}
+  },
+}`
+export async function getPageModulaire(slug: string): Promise<PageModulaire> {
+  return cachedClient(pageModulaireQuery, { slug: slug })
 }
 
 // Get all post slugs
