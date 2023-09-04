@@ -774,6 +774,13 @@ export type TextIcon = {
     crop?: SanityImageCrop;
     hotspot?: SanityImageHotspot;
   };
+
+  /**
+   * align — `string`
+   *
+   *
+   */
+  align?: "start" | "center" | "end";
 };
 
 export type Video = {

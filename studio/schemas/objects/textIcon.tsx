@@ -36,6 +36,17 @@ export default {
       name: 'icon',
       type: 'image',
     },
+    {
+      name: 'align',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'left', value: 'start'},
+          {title: 'center', value: 'center'},
+          {title: 'right', value: 'end'},
+        ],
+      },
+    },
   ],
   components: {
     preview: PreviewImage, // Add custom preview component

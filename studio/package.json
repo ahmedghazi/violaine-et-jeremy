@@ -11,7 +11,8 @@
     "deploy-graphql": "sanity graphql deploy",
     "deploy": "sanity deploy",
     "codegen": "npx sanity-codegen",
-    "d": "yarn run deploy-graphql && yarn run deploy && yarn run codegen"
+    "d": "yarn run deploy-graphql && yarn run deploy && yarn run codegen",
+    "cp": "cp types/schema.ts ../web/src/app/types/"
   },
   "keywords": [
     "sanity"
