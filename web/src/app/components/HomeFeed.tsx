@@ -22,6 +22,13 @@ const HomeFeed = ({ input }: Props) => {
   const refIndex = useRef<number>(0)
   const [index, setIndex] = useState<number>(0)
 
+  const settings: any = {
+    index: 0,
+    lastTimestamp: 0,
+    canScroll: true,
+    lastWheelDelta: 0,
+  }
+
   useEffect(() => {
     _onScroll()
     // _bindScrollSnap()
@@ -54,15 +61,15 @@ const HomeFeed = ({ input }: Props) => {
     //   })
     // }
     // asyncLoad()
-    const controller = new AbortController()
-    window.addEventListener(
-      "wheel",
-      (e) => {
-        e.preventDefault()
-        debouncedWheel(e)
-      },
-      { passive: false, signal: controller.signal }
-    )
+    // const controller = new AbortController()
+    // window.addEventListener(
+    //   "wheel",
+    //   (e) => {
+    //     e.preventDefault()
+    //     debouncedWheel(e)
+    //   },
+    //   { passive: false, signal: controller.signal }
+    // )
 
     window.addEventListener("scroll", _onScroll)
 
@@ -72,44 +79,64 @@ const HomeFeed = ({ input }: Props) => {
 
     return () => {
       window.removeEventListener("scroll", _onScroll)
-      controller.abort()
+      // controller.abort()
     }
   }, [])
 
-  const debouncedWheel = debounce(
-    300,
-    (arg) => {
-      arg.preventDefault()
-      const delta = Math.sign(arg.deltaY)
-      // let targetY
-      refIndex.current = delta > 0 ? refIndex.current + 1 : refIndex.current - 1
-      if (refIndex.current < 1) refIndex.current = 1
-      // console.log(refIndex.current)
-      // targetY = window.innerHeight * refIndex.current
-      // if (refIndex.current === 1) {
-      //   // targetY = 300
-      // }
-      // console.log(targetY)
-      // scrollTo(targetY, 1000)
-      const activeItem = ref.current?.querySelector(
-        `.home-card:nth-child(${refIndex.current})`
-      )
-      if (activeItem) {
-        // const bounding: DOMRect = activeItem.getBoundingClientRect()
-        // console.log(bounding)
-        // const diff = window.scrollY + bounding.top + 30
-        // console.log(diff)
-        // scrollTo(diff, 1000)
-        smoothScrollToElement(activeItem, {
-          duration: 800,
-          easingFunction: EASING_FUNCTIONS.slowInSlowOut,
-          offsetTop: 0,
-          offsetLeft: 0,
-        })
-      }
-    },
-    { atBegin: true }
-  )
+  // const debouncedWheel = debounce(
+  //   100,
+  //   (event) => {
+  //     event.preventDefault()
+  //     console.log(settings)
+
+  //     var domEvent = event
+  //     var delta = domEvent.deltaY
+  //     var wheelDelta = domEvent.wheelDeltaY
+  //     var timeDelta = Date.now() - settings.lastTimestamp
+  //     settings.lastTimestamp = Date.now()
+  //     var wheelDeltaDelta = Math.abs(
+  //       Math.abs(wheelDelta) - Math.abs(settings.lastWheelDelta)
+  //     )
+  //     // console.log(wheelDelta, timeDelta, wheelDeltaDelta)
+  //     if (wheelDeltaDelta > 10) {
+  //       settings.lastTimestamp = 0
+  //     }
+  //     settings.lastWheelDelta = wheelDelta
+
+  //     if (settings.canScroll && timeDelta > 100) {
+  //       if (delta > 1) {
+  //         // scroll verso basso
+  //         settings.index += 1
+  //         if (settings.index >= input.length - 1)
+  //           settings.index = input.length - 1
+  //       } else if (delta < -1) {
+  //         // scroll verso l'alto
+  //         settings.index -= 1
+  //         if (settings.index <= 0) settings.index = 0
+  //       }
+
+  //       // slideTo(slider.index)
+  //       console.log(settings.index)
+  //     }
+
+  //     // const delta = Math.sign(arg.deltaY)
+  //     // refIndex.current = delta > 0 ? refIndex.current + 1 : refIndex.current - 1
+  //     // if (refIndex.current < 1) refIndex.current = 1
+
+  //     const activeItem = ref.current?.querySelector(
+  //       `.home-card:nth-child(${settings.index})`
+  //     )
+  //     if (activeItem) {
+  //       smoothScrollToElement(activeItem, {
+  //         duration: 1000,
+  //         easingFunction: EASING_FUNCTIONS.slowInSlowOut,
+  //         offsetTop: 0,
+  //         offsetLeft: 0,
+  //       })
+  //     }
+  //   },
+  //   { atBegin: true }
+  // )
 
   // const _onWheel = (e: WheelEvent) => {
   //   const delta = Math.sign(e.deltaY)

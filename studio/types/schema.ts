@@ -357,7 +357,7 @@ export interface Project extends SanityDocument {
   /**
    * colorPalette — `array`
    *
-   *
+   * First for background, second for text, leftover for color palette
    */
   colorPalette?: Array<SanityKeyed<Color>>;
 
@@ -533,7 +533,7 @@ export interface Space extends SanityDocument {
   /**
    * colorPalette — `array`
    *
-   *
+   * First for background, second for text, leftover for color palette
    */
   colorPalette?: Array<SanityKeyed<Color>>;
 

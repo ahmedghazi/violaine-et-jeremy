@@ -44,7 +44,7 @@ export const PageContextProvider = (props: PageContextProps) => {
     setTimeout(() => {
       window.scroll(0, 0)
     }, 50)
-    document.documentElement.classList.remove("can-snap")
+    // document.documentElement.classList.remove("can-snap")
     document.documentElement.classList.toggle("is-home", pathName === "/")
     // document.documentElement.classList.toggle("can-snap", pathName === "/")
     document.documentElement.classList.toggle(

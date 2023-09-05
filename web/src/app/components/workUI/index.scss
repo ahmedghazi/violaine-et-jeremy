@@ -55,6 +55,9 @@
     }
     .tbody .tr {
       margin-bottom: toRem(11);
+      &:hover {
+        font-weight: bold;
+      }
     }
 
     .col-year {

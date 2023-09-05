@@ -17,7 +17,7 @@ export function LenisProvider({
 
   useEffect(() => {
     if (lenis) {
-      if (pathname === "/") lenis.stop()
+      if (pathname === "////") lenis.stop()
       else {
         lenis.start()
         lenis.scrollTo(0, { immediate: true })

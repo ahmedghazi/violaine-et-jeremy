@@ -59,6 +59,7 @@ export const workcontent = [
     type: 'array',
     of: [{type: 'color', name: 'color'}],
     group: 'editorial',
+    description: 'First for background, second for text, leftover for color palette',
   }),
   defineField({
     name: 'imageIntro',

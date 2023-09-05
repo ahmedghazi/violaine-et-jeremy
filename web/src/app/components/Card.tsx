@@ -50,16 +50,20 @@ const Card = ({ link, image, title, industry, colorPalette }: Props) => {
                 <div
                   className="bg-blurred"
                   style={{
-                    backgroundColor:
-                      image.metadata.palette.lightVibrant.background,
+                    backgroundColor: colorPalette
+                      ? colorPalette[0].hex
+                      : image.metadata.palette.lightVibrant.background,
                   }}
                 ></div>
                 <div
                   className="text-sm md:text-lg"
                   style={{
-                    color: image.metadata.palette.darkVibrant.background,
+                    color: colorPalette
+                      ? colorPalette[1].hex
+                      : image.metadata.palette.darkVibrant.background,
                   }}
                 >
+                  {/* <pre>{JSON.stringify(colorPalette, null, 2)}</pre> */}
                   <WorkTitle title={title || ""} subtitle={industry} />
                 </div>
 

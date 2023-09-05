@@ -79,15 +79,13 @@
 }
 
 html.is-home {
-  &.can-snap {
-    &,
-    body {
-      // scroll-snap-type: y mandatory;
-      // scroll-behavior: auto;
-      // scroll-padding-top: calc(
-      //   var(--space-100) + 3 * (var(--text-md) * 1.2) + 1.5em
-      // );
-    }
+  &,
+  body {
+    // scroll-snap-type: y mandatory;
+    // scroll-behavior: auto;
+    // scroll-padding-top: calc(
+    //   var(--space-100) + 3 * (var(--text-md) * 1.2) + 1.5em
+    // );
   }
   article.home-card,
   footer {
