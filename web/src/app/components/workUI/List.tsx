@@ -4,6 +4,7 @@ import Link from "next/link"
 import React, { useEffect, useRef } from "react"
 import ListItem from "./ListItem"
 import clsx from "clsx"
+import { usePageContext } from "@/app/context/PageContext"
 
 type Props = {
   input: WorksTextsItem[]
@@ -12,6 +13,7 @@ type Props = {
 const List = ({ input }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
   // const thead = ["year", "client", "project", "industry", "location", "link"]
+  const { worksView, setWorksView } = usePageContext()
 
   useEffect(() => {
     _onScroll()
@@ -26,8 +28,10 @@ const List = ({ input }: Props) => {
     }
   }, [])
 
-  const _onMenuClick = () => {
-    location.reload()
+  const _onMenuClick = (e: any) => {
+    e.preventDefault()
+    // location.reload()
+    setWorksView("grid")
   }
 
   const threshold: number = 120

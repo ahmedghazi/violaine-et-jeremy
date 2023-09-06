@@ -140,7 +140,6 @@ const ArticleWorkSplit = ({ input, imageIntro }: ArticleProps) => (
 
 const ArticleWork = ({ input }: Props) => {
   const imageIntro: SanityImageAsset | any = input.imageIntro?.asset
-  console.log(input.works)
   const router = useRouter()
 
   const _onClick = () => {
@@ -148,7 +147,7 @@ const ArticleWork = ({ input }: Props) => {
     const parentPage = `/works/${
       parentParts[1] === "project" ? "design" : parentParts[1]
     }`
-    console.log(parentParts, parentPage)
+    // console.log(parentParts, parentPage)
     router.push(parentPage)
   }
 

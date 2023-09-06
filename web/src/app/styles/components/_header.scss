@@ -33,8 +33,9 @@ header {
   }
   .nav-works {
     align-items: flex-start;
-    .label {
-      @media all and (min-width: $md) {
+    @media all and (min-width: $md) {
+      width: toRem(159);
+      .label {
         padding-bottom: 1em;
       }
     }
