@@ -117,23 +117,14 @@ export async function getWorks(slug: string): Promise<Work> {
   )
 }
 
-// export async function getAllWorks(type: string): Promise<(Project | Space)[]> {
-//   return cachedClient(
-//     groq`*[_type == $type ]{
-//       ...,
-//       imageCover {
-//         ...,
-//         asset->
-//       },
-//       content[]{
-//         ${content}
-//       }
-//     }`,
-//     { type: type }
-//   )
-// }
-
 /***************************************************************************************/
+// 'prev': *[
+//   _type == 'space' && !(_id in path('drafts.**')) && _createdAt < ^._createdAt
+// ]{ ${spaceCard}} | order(_createdAt desc)[0],
+// 'next': *[
+//   _type == 'space' && !(_id in path('drafts.**')) && _createdAt > ^._createdAt
+// ]{ ${spaceCard}} | order(_createdAt desc)[0]
+
 export const projectQuery = groq`*[_type == "project" && slug.current == $slug][0]{
   ...,
   imageCover {
@@ -150,12 +141,19 @@ export const projectQuery = groq`*[_type == "project" && slug.current == $slug][
   related[]->{
     ${projectCard}
   },
-  'prev': *[
-    _type == 'project' && !(_id in path('drafts.**')) && _createdAt < ^._createdAt
-  ]{ ${projectCard}} | order(_createdAt desc)[0],
-  'next': *[
-    _type == 'project' && !(_id in path('drafts.**')) && _createdAt > ^._createdAt
-  ]{ ${projectCard}} | order(_createdAt desc)[0]
+  'works':*[_type == "work" && slug.current == "design"][0]{
+    worksImages[]->{
+      _id,
+      _type,
+      slug,
+      title,
+      job,
+      imageCover {
+        ...,
+        asset->
+      },
+    }
+  }
 }`
 
 export async function getProject(slug: string): Promise<Project> {
@@ -179,12 +177,20 @@ export const spaceQuery = groq`*[_type == "space" && slug.current == $slug][0]{
   related[]->{
     ${spaceCard}
   },
-  'prev': *[
-    _type == 'space' && !(_id in path('drafts.**')) && _createdAt < ^._createdAt
-  ]{ ${spaceCard}} | order(_createdAt desc)[0],
-  'next': *[
-    _type == 'space' && !(_id in path('drafts.**')) && _createdAt > ^._createdAt
-  ]{ ${spaceCard}} | order(_createdAt desc)[0]
+
+  'works':*[_type == "work" && slug.current == "space"][0]{
+    worksImages[]->{
+      _id,
+      _type,
+      slug,
+      title,
+      job,
+      imageCover {
+        ...,
+        asset->
+      },
+    }
+  }
 }`
 
 export async function getSpace(slug: string): Promise<Space> {

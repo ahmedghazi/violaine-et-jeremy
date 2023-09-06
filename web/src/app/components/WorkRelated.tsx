@@ -6,7 +6,10 @@ import Link from "next/link"
 import WorkTitle from "./WorkTitle"
 
 type Props = {
-  input: ProjectExtend | SpaceExtend
+  input: {
+    prev: ProjectExtend | SpaceExtend
+    next: ProjectExtend | SpaceExtend
+  }
 }
 
 const WorkRelated = ({ input }: Props) => {

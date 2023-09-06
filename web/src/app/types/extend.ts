@@ -13,6 +13,9 @@ export interface ProjectExtend extends Project {
   // }
   prev: Project
   next: Project
+  works: {
+    worksImages: ProjectExtend[]
+  }
 }
 
 export interface SpaceExtend extends Space {
@@ -28,4 +31,7 @@ export interface SpaceExtend extends Space {
   // }
   prev: Project
   next: Project
+  works: {
+    worksImages: SpaceExtend[]
+  }
 }

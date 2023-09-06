@@ -1,5 +1,5 @@
 "use client"
-import React from "react"
+import React, { useMemo } from "react"
 import { useRouter } from "next/navigation"
 import { Project, SanityImageAsset, Space } from "../types/schema"
 import { PortableText } from "@portabletext/react"
@@ -140,7 +140,7 @@ const ArticleWorkSplit = ({ input, imageIntro }: ArticleProps) => (
 
 const ArticleWork = ({ input }: Props) => {
   const imageIntro: SanityImageAsset | any = input.imageIntro?.asset
-  // console.log(input.related)
+  console.log(input.works)
   const router = useRouter()
 
   const _onClick = () => {
@@ -151,6 +151,34 @@ const ArticleWork = ({ input }: Props) => {
     console.log(parentParts, parentPage)
     router.push(parentPage)
   }
+
+  const prevNext = useMemo(() => {
+    const projectIndex = input.works.worksImages.findIndex(
+      (item) => item._id === input._id
+    )
+    let prevIndex: number = 0,
+      nextIndex: number = 0
+
+    if (projectIndex === 0) {
+      prevIndex = input.works.worksImages.length - 1
+      nextIndex = projectIndex + 1
+    }
+    if (projectIndex > 0 && projectIndex < input.works.worksImages.length - 1) {
+      prevIndex = projectIndex - 1
+      nextIndex = projectIndex + 1
+    }
+
+    if (projectIndex === input.works.worksImages.length) {
+      prevIndex = projectIndex - 1
+      nextIndex = 0
+    }
+    // console.log({ prevIndex, projectIndex, nextIndex })
+    return {
+      prev: input.works.worksImages[prevIndex],
+      next: input.works.worksImages[nextIndex],
+    }
+  }, [])
+
   return (
     <div className="work-content">
       <div
@@ -168,7 +196,7 @@ const ArticleWork = ({ input }: Props) => {
       )}
 
       <WorkCredits credits={input.credits} links={input.links} />
-      <WorkRelated input={input} />
+      <WorkRelated input={prevNext} />
     </div>
   )
 }

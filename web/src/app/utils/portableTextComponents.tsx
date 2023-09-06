@@ -12,15 +12,7 @@ const components: PortableTextComponents = {
   },
   types: {
     textIcon: ({ value }) => {
-      console.log(value)
       return (
-        // <Image
-        //   src={urlFor(value.icon.asset, 360)}
-        //   alt="icon"
-        //   width={360}
-        //   height={360}
-        //   className="text-icon"
-        // />
         <div
           className={clsx(
             "text-icon flex",
