@@ -26,8 +26,8 @@ const CookieConsent = ({ message }: Props) => {
   }
 
   return (
-    <div className="fixed bottom-0 w-1/2 ml-sm- flex items-baseline justify-between  bg-gray-100 pr-sm text-sm">
-      <div className="inner bg-primary text-white p-md flex place-items-end">
+    <div className="fixed bottom-0 w-full bg-bg ">
+      <div className="inner  p-md flex place-items-end justify-center b-t w-full text-sm">
         <div className="mr-md">
           {/* <pre>{JSON.stringify(settings.messageCookies, null, 2)}</pre> */}
           This website uses cookies to improve user experience. By using our
