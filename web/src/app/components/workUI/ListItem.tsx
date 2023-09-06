@@ -14,7 +14,7 @@ type Props = {
 const ListItem = ({ input, hasLink }: Props) => {
   // const [isMobile, setIsMobile] = useState(false)
   const [active, setActive] = useState<boolean>(false)
-  const maxLen = 15
+  const maxLen = input.imagesLength || 15
   const images = useMemo(() => {
     let arr: Array<SanityImageAsset> = []
     input.content?.forEach((el: any) => {
@@ -40,8 +40,8 @@ const ListItem = ({ input, hasLink }: Props) => {
       >
         <div className="td col-year">{input.year}</div>
         <div className="td col-client hidden-sm">{input.client}</div>
-        <h2 className="td col-project hidden-sm">{input.title}</h2>
-        <h2 className="td col-client-project sm-only">{`${
+        <h2 className="td col-project hidden-sm ellipsis">{input.title}</h2>
+        <h2 className="td col-client-project sm-only ellipsis">{`${
           input.client ? `${input.client} . ` : ""
         }${input.title}`}</h2>
         <div className="td col-industry">{input.industry}</div>

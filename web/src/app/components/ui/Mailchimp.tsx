@@ -22,7 +22,7 @@ type Props = {
 const Mailchimp = (props: Props) => {
   const messages = {
     sending: "sending...",
-    success: "Inscription validée. Merci!",
+    success: "Inscription validée. Merci !",
     error: "Erreur :(",
     empty: "E-mail vide.",
     duplicate: "Trop de tentatives d'inscription pour cette adresse e-mail",
@@ -96,7 +96,9 @@ const Mailchimp = (props: Props) => {
     <>
       <form onSubmit={handleSubmit} className={clsx("mailchimp text-sm")}>
         <div className="flex  items-baseline">
-          <div className="title text-sm  md:text-md">NEWSLETTER</div>
+          {status !== "success" && (
+            <div className="title text-sm  md:text-md">NEWSLETTER</div>
+          )}
           {status !== "success" && (
             <>
               <div className="flex-2 input-wrapper">

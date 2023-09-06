@@ -101,6 +101,7 @@ export async function getWorks(slug: string): Promise<Work> {
           slug,
           location,
           title,
+          imagesLength,
           content[]{
           items[]{
             ...,

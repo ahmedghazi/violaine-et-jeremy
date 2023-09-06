@@ -1,4 +1,6 @@
+"use client"
 import React from "react"
+import { useRouter } from "next/navigation"
 import { Project, SanityImageAsset, Space } from "../types/schema"
 import { PortableText } from "@portabletext/react"
 import Image from "next/image"
@@ -6,10 +8,7 @@ import clsx from "clsx"
 import Modules from "./modules"
 // import CreditsItem from "./ui/CreditsItem"
 import WorkCredits from "./WorkCredits"
-import Link from "next/link"
 import { _linkResolver } from "../utils/utils"
-import { urlFor } from "../utils/sanity-utils"
-import WorkTitle from "./WorkTitle"
 import { ProjectExtend, SpaceExtend } from "../types/extend"
 import WorkRelated from "./WorkRelated"
 import components from "../utils/portableTextComponents"
@@ -142,8 +141,24 @@ const ArticleWorkSplit = ({ input, imageIntro }: ArticleProps) => (
 const ArticleWork = ({ input }: Props) => {
   const imageIntro: SanityImageAsset | any = input.imageIntro?.asset
   // console.log(input.related)
+  const router = useRouter()
+
+  const _onClick = () => {
+    const parentParts = location.pathname.split("/")
+    const parentPage = `/works/${
+      parentParts[1] === "project" ? "design" : parentParts[1]
+    }`
+    console.log(parentParts, parentPage)
+    router.push(parentPage)
+  }
   return (
     <div className="work-content">
+      <div
+        className="back-button fixed inset-0 "
+        onClick={_onClick}
+        role="button"
+        aria-label="back"
+      ></div>
       {input.look !== "split" && (
         <ArticleWorkDefault input={input} imageIntro={imageIntro} />
       )}
@@ -152,14 +167,7 @@ const ArticleWork = ({ input }: Props) => {
         <ArticleWorkSplit input={input} imageIntro={imageIntro} />
       )}
 
-      {/* {input.credits &&
-        input.credits.length > 0 &&
-        input.links &&
-        input.links?.length > 0 && (
-          <WorkCredits credits={input.credits} links={input.links} />
-        )} */}
       <WorkCredits credits={input.credits} links={input.links} />
-
       <WorkRelated input={input} />
     </div>
   )

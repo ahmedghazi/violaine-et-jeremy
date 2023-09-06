@@ -101,7 +101,7 @@ export const workcontent = [
   }),
   defineField({
     name: 'year',
-    type: 'number',
+    type: 'string',
     group: 'metas',
   }),
   defineField({
@@ -119,7 +119,12 @@ export const workcontent = [
     type: 'string',
     group: 'metas',
   }),
-
+  defineField({
+    name: 'imagesLength',
+    type: 'number',
+    description: "Nombre d'images à afficher dans works/texte",
+    group: 'editorial',
+  }),
   defineField({
     name: 'content',
     description: 'modular content zone (image, images, text)',

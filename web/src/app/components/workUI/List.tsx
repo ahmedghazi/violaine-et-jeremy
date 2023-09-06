@@ -16,11 +16,19 @@ const List = ({ input }: Props) => {
   useEffect(() => {
     _onScroll()
     window.addEventListener("scroll", _onScroll)
-
+    const menuItemActive = document.querySelector(
+      "nav.nav-works a.is-current-page"
+    )
+    menuItemActive?.addEventListener("click", _onMenuClick)
     return () => {
       window.removeEventListener("scroll", _onScroll)
+      menuItemActive?.removeEventListener("click", _onMenuClick)
     }
   }, [])
+
+  const _onMenuClick = () => {
+    location.reload()
+  }
 
   const threshold: number = 120
   const offset = threshold + 40 //

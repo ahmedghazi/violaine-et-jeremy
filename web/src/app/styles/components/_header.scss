@@ -32,6 +32,12 @@ header {
     }
   }
   .nav-works {
+    align-items: flex-start;
+    .label {
+      @media all and (min-width: $md) {
+        padding-bottom: 1em;
+      }
+    }
     li {
       display: flex;
       align-items: center;
@@ -40,6 +46,7 @@ header {
         display: inline-block;
         padding: 0 var(--space-sm);
         transform: translateY(-0.2em);
+        opacity: 0;
       }
     }
     @media all and (min-width: $md) {
@@ -50,6 +57,9 @@ header {
             display: flex !important;
             &::after {
               display: inline-block !important;
+            }
+            &:first-child::after {
+              opacity: 1;
             }
           }
         }

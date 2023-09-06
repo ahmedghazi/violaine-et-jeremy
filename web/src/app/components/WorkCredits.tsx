@@ -14,17 +14,19 @@ const WorkCredits = ({ credits, links }: Props) => {
         <div className="flex flex-wrap mb-50-">
           <h4>CREDITS</h4>
 
-          {credits?.map((item, i) => (
-            <div key={i} className="credits-item hidden-sm">
-              <CreditsItem
-                label={item.label || ""}
-                value={item.value || ""}
-                url={item.url || ""}
-                labelSerif={true}
-                valueSerif={false}
-              />
-            </div>
-          ))}
+          <div className="items flex flex-wrap ">
+            {credits?.map((item, i) => (
+              <div key={i} className="credits-item hidden-sm">
+                <CreditsItem
+                  label={item.label || ""}
+                  value={item.value || ""}
+                  url={item.url || ""}
+                  labelSerif={true}
+                  valueSerif={false}
+                />
+              </div>
+            ))}
+          </div>
           <ul className="credits--detail sm-only">
             {credits &&
               credits.length &&

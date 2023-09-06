@@ -366,7 +366,7 @@ export interface Project extends SanityDocument {
   /**
    * colorPalette — `array`
    *
-   *
+   * First for background, second for text, leftover for color palette
    */
   colorPalette?: Array<SanityKeyed<Color>>
 
@@ -411,11 +411,11 @@ export interface Project extends SanityDocument {
   job?: string
 
   /**
-   * year — `number`
+   * year — `string`
    *
    *
    */
-  year?: number
+  year?: string
 
   /**
    * client — `string`
@@ -437,6 +437,13 @@ export interface Project extends SanityDocument {
    *
    */
   location?: string
+
+  /**
+   * imagesLength — `number`
+   *
+   * Nombre d'images à afficher dans works/texte
+   */
+  imagesLength?: number
 
   /**
    * content — `array`
@@ -542,7 +549,7 @@ export interface Space extends SanityDocument {
   /**
    * colorPalette — `array`
    *
-   *
+   * First for background, second for text, leftover for color palette
    */
   colorPalette?: Array<SanityKeyed<Color>>
 
@@ -587,11 +594,11 @@ export interface Space extends SanityDocument {
   job?: string
 
   /**
-   * year — `number`
+   * year — `string`
    *
    *
    */
-  year?: number
+  year?: string
 
   /**
    * client — `string`
@@ -613,6 +620,13 @@ export interface Space extends SanityDocument {
    *
    */
   location?: string
+
+  /**
+   * imagesLength — `number`
+   *
+   * Nombre d'images à afficher dans works/texte
+   */
+  imagesLength?: number
 
   /**
    * content — `array`

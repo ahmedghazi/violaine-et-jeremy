@@ -1,6 +1,6 @@
 "use client"
 import { Project, Space, WorksTextsItem } from "@/app/types/schema"
-import React from "react"
+import React, { useEffect } from "react"
 import BtnsDisplay from "./BtnsDisplay"
 import Grid from "./Grid"
 import List from "./List"
@@ -14,7 +14,13 @@ type Props = {
 }
 
 const WorkUI = ({ worksImages, worksTexts, isDesign }: Props) => {
-  const { worksView } = usePageContext()
+  const { worksView, setWorksView } = usePageContext()
+
+  useEffect(() => {
+    if (!worksTexts || worksTexts.length === 0) {
+      setWorksView("grid")
+    }
+  }, [])
 
   return (
     <div className="work-ui">
