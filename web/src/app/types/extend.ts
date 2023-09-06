@@ -11,8 +11,8 @@ export interface ProjectExtend extends Project {
   //   slug?: { _type: "slug"; current: string }
   //   title: string
   // }
-  prev: Project
-  next: Project
+  // prev: Project
+  // next: Project
   works: {
     worksImages: ProjectExtend[]
   }
@@ -29,8 +29,8 @@ export interface SpaceExtend extends Space {
   //   slug?: { _type: "slug"; current: string }
   //   title: string
   // }
-  prev: Project
-  next: Project
+  // prev: Project
+  // next: Project
   works: {
     worksImages: SpaceExtend[]
   }

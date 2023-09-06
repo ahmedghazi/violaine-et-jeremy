@@ -196,7 +196,11 @@ const ArticleWork = ({ input }: Props) => {
       )}
 
       <WorkCredits credits={input.credits} links={input.links} />
-      <WorkRelated input={prevNext} />
+      <WorkRelated
+        prev={prevNext.prev}
+        next={prevNext.next}
+        related={input.related ? input.related : []}
+      />
     </div>
   )
 }
