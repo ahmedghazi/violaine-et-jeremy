@@ -71,6 +71,20 @@ export default function InfosModal({ infosData, settingsData }: Props) {
                         components={components}
                       />
                     )}
+
+                    <p className="text-xs ">
+                      <em>Visit our</em>{" "}
+                      <a
+                        href="https://vj-type.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block "
+                      >
+                        <span className="sans">FOUNDRY</span>
+                        {"  "}
+                        <span className="absolute-">↗</span>
+                      </a>
+                    </p>
                   </div>
                   <div className="hidden-sm">
                     <Credits />

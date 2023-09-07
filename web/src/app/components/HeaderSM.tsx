@@ -49,7 +49,7 @@ const HeaderSM = ({ titleAlt, settings, infos }: Props) => {
         >
           {/* <div className="icon">✾</div>
           <div className="burger"></div> */}
-          {open ? "CLOSE" : "MENU"}
+          {open ? "CLOSE" : "WORKS"}
         </button>
         <div className="w-1/3 flex justify-end">
           <InfosModal infosData={infos} settingsData={settings} />
@@ -69,7 +69,7 @@ const HeaderSM = ({ titleAlt, settings, infos }: Props) => {
               ))}
             </ul>
           </nav>
-          <nav className="nav-studio relative">
+          {/* <nav className="nav-studio relative">
             <ul className="flex ">
               {settings.navStudio?.map((item: LinkInternal | LinkExternal) => (
                 <li key={item.label} className="">
@@ -85,7 +85,7 @@ const HeaderSM = ({ titleAlt, settings, infos }: Props) => {
                 </li>
               ))}
             </ul>
-          </nav>
+          </nav> */}
         </div>
       </div>
     </div>
