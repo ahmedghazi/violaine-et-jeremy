@@ -5,9 +5,10 @@ type Props = {
 }
 
 const ColorPalette = ({ input }: Props) => {
+  const items = input.length >= 3 ? input.slice(2, input.length) : []
   return (
     <div className="image-color-palette grid grid-cols-3 z-50 text-sm">
-      {input.map((item, i) => (
+      {items.map((item, i) => (
         <div
           key={i}
           className="aspect-square center-x-y ellipsis "
