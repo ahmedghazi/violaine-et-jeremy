@@ -52,7 +52,8 @@ const Card = ({ link, image, title, industry, colorPalette }: Props) => {
                   style={{
                     backgroundColor: colorPalette
                       ? colorPalette[0].hex
-                      : image.metadata.palette.lightVibrant.background,
+                      : // : image.metadata.palette.lightVibrant.background,
+                        "black",
                   }}
                 ></div>
                 <div
@@ -60,7 +61,8 @@ const Card = ({ link, image, title, industry, colorPalette }: Props) => {
                   style={{
                     color: colorPalette
                       ? colorPalette[1].hex
-                      : image.metadata.palette.darkVibrant.background,
+                      : // : image.metadata.palette.darkVibrant.background,
+                        "white",
                   }}
                 >
                   {/* <pre>{JSON.stringify(colorPalette, null, 2)}</pre> */}
