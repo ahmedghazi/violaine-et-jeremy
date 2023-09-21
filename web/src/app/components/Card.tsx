@@ -19,6 +19,7 @@ type Props = {
 
 const Card = ({ link, image, title, industry, colorPalette }: Props) => {
   const [hover, setHover] = useState<boolean>(false)
+  console.log(colorPalette)
   return (
     <article
       className={clsx("card", hover ? "is-hover" : "")}
@@ -50,19 +51,21 @@ const Card = ({ link, image, title, industry, colorPalette }: Props) => {
                 <div
                   className="bg-blurred"
                   style={{
-                    backgroundColor: colorPalette
-                      ? colorPalette[0].hex
-                      : // : image.metadata.palette.lightVibrant.background,
-                        "black",
+                    backgroundColor:
+                      colorPalette && colorPalette?.length > 0
+                        ? colorPalette[0].hex
+                        : // : image.metadata.palette.lightVibrant.background,
+                          "white",
                   }}
                 ></div>
                 <div
                   className="text-sm md:text-lg"
                   style={{
-                    color: colorPalette
-                      ? colorPalette[1].hex
-                      : // : image.metadata.palette.darkVibrant.background,
-                        "white",
+                    color:
+                      colorPalette && colorPalette?.length > 1
+                        ? colorPalette[1].hex
+                        : // : image.metadata.palette.darkVibrant.background,
+                          "black",
                   }}
                 >
                   {/* <pre>{JSON.stringify(colorPalette, null, 2)}</pre> */}

@@ -20,7 +20,8 @@ const Grid = ({ input, withColorPalette }: Props) => {
             industry={item.industry || ""}
             link={_linkResolver(item) || ""}
             image={item.imageCover?.asset || null}
-            colorPalette={withColorPalette ? item.colorPalette : null}
+            // colorPalette={withColorPalette ? item.colorPalette : null}
+            colorPalette={item.colorPalette}
           />
         ))}
     </div>
