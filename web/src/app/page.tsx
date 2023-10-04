@@ -23,9 +23,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const Home: () => Promise<JSX.Element> = async () => {
-  const preview = draftMode().isEnabled
-    ? { token: process.env.SANITY_API_READ_TOKEN }
-    : undefined
+  // const preview = draftMode().isEnabled
+  //   ? { token: process.env.SANITY_API_READ_TOKEN }
+  //   : undefined
   const data = await getHome()
 
   // const { isEnabled: preview } = draftMode()
