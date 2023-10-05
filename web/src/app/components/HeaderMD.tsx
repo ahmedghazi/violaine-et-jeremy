@@ -4,6 +4,7 @@ import { Infos, LinkExternal, LinkInternal, Settings } from "../types/schema"
 import NavLink from "./NavLink"
 import InfosModal from "./InfosModal"
 import clsx from "clsx"
+import { _linkResolver } from "../utils/utils"
 
 type Props = {
   titleAlt: string
@@ -20,7 +21,17 @@ const HeaderMD = ({ titleAlt, settings, infos }: Props) => {
             {titleAlt}
           </Link>
           <nav className="nav-works col-item  relative flex btn">
-            <div className="label">{settings.navWorksLabel}</div>
+            <div className="label">
+              <Link
+                href={
+                  settings.navWorks
+                    ? _linkResolver(settings.navWorks[0].link)
+                    : "/works/design"
+                }
+              >
+                {settings.navWorksLabel}
+              </Link>
+            </div>
             <ul className="flex absolute- top-0-">
               {settings.navWorks?.map((item: LinkInternal) => (
                 <li

@@ -27,22 +27,25 @@ const Contacts = ({ input, linkLegals }: Props) => {
       setStudioContact(text[0])
     }
   }, [])
+
   return (
     <div className="contacts flex flex-wrap" ref={ref}>
       {input?.map((item, i) => (
         <div className="footer-item" key={i}>
           <h5 className="text-sm md:text-md">{item.title}</h5>
-          <div className="text-xs md:text-sm">
-            {item.title?.toLowerCase() !== "contact" && item?.text && (
-              <PortableText value={item?.text} components={components} />
-            )}
-            {item.title?.toLowerCase() === "contact" && studioContact && (
-              <PortableText
-                value={studioContact.text}
-                components={components}
-              />
-            )}
-          </div>
+          {item.title?.toLowerCase() !== "contact" && (
+            <div className="text-xs md:text-sm">
+              {item.title?.toLowerCase() !== "contact" && item?.text && (
+                <PortableText value={item?.text} components={components} />
+              )}
+              {item.title?.toLowerCase() === "contact" && studioContact && (
+                <PortableText
+                  value={studioContact.text}
+                  components={components}
+                />
+              )}
+            </div>
+          )}
         </div>
       ))}
       <div className="footer-item">

@@ -320,7 +320,9 @@ img[data-sizes="auto"] {
 }
 
 ::selection {
-  color: blue;
+  // color: blue;
+  background-color: var(--color-yellow);
+  color: black;
 }
 
 iframe {

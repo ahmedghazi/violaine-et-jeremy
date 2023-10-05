@@ -26,9 +26,9 @@ const CookieConsent = ({ message }: Props) => {
   }
 
   return (
-    <div className="fixed bottom-0 w-full bg-bg ">
+    <div className="fixed bottom-0 w-full bg-bg z-50">
       <div className="inner  p-md flex place-items-end justify-center b-t w-full text-sm">
-        <div className="mr-md">
+        <div className="mr-md serif">
           {/* <pre>{JSON.stringify(settings.messageCookies, null, 2)}</pre> */}
           This website uses cookies to improve user experience. By using our
           website you consent to all cookies in accordance with our Cookie

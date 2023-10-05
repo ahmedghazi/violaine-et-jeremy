@@ -52,6 +52,11 @@
       //     min-height: toRem(150);
       //   }
       // }
+      &.no-link {
+        figure {
+          pointer-events: none;
+        }
+      }
     }
     .tbody .tr {
       margin-bottom: toRem(11);

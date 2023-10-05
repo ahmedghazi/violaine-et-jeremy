@@ -19,7 +19,7 @@
   .spacer {
     transition: height 0.4s ease;
     &.collapse {
-      height: 0;
+      height: 0vh;
     }
   }
   .feed {
@@ -27,6 +27,7 @@
     padding-top: 95px;
     padding-top: 195px;
     padding-top: 35vh;
+    padding-top: 50vh;
     // padding-top: 0;
   }
   .home-card {
@@ -34,13 +35,34 @@
     opacity: 0;
     transition: opacity 0.2s;
     // min-height: 100vh;
-    padding-top: calc(90px + var(--textAboutHeight));
-    &:not(:last-child) {
-      margin-bottom: calc(200px + var(--textAboutHeight));
+    // background-color: red;
+    .industry {
+      // padding-top: calc(90px + var(--textAboutHeight));
+    }
+    &:not(:last-child) .infos {
+      padding-bottom: calc(200px + var(--textAboutHeight));
       @media all and (max-width: $sm) {
-        margin-bottom: toRem(190);
+        padding-bottom: toRem(190);
       }
     }
+    &:last-child .infos {
+      // background-color: red;
+      position: absolute;
+      width: 100%;
+    }
+    // a {
+    //   padding-top: calc(90px + var(--textAboutHeight));
+    //   display: block;
+    //   background-color: red;
+    // }
+    // &:not(:last-child) .infos {
+    //   // margin-bottom: calc(200px + var(--textAboutHeight));
+    //   padding-bottom: calc(200px + var(--textAboutHeight));
+    //   @media all and (max-width: $sm) {
+    //     // margin-bottom: toRem(190);
+    //     padding-bottom: toRem(190);
+    //   }
+    // }
     &:last-child {
       // margin-bottom: calc(1em + toRem(32));
     }
@@ -48,8 +70,8 @@
       opacity: 1;
     }
     .infos {
-      position: absolute;
-      width: 100%;
+      // position: absolute;
+      // width: 100%;
     }
     .header {
       line-height: 1.2;
@@ -59,10 +81,14 @@
     }
     .industry {
       line-height: 1.2;
-
+      z-index: 1;
       display: flex;
       justify-content: space-evenly;
       margin-bottom: toRem(5);
+      position: sticky;
+      top: calc(100px + var(--textAboutHeight) + 1em);
+      color: white;
+      mix-blend-mode: difference;
       .inner {
         min-width: var(--min-width);
         max-width: calc(100vw - calc(var(--space-md) * 2));

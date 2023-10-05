@@ -58,29 +58,31 @@ const HomeCard = ({ input }: Props) => {
             {_splitText()}
           </div>
         </div>
-        {image && (
-          <figure className="mb-sm md:mb-1e">
-            <Image
-              src={image.url}
-              width={image?.metadata?.dimensions.width}
-              height={image?.metadata?.dimensions.height}
-              alt={input.title || "alt"}
-              sizes="100vw"
-              style={{
-                width: "100%",
-                height: "auto",
-              }}
-              blurDataURL={image?.metadata?.lqip}
-              placeholder="blur"
-            />
-          </figure>
-        )}
-        <div className="infos text-xs md:text-sm">
-          <div className="header">
-            <WorkTitle title={input.title || ""} subtitle={input.job} />
-          </div>
+        <div>
+          {image && (
+            <figure className="mb-sm md:mb-1e">
+              <Image
+                src={image.url}
+                width={image?.metadata?.dimensions.width}
+                height={image?.metadata?.dimensions.height}
+                alt={input.title || "alt"}
+                sizes="100vw"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
+                blurDataURL={image?.metadata?.lqip}
+                placeholder="blur"
+              />
+            </figure>
+          )}
+          <div className="infos text-xs md:text-sm">
+            <div className="header">
+              <WorkTitle title={input.title || ""} subtitle={input.job} />
+            </div>
 
-          <p className="text-center italic-">{input.description}</p>
+            <p className="text-center italic-">{input.description}</p>
+          </div>
         </div>
       </Link>
     </article>

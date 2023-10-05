@@ -31,7 +31,7 @@ const ListItem = ({ input, hasLink }: Props) => {
   }, [])
 
   return (
-    <div className="tr project">
+    <div className={clsx("tr project", hasLink ? "has-link" : "no-link")}>
       <div
         className="flex pb-xs btn"
         onClick={() => setActive(!active)}
@@ -67,10 +67,10 @@ const ListItem = ({ input, hasLink }: Props) => {
               <Image
                 src={urlFor(
                   image.url,
-                  Math.round(130 * image?.metadata?.dimensions.aspectRatio)
+                  Math.round(260 * image?.metadata?.dimensions.aspectRatio)
                 )}
-                width={130 * image?.metadata?.dimensions.aspectRatio}
-                height={130}
+                width={260 * image?.metadata?.dimensions.aspectRatio}
+                height={260}
                 alt={input.title || "alt"}
                 sizes="100vw"
                 blurDataURL={image?.metadata?.lqip}

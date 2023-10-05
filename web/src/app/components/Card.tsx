@@ -19,7 +19,7 @@ type Props = {
 
 const Card = ({ link, image, title, industry, colorPalette }: Props) => {
   const [hover, setHover] = useState<boolean>(false)
-  console.log(colorPalette)
+  // console.log(colorPalette)
   return (
     <article
       className={clsx("card", hover ? "is-hover" : "")}

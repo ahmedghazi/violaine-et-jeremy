@@ -180,12 +180,12 @@ const ArticleWork = ({ input }: Props) => {
 
   return (
     <div className="work-content">
-      <div
+      {/* <div
         className="back-button fixed inset-0 "
         onClick={_onClick}
         role="button"
         aria-label="back"
-      ></div>
+      ></div> */}
       {input.look !== "split" && (
         <ArticleWorkDefault input={input} imageIntro={imageIntro} />
       )}
