@@ -1,6 +1,7 @@
 import React from "react"
 import { Contact, Project } from "../types/schema"
 import CreditsItem from "./ui/CreditsItem"
+import clsx from "clsx"
 
 type Props = {
   credits?: Contact[]
@@ -8,6 +9,7 @@ type Props = {
 }
 
 const WorkCredits = ({ credits, links }: Props) => {
+  const hasCredits = credits && credits.length > 0
   return (
     <section className="credits b-t py-50 text-sm md:text-md">
       {credits && credits.length && (
@@ -45,7 +47,9 @@ const WorkCredits = ({ credits, links }: Props) => {
         </div>
       )}
       {links && links.length && (
-        <div className="flex has-space-top flex-wrap">
+        <div
+          className={clsx("flex  flex-wrap", hasCredits ? "has-space-top" : "")}
+        >
           <h4>LINKS</h4>
           <div className="items flex flex-wrap">
             {links?.map((item, i) => (
