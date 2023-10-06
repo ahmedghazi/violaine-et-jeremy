@@ -1,7 +1,7 @@
 "use client"
 import React, { useMemo } from "react"
 import { useRouter } from "next/navigation"
-import { Project, SanityImageAsset, Space } from "../types/schema"
+import { Contact, Project, SanityImageAsset, Space } from "../types/schema"
 import { PortableText } from "@portabletext/react"
 import Image from "next/image"
 import clsx from "clsx"
@@ -12,6 +12,7 @@ import { _linkResolver } from "../utils/utils"
 import { ProjectExtend, SpaceExtend } from "../types/extend"
 import WorkRelated from "./WorkRelated"
 import components from "../utils/portableTextComponents"
+import CreditsItem from "./ui/CreditsItem"
 
 type Props = {
   input: ProjectExtend | SpaceExtend
@@ -64,6 +65,21 @@ const ArticleWorkDefault = ({ input, imageIntro }: ArticleProps) => (
                 <PortableText value={input.text} components={components} />
               )}
             </div>
+            <ul className="intro-credits">
+              {input.introCredits?.length &&
+                input.introCredits.map((item: Contact, i: number) => (
+                  <li key={item.label}>
+                    {/* <span className="serif">{ item.label}</span> */}
+                    <CreditsItem
+                      label={item.label || ""}
+                      value={item.value || ""}
+                      url={item.url || ""}
+                      labelSerif={true}
+                      valueSerif={false}
+                    />
+                  </li>
+                ))}
+            </ul>
           </div>
         </div>
       </div>

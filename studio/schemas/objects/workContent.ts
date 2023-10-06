@@ -75,6 +75,17 @@ export const workcontent = [
     group: 'editorial',
   }),
   defineField({
+    name: 'introCredits',
+    type: 'array',
+    of: [
+      defineArrayMember({
+        type: 'contact',
+        name: 'contact',
+      }),
+    ],
+    group: 'editorial',
+  }),
+  defineField({
     name: 'textIntroDrapeau',
     type: 'boolean',
     group: 'editorial',

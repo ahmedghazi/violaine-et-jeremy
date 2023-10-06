@@ -381,6 +381,13 @@ export interface Project extends SanityDocument {
   text?: BlockContent;
 
   /**
+   * introCredits — `array`
+   *
+   *
+   */
+  introCredits?: Array<SanityKeyed<Contact>>;
+
+  /**
    * textIntroDrapeau — `boolean`
    *
    * default false
@@ -562,6 +569,13 @@ export interface Space extends SanityDocument {
    *
    */
   text?: BlockContent;
+
+  /**
+   * introCredits — `array`
+   *
+   *
+   */
+  introCredits?: Array<SanityKeyed<Contact>>;
 
   /**
    * textIntroDrapeau — `boolean`

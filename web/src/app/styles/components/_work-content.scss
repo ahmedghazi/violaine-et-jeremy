@@ -89,7 +89,13 @@
     .text {
       text-align: center;
     }
-
+    .intro-credits {
+      margin-top: 1.5em;
+      font-size: 1.13333333em;
+      li:not(:last-child) {
+        margin-bottom: 0.5em;
+      }
+    }
     &.is-drapeau {
       .flex {
         @media all and (min-width: $md) {
