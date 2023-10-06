@@ -2,32 +2,32 @@
 import React, { useEffect, useRef, useState } from "react"
 import { Project, Space } from "../types/schema"
 import HomeCard from "./HomeCard"
-import { debounce } from "throttle-debounce"
-import scrollTo from "../utils/scrollTo"
-import {
-  smoothScrollToElement,
-  EASING_FUNCTIONS,
-} from "../utils/sliding-scroll.min.js"
+// import { debounce } from "throttle-debounce"
+// import scrollTo from "../utils/scrollTo"
+// import {
+//   smoothScrollToElement,
+//   EASING_FUNCTIONS,
+// } from "../utils/sliding-scroll.min.js"
 type Props = {
   input: Project[] | Space[]
 }
 
-type WinSize = {
-  width: number
-  height: number
-}
+// type WinSize = {
+//   width: number
+//   height: number
+// }
 
 const HomeFeed = ({ input }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
-  const refIndex = useRef<number>(0)
-  const [index, setIndex] = useState<number>(0)
+  // const refIndex = useRef<number>(0)
+  // const [index, setIndex] = useState<number>(0)
 
-  const settings: any = {
-    index: 0,
-    lastTimestamp: 0,
-    canScroll: true,
-    lastWheelDelta: 0,
-  }
+  // const settings: any = {
+  //   index: 0,
+  //   lastTimestamp: 0,
+  //   canScroll: true,
+  //   lastWheelDelta: 0,
+  // }
 
   useEffect(() => {
     _onScroll()

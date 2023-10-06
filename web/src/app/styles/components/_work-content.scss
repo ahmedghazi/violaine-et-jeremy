@@ -86,8 +86,12 @@
       }
       flex-shrink: 0;
     }
+
     .text {
       text-align: center;
+      @media all and (orientation: landscape) and (max-width: 1080px) {
+        margin: 0 auto;
+      }
     }
     .intro-credits {
       margin-top: 1.5em;

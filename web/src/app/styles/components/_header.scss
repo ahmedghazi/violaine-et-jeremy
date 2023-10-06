@@ -58,10 +58,14 @@ header {
         transform: translateY(-0.2em);
         opacity: 0;
       }
+      a:hover {
+        text-decoration: underline;
+      }
     }
-    &:hover a.is-current-page {
-      text-decoration: underline;
-    }
+    // &:hover a.is-current-page {
+    //   text-decoration: underline;
+    // }
+
     @media all and (min-width: $md) {
       &:hover {
         ul {
@@ -86,6 +90,7 @@ header {
 
   @media all and (max-width: $md) {
     padding: toRem(7) toRem(10);
+    padding-top: 0;
     .header--sm {
       .btn-menu-toggle {
         transition: transform 0.4s cubic-bezier(0.53, 0, 0.36, 1),
@@ -96,69 +101,75 @@ header {
         transform: translateY(-100%);
       }
     }
-    .btn-menu-toggle {
-      // font-size: toRem(22);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      .icon {
-        line-height: 1;
-      }
-      .burger {
-        @include burger(15px, 1px, 4px);
-      }
-      &.is-open .burger {
-        @include burger-to-cross();
-      }
+    .nav-link a,
+    button.btn-toggle {
+      padding-top: 0.375rem;
+      padding-bottom: 0.375rem;
+      display: inline-block;
     }
-    .nav-overlay {
-      height: 100vh;
-      @media all and (min-width: $md) {
-        max-height: calc(100vh - var(--space-md));
-      }
-      background-color: white;
-      position: fixed;
-      padding-top: var(--space-100);
-      opacity: 0;
-      transform: translateY(-100%);
-      // transition: opacity 0.6s var(--cubic), transform 0.6s var(--cubic);
-      &.is-open {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    // .btn-menu-toggle {
+    //   // font-size: toRem(22);
+    //   display: flex;
+    //   flex-direction: column;
+    //   align-items: center;
+    //   .icon {
+    //     line-height: 1;
+    //   }
+    //   .burger {
+    //     @include burger(15px, 1px, 4px);
+    //   }
+    //   &.is-open .burger {
+    //     @include burger-to-cross();
+    //   }
+    // }
+    // .nav-overlay {
+    //   height: 100vh;
+    //   @media all and (min-width: $md) {
+    //     max-height: calc(100vh - var(--space-md));
+    //   }
+    //   background-color: white;
+    //   position: fixed;
+    //   padding-top: var(--space-100);
+    //   opacity: 0;
+    //   transform: translateY(-100%);
+    //   // transition: opacity 0.6s var(--cubic), transform 0.6s var(--cubic);
+    //   &.is-open {
+    //     opacity: 1;
+    //     transform: translateY(0);
+    //   }
 
-      & > .inner {
-        // height: 100%;
-        // place-items: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        .col-item:empty {
-          display: none;
-        }
-        .nav-works {
-          text-align: center;
-          margin-bottom: toRem(72);
-          .label {
-            margin-bottom: toRem(23);
-          }
-          ul {
-            display: flex;
-            position: initial;
-            li {
-              padding-left: var(--space-sm);
-              padding-left: 0;
-              &::after {
-                margin: 0 1em;
-              }
-            }
-          }
-        }
-        .nav-studio {
-          transform: translateX(calc(toRem(5) * -1));
-        }
-      }
-    }
+    //   & > .inner {
+    //     // height: 100%;
+    //     // place-items: center;
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     .col-item:empty {
+    //       display: none;
+    //     }
+    //     .nav-works {
+    //       text-align: center;
+    //       margin-bottom: toRem(72);
+    //       .label {
+    //         margin-bottom: toRem(23);
+    //       }
+    //       ul {
+    //         display: flex;
+    //         position: initial;
+    //         li {
+    //           padding-left: var(--space-sm);
+    //           padding-left: 0;
+    //           &::after {
+    //             margin: 0 1em;
+    //           }
+    //         }
+    //       }
+    //     }
+    //     .nav-studio {
+    //       transform: translateX(calc(toRem(5) * -1));
+    //     }
+    //   }
+    // }
   }
 }
 

@@ -42,7 +42,7 @@ const WorkRelated = ({ prev, next, related }: Props) => {
       {related && related?.length > 0 && (
         <div className="related-cards -mx-sm md:mx-0">
           <h4 className="text-center text-xs md:text-sm mb-1re">
-            Other projects in the same style
+            See other delights
           </h4>
           <div className="flex justify-center items-start- items-baseline gap-sm md:gap-md">
             {related?.slice(0, 3).map((item) => (

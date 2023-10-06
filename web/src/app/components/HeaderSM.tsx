@@ -51,7 +51,7 @@ const HeaderSM = ({ titleAlt, settings, infos }: Props) => {
           {open ? "CLOSE" : "WORKS"}
         </button> */}
         {settings.navWorks?.map((item: LinkInternal) => (
-          <div key={item.label} className="w-1/4- uppercase">
+          <div key={item.label} className="w-1/4- uppercase nav-link">
             <NavLink input={item} />
           </div>
         ))}
@@ -59,7 +59,7 @@ const HeaderSM = ({ titleAlt, settings, infos }: Props) => {
           <InfosModal infosData={infos} settingsData={settings} />
         </div>
       </div>
-      <div
+      {/* <div
         className={clsx("nav-overlay fixed inset-0 z-0", open ? "is-open" : "")}
       >
         <div className="inner">
@@ -73,25 +73,9 @@ const HeaderSM = ({ titleAlt, settings, infos }: Props) => {
               ))}
             </ul>
           </nav>
-          {/* <nav className="nav-studio relative">
-            <ul className="flex ">
-              {settings.navStudio?.map((item: LinkInternal | LinkExternal) => (
-                <li key={item.label} className="">
-                  {item._type === "linkExternal" && (
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {item.label} <span className="absolute">↗</span>
-                    </a>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </nav> */}
+
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
