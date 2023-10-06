@@ -3,6 +3,7 @@ header {
   width: 100%;
   top: 0;
   padding: toRem(6) var(--space-md);
+  padding: 0 var(--space-md);
   z-index: 40;
   z-index: 251;
   // background-color: white;
@@ -11,6 +12,14 @@ header {
   .col-item {
     // width: var(--space-100);
     min-width: var(--space-100);
+  }
+  .site-name,
+  // .label,
+  nav a,
+  nav button {
+    padding-top: toRem(6);
+    padding-bottom: toRem(6);
+    display: inline-block;
   }
 
   .site-name {
@@ -49,6 +58,9 @@ header {
         transform: translateY(-0.2em);
         opacity: 0;
       }
+    }
+    &:hover a.is-current-page {
+      text-decoration: underline;
     }
     @media all and (min-width: $md) {
       &:hover {

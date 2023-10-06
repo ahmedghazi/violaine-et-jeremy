@@ -11,10 +11,10 @@ const WorkCredits = ({ credits, links }: Props) => {
   return (
     <section className="credits b-t py-50 text-sm md:text-md">
       {credits && credits.length && (
-        <div className="flex flex-wrap mb-50-">
+        <div className="flex flex-wrap">
           <h4>CREDITS</h4>
 
-          <div className="items flex flex-wrap  ">
+          <div className="items flex flex-wrap">
             {credits?.map((item, i) => (
               <div key={i} className="credits-item pr-lg hidden-sm">
                 <CreditsItem
@@ -47,17 +47,19 @@ const WorkCredits = ({ credits, links }: Props) => {
       {links && links.length && (
         <div className="flex has-space-top flex-wrap">
           <h4>LINKS</h4>
-          {links?.map((item, i) => (
-            <div key={i} className="credits-item hidden-sm">
-              <CreditsItem
-                label={item.label || ""}
-                value={item.value || ""}
-                url={item.url || ""}
-                labelSerif={true}
-                valueSerif={false}
-              />
-            </div>
-          ))}
+          <div className="items flex flex-wrap">
+            {links?.map((item, i) => (
+              <div key={i} className="credits-item hidden-sm">
+                <CreditsItem
+                  label={item.label || ""}
+                  value={item.value || ""}
+                  url={item.url || ""}
+                  labelSerif={true}
+                  valueSerif={false}
+                />
+              </div>
+            ))}
+          </div>
 
           <ul className="credits--detail sm-only">
             {links?.map((item, i) => (

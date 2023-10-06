@@ -64,7 +64,7 @@ const ListItem = ({ input, hasLink }: Props) => {
         >
           {images.map((image, i) => (
             <figure key={i}>
-              {/* <Image
+              <Image
                 src={urlFor(
                   image.url,
                   Math.round(260 * image?.metadata?.dimensions.aspectRatio)
@@ -75,15 +75,16 @@ const ListItem = ({ input, hasLink }: Props) => {
                 sizes="100vw"
                 blurDataURL={image?.metadata?.lqip}
                 placeholder="blur"
-              /> */}
-              <img
+                unoptimized
+              />
+              {/* <img
                 src={urlFor(
                   image.url,
                   Math.round(260 * image?.metadata?.dimensions.aspectRatio)
                 )}
                 alt={input.title || "alt"}
                 loading="lazy"
-              />
+              /> */}
             </figure>
           ))}
         </div>

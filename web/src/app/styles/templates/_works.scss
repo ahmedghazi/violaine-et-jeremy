@@ -6,7 +6,8 @@
       opacity 0.4s cubic-bezier(0.53, 0, 0.36, 1);
     @media all and (min-width: $md) {
       top: 0;
-      padding-top: 0.85em;
+      padding: 0;
+      // padding-top: 0.85em;
     }
     @media all and (max-width: $md) {
       color: white;
@@ -17,6 +18,7 @@
     }
     button {
       position: absolute;
+      padding: 0.75em 0;
       &:first-child {
         right: var(--space-sm);
       }
