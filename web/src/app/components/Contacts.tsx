@@ -23,7 +23,7 @@ const Contacts = ({ input, linkLegals }: Props) => {
   useEffect(() => {
     const text = input?.filter((el) => el.title?.toLowerCase() === "contact")
     if (text) {
-      // console.log(text[0])
+      console.log(text[0])
       setStudioContact(text[0])
     }
   }, [])
@@ -33,19 +33,18 @@ const Contacts = ({ input, linkLegals }: Props) => {
       {input?.map((item, i) => (
         <div className="footer-item" key={i}>
           <h5 className="text-sm md:text-md">{item.title}</h5>
-          {item.title?.toLowerCase() !== "contact" && (
-            <div className="text-xs md:text-sm">
-              {item.title?.toLowerCase() !== "contact" && item?.text && (
-                <PortableText value={item?.text} components={components} />
-              )}
-              {item.title?.toLowerCase() === "contact" && studioContact && (
-                <PortableText
-                  value={studioContact.text}
-                  components={components}
-                />
-              )}
-            </div>
-          )}
+
+          <div className="text-xs md:text-sm">
+            {item.title?.toLowerCase() !== "contact" && item?.text && (
+              <PortableText value={item?.text} components={components} />
+            )}
+            {item.title?.toLowerCase() === "contact" && studioContact && (
+              <PortableText
+                value={studioContact.text}
+                components={components}
+              />
+            )}
+          </div>
         </div>
       ))}
       <div className="footer-item">
