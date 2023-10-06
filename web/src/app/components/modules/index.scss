@@ -76,7 +76,10 @@ article.look-default .modules {
       & > img {
         height: auto !important;
       }
-      .icon {
+      div.text-icon {
+        justify-content: center;
+      }
+      img.text-icon {
         max-width: 4em;
         height: auto !important;
       }

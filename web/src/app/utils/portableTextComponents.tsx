@@ -23,7 +23,7 @@ const components: PortableTextComponents = {
             src={urlForNoWidth(value.icon.asset)}
             alt="text-icon"
             loading="lazy"
-            // className="text-icon"
+            className="text-icon"
           />
         </div>
       )
