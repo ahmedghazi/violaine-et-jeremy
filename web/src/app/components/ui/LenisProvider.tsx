@@ -3,14 +3,7 @@ import { Lenis as ReactLenis, useLenis } from "@studio-freight/react-lenis"
 import { useEffect } from "react"
 import { usePathname } from "next/navigation"
 
-export function LenisProvider({
-  children,
-  options,
-  ...props
-}: {
-  children: React.ReactNode
-  options?: any
-}) {
+export function LenisProvider({ children }: { children: React.ReactNode }) {
   ;``
   const pathname = usePathname()
   const lenis = useLenis()
@@ -29,7 +22,14 @@ export function LenisProvider({
   }, [pathname, lenis])
 
   return (
-    <ReactLenis root {...props}>
+    <ReactLenis
+      root
+      options={{
+        lerp: 0.1,
+        wheelMultiplier: 0.6,
+        smoothWheel: true,
+      }}
+    >
       {children}
     </ReactLenis>
   )

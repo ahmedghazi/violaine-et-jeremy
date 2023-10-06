@@ -23,13 +23,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body>
-        <LenisProvider
-          options={{
-            lerp: 0.1,
-            wheelMultiplier: 0.8,
-            smoothWheel: true,
-          }}
-        >
+        <LenisProvider>
           <div id="page">
             <PageContextProvider>
               <Header />
