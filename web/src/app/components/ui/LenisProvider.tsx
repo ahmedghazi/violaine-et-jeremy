@@ -20,8 +20,8 @@ export function LenisProvider({
       if (pathname === "////") lenis.stop()
       else {
         lenis.start()
-        lenis.scrollTo(0, { immediate: true })
-        const resize = setInterval(() => {
+        // lenis.scrollTo(0, { immediate: true })
+        const resize = setTimeout(() => {
           lenis.resize()
         }, 150)
       }
