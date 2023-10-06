@@ -100,6 +100,13 @@ const ModuleCompositionUI = ({ input }: Props) => {
     return notHalfHalf && notHalfHalf?.length === 0
   }, [])
 
+  const isTriplette = useMemo(() => {
+    if (items?.length !== 3) return false
+    const gridSizes = items?.map((el) => el.gridSize)
+    const notTriplette = gridSizes?.filter((el) => el !== "third")
+    return notTriplette && notTriplette?.length === 0
+  }, [])
+
   return (
     <section
       className={clsx(
@@ -107,6 +114,7 @@ const ModuleCompositionUI = ({ input }: Props) => {
         gutter ? "gap-sm md:gap-md" : "",
         input.title,
         isHalfHalf ? "is-half-half" : "",
+        isTriplette ? "is-triplette" : "",
         input.autoHeight ? "auto-height" : ""
       )}
     >

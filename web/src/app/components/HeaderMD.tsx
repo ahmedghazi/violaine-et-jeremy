@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link"
 import React from "react"
 import { Infos, LinkExternal, LinkInternal, Settings } from "../types/schema"
@@ -5,6 +6,8 @@ import NavLink from "./NavLink"
 import InfosModal from "./InfosModal"
 import clsx from "clsx"
 import { _linkResolver } from "../utils/utils"
+import { usePageContext } from "../context/PageContext"
+import { usePathname } from "next/navigation"
 
 type Props = {
   titleAlt: string
@@ -13,6 +16,25 @@ type Props = {
 }
 
 const HeaderMD = ({ titleAlt, settings, infos }: Props) => {
+  const pathName = usePathname()
+
+  const _getWorksLandingUrl = (label: string): string => {
+    if (!settings.navWorks) return "/"
+    const item = settings.navWorks?.filter(
+      (el) => el.label?.toLowerCase() === label
+    )
+    if (item) {
+      return _linkResolver(item[0].link)
+    } else {
+      return _linkResolver(settings.navWorks[0].link)
+    }
+  }
+
+  const worksUrl =
+    pathName.indexOf("space") > -1
+      ? _getWorksLandingUrl("space")
+      : _getWorksLandingUrl("design")
+
   return (
     <div className="header--md hidden-sm">
       <div className="inner flex justify-between">
@@ -22,15 +44,7 @@ const HeaderMD = ({ titleAlt, settings, infos }: Props) => {
           </Link>
           <nav className="nav-works col-item  relative flex btn">
             <div className="label">
-              <Link
-                href={
-                  settings.navWorks
-                    ? _linkResolver(settings.navWorks[0].link)
-                    : "/works/design"
-                }
-              >
-                {settings.navWorksLabel}
-              </Link>
+              <Link href={worksUrl}>{settings.navWorksLabel}</Link>
             </div>
             <ul className="flex absolute- top-0-">
               {settings.navWorks?.map((item: LinkInternal) => (

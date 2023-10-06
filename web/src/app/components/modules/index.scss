@@ -91,7 +91,7 @@ article.look-default .modules {
       max-width: unset !important;
       min-height: unset !important;
       max-height: unset !important;
-      &:not(.is-half-half) {
+      &:not(.is-half-half, .is-triplette) {
         display: flex;
         flex-direction: column;
         .module,
@@ -109,6 +109,9 @@ article.look-default .modules {
           padding-top: 1em;
         }
       }
+      // &.is-triplette {
+      //   display: grid;
+      // }
       .text {
         text-align: center;
         img {

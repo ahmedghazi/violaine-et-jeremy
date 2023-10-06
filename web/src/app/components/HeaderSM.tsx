@@ -37,21 +37,25 @@ const HeaderSM = ({ titleAlt, settings, infos }: Props) => {
       )}
     >
       <div className="inner flex justify-between z-10 ">
-        <Link href={"/"} className="w-1/3 site-name relative z-10">
+        <Link href={"/"} className="w-1/4- site-name relative z-10">
           {titleAlt}
         </Link>
-        <button
+        {/* <button
           className={clsx(
-            "btn-menu-toggle text-center w-1/3 pointer-events-auto z-10 text-sm",
+            "btn-menu-toggle text-center w-1/4- pointer-events-auto z-10 text-sm",
             open ? "is-open" : ""
           )}
           onClick={() => setOpen(!open)}
         >
-          {/* <div className="icon">✾</div>
-          <div className="burger"></div> */}
+
           {open ? "CLOSE" : "WORKS"}
-        </button>
-        <div className="w-1/3 flex justify-end">
+        </button> */}
+        {settings.navWorks?.map((item: LinkInternal) => (
+          <div key={item.label} className="w-1/4- uppercase">
+            <NavLink input={item} />
+          </div>
+        ))}
+        <div className="w-1/4- flex justify-end">
           <InfosModal infosData={infos} settingsData={settings} />
         </div>
       </div>
