@@ -32,7 +32,7 @@ export default defineField({
           {title: 'third-left', value: '1/1/2/2'},
           {title: 'third-center', value: '1/2/2/3'},
           {title: 'third-right', value: '1/3/2/4'},
-          {title: 'quarter-top-left', value: '1/1/2/2'},
+          {title: 'quarter-top-left', value: '1/1/2/2-qtl'},
           {title: 'quarter-bottom-left', value: '2/1/3/2'},
           {title: 'quarter-top-right', value: '1/2/2/2'},
           {title: 'quarter-bottom-right', value: '2/2/2/2'},

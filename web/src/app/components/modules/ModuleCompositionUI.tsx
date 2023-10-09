@@ -21,11 +21,13 @@ type ItemWrapperProps = {
 }
 
 const ItemWrapper = ({ gridSize, gridArea, children }: ItemWrapperProps) => {
+  const gridSizeClean =
+    gridSize.indexOf("-qtl") > -1 ? gridSize.replace("-qtl", "") : gridSize
   return (
     <div
       className={clsx(
         "composition--item",
-        `is-${gridSize}`,
+        `is-${gridSizeClean}`,
         gridSize === "full" ? "col-span-2 row-span-2" : ""
       )}
       style={{
