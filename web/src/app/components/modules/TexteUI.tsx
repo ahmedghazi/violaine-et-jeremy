@@ -20,7 +20,7 @@ const TexteUI = ({ input }: Props) => {
           align ? `items-${align}` : `items-start`
         )}
       >
-        <div className="text ">
+        <div className="text text-sm md:text-md">
           {text && <PortableText value={text} components={components} />}
         </div>
       </div>

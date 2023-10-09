@@ -26,7 +26,7 @@ const CookieConsent = ({ message }: Props) => {
   }
 
   return (
-    <div className="fixed bottom-0 w-full bg-bg z-50 uppercase">
+    <div className="fixed bottom-0 w-full bg-bg z-50 ">
       <div className="inner  p-md flex place-items-end justify-center b-t w-full text-sm">
         <div className="mr-md serif">
           {/* <pre>{JSON.stringify(settings.messageCookies, null, 2)}</pre> */}
@@ -36,7 +36,7 @@ const CookieConsent = ({ message }: Props) => {
           {/* <PortableText value={message} components={components} /> */}
         </div>
         <button
-          className="bg-green-500 py-2 px-8 rounded underline"
+          className="bg-green-500 py-2 px-8 rounded underline uppercase"
           onClick={() => acceptCookie()}
         >
           Accept
