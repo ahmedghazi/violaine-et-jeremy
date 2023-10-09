@@ -43,7 +43,17 @@ header {
   .nav-works {
     align-items: flex-start;
     @media all and (min-width: $md) {
-      width: toRem(159);
+      // width: toRem(159);
+      // padding-right: 1em;
+      min-width: toRem(188);
+      &::before {
+        content: "";
+        position: absolute;
+        inset: -1em;
+        // background-color: orange;
+        z-index: -1;
+        // min-width: toRem(203);
+      }
       .label {
         padding-bottom: 1em;
       }
@@ -107,80 +117,9 @@ header {
       padding-bottom: 0.375rem;
       display: inline-block;
     }
-    // .btn-menu-toggle {
-    //   // font-size: toRem(22);
-    //   display: flex;
-    //   flex-direction: column;
-    //   align-items: center;
-    //   .icon {
-    //     line-height: 1;
-    //   }
-    //   .burger {
-    //     @include burger(15px, 1px, 4px);
-    //   }
-    //   &.is-open .burger {
-    //     @include burger-to-cross();
-    //   }
-    // }
-    // .nav-overlay {
-    //   height: 100vh;
-    //   @media all and (min-width: $md) {
-    //     max-height: calc(100vh - var(--space-md));
-    //   }
-    //   background-color: white;
-    //   position: fixed;
-    //   padding-top: var(--space-100);
-    //   opacity: 0;
-    //   transform: translateY(-100%);
-    //   // transition: opacity 0.6s var(--cubic), transform 0.6s var(--cubic);
-    //   &.is-open {
-    //     opacity: 1;
-    //     transform: translateY(0);
-    //   }
-
-    //   & > .inner {
-    //     // height: 100%;
-    //     // place-items: center;
-    //     display: flex;
-    //     flex-direction: column;
-    //     align-items: center;
-    //     .col-item:empty {
-    //       display: none;
-    //     }
-    //     .nav-works {
-    //       text-align: center;
-    //       margin-bottom: toRem(72);
-    //       .label {
-    //         margin-bottom: toRem(23);
-    //       }
-    //       ul {
-    //         display: flex;
-    //         position: initial;
-    //         li {
-    //           padding-left: var(--space-sm);
-    //           padding-left: 0;
-    //           &::after {
-    //             margin: 0 1em;
-    //           }
-    //         }
-    //       }
-    //     }
-    //     .nav-studio {
-    //       transform: translateX(calc(toRem(5) * -1));
-    //     }
-    //   }
-    // }
   }
 }
 
-// header {
-//   color: white;
-//   mix-blend-mode: difference;
-// }
-// .is-modal header {
-//   color: red;
-//   mix-blend-mode: unset;
-// }
 @media all and (max-width: $md) {
   header {
     color: white;
@@ -247,4 +186,11 @@ header {
       }
     }
   }
+}
+
+html:not(.is-space) li.nav-design a {
+  text-decoration: underline;
+}
+html.is-space li.nav-space a {
+  text-decoration: underline;
 }

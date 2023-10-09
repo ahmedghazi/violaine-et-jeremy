@@ -51,6 +51,10 @@ export const PageContextProvider = (props: PageContextProps) => {
       "is-works",
       pathName.includes("works")
     )
+    document.documentElement.classList.toggle(
+      "is-space",
+      pathName.includes("space")
+    )
   }, [pathName])
 
   useEffect(() => {

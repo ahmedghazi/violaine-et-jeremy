@@ -14,16 +14,19 @@
       mix-blend-mode: difference;
     }
     span {
-      vertical-align: sub;
+      // vertical-align: sub;
+      padding: 0.75em 0;
+      display: inline-block;
+      transform: translateY(0.2em);
     }
     button {
       position: absolute;
       padding: 0.75em 0;
       &:first-child {
-        right: var(--space-sm);
+        right: 1em;
       }
       &:last-child {
-        left: var(--space-sm);
+        left: 1em;
       }
     }
   }
