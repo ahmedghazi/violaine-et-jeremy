@@ -36,6 +36,7 @@ const ImageUI = ({ input }: Props): JSX.Element => {
           // }}
           blurDataURL={image?.metadata?.lqip}
           placeholder="blur"
+          unoptimized
         />
       )}
     </div>

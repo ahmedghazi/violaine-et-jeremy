@@ -50,6 +50,7 @@ const ArticleWorkDefault = ({ input, imageIntro }: ArticleProps) => (
               }}
               blurDataURL={imageIntro?.metadata?.lqip} //automatically provided
               placeholder="blur" // Optional blur-up while loading
+              unoptimized
               className={clsx(
                 imageIntro?.metadata?.dimensions.aspectRatio > 1
                   ? "is-landscape"
@@ -112,6 +113,7 @@ const ArticleWorkSplit = ({ input, imageIntro }: ArticleProps) => (
             }}
             blurDataURL={imageIntro?.metadata?.lqip} //automatically provided
             placeholder="blur" // Optional blur-up while loading
+            unoptimized
           />
         </figure>
       )}
@@ -142,6 +144,7 @@ const ArticleWorkSplit = ({ input, imageIntro }: ArticleProps) => (
                 }}
                 blurDataURL={imageIntro?.metadata?.lqip} //automatically provided
                 placeholder="blur" // Optional blur-up while loading
+                unoptimized
               />
             </figure>
           )}

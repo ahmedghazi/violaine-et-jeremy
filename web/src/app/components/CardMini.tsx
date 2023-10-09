@@ -27,6 +27,7 @@ const CardMini = ({ link, image, title, industry }: Props) => {
               image.metadata.dimensions.aspectRatio
             }
             alt={title || "project"}
+            unoptimized
           />
         )}
         <div className="header text-center pt-1re text-sm ">

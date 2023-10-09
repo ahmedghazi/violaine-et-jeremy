@@ -73,6 +73,7 @@ const HomeCard = ({ input }: Props) => {
                 }}
                 blurDataURL={image?.metadata?.lqip}
                 placeholder="blur"
+                unoptimized
               />
             </figure>
           )}

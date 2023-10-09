@@ -29,6 +29,7 @@ const WorkCard = ({ input }: Props) => {
               }}
               blurDataURL={imageCover?.metadata?.lqip} //automatically provided
               placeholder="blur" // Optional blur-up while loading
+              unoptimized
             />
           </figure>
         )}
