@@ -96,6 +96,7 @@
     .intro-credits {
       margin-top: 1.5em;
       font-size: 1.13333333em;
+      text-align: center;
       li:not(:last-child) {
         margin-bottom: 0.5em;
       }
@@ -144,6 +145,9 @@
         @media all and (max-width: $md) {
           text-align: center;
         }
+      }
+      .intro-credits {
+        text-align: left;
       }
     }
     &:not(.is-drapeau) {

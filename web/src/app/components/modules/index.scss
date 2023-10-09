@@ -9,6 +9,11 @@ article.look-default .modules {
     grid-template-rows: repeat(2, minmax(0, 1fr));
     max-width: calc(100vw - (var(--space-md) * 2));
     max-height: calc(100vh - (var(--header-height) * 2));
+    @media all and (min-width: 1080px) {
+      &:has(.is-full) {
+        max-height: unset;
+      }
+    }
     &:last-child {
       margin-bottom: 0 !important;
     }
