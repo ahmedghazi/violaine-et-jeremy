@@ -31,7 +31,13 @@ const Contacts = ({ input, linkLegals }: Props) => {
   return (
     <div className="contacts flex flex-wrap" ref={ref}>
       {input?.map((item, i) => (
-        <div className="footer-item" key={i}>
+        <div
+          className={clsx(
+            "footer-item",
+            `footer-item--${item.title?.toLowerCase()}`
+          )}
+          key={i}
+        >
           <h5 className="text-sm md:text-md">{item.title}</h5>
 
           <div className="text-xs md:text-sm">

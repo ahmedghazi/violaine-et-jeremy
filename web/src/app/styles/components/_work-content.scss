@@ -17,6 +17,9 @@
     &:not(.is-drapeau) {
       figure {
         margin-bottom: toRem(50);
+        @media all and (max-width: $md) {
+          margin-bottom: 0;
+        }
       }
     }
     .text {
@@ -151,6 +154,9 @@
       }
       .intro-credits {
         text-align: left;
+        @media all and (max-width: $md) {
+          text-align: center;
+        }
       }
     }
     &:not(.is-drapeau) {
@@ -205,6 +211,9 @@
           // width: calc(390 * 100% / #{$colItems});
           // width: 25.3561253561%;
         }
+        // .credits-item:nth-child(4){
+
+        // }
       }
     }
     & > .grid {

@@ -188,9 +188,15 @@ header {
   }
 }
 
-html:not(.is-space) li.nav-design a {
-  text-decoration: underline;
+// html:not(.is-space) .nav-works:hover li.nav-design a {
+//   text-decoration: underline;
+// }
+// html.is-space .nav-works:hover li.nav-space a {
+//   text-decoration: underline;
+// }
+.nav-works {
+  // background-color: red;
 }
-html.is-space li.nav-space a {
+.nav-works li a:hover {
   text-decoration: underline;
 }

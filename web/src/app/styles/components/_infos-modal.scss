@@ -33,7 +33,12 @@
       justify-content: space-between;
       // overflow-y: scroll;
     }
-
+    .text p.text-xs {
+      font-size: var(--text-xs);
+    }
+    .text p.md\:text-lg {
+      font-size: var(--text-lg);
+    }
     .footer-item {
       ul li {
         margin-bottom: toRem(6);

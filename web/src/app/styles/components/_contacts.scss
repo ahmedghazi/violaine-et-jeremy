@@ -1,7 +1,17 @@
 .contacts {
   text-align: left;
+  // letter-spacing: 0;
   form {
     margin-bottom: toRem(38);
+  }
+  .footer-item--contact {
+    letter-spacing: 0;
+  }
+  p {
+    font-size: var(--text-sm);
+  }
+  li a {
+    padding: 0;
   }
   @media all and (min-width: $md) {
     .footer-item:nth-child(1) {
