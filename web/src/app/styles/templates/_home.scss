@@ -35,8 +35,14 @@
     position: relative;
     opacity: 0;
     transition: opacity 0.2s;
-    // min-height: 100vh;
-    // background-color: red;
+    &.is-above-fold {
+      // padding-top: var(--padding-top);
+      .industry {
+        // position: absolute;
+        // width: 100%;
+        // background-color: red;
+      }
+    }
     .industry {
       // padding-top: calc(90px + var(--textAboutHeight));
     }
@@ -51,29 +57,11 @@
       position: absolute;
       width: 100%;
     }
-    // a {
-    //   padding-top: calc(90px + var(--textAboutHeight));
-    //   display: block;
-    //   background-color: red;
-    // }
-    // &:not(:last-child) .infos {
-    //   // margin-bottom: calc(200px + var(--textAboutHeight));
-    //   padding-bottom: calc(200px + var(--textAboutHeight));
-    //   @media all and (max-width: $sm) {
-    //     // margin-bottom: toRem(190);
-    //     padding-bottom: toRem(190);
-    //   }
-    // }
-    &:last-child {
-      // margin-bottom: calc(1em + toRem(32));
-    }
+
     &.can-display-images {
       opacity: 1;
     }
-    .infos {
-      // position: absolute;
-      // width: 100%;
-    }
+
     .header {
       line-height: 1.2;
     }

@@ -84,6 +84,7 @@ const HomeCard = ({ input }: Props) => {
 
             <p className="text-center italic-">{input.description}</p>
           </div>
+          <div className="ghost-spacer"></div>
         </div>
       </Link>
     </article>

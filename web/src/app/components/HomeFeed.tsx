@@ -19,57 +19,9 @@ type Props = {
 
 const HomeFeed = ({ input }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
-  // const refIndex = useRef<number>(0)
-  // const [index, setIndex] = useState<number>(0)
-
-  // const settings: any = {
-  //   index: 0,
-  //   lastTimestamp: 0,
-  //   canScroll: true,
-  //   lastWheelDelta: 0,
-  // }
 
   useEffect(() => {
     _onScroll()
-    // _bindScrollSnap()
-    // const abcjsInit = async () => {
-    //   const createScrollSnap = (await import("scroll-snap")).default
-    //   const element = ref.current
-    //   createScrollSnap(
-    //     element,
-    //     {
-    //       snapDestinationY: "90%",
-    //       duration: 800,
-    //     },
-    //     () => console.log("snapped")
-    //   )
-    // }
-    // abcjsInit()
-
-    // const asyncLoad = async () => {
-    //   const PanelSnap = (await import("panelsnap")).default
-    //   const panelSnapInstance = new PanelSnap({
-    //     container: document.body,
-    //     panelSelector: "article.home-card",
-    //     directionThreshold: 0,
-    //     delay: 0,
-    //     duration: 800,
-    //     // easing: function(t) { return t },
-    //   })
-    //   panelSnapInstance.on("activatePanel", (panel: any) => {
-    //     console.log(panel)
-    //   })
-    // }
-    // asyncLoad()
-    // const controller = new AbortController()
-    // window.addEventListener(
-    //   "wheel",
-    //   (e) => {
-    //     e.preventDefault()
-    //     debouncedWheel(e)
-    //   },
-    //   { passive: false, signal: controller.signal }
-    // )
 
     window.addEventListener("scroll", _onScroll)
 
@@ -83,71 +35,12 @@ const HomeFeed = ({ input }: Props) => {
     }
   }, [])
 
-  // const debouncedWheel = debounce(
-  //   100,
-  //   (event) => {
-  //     event.preventDefault()
-  //     console.log(settings)
-
-  //     var domEvent = event
-  //     var delta = domEvent.deltaY
-  //     var wheelDelta = domEvent.wheelDeltaY
-  //     var timeDelta = Date.now() - settings.lastTimestamp
-  //     settings.lastTimestamp = Date.now()
-  //     var wheelDeltaDelta = Math.abs(
-  //       Math.abs(wheelDelta) - Math.abs(settings.lastWheelDelta)
-  //     )
-  //     // console.log(wheelDelta, timeDelta, wheelDeltaDelta)
-  //     if (wheelDeltaDelta > 10) {
-  //       settings.lastTimestamp = 0
-  //     }
-  //     settings.lastWheelDelta = wheelDelta
-
-  //     if (settings.canScroll && timeDelta > 100) {
-  //       if (delta > 1) {
-  //         // scroll verso basso
-  //         settings.index += 1
-  //         if (settings.index >= input.length - 1)
-  //           settings.index = input.length - 1
-  //       } else if (delta < -1) {
-  //         // scroll verso l'alto
-  //         settings.index -= 1
-  //         if (settings.index <= 0) settings.index = 0
-  //       }
-
-  //       // slideTo(slider.index)
-  //       console.log(settings.index)
-  //     }
-
-  //     // const delta = Math.sign(arg.deltaY)
-  //     // refIndex.current = delta > 0 ? refIndex.current + 1 : refIndex.current - 1
-  //     // if (refIndex.current < 1) refIndex.current = 1
-
-  //     const activeItem = ref.current?.querySelector(
-  //       `.home-card:nth-child(${settings.index})`
-  //     )
-  //     if (activeItem) {
-  //       smoothScrollToElement(activeItem, {
-  //         duration: 1000,
-  //         easingFunction: EASING_FUNCTIONS.slowInSlowOut,
-  //         offsetTop: 0,
-  //         offsetLeft: 0,
-  //       })
-  //     }
-  //   },
-  //   { atBegin: true }
-  // )
-
-  // const _onWheel = (e: WheelEvent) => {
-  //   const delta = Math.sign(e.deltaY)
-  //   // console.info(delta)
-  //   const nextIndex = delta > 0 ? index + 1 : index - 1
-  //   console.log(nextIndex)
-  // }
-  // const _updateIndex = (e) => {
-
-  // }
   const _onScroll = () => {
+    _handleLetterSpacing()
+    _handleLastItem()
+  }
+
+  const _handleLetterSpacing = () => {
     // console.log(window.scrollY)
     if (!ref.current) return
     // const threshold = 180
@@ -172,6 +65,33 @@ const HomeFeed = ({ input }: Props) => {
       el.style.setProperty("--width", `${width}px`)
       el.classList.add("can-display-images")
     })
+  }
+
+  const _handleLastItem = () => {
+    const last: HTMLElement | any = document.querySelector(
+      ".home-card:last-child"
+    )
+    if (!last) return
+
+    const bounding: DOMRect | any = last?.getBoundingClientRect()
+    console.log(bounding.y, bounding.y <= 0)
+    // if (bounding.y > 0) return
+
+    const industry: HTMLElement | any = last?.querySelector(".industry")
+    const opacity = 100 + (bounding.y * 100) / 100
+    industry.style.opacity = opacity / 100
+    // const industryBounding: DOMRect | any = industry?.getBoundingClientRect()
+    // let maxY
+    // if (bounding.y + bounding.height / 2 > window.innerHeight) {
+    //   maxY = industryBounding.y + industryBounding.height / 2
+    //   industry.dataset.maxY = maxY
+    // }
+    // console.log(bounding.y + bounding.height / 2, industry.dataset.maxY)
+    // last.style.setProperty(
+    //   "--padding-top",
+    //   `calc(${industryBounding.height}px + 0.3125rem)`
+    // )
+    last?.classList.toggle("is-above-fold", bounding.y <= 0)
   }
 
   return (
