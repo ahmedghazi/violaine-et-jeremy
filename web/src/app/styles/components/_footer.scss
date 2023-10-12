@@ -5,6 +5,7 @@ footer {
   // @include debugOutline(toRem(18));
   p {
     font-family: var(--font-primary);
+    letter-spacing: inherit !important;
   }
   .inner {
     padding-top: toRem(18);

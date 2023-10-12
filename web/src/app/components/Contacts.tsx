@@ -40,7 +40,7 @@ const Contacts = ({ input, linkLegals }: Props) => {
         >
           <h5 className="text-sm md:text-md">{item.title}</h5>
 
-          <div className="text-xs md:text-sm">
+          <div className="text-xs md:text-sm text-sans">
             {item.title?.toLowerCase() !== "contact" && item?.text && (
               <PortableText value={item?.text} components={components} />
             )}
