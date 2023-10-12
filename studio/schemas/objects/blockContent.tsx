@@ -129,5 +129,8 @@ export default defineType({
     defineArrayMember({
       type: 'embed',
     }),
+    defineArrayMember({
+      type: 'textCredits',
+    }),
   ],
 })

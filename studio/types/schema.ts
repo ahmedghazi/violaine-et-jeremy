@@ -787,6 +787,7 @@ export type BlockContent = Array<
       hotspot?: SanityImageHotspot;
     }>
   | SanityKeyed<Embed>
+  | SanityKeyed<TextCredits>
 >;
 
 export type TextIcon = {
@@ -930,6 +931,16 @@ export type Logos = {
       hotspot?: SanityImageHotspot;
     }>
   >;
+};
+
+export type TextCredits = {
+  _type: "textCredits";
+  /**
+   * items — `array`
+   *
+   *
+   */
+  items?: Array<SanityKeyed<Contact>>;
 };
 
 export type TextUI = {

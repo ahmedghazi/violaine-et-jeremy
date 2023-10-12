@@ -1,6 +1,8 @@
 import { PortableTextComponents } from "@portabletext/react"
 import { urlFor, urlForNoWidth } from "./sanity-utils"
 import clsx from "clsx"
+import CreditsItem from "../components/ui/CreditsItem"
+import { Contact } from "../types/schema"
 // import Image from "next/image"
 
 const components: PortableTextComponents = {
@@ -28,6 +30,25 @@ const components: PortableTextComponents = {
         </div>
       )
     },
+    textCredits: ({ value }) => (
+      <>
+        <ul className="intro-credits">
+          {/* <pre>{JSON.stringify(value, null, 2)}</pre> */}
+          {value.items?.length &&
+            value.items.map((item: Contact, i: number) => (
+              <li key={item.label}>
+                <CreditsItem
+                  label={item.label || ""}
+                  value={item.value || ""}
+                  url={item.url || ""}
+                  labelSerif={true}
+                  valueSerif={false}
+                />
+              </li>
+            ))}
+        </ul>
+      </>
+    ),
   },
 
   marks: {

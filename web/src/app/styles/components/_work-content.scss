@@ -28,9 +28,10 @@
       p:empty {
         display: initial;
       }
-      @media all and (max-width: $md) {
-        text-align: center;
-      }
+    }
+    .text,
+    .intro-credits {
+      text-align: center;
     }
     // figure {
     //   margin-bottom: toRem(50);

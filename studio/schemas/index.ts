@@ -23,6 +23,7 @@ import embed from './objects/embed'
 import titleText from './objects/titleText'
 import worksTextsItem from './objects/worksTextsItem'
 import logos from './objects/logos'
+import textCredits from './objects/textCredits'
 // import embed from './objects/embed'
 /* Localization */
 // import localeString from './locale/localeString'
@@ -63,6 +64,7 @@ export const schemaTypes = [
   titleText,
   worksTextsItem,
   logos,
+  textCredits,
 
   moduleText,
   moduleImage,
