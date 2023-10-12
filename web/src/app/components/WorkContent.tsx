@@ -1,5 +1,5 @@
 "use client"
-import React, { useMemo } from "react"
+import React, { useEffect, useMemo } from "react"
 import { useRouter } from "next/navigation"
 import { Contact, Project, SanityImageAsset, Space } from "../types/schema"
 import { PortableText } from "@portabletext/react"
@@ -174,15 +174,33 @@ const ArticleWorkSplit = ({ input, imageIntro }: ArticleProps) => (
 
 const ArticleWork = ({ input }: Props) => {
   const imageIntro: SanityImageAsset | any = input.imageIntro?.asset
-  const router = useRouter()
+  // const router = useRouter()
 
-  const _onClick = () => {
-    const parentParts = location.pathname.split("/")
-    const parentPage = `/works/${
-      parentParts[1] === "project" ? "design" : parentParts[1]
-    }`
-    // console.log(parentParts, parentPage)
-    router.push(parentPage)
+  // const _onClick = () => {
+  //   const parentParts = location.pathname.split("/")
+  //   const parentPage = `/works/${
+  //     parentParts[1] === "project" ? "design" : parentParts[1]
+  //   }`
+  //   // console.log(parentParts, parentPage)
+  //   router.push(parentPage)
+  // }
+
+  useEffect(() => {
+    window.addEventListener("scroll", _onScroll)
+    return () => {
+      window.removeEventListener("scroll", _onScroll)
+    }
+  }, [])
+
+  const _onScroll = () => {
+    const credits = document.querySelector("main section.credits")
+    if (!credits) return
+    const bounding: DOMRect = credits.getBoundingClientRect()
+    const wrapper = document.querySelector(".project-single")
+    wrapper?.classList.toggle("is-below-fold", bounding.y <= 0)
+    if (bounding.y <= 0) {
+    } else {
+    }
   }
 
   const prevNext = useMemo(() => {

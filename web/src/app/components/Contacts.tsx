@@ -23,7 +23,7 @@ const Contacts = ({ input, linkLegals }: Props) => {
   useEffect(() => {
     const text = input?.filter((el) => el.title?.toLowerCase() === "contact")
     if (text) {
-      console.log(text[0])
+      // console.log(text[0])
       setStudioContact(text[0])
     }
   }, [])
@@ -55,7 +55,7 @@ const Contacts = ({ input, linkLegals }: Props) => {
       ))}
       <div className="footer-item">
         <Mailchimp
-          action="xxxx"
+          action="https://violaineetjeremy.us13.list-manage.com/subscribe/post?u=f257048f85f69bee39ea489fb&id=7beda990e3&f_id=00fd38e2f0"
           field={{
             name: "EMAIL",
             placeholder: "",

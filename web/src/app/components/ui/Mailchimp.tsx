@@ -59,7 +59,7 @@ const Mailchimp = (props: Props) => {
     //     return `${field.name}=${encodeURIComponent(state[field.name])}`
     //   })
     //   .join("&")
-    const path = `${action}&EMAIL=${encodeURIComponent(email)}`
+    const path = `${action}&EMAIL=${encodeURIComponent(email)}&tags=921745`
     const url = path.replace("/post?", "/post-json?")
 
     // const email = state["EMAIL"]
