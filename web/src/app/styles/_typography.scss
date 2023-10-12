@@ -151,6 +151,12 @@ p,
   a {
     font-family: var(--font-primary);
   }
+  &:has(.text-indent) {
+    margin-bottom: 0;
+  }
+}
+.text:has(.text-indent) p {
+  margin-bottom: 0;
 }
 p.text-lg {
   line-height: 1.15;

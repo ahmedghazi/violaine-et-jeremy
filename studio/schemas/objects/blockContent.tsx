@@ -19,7 +19,7 @@ const Sans = (props: any) => <span style={{fontFamily: 'sans-serif'}}>{props.chi
 const AlignLeftRender = (props: any) => <p style={{textAlign: 'left'}}>{props.children}</p>
 const AlignCenterRender = (props: any) => <p style={{textAlign: 'center'}}>{props.children}</p>
 const AlignRightRender = (props: any) => <p style={{textAlign: 'right'}}>{props.children}</p>
-const TextIndent = (props: any) => <p style={{textIndent: '2em'}}>{props.children}</p>
+const TextIndent = (props: any) => <p style={{textIndent: '2em', margin: 0}}>{props.children}</p>
 
 export default defineType({
   title: 'Block Content',

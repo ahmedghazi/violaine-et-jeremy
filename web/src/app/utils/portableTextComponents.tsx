@@ -44,7 +44,7 @@ const components: PortableTextComponents = {
       <span className="gt-alpina">{children}</span>
     ),
     indent: ({ children, value }) => (
-      <span className="indent-1e block">{children}</span>
+      <span className="text-indent  indent-lg block">{children}</span>
     ),
     align_left: ({ children, value }) => (
       <span className="text-left block">{children}</span>
