@@ -9,7 +9,8 @@ type Props = {
 export default function Template({ children }: Props) {
   return (
     <div className="template">
-      <PageTransition>{children}</PageTransition>
+      {/* <PageTransition>{children}</PageTransition> */}
+      {children}
     </div>
   )
 }

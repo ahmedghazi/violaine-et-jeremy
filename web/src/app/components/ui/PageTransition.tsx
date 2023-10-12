@@ -2,14 +2,13 @@
 import React, { ReactNode, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { usePathname } from "next/navigation"
-import SplashLogo from "../SplashLogo"
 // import { useMemo } from "react"
 
 const duration = 0.6
 
 const variants = {
   initial: {
-    opacity: 1,
+    opacity: 0,
     // y: '100%',
     // y: "0",
   },
@@ -24,7 +23,7 @@ const variants = {
     // },
   },
   exit: {
-    // opacity: 0,
+    opacity: 0,
     // y: "200",
     // transition: {
     //   duration: duration,

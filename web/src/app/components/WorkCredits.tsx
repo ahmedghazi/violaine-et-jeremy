@@ -13,7 +13,7 @@ const WorkCredits = ({ credits, links }: Props) => {
   return (
     <section className="credits b-t py-50 text-sm md:text-md">
       {credits && credits.length && (
-        <div className="flex flex-wrap">
+        <div className="md:flex flex-wrap">
           <h4>CREDITS</h4>
 
           <div className="items flex flex-wrap">
@@ -48,7 +48,10 @@ const WorkCredits = ({ credits, links }: Props) => {
       )}
       {links && links.length && (
         <div
-          className={clsx("flex  flex-wrap", hasCredits ? "has-space-top" : "")}
+          className={clsx(
+            "md:flex flex-wrap",
+            hasCredits ? "has-space-top" : ""
+          )}
         >
           <h4>LINKS</h4>
           <div className="items flex flex-wrap">
