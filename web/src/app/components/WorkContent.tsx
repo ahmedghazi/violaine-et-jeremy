@@ -151,6 +151,21 @@ const ArticleWorkSplit = ({ input, imageIntro }: ArticleProps) => (
           {input.text && (
             <PortableText value={input.text} components={components} />
           )}
+          <ul className="intro-credits">
+            {input.introCredits?.length &&
+              input.introCredits.map((item: Contact, i: number) => (
+                <li key={item.label}>
+                  {/* <span className="serif">{ item.label}</span> */}
+                  <CreditsItem
+                    label={item.label || ""}
+                    value={item.value || ""}
+                    url={item.url || ""}
+                    labelSerif={true}
+                    valueSerif={false}
+                  />
+                </li>
+              ))}
+          </ul>
         </div>
       </div>
     </div>

@@ -2,11 +2,24 @@
 import { Lenis as ReactLenis, useLenis } from "@studio-freight/react-lenis"
 import { useEffect } from "react"
 import { usePathname } from "next/navigation"
+import { subscribe, unsubscribe } from "pubsub-js"
 
 export function LenisProvider({ children }: { children: React.ReactNode }) {
   ;``
   const pathname = usePathname()
   const lenis = useLenis()
+
+  useEffect(() => {
+    const token = subscribe("RESIZE", () => {
+      if (lenis) {
+        lenis.resize()
+      }
+    })
+
+    return () => {
+      unsubscribe(token)
+    }
+  }, [])
 
   useEffect(() => {
     if (lenis) {

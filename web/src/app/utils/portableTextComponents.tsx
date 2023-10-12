@@ -8,7 +8,7 @@ const components: PortableTextComponents = {
     h2: ({ children }) => <h2>{children}</h2>,
     "text-lg": ({ children }) => <div className="md:text-lg">{children}</div>,
     text_lg: ({ children }) => <p className="md:text-lg">{children}</p>,
-    text_sm: ({ children }) => <p className="text-xs ">{children}</p>,
+    text_sm: ({ children }) => <p className="text-sm ">{children}</p>,
   },
   types: {
     textIcon: ({ value }) => {
@@ -42,6 +42,9 @@ const components: PortableTextComponents = {
     sans: ({ children }) => <span className="sans">{children}</span>,
     "gt-alpina": ({ children }) => (
       <span className="gt-alpina">{children}</span>
+    ),
+    indent: ({ children, value }) => (
+      <span className="indent-1e block">{children}</span>
     ),
     align_left: ({ children, value }) => (
       <span className="text-left block">{children}</span>

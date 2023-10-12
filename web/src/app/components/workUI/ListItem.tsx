@@ -1,10 +1,11 @@
-import React, { useMemo, useState } from "react"
+import React, { useEffect, useMemo, useState } from "react"
 import { Project, SanityImageAsset, Space } from "@/app/types/schema"
 import { urlFor } from "@/app/utils/sanity-utils"
 import { _linkResolver } from "@/app/utils/utils"
 import Image from "next/image"
 import Link from "next/link"
 import clsx from "clsx"
+import { publish } from "pubsub-js"
 
 type Props = {
   input?: Project | Space | any | undefined
@@ -30,6 +31,10 @@ const ListItem = ({ input, hasLink }: Props) => {
     return arr
   }, [])
 
+  useEffect(() => {
+    if (active) publish("RESIZE")
+  }, [active])
+
   return (
     <div className={clsx("tr project", hasLink ? "has-link" : "no-link")}>
       <div
@@ -45,7 +50,7 @@ const ListItem = ({ input, hasLink }: Props) => {
           input.client ? `${input.client} . ` : ""
         }${input.title}`}</h2>
         <div className="td col-industry">{input.industry}</div>
-        <div className="td col-location">{input.location}</div>
+        <div className="td col-location ellipsis">{input.location}</div>
       </div>
       {hasLink && (
         <div className="td--- col-link italic lowercase absolute top-0 right-0">

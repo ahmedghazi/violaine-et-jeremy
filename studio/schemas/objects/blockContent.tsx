@@ -1,6 +1,6 @@
 import {defineType, defineArrayMember} from 'sanity'
 import {FiAlignCenter, FiAlignLeft, FiAlignRight, FiExternalLink, FiLink} from 'react-icons/fi'
-
+import {BsIndent} from 'react-icons/bs'
 /**
  * This is the schema definition for the rich text fields used for
  * for this blog studio. When you import it in schemas.js it can be
@@ -19,6 +19,7 @@ const Sans = (props: any) => <span style={{fontFamily: 'sans-serif'}}>{props.chi
 const AlignLeftRender = (props: any) => <p style={{textAlign: 'left'}}>{props.children}</p>
 const AlignCenterRender = (props: any) => <p style={{textAlign: 'center'}}>{props.children}</p>
 const AlignRightRender = (props: any) => <p style={{textAlign: 'right'}}>{props.children}</p>
+const TextIndent = (props: any) => <p style={{textIndent: '2em'}}>{props.children}</p>
 
 export default defineType({
   title: 'Block Content',
@@ -53,6 +54,12 @@ export default defineType({
           {title: 'GT Alpina', value: 'gt-alpina', component: Sans, icon: () => 'GT Alpina'},
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
+          {
+            title: 'Alinéa',
+            value: 'indent',
+            icon: BsIndent,
+            component: TextIndent,
+          },
           {
             title: 'Align Left',
             value: 'align_left',
