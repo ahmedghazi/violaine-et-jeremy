@@ -137,7 +137,7 @@ p,
   //line-height: 1.4;
   // hyphens: auto;
   // max-width: 454px;
-  &:not(.text-sm) {
+  &:not(.text-sm, .text-md, .text-lg, .md\:text-md, .md\:text-lg) {
     font-size: 1.13333333em;
   }
   letter-spacing: 0 !important;

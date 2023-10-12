@@ -72,7 +72,7 @@ export default function InfosModal({ infosData, settingsData }: Props) {
                       />
                     )}
 
-                    <p className="text-xs ">
+                    <p className="text-md">
                       <em>Visit our</em>{" "}
                       <a
                         href="https://vj-type.com"

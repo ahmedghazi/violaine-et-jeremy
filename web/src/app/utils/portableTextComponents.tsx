@@ -9,8 +9,9 @@ const components: PortableTextComponents = {
   block: {
     h2: ({ children }) => <h2>{children}</h2>,
     "text-lg": ({ children }) => <div className="md:text-lg">{children}</div>,
-    text_lg: ({ children }) => <p className="md:text-lg">{children}</p>,
     text_sm: ({ children }) => <p className="text-sm ">{children}</p>,
+    text_md: ({ children }) => <p className="md:text-md">{children}</p>,
+    text_lg: ({ children }) => <p className="md:text-lg">{children}</p>,
   },
   types: {
     textIcon: ({ value }) => {
