@@ -169,6 +169,7 @@
   .intro-credits {
     margin-top: 1.5em;
     // font-size: 1.13333333em;
+    font-size: 1em;
     text-align: left;
     li:not(:last-child) {
       margin-bottom: 0.5em;
@@ -395,4 +396,9 @@
       }
     }
   }
+}
+
+.composition--item:has(.text-center) .intro-credits {
+  // background-color: red;
+  text-align: center;
 }
