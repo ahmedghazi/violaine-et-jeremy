@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation"
 import { subscribe, unsubscribe } from "pubsub-js"
 
 export function LenisProvider({ children }: { children: React.ReactNode }) {
-  ;``
   const pathname = usePathname()
   const lenis = useLenis()
 
@@ -23,14 +22,21 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (lenis) {
-      if (pathname === "////") lenis.stop()
-      else {
-        lenis.start()
-        // lenis.scrollTo(0, { immediate: true })
-        const resize = setTimeout(() => {
-          lenis.resize()
-        }, 150)
-      }
+      // if (pathname === "////") lenis.stop()
+      // else {
+      //   lenis.start()
+      //   // lenis.scrollTo(0, { immediate: true })
+      //   const resize = setTimeout(() => {
+      //     lenis.resize()
+      //   }, 150)
+      // }
+      lenis.start()
+      const resize = setTimeout(() => {
+        lenis.resize()
+      }, 150)
+      const resizeAfterPageTransition = setTimeout(() => {
+        lenis.resize()
+      }, 250)
     }
   }, [pathname, lenis])
 
