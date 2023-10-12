@@ -7,6 +7,7 @@ import config from "./config/website"
 import { ReactNode } from "react"
 import CookieWrapper from "./components/ui/CookieWrapper"
 import { LenisProvider } from "./components/ui/LenisProvider"
+import PageTransitionAlt from "./components/ui/PageTransitionAlt"
 
 export const metadata = {
   title: {
@@ -27,7 +28,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <div id="page">
             <PageContextProvider>
               <Header />
-              <main>{children}</main>
+
+              <main>
+                <PageTransitionAlt>{children}</PageTransitionAlt>
+              </main>
+
               <Footer />
               <CookieWrapper />
             </PageContextProvider>

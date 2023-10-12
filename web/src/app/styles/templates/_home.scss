@@ -94,24 +94,6 @@
 }
 
 html.is-home {
-  &,
-  body {
-    // scroll-snap-type: y mandatory;
-    // scroll-behavior: auto;
-    // scroll-padding-top: calc(
-    //   var(--space-100) + 3 * (var(--text-md) * 1.2) + 1.5em
-    // );
-  }
-  article.home-card,
-  footer {
-    scroll-snap-align: start;
-  }
-  article.home-card {
-    // scroll-margin-top: calc(
-    //   var(--space-100) + 3 * (var(--text-md) * 1.2) + 1.5em
-    // );
-  }
-
   main {
     padding-bottom: calc(200px + var(--textAboutHeight));
     padding-bottom: 310px;

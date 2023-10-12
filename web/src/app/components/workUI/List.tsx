@@ -59,16 +59,6 @@ const List = ({ input }: Props) => {
         el.style.setProperty("--custom-scale", `${scale / 1}`)
         el.style.setProperty("--dist", `${distanceToTop}`)
         el.classList.toggle("can-display-images", scale > 0)
-
-        // const bounding: DOMRect = el.getBoundingClientRect()
-        // const distanceToTop = bounding.top - offset
-        // // if (index === 0) console.log(distanceToTop, threshold)
-        // if (distanceToTop < threshold && distanceToTop > 0 && !uniqueRowFound) {
-        //   el.classList.add("show-images")
-        //   uniqueRowFound = true
-        // } else {
-        //   el.classList.remove("show-images")
-        // }
       })
     }
     ref.current?.style.setProperty("--opacity", "1")
@@ -76,22 +66,6 @@ const List = ({ input }: Props) => {
 
   return (
     <div className="list" ref={ref}>
-      {/* <div className="ruller absolute top-0 left-0 flex">
-        <div
-          className="threshold w-1e bg-red"
-          style={{
-            height: `${threshold}px`,
-            top: `${threshold}px`,
-          }}
-        ></div>
-        <div
-          className="offset w-1e bg-black"
-          style={{
-            height: `${offset}px`,
-            top: `${threshold}px`,
-          }}
-        ></div>
-      </div> */}
       <div className="thead  sticky top-100 px-sm md:px-200 text-xs md:text-md ">
         <div className="tr flex">
           <div className="th col-year">YEAR</div>

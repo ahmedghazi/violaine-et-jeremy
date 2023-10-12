@@ -41,7 +41,7 @@ const ProjectSingle: ({ params }: Props) => Promise<JSX.Element> = async ({
   return !data ? (
     <div></div>
   ) : (
-    <div className="project-single single-design px-sm md:px-md">
+    <div className="project-single single-design px-sm md:px-md pt-100">
       <div className="header fixed top-0 left-0 flex justify-center py-sm w-full pointer-events-none z-40 text-sm md:text-md">
         <div className="inner">
           <h1 className="">{data.title}</h1> <span className="sep-dash">—</span>
