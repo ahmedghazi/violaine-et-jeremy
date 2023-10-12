@@ -10,7 +10,7 @@
   }
   // background-color: red;
   .about {
-    letter-spacing: toRem(0.6);
+    // letter-spacing: toRem(0.6);
     top: calc(var(--space-100) - 0.2em);
     padding-bottom: 1em;
     @media all and (max-width: $sm) {
