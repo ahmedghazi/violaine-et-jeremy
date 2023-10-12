@@ -99,14 +99,7 @@
         margin: 0 auto;
       }
     }
-    .intro-credits {
-      margin-top: 1.5em;
-      // font-size: 1.13333333em;
-      text-align: center;
-      li:not(:last-child) {
-        margin-bottom: 0.5em;
-      }
-    }
+
     &.is-drapeau {
       .flex {
         @media all and (min-width: $md) {
@@ -170,6 +163,14 @@
           padding-right: var(--space-200);
         }
       }
+    }
+  }
+  .intro-credits {
+    margin-top: 1.5em;
+    // font-size: 1.13333333em;
+    text-align: left;
+    li:not(:last-child) {
+      margin-bottom: 0.5em;
     }
   }
   .credits {
