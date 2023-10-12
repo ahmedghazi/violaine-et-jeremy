@@ -181,7 +181,7 @@
     }
     @media all and (min-width: $md) {
       $colItems: calc(100% - ((100 + 190) * 100% / 1404));
-      .flex {
+      .credits-group {
         h4 {
           width: calc((100 + 190) * 100% / 1404);
           // width: 25%;
