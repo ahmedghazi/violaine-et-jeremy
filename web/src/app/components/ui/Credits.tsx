@@ -8,7 +8,7 @@ const Credits = (props: Props) => {
     name: "JOANNA SPADILIERO",
     url: "https://joanna-spadiliero.com",
   }
-  const [open, setOpen] = useState<boolean>(false)
+  const [open, setOpen] = useState<boolean>(true)
   return (
     <div
       className="credits flex items-baseline "
@@ -28,8 +28,8 @@ const Credits = (props: Props) => {
           <a
             href={designer.url}
             target="_blank"
+            className="p-0 mr-1e"
             rel="noopener noreferrer"
-            className="mr-1e"
           >
             {designer.name}
           </a>{" "}
@@ -38,6 +38,7 @@ const Credits = (props: Props) => {
           <a
             href="https://ahmedghazi.com/"
             target="_blank"
+            className="p-0"
             rel="noopener noreferrer"
           >
             AHMED GHAZI
