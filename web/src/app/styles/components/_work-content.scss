@@ -376,6 +376,13 @@
 
 @media all and (max-width: $md) {
   .work-content {
+    .text,
+    .intro-credits {
+      &,
+      * {
+        text-align: center;
+      }
+    }
     .intro {
       text-align: center;
       min-height: auto;

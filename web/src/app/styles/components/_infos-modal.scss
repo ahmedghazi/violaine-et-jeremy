@@ -33,12 +33,30 @@
       justify-content: space-between;
       // overflow-y: scroll;
     }
-    .text p.text-xs {
-      font-size: var(--text-xs);
+    .text p {
+      margin-bottom: var(--text-md);
+      &.text-xs {
+        font-size: var(--text-xs);
+      }
+      &.md\:text-lg {
+        font-size: var(--text-lg);
+      }
+      &:empty {
+        display: initial;
+      }
+      a {
+        padding: 0;
+      }
     }
-    .text p.md\:text-lg {
-      font-size: var(--text-lg);
-    }
+    // .text p.text-xs {
+    //   font-size: var(--text-xs);
+    // }
+    // .text p.md\:text-lg {
+    //   font-size: var(--text-lg);
+    // }
+    // .text p:empty {
+    //   display: initial;
+    // }
     .footer-item {
       ul li {
         margin-bottom: toRem(6);

@@ -72,7 +72,7 @@ export default function InfosModal({ infosData, settingsData }: Props) {
                       />
                     )}
 
-                    <p className="text-md">
+                    {/* <p className="md:text-md">
                       <em>Visit our</em>{" "}
                       <a
                         href="https://vj-type.com"
@@ -84,7 +84,7 @@ export default function InfosModal({ infosData, settingsData }: Props) {
                         {"  "}
                         <span className="absolute-">↗</span>
                       </a>
-                    </p>
+                    </p> */}
                   </div>
                   <div className="hidden-sm">
                     <Credits />
