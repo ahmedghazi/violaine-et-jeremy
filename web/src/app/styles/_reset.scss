@@ -318,10 +318,10 @@ img[data-sizes="auto"] {
   /* Code for Firefox */
   // color: blue;
 }
-
+// ::-moz-selection,
 ::selection {
   // color: blue;
-  background-color: var(--color-yellow);
+  background-color: #f2ebe3;
   color: black;
 }
 
