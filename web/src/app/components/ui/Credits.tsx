@@ -8,7 +8,7 @@ const Credits = (props: Props) => {
     name: "JOANNA SPADILIERO",
     url: "https://joanna-spadiliero.com",
   }
-  const [open, setOpen] = useState<boolean>(true)
+  const [open, setOpen] = useState<boolean>(false)
   return (
     <div
       className="credits flex items-baseline "
