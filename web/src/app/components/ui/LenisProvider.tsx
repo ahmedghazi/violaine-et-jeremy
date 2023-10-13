@@ -9,7 +9,9 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
   const lenis = useLenis()
 
   useEffect(() => {
-    const token = subscribe("RESIZE", () => {
+    const token = subscribe("WINDOW_RESIZE", (e) => {
+      console.log(e)
+      console.log(lenis)
       if (lenis) {
         lenis.resize()
       }

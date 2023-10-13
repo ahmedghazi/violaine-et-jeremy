@@ -32,7 +32,8 @@ const ListItem = ({ input, hasLink }: Props) => {
   }, [])
 
   useEffect(() => {
-    if (active) publish("RESIZE")
+    // console.log(active)
+    if (active) publish("WINDOW_RESIZE")
   }, [active])
 
   return (
@@ -82,14 +83,6 @@ const ListItem = ({ input, hasLink }: Props) => {
                 placeholder="blur"
                 unoptimized
               />
-              {/* <img
-                src={urlFor(
-                  image.url,
-                  Math.round(260 * image?.metadata?.dimensions.aspectRatio)
-                )}
-                alt={input.title || "alt"}
-                loading="lazy"
-              /> */}
             </figure>
           ))}
         </div>
