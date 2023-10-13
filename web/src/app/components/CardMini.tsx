@@ -17,7 +17,7 @@ type Props = {
 const CardMini = ({ link, image, title, industry }: Props) => {
   return (
     <article className={"item w-200"}>
-      <Link href={link} className="relative">
+      <Link href={link} className="relative block">
         {image && (
           <Image
             src={urlFor(image)}
