@@ -75,22 +75,11 @@ const HomeFeed = ({ input }: Props) => {
 
     const bounding: DOMRect | any = last?.getBoundingClientRect()
     console.log(bounding.y, bounding.y <= 0)
-    // if (bounding.y > 0) return
 
     const industry: HTMLElement | any = last?.querySelector(".industry")
-    const opacity = 100 + (bounding.y * 100) / 100
-    industry.style.opacity = opacity / 100
-    // const industryBounding: DOMRect | any = industry?.getBoundingClientRect()
-    // let maxY
-    // if (bounding.y + bounding.height / 2 > window.innerHeight) {
-    //   maxY = industryBounding.y + industryBounding.height / 2
-    //   industry.dataset.maxY = maxY
-    // }
-    // console.log(bounding.y + bounding.height / 2, industry.dataset.maxY)
-    // last.style.setProperty(
-    //   "--padding-top",
-    //   `calc(${industryBounding.height}px + 0.3125rem)`
-    // )
+    const opacity = (100 + (bounding.y * 100) / 100) / 100
+    industry.style.opacity = opacity <= 0 ? 0 : 1
+
     last?.classList.toggle("is-above-fold", bounding.y <= 0)
   }
 
