@@ -20,7 +20,7 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
     return () => {
       unsubscribe(token)
     }
-  }, [])
+  }, [lenis])
 
   useEffect(() => {
     if (lenis) {
