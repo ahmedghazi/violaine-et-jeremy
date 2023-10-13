@@ -121,6 +121,8 @@ article.look-default .modules {
       }
       &.is-triplette-and-has-text {
         // display: block;
+        display: flex;
+        flex-wrap: wrap;
         .composition--item:has(.module--text) {
           // background-color: red;
           // grid-area: 1 / 1 / 2 / 2;
