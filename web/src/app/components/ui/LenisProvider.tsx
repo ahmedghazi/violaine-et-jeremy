@@ -9,9 +9,18 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
   const lenis = useLenis()
 
   useEffect(() => {
+    // if (lenis) {
+    //   const isArchive = document.querySelector(".works-ui .list")
+    //   if (isArchive) {
+    //     lenis.stop()
+    //   } else {
+    //     lenis.start()
+    //     lenis.resize()
+    //   }
+    // }
+
     const token = subscribe("WINDOW_RESIZE", (e) => {
       console.log(e)
-      console.log(lenis)
       if (lenis) {
         lenis.resize()
       }

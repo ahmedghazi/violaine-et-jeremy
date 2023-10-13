@@ -16,6 +16,7 @@ const ListItem = ({ input, hasLink }: Props) => {
   // const [isMobile, setIsMobile] = useState(false)
   const [active, setActive] = useState<boolean>(false)
   const maxLen = input.imagesLength || 15
+
   const images = useMemo(() => {
     let arr: Array<SanityImageAsset> = []
     input.content?.forEach((el: any) => {
@@ -33,8 +34,21 @@ const ListItem = ({ input, hasLink }: Props) => {
 
   useEffect(() => {
     // console.log(active)
-    if (active) publish("WINDOW_RESIZE")
+    if (active) {
+      // after slideDown animation
+      setTimeout(() => {
+        publish("WINDOW_RESIZE")
+      }, 300)
+    }
   }, [active])
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     const trs = document.querySelectorAll(".tr.project > .btn")
+  //     console.log(trs)
+  //     trs.forEach((el: HTMLElement | any) => el.click())
+  //   }, 150)
+  // }, [])
 
   return (
     <div className={clsx("tr project", hasLink ? "has-link" : "no-link")}>

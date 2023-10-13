@@ -109,14 +109,19 @@ const ModuleCompositionUI = ({ input }: Props) => {
     return notTriplette && notTriplette?.length === 0
   }, [])
 
+  const isTripletteAndHasText = useMemo(() => {
+    if (items?.length !== 3) return false
+    return items.filter((el) => el._type === "compositionItemText").length > 0
+  }, [])
+
   return (
     <section
       className={clsx(
         "composition grid",
         gutter ? "gap-sm md:gap-md" : "",
-        input.title,
         isHalfHalf ? "is-half-half" : "",
         isTriplette ? "is-triplette" : "",
+        isTripletteAndHasText ? "is-triplette-and-has-text" : "",
         input.autoHeight ? "auto-height" : ""
       )}
     >

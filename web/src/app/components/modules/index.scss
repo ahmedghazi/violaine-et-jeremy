@@ -1,6 +1,7 @@
 // .work-content article.look-default .modules {
 article.look-default .modules {
   section.composition {
+    // background-color: orange;
     scroll-snap-align: start;
     // border: 1px solid red;
     margin-bottom: 4em;
@@ -118,9 +119,13 @@ article.look-default .modules {
           padding-top: 1em;
         }
       }
-      // &.is-triplette {
-      //   display: grid;
-      // }
+      &.is-triplette-and-has-text {
+        // display: block;
+        .composition--item:has(.module--text) {
+          // background-color: red;
+          // grid-area: 1 / 1 / 2 / 2;
+        }
+      }
       .text {
         text-align: center;
         img {
