@@ -42,7 +42,8 @@
         font-size: var(--text-lg);
       }
       &:empty {
-        display: initial;
+        display: block;
+        height: 1.2em;
       }
       a {
         padding: 0;
