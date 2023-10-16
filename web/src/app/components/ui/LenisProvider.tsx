@@ -1,26 +1,23 @@
 "use client"
-import { Lenis as ReactLenis, useLenis } from "@studio-freight/react-lenis"
 import { useEffect } from "react"
+import { Lenis as ReactLenis, useLenis } from "@studio-freight/react-lenis"
 import { usePathname } from "next/navigation"
 import { subscribe, unsubscribe } from "pubsub-js"
 
 export function LenisProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-  const lenis = useLenis()
+  const lenis = useLenis(({ scroll, dimensions }: any) => {
+    // called every scroll
+    const thresholdBottom = dimensions.scrollHeight - dimensions.height * 2
+    if (scroll > thresholdBottom) {
+      lenis.resize()
+    }
+    // console.log(scroll, dimensions.scrollHeight)
+  })
 
   useEffect(() => {
-    // if (lenis) {
-    //   const isArchive = document.querySelector(".works-ui .list")
-    //   if (isArchive) {
-    //     lenis.stop()
-    //   } else {
-    //     lenis.start()
-    //     lenis.resize()
-    //   }
-    // }
-
     const token = subscribe("WINDOW_RESIZE", (e) => {
-      console.log(e)
+      // console.log(e)
       if (lenis) {
         lenis.resize()
       }
@@ -33,21 +30,15 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (lenis) {
-      // if (pathname === "////") lenis.stop()
-      // else {
-      //   lenis.start()
-      //   // lenis.scrollTo(0, { immediate: true })
-      //   const resize = setTimeout(() => {
-      //     lenis.resize()
-      //   }, 150)
-      // }
-      lenis.start()
-      const resize = setTimeout(() => {
+      const timer = setTimeout(() => {
+        // console.log(lenis.dimensions.scrollHeight)
+        lenis.start()
         lenis.resize()
       }, 150)
       const resizeAfterPageTransition = setTimeout(() => {
         lenis.resize()
-      }, 250)
+        // console.log("resize", lenis.dimensions.scrollHeight)
+      }, 300)
     }
   }, [pathname, lenis])
 
@@ -56,7 +47,7 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
       root
       options={{
         lerp: 0.1,
-        wheelMultiplier: 0.6,
+        wheelMultiplier: 0.8,
         smoothWheel: true,
       }}
     >
