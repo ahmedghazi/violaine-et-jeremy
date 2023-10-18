@@ -15,7 +15,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await getProject(params.slug)
-  console.log(data.seo?.metaImage?.asset)
+  // console.log(data.seo?.metaImage?.asset)
   return {
     title: `${data?.seo?.metaTitle}`,
     description: data?.seo?.metaDescription,
