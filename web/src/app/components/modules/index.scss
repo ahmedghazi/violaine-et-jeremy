@@ -127,6 +127,12 @@ article.look-default .modules {
           // background-color: red;
           // grid-area: 1 / 1 / 2 / 2;
           width: 100%;
+          &:nth-child(2) {
+            .module--text {
+              padding-top: calc(2.5rem - var(--space-sm));
+              padding-bottom: calc(2.5rem - var(--space-sm));
+            }
+          }
         }
       }
 
