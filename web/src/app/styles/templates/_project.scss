@@ -1,6 +1,6 @@
 .project-single {
   &.is-below-fold {
-    .header {
+    .header.fixed {
       // background-color: red;
       transform: translateY(-100%);
       opacity: 0;
