@@ -349,7 +349,7 @@
         }
         &:hover .header {
           opacity: 1;
-          // transform: translateY(100%);
+          transform: translateY(100%);
         }
       }
       @media all and (max-width: $md) {
