@@ -122,7 +122,8 @@ const ModuleCompositionUI = ({ input }: Props) => {
         isHalfHalf ? "is-half-half" : "",
         isTriplette ? "is-triplette" : "",
         isTripletteAndHasText ? "is-triplette-and-has-text" : "",
-        input.autoHeight ? "auto-height" : ""
+        input.autoHeight ? "auto-height" : "",
+        gutter ? "has-gutter" : ""
       )}
     >
       {_renderModules()}
