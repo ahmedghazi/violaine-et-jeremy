@@ -1,0 +1,41 @@
+.project-single {
+  &.is-below-fold {
+    .header.fixed {
+      // background-color: red;
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+  .header {
+    top: toRem(50);
+    padding-top: toRem(6);
+    // transition: opacity 0.2s ease, transform 0.2s ease;
+    @media all and (min-width: $md) {
+      top: 0;
+    }
+    @media all and (max-width: $md) {
+      // transition: transform 0.4s cubic-bezier(0.53, 0, 0.36, 1),
+      //   opacity 0.4s cubic-bezier(0.53, 0, 0.36, 1);
+      transition: top 0.4s cubic-bezier(0.53, 0, 0.36, 1);
+      color: white;
+      mix-blend-mode: difference;
+      // top: 0;
+    }
+    .inner {
+      display: flex;
+    }
+  }
+}
+
+#page:has(.header--sm.scroll-down) .project-single .header {
+  @media all and (max-width: $md) {
+    // opacity: 0;
+    // transform: translateY(-100%);
+    // top: toRem(1);
+    // background-color: red;
+  }
+}
+
+#page:has(.project-single) main {
+  padding-bottom: 0;
+}

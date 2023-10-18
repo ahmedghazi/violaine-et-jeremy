@@ -1,23 +1,27 @@
-"use client";
+import Link from "next/link"
+import React from "react"
+import website from "../config/website"
+import { getInfos, getSettings } from "../utils/sanity-queries"
+// import { LinkExternal, LinkInternal, Settings } from "../types/schema"
+import { _linkResolver } from "../utils/utils"
+// import Infos from "./InfosModal"
+// import { useSelectedLayoutSegment } from "next/navigation"
+// import clsx from "clsx"
+// import NavLink from "./NavLink"
+import HeaderMD from "./HeaderMD"
+import HeaderSM from "./HeaderSM"
 
-import Link from "next/link";
-import React from "react";
+export default async function Header() {
+  const settings = await getSettings()
+  // const { navWorks, navStudio } = settings
+  const infos = await getInfos()
 
-// import { getSettings } from "../utils/sanity-utils";
-// import { LinkInternal, Settings } from "../types/schema";
-
-type Props = {};
-
-export default function Header(props: Props) {
-  // const settings: Settings = await getSettings();
-  // console.log(settings);
   return (
     <header>
-      <div className='inner grid grid-cols-2 md:grid-cols-4 gap-md items-center  '>
-        <Link href={"/"}>website name</Link>
-      </div>
+      <HeaderMD settings={settings} infos={infos} titleAlt={website.titleAlt} />
+      <HeaderSM settings={settings} infos={infos} titleAlt={website.titleAlt} />
     </header>
-  );
+  )
 }
 
 // export default async Header;

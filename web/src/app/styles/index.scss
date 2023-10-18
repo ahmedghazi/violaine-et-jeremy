@@ -7,12 +7,18 @@
 @import "utils";
 
 @import "typography";
-// @import 'icons';
 
 @import "layout";
 
 @import "components/header";
 @import "components/footer";
+@import "components/card";
+@import "components/infos-modal";
+@import "components/work-content";
+@import "components/contacts";
+@import "components/ui/mailchimp";
 
+@import "templates/all";
 @import "templates/home";
-@import "templates/landing";
+@import "templates/project";
+@import "templates/works";

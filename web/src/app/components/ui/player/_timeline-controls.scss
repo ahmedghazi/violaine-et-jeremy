@@ -1,0 +1,80 @@
+.timeline-controls {
+  position: absolute;
+  bottom: 0;
+  // z-index: 1;
+  width: 100%;
+
+  color: white;
+
+  opacity: 1;
+  pointer-events: none;
+  &.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .actions {
+    // margin-bottom: var(--space-md);
+    padding: 0 var(--space-sm);
+    line-height: 1;
+    z-index: 1;
+    pointer-events: none;
+    .btn-group {
+      min-width: 33.333%;
+    }
+
+    span {
+      margin: 0 0.4em;
+    }
+    .button {
+      pointer-events: all;
+      padding: var(--space-sm) 0;
+      cursor: pointer;
+
+      // color: rgb(54,72,114);
+      // color: var(--color-accent);
+      &.is-active {
+        text-decoration: line-through;
+      }
+      // &.play-pause{min-width: 110px;}
+    }
+    // @include text-crop
+  }
+  .timeline {
+    height: 3px;
+    background: black;
+    // &:hover{
+    //   height: 10px;
+    // }
+    &:before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      // background: red;
+      cursor: pointer;
+    }
+    .timeline--loaded,
+    .timeline--played {
+      width: 0;
+      height: 100%;
+    }
+    .timeline--loaded {
+      background: red;
+    }
+    .timeline--played {
+      background: white;
+    }
+  }
+  .timecode {
+    text-align: center;
+  }
+}
+
+@media all and (max-width: 1080px) {
+  .timeline-controls {
+    // bottom: 10px;
+    // .fL{font-size: $fontS;}
+  }
+}

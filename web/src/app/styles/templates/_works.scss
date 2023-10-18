@@ -1,0 +1,49 @@
+.page-works {
+  .header.fixed {
+    top: toRem(50);
+    z-index: 251;
+    transition: transform 0.4s cubic-bezier(0.53, 0, 0.36, 1),
+      opacity 0.4s cubic-bezier(0.53, 0, 0.36, 1);
+    @media all and (min-width: $md) {
+      top: 0;
+      padding: 0;
+      // padding-top: 0.85em;
+    }
+    @media all and (max-width: $md) {
+      color: white;
+      mix-blend-mode: difference;
+    }
+    span {
+      // vertical-align: sub;
+      padding: 0.75em 0;
+      display: inline-block;
+      transform: translateY(0.2em);
+    }
+    button {
+      position: absolute;
+      padding: 0.75em 0;
+      &:first-child {
+        right: 1em;
+      }
+      &:last-child {
+        left: 1em;
+      }
+    }
+  }
+  .works-ui > .grid {
+    // row-gap: 5.46rem;
+    row-gap: toRem(81.9);
+    @media all and (max-width: $sm) {
+      row-gap: toRem(40);
+    }
+  }
+}
+
+.is-modal .page-works .header.fixed {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.is-works main {
+  padding-top: 0;
+}

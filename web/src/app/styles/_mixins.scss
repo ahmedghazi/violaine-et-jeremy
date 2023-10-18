@@ -13,7 +13,7 @@
 
 @mixin clearfix {
   &:after {
-    content: '';
+    content: "";
     display: table;
     width: 100%;
     height: 0.1px;
@@ -41,7 +41,7 @@
 
   @each $input in $inputs {
     $input: unquote($input);
-    $input: if($pseudo, $input + ':' + $pseudo, $input);
+    $input: if($pseudo, $input + ":" + $pseudo, $input);
     $list: append($list, $input, comma);
   }
 
@@ -193,7 +193,9 @@ $sass-burger-add-vendor-prefixes: true !default;
 ) {
   $burger-height: $height !global;
   $burger-gutter: $gutter !global;
-
+  width: $width;
+  height: $width;
+  // background-color: yellow;
   //position: relative;
   //margin-top: $height + $gutter;
   //margin-bottom: $height + $gutter;
@@ -208,7 +210,7 @@ $sass-burger-add-vendor-prefixes: true !default;
   pointer-events: none;
   // cursor: pointer;
   // 1. Fixes jagged edges in Firefox, see issue #10.
-  &,
+  // &,
   &::before,
   &::after {
     display: block;
@@ -216,40 +218,27 @@ $sass-burger-add-vendor-prefixes: true !default;
     height: $height;
     background-color: $color;
     outline: 1px solid transparent; // 1
-
-    @if $border-radius !=0 {
-      border-radius: $border-radius;
-    }
-
-    @if $sass-burger-add-vendor-prefixes {
-      -webkit-transition-property: background-color, -webkit-transform;
-      -moz-transition-property: background-color, -moz-transform;
-      -o-transition-property: background-color, -o-transform;
-    }
-
     transition-property: background-color, transform;
-
-    @if $sass-burger-add-vendor-prefixes {
-      -webkit-transition-duration: $transition-duration;
-      -moz-transition-duration: $transition-duration;
-      -o-transition-duration: $transition-duration;
-    }
-
     transition-duration: $transition-duration;
+    transition-duration: 0s;
   }
 
   &::before,
   &::after {
     position: absolute;
-    content: '';
+    content: "";
   }
 
   &::before {
-    top: -($height + $gutter);
+    // top: -($height + $gutter);
+    // top: 0;
+    // top: 0;
+    // margin-bottom: $gutter;
   }
 
   &::after {
     top: $height + $gutter;
+    // top: $height;
   }
 }
 
@@ -294,32 +283,24 @@ $sass-burger-add-vendor-prefixes: true !default;
     }
   }
   $burger-gutter: 4px;
-  $burger-height: 2px;
+  $burger-height: 1px;
   &::before {
-    @if $sass-burger-add-vendor-prefixes {
-      -webkit-transform: translateY($burger-gutter + $burger-height)
-        rotate(45deg);
-      -moz-transform: translateY($burger-gutter + $burger-height) rotate(45deg);
-      -ms-transform: translateY($burger-gutter + $burger-height) rotate(45deg);
-      -o-transform: translateY($burger-gutter + $burger-height) rotate(45deg);
-    }
+    // @if $sass-burger-add-vendor-prefixes {
+    //   -webkit-transform: translateY($burger-gutter + $burger-height)
+    //     rotate(45deg);
+    //   -moz-transform: translateY($burger-gutter + $burger-height) rotate(45deg);
+    //   -ms-transform: translateY($burger-gutter + $burger-height) rotate(45deg);
+    //   -o-transform: translateY($burger-gutter + $burger-height) rotate(45deg);
+    // }
 
-    transform: translateY($burger-gutter + $burger-height) rotate(45deg);
+    transform: translateY($burger-gutter + $burger-height) rotate(25deg);
+    transform: translateY(100%) rotate(25deg);
+    margin: 0;
   }
 
   &::after {
-    @if $sass-burger-add-vendor-prefixes {
-      -webkit-transform: translateY(-($burger-gutter + $burger-height))
-        rotate(-45deg);
-      -moz-transform: translateY(-($burger-gutter + $burger-height))
-        rotate(-45deg);
-      -ms-transform: translateY(-($burger-gutter + $burger-height))
-        rotate(-45deg);
-      -o-transform: translateY(-($burger-gutter + $burger-height))
-        rotate(-45deg);
-    }
-
-    transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
+    transform: translateY(-($burger-gutter + $burger-height)) rotate(-25deg);
+    transform: translateY(-($burger-gutter)) rotate(-25deg);
   }
 }
 
@@ -329,7 +310,7 @@ $sass-burger-add-vendor-prefixes: true !default;
 }
 
 @mixin chevron(
-  $cDirection: 'right',
+  $cDirection: "right",
   $cSize: 20px,
   $cWidth: 1px,
   $cColor: black
@@ -341,33 +322,33 @@ $sass-burger-add-vendor-prefixes: true !default;
   border-right: 1px solid $cColor;
   border-width: $cWidth;
 
-  @if $cDirection== 'top' {
+  @if $cDirection== "top" {
     transform: rotate(-45deg);
   }
 
-  @if $cDirection== 'right' {
+  @if $cDirection== "right" {
     transform: rotate(45deg);
   }
 
-  @if $cDirection== 'bottom' {
+  @if $cDirection== "bottom" {
     transform: rotate(135deg);
   }
 
-  @if $cDirection== 'left' {
+  @if $cDirection== "left" {
     transform: rotate(225deg);
   }
 }
 
 @mixin slide($direction, $opacity: 0) {
-  @if $direction== 'top' {
+  @if $direction== "top" {
     transform: translateY(-100%);
-  } @else if $direction== 'right' {
+  } @else if $direction== "right" {
     transform: translateX(100%);
-  } @else if $direction== 'bottom' {
+  } @else if $direction== "bottom" {
     transform: translateY(100%);
-  } @else if $direction== 'left' {
+  } @else if $direction== "left" {
     transform: translateX(-100%);
-  } @else if $direction== 'none' {
+  } @else if $direction== "none" {
     transform: translateX(0) translateY(0);
   }
 
@@ -414,7 +395,7 @@ $sass-burger-add-vendor-prefixes: true !default;
 
   &::before,
   &::after {
-    content: '';
+    content: "";
     display: block;
     height: 0;
     width: 0;
@@ -441,7 +422,7 @@ $sass-burger-add-vendor-prefixes: true !default;
 
   &:before {
     //background: $checked;
-    content: '';
+    content: "";
     width: $width/2;
     height: $width/2;
     border-radius: $width;
@@ -487,7 +468,7 @@ $sass-burger-add-vendor-prefixes: true !default;
 
   &::before,
   &::after {
-    content: '';
+    content: "";
     display: block;
     height: 0;
     width: 0;
@@ -507,11 +488,12 @@ $sass-burger-add-vendor-prefixes: true !default;
 
   &:before {
     z-index: 999;
-    content: '';
+    content: "";
     position: fixed;
+    position: absolute;
     top: $top;
     height: 1px;
-    width: 100vw;
+    width: 100%;
     background: $color;
   }
 }
@@ -520,7 +502,7 @@ $sass-burger-add-vendor-prefixes: true !default;
 
   &:after {
     z-index: 999;
-    content: '';
+    content: "";
     position: fixed;
     top: 0;
     left: $left;
@@ -533,7 +515,7 @@ $sass-burger-add-vendor-prefixes: true !default;
   position: relative;
   &:after {
     z-index: 999;
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0px;
@@ -547,8 +529,8 @@ $sass-burger-add-vendor-prefixes: true !default;
 
   &:after {
     z-index: 999;
-    content: '';
-    position: absolute;
+    content: "";
+    position: fixed;
     top: $pad;
     left: $pad;
     bottom: $pad;
@@ -581,7 +563,7 @@ $browser-context: 14;
   i {
     &::before,
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       left: 50%;
       top: 50%;
@@ -609,7 +591,7 @@ $browser-context: 14;
   i {
     &::before,
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       left: 50%;
       top: 50%;
@@ -629,13 +611,18 @@ $browser-context: 14;
 }
 
 @mixin alpha($property, $color-variable, $opacity) {
-  $color-variable-h: var(#{$color-variable + '-h'});
-  $color-variable-s: var(#{$color-variable + '-s'});
-  $color-variable-l: var(#{$color-variable + '-l'});
+  $color-variable-h: var(#{$color-variable + "-h"});
+  $color-variable-s: var(#{$color-variable + "-s"});
+  $color-variable-l: var(#{$color-variable + "-l"});
   #{$property}: hsla(
     $color-variable-h,
     $color-variable-s,
     $color-variable-l,
     $opacity
   );
+}
+
+@function toRem($value) {
+  $remValue: ($value / 16) + rem;
+  @return $remValue;
 }

@@ -1,7 +1,202 @@
 header {
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
+  padding: toRem(6) var(--space-md);
+  padding: 0 var(--space-md);
+  z-index: 40;
+  z-index: 251;
+  // background-color: white;
+  // color: white;
+  // mix-blend-mode: difference;
+  .col-item {
+    // width: var(--space-100);
+    min-width: var(--space-100);
+  }
+  .site-name,
+  // .label,
+  nav a,
+  nav button {
+    padding-top: toRem(6);
+    padding-bottom: toRem(6);
+    display: inline-block;
+  }
+
+  .site-name {
+    z-index: 21;
+  }
+  nav.nav-studio {
+    li.col-item:last-child {
+      text-align: right;
+    }
+    a[target="_blank"] {
+      position: relative;
+      &:hover .absolute {
+        transform: translate(0.4em, -0.3em);
+      }
+      .absolute {
+        transform: translateX(0.2em);
+        transition: transform 0.2s;
+      }
+    }
+  }
+  .nav-works {
+    align-items: flex-start;
+    @media all and (min-width: $md) {
+      // width: toRem(159);
+      // padding-right: 1em;
+      min-width: toRem(188);
+      &::before {
+        content: "";
+        position: absolute;
+        inset: -1em;
+        // background-color: orange;
+        z-index: -1;
+        // min-width: toRem(203);
+      }
+      .label {
+        padding-bottom: 1em;
+      }
+    }
+    li {
+      display: flex;
+      align-items: center;
+      &:first-child::after {
+        content: ".";
+        display: inline-block;
+        padding: 0 var(--space-sm);
+        transform: translateY(-0.2em);
+        opacity: 0;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+    // &:hover a.is-current-page {
+    //   text-decoration: underline;
+    // }
+
+    @media all and (min-width: $md) {
+      &:hover {
+        ul {
+          display: flex !important;
+          li {
+            display: flex !important;
+            &::after {
+              display: inline-block !important;
+            }
+            &:first-child::after {
+              opacity: 1;
+            }
+          }
+        }
+      }
+      ul {
+        display: none;
+        padding-left: var(--space-md);
+      }
+    }
+  }
 
   @media all and (max-width: $md) {
+    padding: toRem(7) toRem(10);
+    padding-top: 0;
+    .header--sm {
+      .btn-menu-toggle {
+        transition: transform 0.4s cubic-bezier(0.53, 0, 0.36, 1),
+          opacity 0.4s cubic-bezier(0.53, 0, 0.36, 1);
+      }
+      #page:has(.project-single) &.scroll-down .btn-menu-toggle {
+        opacity: 0;
+        transform: translateY(-100%);
+      }
+    }
+    .nav-link a,
+    button.btn-toggle {
+      padding-top: 0.375rem;
+      padding-bottom: 0.375rem;
+      display: inline-block;
+    }
   }
+}
+
+@media all and (max-width: $md) {
+  header {
+    color: white;
+    mix-blend-mode: difference;
+  }
+  .is-modal header {
+    color: black;
+    mix-blend-mode: unset;
+  }
+}
+
+@media all and (min-width: $md) {
+  #page:has(.single-design) {
+    header {
+      .nav-works {
+        ul {
+          display: flex;
+          // flex-direction: row-reverse;
+          li:not(.nav-design) {
+            display: none;
+          }
+        }
+        &:hover ul li {
+          display: flex;
+        }
+      }
+    }
+  }
+  #page:has(.single-space) {
+    header {
+      .nav-works {
+        ul {
+          display: flex;
+          li:not(.nav-space) {
+            display: none;
+          }
+        }
+        &:hover ul li {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  #page:has(.page-works) {
+    header {
+      pointer-events: none;
+      .header-section {
+        pointer-events: all;
+      }
+      .nav-works {
+        ul {
+          display: flex;
+          li:not(:has(.is-current-page)) {
+            display: none;
+          }
+          li:after {
+            display: none;
+          }
+        }
+        &:hover ul li {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+// html:not(.is-space) .nav-works:hover li.nav-design a {
+//   text-decoration: underline;
+// }
+// html.is-space .nav-works:hover li.nav-space a {
+//   text-decoration: underline;
+// }
+.nav-works {
+  // background-color: red;
+}
+.nav-works li a:hover {
+  text-decoration: underline;
 }
