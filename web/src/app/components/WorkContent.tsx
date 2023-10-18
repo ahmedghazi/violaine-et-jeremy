@@ -197,7 +197,8 @@ const ArticleWork = ({ input }: Props) => {
     if (!credits) return
     const bounding: DOMRect = credits.getBoundingClientRect()
     const wrapper = document.querySelector(".project-single")
-    wrapper?.classList.toggle("is-below-fold", bounding.y <= 44)
+    const threshold = window.innerWidth <= 768 ? 83 : 44
+    wrapper?.classList.toggle("is-below-fold", bounding.y <= threshold)
   }
 
   const prevNext = useMemo(() => {
