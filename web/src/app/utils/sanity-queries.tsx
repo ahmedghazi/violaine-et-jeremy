@@ -48,6 +48,12 @@ export async function getHome(): Promise<Home> {
   return cachedClient(
     groq`*[_type == "home"][0]{
       ...,
+      seo{
+        ...,
+        metaImage{
+          asset->
+        }
+      },
       projects[]->{
         _type,
         slug,
@@ -87,6 +93,12 @@ export async function getWorks(slug: string): Promise<Work> {
   return cachedClient(
     groq`*[_type == "work" && slug.current == $slug][0]{
       ...,
+      seo{
+        ...,
+        metaImage{
+          asset->
+        }
+      },
       worksImages[]->{
         ${projectCard}
       },
@@ -127,6 +139,12 @@ export async function getWorks(slug: string): Promise<Work> {
 
 export const projectQuery = groq`*[_type == "project" && slug.current == $slug][0]{
   ...,
+  seo{
+    ...,
+    metaImage{
+      asset->
+    }
+  },
   imageCover {
     ...,
     asset->
@@ -163,6 +181,12 @@ export async function getProject(slug: string): Promise<Project> {
 /***************************************************************************************/
 export const spaceQuery = groq`*[_type == "space" && slug.current == $slug][0]{
   ...,
+  seo{
+    ...,
+    metaImage{
+      asset->
+    }
+  },
   imageCover {
     ...,
     asset->
@@ -211,6 +235,12 @@ export async function getSpace(slug: string): Promise<Space> {
 
 export const pageModulaireQuery = groq`*[_type == "pageModulaire" && slug.current == $slug][0]{
   ...,
+  seo{
+    ...,
+    metaImage{
+      asset->
+    }
+  },
   seo{
     ...,
     metaImage{
