@@ -3,12 +3,13 @@
     .header {
       // background-color: red;
       transform: translateY(-100%);
+      opacity: 0;
     }
   }
   .header {
     top: toRem(50);
     padding-top: toRem(6);
-    transition: transform 0.2s ease;
+    // transition: opacity 0.2s ease, transform 0.2s ease;
     @media all and (min-width: $md) {
       top: 0;
     }

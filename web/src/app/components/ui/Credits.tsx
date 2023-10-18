@@ -11,7 +11,7 @@ const Credits = (props: Props) => {
   const [open, setOpen] = useState<boolean>(false)
   return (
     <div
-      className="credits flex items-baseline "
+      className="credits flex items-baseline py-sm"
       onMouseLeave={() => setOpen(false)}
     >
       <div
@@ -23,7 +23,7 @@ const Credits = (props: Props) => {
         CREDITS
       </div>
       {open && (
-        <div className="value text-xs">
+        <div className="value text-xs pr-md">
           <em className="serif">Design by</em>{" "}
           <a
             href={designer.url}

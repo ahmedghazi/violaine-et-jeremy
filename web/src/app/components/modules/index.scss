@@ -123,9 +123,10 @@ article.look-default .modules {
         // display: block;
         display: flex;
         flex-wrap: wrap;
-        .composition--item:has(.module--text) {
+        .composition--item {
           // background-color: red;
           // grid-area: 1 / 1 / 2 / 2;
+          width: 100%;
         }
       }
       .text {
