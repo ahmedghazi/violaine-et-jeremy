@@ -129,18 +129,13 @@ article.look-default .modules {
           width: 100%;
         }
       }
-      // &.has-gutter {
-      //   .module--text {
-      //     background-color: red;
-      //   }
-      // }
+
       .module--text {
         // background-color: red;
         padding-top: 2.5rem;
       }
       &.has-gutter {
         .module--text {
-          background-color: red;
           padding-top: calc(2.5rem - var(--space-sm));
         }
       }
