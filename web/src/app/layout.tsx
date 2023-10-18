@@ -24,20 +24,20 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body>
-        <LenisProvider>
-          <div id="page">
-            <PageContextProvider>
-              <Header />
+        {/* <LenisProvider> */}
+        <div id="page">
+          <PageContextProvider>
+            <Header />
 
-              <main>
-                <PageTransitionAlt>{children}</PageTransitionAlt>
-              </main>
+            <main>
+              <PageTransitionAlt>{children}</PageTransitionAlt>
+            </main>
 
-              <Footer />
-              <CookieWrapper />
-            </PageContextProvider>
-          </div>
-        </LenisProvider>
+            <Footer />
+            <CookieWrapper />
+          </PageContextProvider>
+        </div>
+        {/* </LenisProvider> */}
       </body>
     </html>
   )
