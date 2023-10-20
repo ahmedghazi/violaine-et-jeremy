@@ -46,8 +46,13 @@ const HomeFeed = ({ input }: Props) => {
     // const threshold = 180
     // const threshold = 20
     const threshold = 200
+    const ItemsReadyToAnimate = ref.current?.querySelectorAll<HTMLElement>(
+      ".is-ready-to-animate"
+    )
+    if (!ItemsReadyToAnimate) return
     const items = ref.current?.querySelectorAll<HTMLElement>(
-      "article:has(.is-ready-to-animate)"
+      // "article:has(.is-ready-to-animate)"
+      "article.home-card"
     )
     if (!items) return
     // console.log(typeof items)
