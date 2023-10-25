@@ -130,6 +130,7 @@ export async function getWorks(slug: string): Promise<Work> {
 }
 
 /***************************************************************************************/
+// pagination sanity
 // 'prev': *[
 //   _type == 'space' && !(_id in path('drafts.**')) && _createdAt < ^._createdAt
 // ]{ ${spaceCard}} | order(_createdAt desc)[0],
