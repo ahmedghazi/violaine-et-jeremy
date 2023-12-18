@@ -17,11 +17,12 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await getProject(params.slug)
   // console.log(data.seo?.metaImage?.asset)
+  // let imageUrl:string = data.seo?.metaImage?.asset ? data.seo?.metaImage?.asset?.url : ''
   return {
     title: `${data?.seo?.metaTitle}`,
     description: data?.seo?.metaDescription,
     openGraph: {
-      images: [data.seo?.metaImage?.asset.url || ""],
+      images: [data.seo?.metaImage?.asset?.url || ""],
     },
     robots: {
       index: data.isArchive !== true,
