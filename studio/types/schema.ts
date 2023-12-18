@@ -298,6 +298,13 @@ export interface Project extends SanityDocument {
   seo?: Seo;
 
   /**
+   * Is Archive (ce projet as-t-il une url publique?) — `boolean`
+   *
+   *
+   */
+  isArchive?: boolean;
+
+  /**
    * Title — `string`
    *
    *
@@ -486,6 +493,13 @@ export interface Space extends SanityDocument {
    *
    */
   seo?: Seo;
+
+  /**
+   * Is Archive (ce projet as-t-il une url publique?) — `boolean`
+   *
+   *
+   */
+  isArchive?: boolean;
 
   /**
    * Title — `string`

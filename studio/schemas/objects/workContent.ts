@@ -7,6 +7,12 @@ export const workcontent = [
     group: 'seo',
   }),
   defineField({
+    name: 'isArchive',
+    type: 'boolean',
+    title: 'Is Archive (ce projet as-t-il une url publique?)',
+    group: 'editorial',
+  }),
+  defineField({
     name: 'title',
     type: 'string',
     title: 'Title',

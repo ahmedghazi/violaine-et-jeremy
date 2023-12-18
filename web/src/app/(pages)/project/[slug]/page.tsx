@@ -1,5 +1,6 @@
 import React from "react"
 import { Metadata } from "next"
+import { redirect } from "next/navigation"
 import { getProject, projectQuery } from "@/app/utils/sanity-queries"
 import WorkContent from "@/app/components/WorkContent"
 // import WorkTitle from "@/app/components/WorkTitle"
@@ -22,6 +23,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       images: [data.seo?.metaImage?.asset.url || ""],
     },
+    robots: {
+      index: data.isArchive !== true,
+    },
   }
 }
 
@@ -37,6 +41,11 @@ const ProjectSingle: ({ params }: Props) => Promise<JSX.Element> = async ({
     )
   } else {
     data = (await getProject(params.slug)) as ProjectExtend
+  }
+
+  // console.log(data.isArchive)
+  if (data && data.isArchive) {
+    redirect("/works/design")
   }
 
   return !data ? (
