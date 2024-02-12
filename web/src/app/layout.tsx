@@ -8,6 +8,7 @@ import { ReactNode } from "react"
 import CookieWrapper from "./components/ui/CookieWrapper"
 // import { LenisProvider } from "./components/ui/LenisProvider"
 import PageTransitionAlt from "./components/ui/PageTransitionAlt"
+import { GoogleAnalytics } from "@next/third-parties/google"
 
 export const metadata = {
   metadataBase: new URL("https://violaineetjeremy.fr"),
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
             <Footer />
             <CookieWrapper />
+            <GoogleAnalytics gaId="G-H8GSKXHC1C" />
           </PageContextProvider>
         </div>
       </body>

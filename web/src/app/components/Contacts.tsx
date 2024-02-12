@@ -55,7 +55,8 @@ const Contacts = ({ input, linkLegals }: Props) => {
       ))}
       <div className="footer-item">
         <Mailchimp
-          action="https://violaineetjeremy.us13.list-manage.com/subscribe/post?u=f257048f85f69bee39ea489fb&id=7beda990e3&f_id=00fd38e2f0"
+          // action="https://violaineetjeremy.us13.list-manage.com/subscribe/post?u=f257048f85f69bee39ea489fb&id=7beda990e3&f_id=00fd38e2f0"
+          action="https://violaineetjeremy.us13.list-manage.com/subscribe/post?u=f257048f85f69bee39ea489fb&id=7beda990e3&f_id=00fd38e2f0&tags=7073186"
           field={{
             name: "EMAIL",
             placeholder: "",

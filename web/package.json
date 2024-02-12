@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@netlify/plugin-nextjs": "4.38.1",
+    "@next/third-parties": "^14.1.0",
     "@portabletext/react": "^3.0.2",
     "@radix-ui/react-slot": "^1.0.2",
     "@remix-run/react": "^1.18.0",

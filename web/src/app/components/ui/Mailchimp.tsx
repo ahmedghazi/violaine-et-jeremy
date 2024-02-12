@@ -30,6 +30,8 @@ const Mailchimp = (props: Props) => {
   }
 
   const { field, action } = props
+  // console.log(props)
+  // console.log(action)
   // const { messages } = Mailchimp.defaultProps
   const [email, setEmail] = useState<string>("")
   const [status, setStatus] = useState<string>("")
@@ -59,7 +61,9 @@ const Mailchimp = (props: Props) => {
     //     return `${field.name}=${encodeURIComponent(state[field.name])}`
     //   })
     //   .join("&")
-    const path = `${action}&EMAIL=${encodeURIComponent(email)}&tags=921745`
+    //https://us13.admin.mailchimp.com/lists/segments/members/tags-filter?list_id=97121&tag_ids[]=7073186
+    // const path = `${action}&EMAIL=${encodeURIComponent(email)}&tags=921745`
+    const path = `${action}&EMAIL=${encodeURIComponent(email)}`
     const url = path.replace("/post?", "/post-json?")
 
     // const email = state["EMAIL"]
@@ -74,6 +78,7 @@ const Mailchimp = (props: Props) => {
 
   const sendData = (url: string) => {
     setStatus("sending")
+    console.log(url)
     jsonp(url, { param: "c" }, (err: any, data: any) => {
       // console.log(err);
       // console.log(data);
