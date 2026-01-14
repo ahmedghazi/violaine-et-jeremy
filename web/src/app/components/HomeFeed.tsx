@@ -57,7 +57,6 @@ const HomeFeed = ({ input }: Props) => {
       "article.home-card"
     )
     if (!items) return
-    // console.log(typeof items)
     items?.forEach((el) => {
       let width: number = 0
       const minWidth: number = Number(el.dataset.minWidth) || 0
