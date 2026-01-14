@@ -15,12 +15,12 @@ const ImageUI = ({ input }: Props): JSX.Element => {
   return (
     <div
       className={clsx("module module--image ")}
-      style={
-        {
-          // width: input.width ? `calc(${input.width}% - var(--space-sm))` : '100%',
-          // '--module-width': input.width ? `${input.width}%` : '100%',
-        }
-      }
+      // style={
+      //   {
+      //     // width: input.width ? `calc(${input.width}% - var(--space-sm))` : '100%',
+      //     // '--module-width': input.width ? `${input.width}%` : '100%',
+      //   }
+      // }
     >
       {image && (
         <Image
