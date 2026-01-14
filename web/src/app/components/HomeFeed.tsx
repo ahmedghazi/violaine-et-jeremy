@@ -21,7 +21,9 @@ const HomeFeed = ({ input }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    _onScroll()
+    setTimeout(() => {
+      _onScroll()
+    }, 150)
 
     window.addEventListener("scroll", _onScroll)
 

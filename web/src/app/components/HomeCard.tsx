@@ -25,7 +25,7 @@ const HomeCard = ({ input }: Props) => {
   useEffect(() => {
     const bounding: DOMRect | any = refIndustry.current?.getBoundingClientRect()
     if (refIndustry.current && refArticle.current) {
-      // console.log(refIndustry.current)
+      console.log(bounding.width)
       refArticle.current.dataset.minWidth = bounding.width
       refIndustry.current.style.setProperty(
         "--min-width",
